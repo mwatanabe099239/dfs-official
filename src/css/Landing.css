@@ -20,3 +20,16 @@
     background-position: right center;
     background-repeat: no-repeat;
 }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .first-section {
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    .first-section-light {
+        background-size: cover;
+        background-position: center center;
+    }
+}
