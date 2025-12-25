@@ -8,7 +8,7 @@ const DeveloperResources = () => {
   const resources = [
     {
       title: "DFS Scan",
-      description: "Searching and Analyzing DFS Web Chain Data",
+      description: "Searching and Analyzing DFS SimuChain Data",
       icon: "/resource/1.png",
     },
     {
@@ -22,12 +22,12 @@ const DeveloperResources = () => {
       icon: "/resource/3.png",
     },
     {
-      title: "WEX",
+      title: "WEXSWAP",
       description: "An exchange similar to a DEX ",
       icon: "/resource/4.png",
     },
     {
-      title: "Launchpad",
+      title: "Moegi Sale",
       description: "Platform for Early-Stage Fundraising",
       icon: "/resource/5.png",
     },
@@ -47,7 +47,7 @@ const DeveloperResources = () => {
           Related <span className={isDark ? "text-white" : "text-gray-900"}>Tools</span>
         </h2>
         <p className={`text-lg mt-4 ${isDark ? "text-[#C4C5CB]" : "text-gray-600"}`}>
-          Let us introduce the related tools of DFS Web Chain.
+          Let us introduce the related tools of DFS SimuChain.
         </p>
       </div>
 

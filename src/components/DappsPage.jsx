@@ -102,7 +102,7 @@ const DappsPage = () => {
       name: "MetaFace",
       icon: "👤",
       category: "Social",
-      chains: ["DFS Web Chain"],
+      chains: ["DFS SimuChain"],
       users: 450000,
       usersChange: 15.23,
       transactions: 1200000,
@@ -116,7 +116,7 @@ const DappsPage = () => {
       name: "DFS Wallet",
       icon: "💳",
       category: "Wallets",
-      chains: ["DFS Web Chain"],
+      chains: ["DFS SimuChain"],
       users: 380000,
       usersChange: 8.92,
       transactions: 950000,
@@ -130,7 +130,7 @@ const DappsPage = () => {
       name: "DFS Staking",
       icon: "💰",
       category: "DeFi",
-      chains: ["DFS Web Chain"],
+      chains: ["DFS SimuChain"],
       users: 320000,
       usersChange: 22.15,
       transactions: 650000,
@@ -141,7 +141,7 @@ const DappsPage = () => {
     },
   ];
 
-  const chains = ["All Chains", "BSC", "opBNB", "DFS Web Chain"];
+  const chains = ["All Chains", "BSC", "opBNB", "DFS SimuChain"];
   const categories = ["All Categories", "Games", "DeFi", "AI", "Social", "Wallets"];
 
   // Generate dynamic chart data based on time filter
@@ -266,10 +266,10 @@ const DappsPage = () => {
             <div className="flex-1 text-start">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Top dApps on{" "}
-                <span className="text-[#21f201]">DFS Web Chain</span> ecosystem
+                <span className="text-[#21f201]">DFS SimuChain</span> ecosystem
               </h1>
               <p className={`text-xl mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
-                Discover the top dApps built on DFS Web Chain ecosystem, sorted by Users, TVL, and TXN.
+                Discover the top dApps built on DFS SimuChain ecosystem, sorted by Users, TVL, and TXN.
               </p>
               <button className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
                 isDark 
@@ -280,12 +280,12 @@ const DappsPage = () => {
               </button>
             </div>
             
-            {/* DFS Web Chain Metrics Chart */}
+            {/* DFS SimuChain Metrics Chart */}
             <div className={`rounded-xl p-6 w-full lg:w-[420px] transition-colors duration-300 ${
               isDark ? "bg-[#181A1E]" : "bg-white border border-gray-200 shadow-sm"
             }`}>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold">DFS Web Chain</h3>
+                <h3 className="text-lg font-semibold">DFS SimuChain</h3>
                 <FiChevronDown className="text-gray-400" />
               </div>
               <div className="text-2xl font-bold mb-4">

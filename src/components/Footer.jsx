@@ -14,13 +14,13 @@ const Footer = () => {
     {
       title: "Chains",
       items: [
-        { name: "DFS Web Chain", link: "https://dfs.chain" },
+        { name: "DFS SimuChain", link: "https://dfs.chain" },
         { name: "DFS Chain*", link: "#", comingSoon: true },
         { name: "*-Coming soon", link: "#", isComingSoon: true },
       ],
     },
     {
-      title: "Use DFS Web Chain",
+      title: "Use DFS SimuChain",
       items: [
         { name: "Make Wallet", link: "https://metaface.dfsscan.com/get-started" },
         { name: "Get DFS", link: "https://get.dfs.chain" },
@@ -133,7 +133,7 @@ const Footer = () => {
       <div className={`border-t mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs ${
         isDark ? "border-gray-800 text-gray-400" : "border-gray-300 text-gray-500"
       }`}>
-        <p>© 2025 DFS Chain. All rights reserved.</p>
+        <p>© 2026 DIFINES. All rights reserved.</p>
 
         <div className="flex items-center gap-4">
           <span className="flex gap-1">

@@ -14,12 +14,12 @@ const JoinSection = () => {
         <h2 className={`md:text-[3rem] md:leading-[3.5rem] text-3xl font-bold font-space mb-4 ${
           isDark ? "text-white" : "text-gray-900"
         }`}>
-          <span className="text-[#21f201]">Join</span> DFS Web Chain Today!
+          <span className="text-[#21f201]">Join</span> DFS SimuChain Today!
         </h2>
         <p className={`text-[1.25rem] leading-[1.75rem] font-medium mb-8 font-space ${
           isDark ? "text-[#C4C5CB]" : "text-gray-600"
         }`}>
-          Join your community to the DFS Web Chain, or create your own token.
+          Join your community to the DFS SimuChain, or create your own token.
         </p>
         <a
           href="#"

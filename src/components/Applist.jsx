@@ -55,10 +55,10 @@ const Applist = () => {
     <div className="bg-landing-color text-white px-4 py-16 sm:px-8 md:px-16 lg:px-24 flex flex-col justify-center items-center">
       <div className="text-center mb-12 max-w-4xl">
         <h2 className="text-[2rem] sm:text-[3rem] leading-[3.5rem] font-space text-white">
-          Hundreds of Coins Already Deployed on DFS Web Chain
+          Hundreds of Coins Already Deployed on DFS SimuChain
         </h2>
         <p className="text-xl font-medium mt-4 text-[#C4C5CB]">
-          The DFS Web Chain ecosystem continues to grow, engaging hundreds of
+          The DFS SimuChain ecosystem continues to grow, engaging hundreds of
           thousands of active users
         </p>
       </div>

@@ -13,7 +13,7 @@ const FeaturesSection = () => {
         <h2 className={`md:text-[3rem] md:leading-[3.5rem] text-3xl font-bold font-space ${
           isDark ? "text-white" : "text-gray-900"
         }`}>
-          What Makes DFS Web Chain So{" "}
+          What Makes DFS SimuChain So{" "}
           <span className="text-[#21f201]">Powerful?</span>
         </h2>
       </div>
@@ -52,7 +52,7 @@ const FeaturesSection = () => {
           <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
             isDark ? "text-[#C4C5CB]" : "text-gray-600"
           }`}>
-            Unlike complex and hard-to-use Web3 platforms, WebChain offers
+            Unlike complex and hard-to-use Web3 platforms, DFS SimuChain offers
             seamless integration with existing Web2 systems. An innovative and
             practical blockchain that anyone can start using right away.
           </p>
@@ -127,7 +127,7 @@ const FeaturesSection = () => {
           <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
             isDark ? "text-[#C4C5CB]" : "text-gray-600"
           }`}>
-            Compatible with all Web2 content, DFSWebChain unlocks a universe of
+            Compatible with all Web2 content, DFS SimuChain unlocks a universe of
             applications— limitless, scalable, and ready for the future.
           </p>
         </div>
@@ -164,7 +164,7 @@ const FeaturesSection = () => {
           <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
             isDark ? "text-[#C4C5CB]" : "text-gray-600"
           }`}>
-            DFS Web CHain runs without validators, prioritizing speed, security,
+            DFS SimuChain runs without validators, prioritizing speed, security,
             and smooth user eperience.
           </p>
         </div>

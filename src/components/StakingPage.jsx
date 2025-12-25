@@ -136,7 +136,7 @@ const StakingPage = () => {
     },
     {
       question: "What wallet do I need?",
-      answer: "You need a Metaface wallet connected to the DFS Web Chain network. You can create one at metaface.dfsscan.com if you don't have one already.",
+      answer: "You need a Metaface wallet connected to the DFS SimuChain network. You can create one at metaface.dfsscan.com if you don't have one already.",
     },
     {
       question: "When do I receive rewards?",
@@ -208,7 +208,7 @@ const StakingPage = () => {
             </h1>
             
             <p className={`text-xl mb-10 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Put your DFS tokens to work. Stake and earn up to 25% APY while helping secure the DFS Web Chain network.
+              Put your DFS tokens to work. Stake and earn up to 25% APY while helping secure the DFS SimuChain network.
             </p>
 
             {/* CTA Buttons */}
@@ -518,7 +518,7 @@ const StakingPage = () => {
                 Ready to Start <span className="text-[#21f201]">Earning</span>?
               </h2>
               <p className={`text-xl mb-10 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                Join thousands of stakers earning passive income on DFS Web Chain. Start your staking journey today.
+                Join thousands of stakers earning passive income on DFS SimuChain. Start your staking journey today.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button 

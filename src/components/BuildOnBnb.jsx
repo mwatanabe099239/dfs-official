@@ -14,7 +14,7 @@ const BuildOnBnb = () => {
         {/* Left section - Title and Description */}
         <div className='text-start max-w-full sm:max-w-2xl'>
           <h2 className="text-[32px] sm:text-[3rem] leading-[3.5rem] text-[#181A1E] md:my-7 my-3">
-            Build on DFS Web Chain
+            Build on DFS SimuChain
           </h2>
           <p className="sm:text-[1.25rem] text-[1rem] leading-[1.75rem] text-[#181A1E] md:mb-7 mb-3">
             Looking to create your own token or need support with partnerships, grants, or technical assistance? Contact us today!

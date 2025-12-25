@@ -24,7 +24,7 @@ const Landing = () => {
 
         {/* Main Heading */}
         <h1 className="sm:text-[3rem] text-2xl font-bold text-[#21f201] font-zen">
-          DFS Web Chain
+          DFS SimuChain
         </h1>
 
         {/* Sub Heading */}

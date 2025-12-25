@@ -163,8 +163,42 @@ const ExploreDapps = () => {
       <div className="px-6 md:px-8 lg:px-12 xl:px-16 py-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Sidebar */}
-            <div className="lg:w-64 shrink-0">
+            {/* Mobile Categories - Horizontal Scrollable */}
+            <div className="lg:hidden w-full">
+              <div className={`rounded-xl p-4 border transition-colors duration-300 ${
+                isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-sm"
+              }`}>
+                <h3 className={`text-sm font-semibold uppercase tracking-wider mb-3 ${
+                  isDark ? "text-gray-400" : "text-gray-500"
+                }`}>
+                  Categories
+                </h3>
+                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                  {categories.map((category) => {
+                    const Icon = category.icon;
+                    return (
+                      <button
+                        key={category.name}
+                        onClick={() => setSelectedCategory(category.name)}
+                        className={`flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 rounded-xl transition-colors ${
+                          selectedCategory === category.name
+                            ? "bg-[#21f201]/10 text-[#21f201] border-2 border-[#21f201]/30"
+                            : isDark 
+                              ? "text-gray-400 bg-gray-800/50 hover:bg-gray-800 hover:text-white border border-gray-700" 
+                              : "text-gray-500 bg-gray-100 hover:bg-gray-200 hover:text-gray-900 border border-gray-200"
+                        }`}
+                        title={category.name}
+                      >
+                        <Icon className="w-5 h-5" />
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop Sidebar */}
+            <div className="hidden lg:block lg:w-64 shrink-0">
               <div className={`rounded-xl p-4 sticky top-8 border transition-colors duration-300 ${
                 isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-sm"
               }`}>
@@ -228,7 +262,7 @@ const ExploreDapps = () => {
                       Explore <span className="text-[#21f201]">dApps</span>
                     </h1>
                     <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                      Discover decentralized applications built on DFS Web Chain
+                      Discover decentralized applications built on DFS SimuChain
                     </p>
                   </div>
                   
@@ -344,7 +378,7 @@ const ExploreDapps = () => {
           }`}>
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
-                <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>Build on DFS Web Chain</h3>
+                <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>Build on DFS SimuChain</h3>
                 <p className={isDark ? "text-gray-400" : "text-gray-600"}>
                   All dApps are using Web2 tokens. Start building your decentralized application today.
                 </p>
@@ -376,6 +410,13 @@ const ExploreDapps = () => {
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background: #4B5563;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </div>

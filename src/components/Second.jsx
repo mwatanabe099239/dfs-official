@@ -19,8 +19,7 @@ const Second = () => {
         <p className={`text-[1.25rem] font-space mt-4 sm:mt-0 text-start max-w-[25rem] ${
           isDark ? "text-[#C4C5CB]" : "text-gray-600"
         }`}>
-          A Web Blockchain supporting CeFi, NFTs, AI agencies, games, memecoins,
-          and other Web2 projects as of April 2025.
+          As of January 2026, SimuChain is a blockchain designed to support CeFi, AI agencies, enterprise systems, digital verification, and transaction-intensive services.
         </p>
       </div>
 
