@@ -1,11 +1,13 @@
 import React from "react";
-
-import ResourceCard from "./item/ResourceCard"; // Importing ResourceCard component
+import { useTheme } from "../context/ThemeContext";
+import ResourceCard from "./item/ResourceCard";
 
 const DeveloperResources = () => {
+  const { isDark } = useTheme();
+
   const resources = [
     {
-      title: "Dfc Scan",
+      title: "DFS Scan",
       description: "Searching and Analyzing DFS Web Chain Data",
       icon: "/resource/1.png",
     },
@@ -37,12 +39,14 @@ const DeveloperResources = () => {
   ];
 
   return (
-    <div className="bg-landing-color  text-white  px-4 pt-32  pb-0 sm:px-8 md:px-16 lg:px-24 lg:pt-48 font-space ">
+    <div className={`px-4 pt-32 pb-0 sm:px-8 md:px-16 lg:px-24 lg:pt-48 font-space transition-colors duration-300 ${
+      isDark ? "bg-landing-color text-white" : "bg-white text-gray-900"
+    }`}>
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-[#21f201]">
-          Related <span className="text-white">Tools</span>
+          Related <span className={isDark ? "text-white" : "text-gray-900"}>Tools</span>
         </h2>
-        <p className="text-lg mt-4 text-[#C4C5CB]">
+        <p className={`text-lg mt-4 ${isDark ? "text-[#C4C5CB]" : "text-gray-600"}`}>
           Let us introduce the related tools of DFS Web Chain.
         </p>
       </div>

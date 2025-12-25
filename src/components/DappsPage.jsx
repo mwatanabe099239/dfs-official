@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { FiSearch, FiChevronDown, FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
+import { useTheme } from "../context/ThemeContext";
 
 const DappsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,6 +12,7 @@ const DappsPage = () => {
   const [sortOrder, setSortOrder] = useState("desc");
   const [showNewListings, setShowNewListings] = useState(false);
   const [showTradingDapps, setShowTradingDapps] = useState(false);
+  const { isDark } = useTheme();
 
   // Function to generate realistic mini chart data
   const generateMiniChartData = (baseValue) => {
@@ -252,9 +254,13 @@ const DappsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0E11] text-white">
+    <div className={`min-h-screen transition-colors duration-300 ${
+      isDark ? "bg-[#0B0E11] text-white" : "bg-gray-50 text-gray-900"
+    }`}>
       {/* Header Section */}
-      <div className="bg-[#0B0E11] px-6 py-12 md:px-8 lg:px-12 xl:px-16">
+      <div className={`px-6 py-12 md:px-8 lg:px-12 xl:px-16 transition-colors duration-300 ${
+        isDark ? "bg-[#0B0E11]" : "bg-gray-50"
+      }`}>
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
             <div className="flex-1 text-start">
@@ -262,16 +268,22 @@ const DappsPage = () => {
                 Top dApps on{" "}
                 <span className="text-[#21f201]">DFS Web Chain</span> ecosystem
               </h1>
-              <p className="text-xl text-gray-300 mb-6">
+              <p className={`text-xl mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
                 Discover the top dApps built on DFS Web Chain ecosystem, sorted by Users, TVL, and TXN.
               </p>
-              <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <button className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+                isDark 
+                  ? "bg-white text-black hover:bg-gray-100" 
+                  : "bg-gray-900 text-white hover:bg-gray-800"
+              }`}>
                 Submit Your dApp
               </button>
             </div>
             
             {/* DFS Web Chain Metrics Chart */}
-            <div className="bg-[#181A1E] rounded-xl p-6 w-full lg:w-[420px]">
+            <div className={`rounded-xl p-6 w-full lg:w-[420px] transition-colors duration-300 ${
+              isDark ? "bg-[#181A1E]" : "bg-white border border-gray-200 shadow-sm"
+            }`}>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold">DFS Web Chain</h3>
                 <FiChevronDown className="text-gray-400" />
@@ -326,9 +338,13 @@ const DappsPage = () => {
       </div>
 
       {/* Filters Section */}
-      <div className="bg-[#0B0E11] px-6 md:px-8 lg:px-12 xl:px-16 pb-6">
+      <div className={`px-6 md:px-8 lg:px-12 xl:px-16 pb-6 transition-colors duration-300 ${
+        isDark ? "bg-[#0B0E11]" : "bg-gray-50"
+      }`}>
         <div className="max-w-[1400px] mx-auto">
-          <div className="bg-[#181A1E] rounded-xl p-6">
+          <div className={`rounded-xl p-6 transition-colors duration-300 ${
+            isDark ? "bg-[#181A1E]" : "bg-white border border-gray-200 shadow-sm"
+          }`}>
             <div className="flex flex-col lg:flex-row gap-4 items-center">
               {/* Search */}
               <div className="relative flex-1">
@@ -338,7 +354,11 @@ const DappsPage = () => {
                   placeholder="Search in Ranking"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-[#0B0E11] border border-gray-600 rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-[#21f201]"
+                  className={`w-full border rounded-lg pl-10 pr-4 py-2 placeholder-gray-400 focus:outline-none focus:border-[#21f201] ${
+                    isDark 
+                      ? "bg-[#0B0E11] border-gray-600 text-white" 
+                      : "bg-gray-50 border-gray-300 text-gray-900"
+                  }`}
                 />
               </div>
 
@@ -346,7 +366,11 @@ const DappsPage = () => {
               <select
                 value={selectedChain}
                 onChange={(e) => setSelectedChain(e.target.value)}
-                className="bg-[#0B0E11] border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#21f201]"
+                className={`border rounded-lg px-4 py-2 focus:outline-none focus:border-[#21f201] ${
+                  isDark 
+                    ? "bg-[#0B0E11] border-gray-600 text-white" 
+                    : "bg-gray-50 border-gray-300 text-gray-900"
+                }`}
               >
                 {chains.map((chain) => (
                   <option key={chain} value={chain}>
@@ -359,7 +383,11 @@ const DappsPage = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="bg-[#0B0E11] border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-[#21f201]"
+                className={`border rounded-lg px-4 py-2 focus:outline-none focus:border-[#21f201] ${
+                  isDark 
+                    ? "bg-[#0B0E11] border-gray-600 text-white" 
+                    : "bg-gray-50 border-gray-300 text-gray-900"
+                }`}
               >
                 {categories.map((category) => (
                   <option key={category} value={category}>
@@ -375,7 +403,9 @@ const DappsPage = () => {
                     type="checkbox"
                     checked={showNewListings}
                     onChange={(e) => setShowNewListings(e.target.checked)}
-                    className="rounded border-gray-600 bg-[#0B0E11] text-[#21f201] focus:ring-[#21f201]"
+                    className={`rounded text-[#21f201] focus:ring-[#21f201] ${
+                      isDark ? "border-gray-600 bg-[#0B0E11]" : "border-gray-300 bg-white"
+                    }`}
                   />
                   New Listings
                 </label>
@@ -384,7 +414,9 @@ const DappsPage = () => {
                     type="checkbox"
                     checked={showTradingDapps}
                     onChange={(e) => setShowTradingDapps(e.target.checked)}
-                    className="rounded border-gray-600 bg-[#0B0E11] text-[#21f201] focus:ring-[#21f201]"
+                    className={`rounded text-[#21f201] focus:ring-[#21f201] ${
+                      isDark ? "border-gray-600 bg-[#0B0E11]" : "border-gray-300 bg-white"
+                    }`}
                   />
                   Trading dApps
                 </label>
@@ -399,7 +431,9 @@ const DappsPage = () => {
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       timeFilter === period
                         ? "bg-[#21f201] text-black"
-                        : "bg-[#0B0E11] text-gray-400 hover:text-white"
+                        : isDark 
+                          ? "bg-[#0B0E11] text-gray-400 hover:text-white" 
+                          : "bg-gray-100 text-gray-600 hover:text-gray-900"
                     }`}
                   >
                     {period}
@@ -414,16 +448,22 @@ const DappsPage = () => {
       {/* dApps Table */}
       <div className="px-6 md:px-8 lg:px-12 xl:px-16 pb-12">
         <div className="max-w-[1400px] mx-auto">
-          <div className="bg-[#181A1E] rounded-xl overflow-hidden">
+          <div className={`rounded-xl overflow-hidden transition-colors duration-300 ${
+            isDark ? "bg-[#181A1E]" : "bg-white border border-gray-200 shadow-sm"
+          }`}>
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-[#0B0E11] border-b border-gray-700">
+                <thead className={`border-b transition-colors duration-300 ${
+                  isDark ? "bg-[#0B0E11] border-gray-700" : "bg-gray-50 border-gray-200"
+                }`}>
                   <tr>
-                    <th className="text-left py-5 px-6 text-sm font-medium text-gray-300 w-16 align-middle">#</th>
-                    <th className="text-left py-5 px-6 text-sm font-medium text-gray-300 min-w-[200px] align-middle">dApp</th>
-                    <th className="text-left py-5 px-6 text-sm font-medium text-gray-300 w-32 align-middle">Category</th>
+                    <th className={`text-left py-5 px-6 text-sm font-medium w-16 align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>#</th>
+                    <th className={`text-left py-5 px-6 text-sm font-medium min-w-[200px] align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>dApp</th>
+                    <th className={`text-left py-5 px-6 text-sm font-medium w-32 align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>Category</th>
                     <th 
-                      className="text-left py-5 px-6 text-sm font-medium text-gray-300 cursor-pointer hover:text-white w-24 align-middle"
+                      className={`text-left py-5 px-6 text-sm font-medium cursor-pointer w-24 align-middle ${
+                        isDark ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"
+                      }`}
                       onClick={() => handleSort("users")}
                     >
                       <div className="flex items-center gap-1">
@@ -433,9 +473,11 @@ const DappsPage = () => {
                         )}
                       </div>
                     </th>
-                    <th className="text-left py-5 px-6 text-sm font-medium text-gray-300 w-20 align-middle">7D %</th>
+                    <th className={`text-left py-5 px-6 text-sm font-medium w-20 align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>7D %</th>
                     <th 
-                      className="text-left py-5 px-6 text-sm font-medium text-gray-300 cursor-pointer hover:text-white w-24 align-middle"
+                      className={`text-left py-5 px-6 text-sm font-medium cursor-pointer w-24 align-middle ${
+                        isDark ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"
+                      }`}
                       onClick={() => handleSort("transactions")}
                     >
                       <div className="flex items-center gap-1">
@@ -445,33 +487,39 @@ const DappsPage = () => {
                         )}
                       </div>
                     </th>
-                    <th className="text-left py-5 px-6 text-sm font-medium text-gray-300 w-20 align-middle">7D %</th>
-                    <th className="text-left py-5 px-6 text-sm font-medium text-gray-300 w-32 align-middle">Last 7D Users</th>
+                    <th className={`text-left py-5 px-6 text-sm font-medium w-20 align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>7D %</th>
+                    <th className={`text-left py-5 px-6 text-sm font-medium w-32 align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>Last 7D Users</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filteredAndSortedDapps.map((dapp, index) => (
-                    <tr key={dapp.id} className="border-b border-gray-700 hover:bg-[#1a1d23] transition-colors">
-                      <td className="py-5 px-6 text-gray-400 font-medium">{index + 1}</td>
+                    <tr key={dapp.id} className={`border-b transition-colors ${
+                      isDark ? "border-gray-700 hover:bg-[#1a1d23]" : "border-gray-100 hover:bg-gray-50"
+                    }`}>
+                      <td className={`py-5 px-6 font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>{index + 1}</td>
                       <td className="py-5 px-6">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center text-lg">
+                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg ${
+                            isDark ? "bg-gray-600" : "bg-gray-200"
+                          }`}>
                             {dapp.icon}
                           </div>
                           <div>
-                            <div className="font-medium text-white text-sm text-start">{dapp.name}</div>
-                            <div className="text-xs text-gray-400 text-start">
+                            <div className={`font-medium text-sm text-start ${isDark ? "text-white" : "text-gray-900"}`}>{dapp.name}</div>
+                            <div className={`text-xs text-start ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                               {dapp.chains.join(", ")}
                             </div>
                           </div>
                         </div>
                       </td>
                       <td className="py-5 px-6">
-                        <span className="bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          isDark ? "bg-gray-600 text-white" : "bg-gray-200 text-gray-700"
+                        }`}>
                           {dapp.category}
                         </span>
                       </td>
-                      <td className="py-5 px-6 text-white font-semibold text-sm">
+                      <td className={`py-5 px-6 font-semibold text-sm ${isDark ? "text-white" : "text-gray-900"}`}>
                         {formatNumber(dapp.users)}
                       </td>
                       <td className="py-5 px-6">
@@ -482,7 +530,7 @@ const DappsPage = () => {
                           {dapp.usersChange >= 0 ? "+" : ""}{dapp.usersChange.toFixed(2)}%
                         </span>
                       </td>
-                      <td className="py-5 px-6 text-white font-semibold text-sm">
+                      <td className={`py-5 px-6 font-semibold text-sm ${isDark ? "text-white" : "text-gray-900"}`}>
                         {formatNumber(dapp.transactions)}
                       </td>
                       <td className="py-5 px-6">

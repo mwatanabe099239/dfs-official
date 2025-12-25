@@ -1,11 +1,18 @@
 import React from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const FeaturesSection = () => {
+  const { isDark } = useTheme();
+
   return (
-    <div className="bg-landing-color text-white px-4 py-16 sm:px-8 md:px-16 lg:px-24  ">
+    <div className={`px-4 py-16 sm:px-8 md:px-16 lg:px-24 transition-colors duration-300 ${
+      isDark ? "bg-landing-color text-white" : "bg-white text-gray-900"
+    }`}>
       {/* Title */}
       <div className="text-start mb-12 max-w-2xl">
-        <h2 className="md:text-[3rem] md:leading-[3.5rem] text-3xl font-bold font-space text-white">
+        <h2 className={`md:text-[3rem] md:leading-[3.5rem] text-3xl font-bold font-space ${
+          isDark ? "text-white" : "text-gray-900"
+        }`}>
           What Makes DFS Web Chain So{" "}
           <span className="text-[#21f201]">Powerful?</span>
         </h2>
@@ -14,13 +21,19 @@ const FeaturesSection = () => {
       {/* Features Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
         {/* Feature 1 */}
-        <div className="flex flex-col items-start text-center bg-landing-color p-6 rounded-xl shadow-xl gap-4 border-l border-[#A0AEC0] pl-8">
+        <div className={`flex flex-col items-start text-center p-6 rounded-xl shadow-xl gap-4 border-l pl-8 ${
+          isDark 
+            ? "bg-landing-color border-[#A0AEC0]" 
+            : "bg-gray-50 border-[#21f201]"
+        }`}>
           <div
-            data-theme="dark"
-            className="h-14 w-14 rounded-full bg-[#1E2026] flex items-center pl-[12px]"
+            data-theme={isDark ? "dark" : "light"}
+            className={`h-14 w-14 rounded-full flex items-center pl-[12px] ${
+              isDark ? "bg-[#1E2026]" : "bg-[#21f201]/10"
+            }`}
           >
             <svg
-              data-theme="dark"
+              data-theme={isDark ? "dark" : "light"}
               viewBox="0 0 24 24"
               focusable="false"
               className="h-8 w-8 text-[#18DC7E]"
@@ -31,10 +44,14 @@ const FeaturesSection = () => {
               ></path>
             </svg>
           </div>
-          <h3 className="text-[2rem] leading-[2.5rem] text-start font-bold font-space text-white mb-2">
+          <h3 className={`text-[2rem] leading-[2.5rem] text-start font-bold font-space mb-2 ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}>
             Unmatched Compatibility
           </h3>
-          <p className="text-[#C4C5CB] text-start font-space text-[1.25rem] leading-[1.75rem] ">
+          <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
+            isDark ? "text-[#C4C5CB]" : "text-gray-600"
+          }`}>
             Unlike complex and hard-to-use Web3 platforms, WebChain offers
             seamless integration with existing Web2 systems. An innovative and
             practical blockchain that anyone can start using right away.
@@ -42,13 +59,19 @@ const FeaturesSection = () => {
         </div>
 
         {/* Feature 2 */}
-        <div className="flex flex-col items-start text-center bg-landing-color p-6 rounded-xl shadow-xl gap-4 border-l border-[#A0AEC0] pl-8">
+        <div className={`flex flex-col items-start text-center p-6 rounded-xl shadow-xl gap-4 border-l pl-8 ${
+          isDark 
+            ? "bg-landing-color border-[#A0AEC0]" 
+            : "bg-gray-50 border-[#21f201]"
+        }`}>
           <div
-            data-theme="dark"
-            className="h-14 w-14 rounded-full bg-[#1E2026] flex items-center pl-[12px]"
+            data-theme={isDark ? "dark" : "light"}
+            className={`h-14 w-14 rounded-full flex items-center pl-[12px] ${
+              isDark ? "bg-[#1E2026]" : "bg-[#21f201]/10"
+            }`}
           >
             <svg
-              data-theme="dark"
+              data-theme={isDark ? "dark" : "light"}
               viewBox="0 0 24 24"
               focusable="false"
               className="h-8 w-8 text-[#18DC7E]"
@@ -59,23 +82,33 @@ const FeaturesSection = () => {
               ></path>
             </svg>
           </div>
-          <h3 className="text-[2rem] leading-[2.5rem] text-start font-bold font-space text-white mb-2">
+          <h3 className={`text-[2rem] leading-[2.5rem] text-start font-bold font-space mb-2 ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}>
             Seamless Multilingual Access{" "}
           </h3>
-          <p className="text-[#C4C5CB] text-start font-space text-[1.25rem] leading-[1.75rem] ">
+          <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
+            isDark ? "text-[#C4C5CB]" : "text-gray-600"
+          }`}>
             One QR code, instant switch to over 100 languages—no barriers, just
             global usability.
           </p>
         </div>
 
         {/* Feature 3 */}
-        <div className="flex flex-col items-start text-center bg-landing-color p-6 rounded-xl shadow-xl gap-4 border-l border-[#A0AEC0] pl-8">
+        <div className={`flex flex-col items-start text-center p-6 rounded-xl shadow-xl gap-4 border-l pl-8 ${
+          isDark 
+            ? "bg-landing-color border-[#A0AEC0]" 
+            : "bg-gray-50 border-[#21f201]"
+        }`}>
           <div
-            data-theme="dark"
-            className="h-14 w-14 rounded-full bg-[#1E2026] flex items-center pl-[12px]"
+            data-theme={isDark ? "dark" : "light"}
+            className={`h-14 w-14 rounded-full flex items-center pl-[12px] ${
+              isDark ? "bg-[#1E2026]" : "bg-[#21f201]/10"
+            }`}
           >
             <svg
-              data-theme="dark"
+              data-theme={isDark ? "dark" : "light"}
               viewBox="0 0 24 24"
               focusable="false"
               className="h-8 w-8 text-[#18DC7E]"
@@ -86,23 +119,33 @@ const FeaturesSection = () => {
               ></path>
             </svg>
           </div>
-          <h3 className="text-[2rem] text-start leading-[2.5rem] font-bold font-space text-white mb-2">
+          <h3 className={`text-[2rem] text-start leading-[2.5rem] font-bold font-space mb-2 ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}>
             Endless Possibilities for Apps{" "}
           </h3>
-          <p className="text-[#C4C5CB] text-start font-space text-[1.25rem] leading-[1.75rem] ">
+          <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
+            isDark ? "text-[#C4C5CB]" : "text-gray-600"
+          }`}>
             Compatible with all Web2 content, DFSWebChain unlocks a universe of
             applications— limitless, scalable, and ready for the future.
           </p>
         </div>
 
         {/* Feature 4 */}
-        <div className="flex flex-col items-start text-center bg-landing-color p-6 rounded-xl shadow-xl gap-4 border-l border-[#A0AEC0] pl-8">
+        <div className={`flex flex-col items-start text-center p-6 rounded-xl shadow-xl gap-4 border-l pl-8 ${
+          isDark 
+            ? "bg-landing-color border-[#A0AEC0]" 
+            : "bg-gray-50 border-[#21f201]"
+        }`}>
           <div
-            data-theme="dark"
-            className="h-14 w-14 rounded-full bg-[#1E2026] flex items-center pl-[12px]"
+            data-theme={isDark ? "dark" : "light"}
+            className={`h-14 w-14 rounded-full flex items-center pl-[12px] ${
+              isDark ? "bg-[#1E2026]" : "bg-[#21f201]/10"
+            }`}
           >
             <svg
-              data-theme="dark"
+              data-theme={isDark ? "dark" : "light"}
               viewBox="0 0 24 24"
               focusable="false"
               className="h-8 w-8 text-[#18DC7E]"
@@ -113,10 +156,14 @@ const FeaturesSection = () => {
               ></path>
             </svg>
           </div>
-          <h3 className="text-[2rem] leading-[2.5rem] text-start font-bold font-space text-white mb-2">
+          <h3 className={`text-[2rem] leading-[2.5rem] text-start font-bold font-space mb-2 ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}>
             Validator-Free, Seamless Blockchain
           </h3>
-          <p className="text-[#C4C5CB] text-start font-space text-[1.25rem] leading-[1.75rem] ">
+          <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
+            isDark ? "text-[#C4C5CB]" : "text-gray-600"
+          }`}>
             DFS Web CHain runs without validators, prioritizing speed, security,
             and smooth user eperience.
           </p>

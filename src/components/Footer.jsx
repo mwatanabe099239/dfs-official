@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 const Footer = () => {
   const [open, setOpen] = useState(null);
+  const { isDark } = useTheme();
 
   const toggle = (section) => {
     setOpen(open === section ? null : section);
@@ -22,8 +24,8 @@ const Footer = () => {
       items: [
         { name: "Make Wallet", link: "https://metaface.dfsscan.com/get-started" },
         { name: "Get DFS", link: "https://get.dfs.chain" },
-        { name: "Stake DFS*", link: "#", comingSoon: true },
-        { name: "Explore dApps*", link: "/dapps", comingSoon: false },
+        { name: "Stake DFS", link: "/staking" },
+        { name: "Explore dApps", link: "/explore-dapps" },
         { name: "Pay by Crypto*", link: "#", comingSoon: true },
         { name: "Earn by Liquid Staking*", link: "#", comingSoon: true },
       ],
@@ -58,17 +60,19 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#181A1E] text-white md:px-24 px-6  pt-10 pb-6 text-sm font-space  ">
+    <footer className={`md:px-24 px-6 pt-10 pb-6 text-sm font-space transition-colors duration-300 ${
+      isDark ? "bg-[#181A1E] text-white" : "bg-gray-100 text-gray-900 border-t border-gray-200"
+    }`}>
       {/* Large Screen Layout */}
       <div className="hidden md:flex justify-between flex-wrap gap-6 text-start">
         {sections.map((section, idx) => (
           <div key={idx} className="min-w-[160px]">
             <h4 className="font-bold mb-3">{section.title}</h4>
-            <ul className="space-y-2 text-gray-300">
+            <ul className={`space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
               {section.items.map((item, i) => (
                 <li key={i} className="hover:underline cursor-pointer text-xs">
                   {item.isComingSoon ? (
-                    <p className="text-green-400 hover:no-underline">{item.name}</p>
+                    <p className="text-green-500 hover:no-underline">{item.name}</p>
                   ) : item.comingSoon ? (
                     <a href={item.link} className="block">
                       {item.name.split("*")[0]}
@@ -92,20 +96,22 @@ const Footer = () => {
           <div key={idx}>
             <button
               onClick={() => toggle(idx)}
-              className="w-full flex justify-between items-center font-bold py-2 border-b border-gray-700"
+              className={`w-full flex justify-between items-center font-bold py-2 border-b ${
+                isDark ? "border-gray-700" : "border-gray-300"
+              }`}
             >
               {section.title}
               <span className="text-[10px]">{open === idx ? "▲" : "▼"}</span>
             </button>
             <ul
-              className={`pt-2 space-y-2 text-gray-300 overflow-hidden transition-all duration-500 ease-in-out ${
-                open === idx ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-              }`}
+              className={`pt-2 space-y-2 overflow-hidden transition-all duration-500 ease-in-out ${
+                isDark ? "text-gray-300" : "text-gray-600"
+              } ${open === idx ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
             >
               {section.items.map((item, i) => (
                 <li key={i} className="hover:underline cursor-pointer text-xs">
                   {item.isComingSoon ? (
-                    <p className="text-green-400 hover:no-underline">{item.name}</p>
+                    <p className="text-green-500 hover:no-underline">{item.name}</p>
                   ) : item.comingSoon ? (
                     <a href={item.link} className="block">
                       {item.name.split("*")[0]}
@@ -124,7 +130,9 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className=" border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-gray-400 text-xs">
+      <div className={`border-t mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs ${
+        isDark ? "border-gray-800 text-gray-400" : "border-gray-300 text-gray-500"
+      }`}>
         <p>© 2025 DFS Chain. All rights reserved.</p>
 
         <div className="flex items-center gap-4">

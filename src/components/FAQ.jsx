@@ -1,7 +1,10 @@
 import React from "react";
+import { useTheme } from "../context/ThemeContext";
 import FaqItem from "./item/FaqItem";
 
 const FAQ = () => {
+  const { isDark } = useTheme();
+
   const faqData = [
     {
       question: "What Is DFSWebChain (DWC)?",
@@ -42,9 +45,13 @@ As a gateway for those who are frustrated with the Web3 system and for first-tim
   ];
 
   return (
-    <div className="bg-landing-color text-white px-4 py-16 pb-0 sm:px-8 md:px-16 lg:px-24 lg:pt-52 font-space ">
+    <div className={`px-4 py-16 pb-0 sm:px-8 md:px-16 lg:px-24 lg:pt-52 font-space transition-colors duration-300 ${
+      isDark ? "bg-landing-color text-white" : "bg-white text-gray-900"
+    }`}>
       <div className="text-center mb-14">
-        <h2 className="md:text-[3rem] md:leading-[3.5rem] text-4xl  text-[#F7F7F8]">
+        <h2 className={`md:text-[3rem] md:leading-[3.5rem] text-4xl ${
+          isDark ? "text-[#F7F7F8]" : "text-gray-900"
+        }`}>
           FAQ
         </h2>
       </div>

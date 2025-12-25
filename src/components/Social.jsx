@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "../context/ThemeContext";
 import {
   FaTelegramPlane,
   FaDiscord,
@@ -12,22 +13,34 @@ import {
 } from "react-icons/fa";
 
 const Social = () => {
+  const { isDark } = useTheme();
+
   return (
-    <header className="bg-[#181A1E] sm:px-24 px-4 py-3 flex flex-col sm:gap-0 gap-8  sm:flex-row sm:items-center sm:justify-between border-y border-solid border-[#1E2026]">
+    <header className={`sm:px-24 px-4 py-3 flex flex-col sm:gap-0 gap-8 sm:flex-row sm:items-center sm:justify-between border-y border-solid transition-colors duration-300 ${
+      isDark 
+        ? "bg-[#181A1E] border-[#1E2026]" 
+        : "bg-gray-50 border-gray-200"
+    }`}>
       {/* Logo */}
       <a
-        data-theme="dark"
+        data-theme={isDark ? "dark" : "light"}
         href="#"
         target="_self"
         className="bg-transparent cursor-pointer"
       >
-        <img src="/logo.png" alt="logo" className="md:w-40 w-32"></img>
+        <img 
+          src="/logo.png" 
+          alt="logo" 
+          className={`md:w-40 w-32 ${!isDark ? "brightness-0" : ""}`}
+        />
       </a>
 
       {/* Social Icons */}
-      <div className="flex flex-wrap sm:flex-nowrap justify-start sm:justify-end gap-4 text-gray-400 text-lg">
+      <div className={`flex flex-wrap sm:flex-nowrap justify-start sm:justify-end gap-4 text-lg ${
+        isDark ? "text-gray-400" : "text-gray-500"
+      }`}>
         <div className="relative">
-          <img src="/twitter.svg" alt="Twitter" className="w-4 h-4"></img>
+          <img src="/twitter.svg" alt="Twitter" className={`w-4 h-4 ${!isDark ? "opacity-60" : ""}`}></img>
           <svg
             width="12"
             height="12"

@@ -1,44 +1,61 @@
 import React from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const Second = () => {
+  const { isDark } = useTheme();
+
   return (
-    <div className="bg-landing-color text-white px-4 py-16 sm:px-8 md:px-16 lg:px-24">
+    <div className={`px-4 py-16 sm:px-8 md:px-16 lg:px-24 transition-colors duration-300 ${
+      isDark ? "bg-landing-color text-white" : "bg-white text-gray-900"
+    }`}>
       {/* Title */}
       <div className="text-center mb-12 flex flex-col sm:flex-row justify-between items-center">
-        <h2 className="font-bold text-white text-start text-3xl sm:text-5xl max-w-xl font-space leading-[3.5rem] mb-4 sm:mb-0">
+        <h2 className={`font-bold text-start text-3xl sm:text-5xl max-w-xl font-space leading-[3.5rem] mb-4 sm:mb-0 ${
+          isDark ? "text-white" : "text-gray-900"
+        }`}>
           A <span className="text-[#21f201]">Blockchain</span> with Daily Active
           User Updates
         </h2>
-        <p className="text-[1.25rem] font-space text-[#C4C5CB] mt-4 sm:mt-0 text-start max-w-[25rem]">
+        <p className={`text-[1.25rem] font-space mt-4 sm:mt-0 text-start max-w-[25rem] ${
+          isDark ? "text-[#C4C5CB]" : "text-gray-600"
+        }`}>
           A Web Blockchain supporting CeFi, NFTs, AI agencies, games, memecoins,
           and other Web2 projects as of April 2025.
         </p>
       </div>
 
-      <div className="border-[#373943] border-b border-solid w-full mb-6"></div>
+      <div className={`border-b border-solid w-full mb-6 ${isDark ? "border-[#373943]" : "border-gray-200"}`}></div>
 
       {/* Stat Section */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-12">
         {/* Stat 1 */}
-        <div className="flex md:flex-col gap-10 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3  md:border-r md:max-lg:border-b  border-[#373943] border-solid">
-          <div className="flex justify-center mb-4 flex-col items-start ">
-            <div className="md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl text-[rgba(255, 255, 255, 0.24)] mb-4">
+        <div className={`flex md:flex-col gap-10 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
+          isDark ? "border-[#373943]" : "border-gray-200"
+        }`}>
+          <div className="flex justify-center mb-4 flex-col items-start">
+            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
+              isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
+            }`}>
               100K<span className="text-[#21f201]">+</span>
             </div>
-            <span className="text-[1.25rem] leading-[1.75rem] font-space text-[#C4C5CB] mb-12 ">
+            <span className={`text-[1.25rem] leading-[1.75rem] font-space mb-12 ${
+              isDark ? "text-[#C4C5CB]" : "text-gray-600"
+            }`}>
               Active Users
             </span>
           </div>
 
           <a
-            data-theme="dark"
+            data-theme={isDark ? "dark" : "light"}
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className="bg-[#1E2026] flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 text-[#8C8F9B] h-16 w-16 pl-3 pt-[10px]"
+            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] ${
+              isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
+            }`}
           >
             <svg
-              data-theme="dark"
+              data-theme={isDark ? "dark" : "light"}
               viewBox="0 0 24 24"
               focusable="false"
               className="md:w-7 md:h-7 w-10 h-10"
@@ -52,25 +69,33 @@ const Second = () => {
         </div>
 
         {/* Stat 2 */}
-        <div className="flex md:flex-col gap-10 md:gap-0 flex-row-reverse justify-end  items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3  md:border-r md:max-lg:border-b  border-[#373943] border-solid">
-          <div className="flex justify-center mb-4 flex-col items-start ">
-            <div className="md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl text-[rgba(255, 255, 255, 0.24)] mb-4">
+        <div className={`flex md:flex-col gap-10 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
+          isDark ? "border-[#373943]" : "border-gray-200"
+        }`}>
+          <div className="flex justify-center mb-4 flex-col items-start">
+            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
+              isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
+            }`}>
               100<span className="text-[#21f201]">+</span>
             </div>
-            <span className="text-[1.25rem] leading-[1.75rem] font-space text-[#C4C5CB] mb-12">
+            <span className={`text-[1.25rem] leading-[1.75rem] font-space mb-12 ${
+              isDark ? "text-[#C4C5CB]" : "text-gray-600"
+            }`}>
               Active dApps
             </span>
           </div>
 
           <a
-            data-theme="dark"
+            data-theme={isDark ? "dark" : "light"}
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className="bg-[#1E2026] flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 text-[#8C8F9B] h-16 w-16 pl-3 pt-[10px]"
+            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] ${
+              isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
+            }`}
           >
             <svg
-              data-theme="dark"
+              data-theme={isDark ? "dark" : "light"}
               viewBox="0 0 24 24"
               focusable="false"
               className="md:w-7 md:h-7 w-10 h-10"
@@ -104,27 +129,35 @@ const Second = () => {
         </div>
 
         {/* Stat 3 */}
-        <div className="flex md:flex-col gap-10 md:gap-0 flex-row-reverse justify-end  items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3   md:max-lg:border-b  border-[#373943] border-solid">
-          <div className="flex justify-center mb-4 flex-col items-start ">
-            <div className="md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl text-[rgba(255, 255, 255, 0.24)] mb-4">
+        <div className={`flex md:flex-col gap-10 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:max-lg:border-b border-solid ${
+          isDark ? "border-[#373943]" : "border-gray-200"
+        }`}>
+          <div className="flex justify-center mb-4 flex-col items-start">
+            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
+              isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
+            }`}>
               100K<span className="text-[#21f201]">+</span>
             </div>
-            <span className="text-[1.25rem] leading-[1.75rem] font-space text-[#C4C5CB] mb-12">
+            <span className={`text-[1.25rem] leading-[1.75rem] font-space mb-12 ${
+              isDark ? "text-[#C4C5CB]" : "text-gray-600"
+            }`}>
               Generated token
             </span>
           </div>
 
           <a
-            data-theme="dark"
+            data-theme={isDark ? "dark" : "light"}
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className="bg-[#1E2026] flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-[8px] text-[#8C8F9B] h-16 w-16 pl-3 pt-[10px]"
+            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-[8px] h-16 w-16 pl-3 pt-[10px] ${
+              isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
+            }`}
           >
             <img
               src="/100k.png"
               alt="logo"
-              className="md:w-6 md:h-6 w-10 h-10"
+              className={`md:w-6 md:h-6 w-10 h-10 ${!isDark ? "opacity-60" : ""}`}
             ></img>
           </a>
         </div>
