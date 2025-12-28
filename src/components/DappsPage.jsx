@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { FiSearch, FiChevronDown, FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const DappsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,6 +14,7 @@ const DappsPage = () => {
   const [showNewListings, setShowNewListings] = useState(false);
   const [showTradingDapps, setShowTradingDapps] = useState(false);
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   // Function to generate realistic mini chart data
   const generateMiniChartData = (baseValue) => {
@@ -265,18 +267,18 @@ const DappsPage = () => {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
             <div className="flex-1 text-start">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Top dApps on{" "}
-                <span className="text-[#21f201]">DFS SimuChain</span> ecosystem
+                {t('dapps.hero.title')}{" "}
+                <span className="text-[#21f201]">DFS SimuChain</span> {t('dapps.hero.ecosystem')}
               </h1>
               <p className={`text-xl mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
-                Discover the top dApps built on DFS SimuChain ecosystem, sorted by Users, TVL, and TXN.
+                {t('dapps.hero.subtitle')}
               </p>
               <button className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
                 isDark 
                   ? "bg-white text-black hover:bg-gray-100" 
                   : "bg-gray-900 text-white hover:bg-gray-800"
               }`}>
-                Submit Your dApp
+                {t('dapps.submitDapp')}
               </button>
             </div>
             

@@ -1,0 +1,1276 @@
+{
+  "common": {
+    "getStarted": "始める",
+    "learnMore": "詳しく見る",
+    "submit": "送信",
+    "subscribe": "登録",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "search": "検索",
+    "loading": "読み込み中...",
+    "comingSoon": "近日公開",
+    "viewAll": "すべて見る",
+    "readMore": "続きを読む",
+    "goHome": "ホームへ",
+    "applyNow": "今すぐ応募",
+    "contactUs": "お問い合わせ",
+    "joinWaitlist": "ウェイトリストに参加",
+    "downloadPdf": "PDFをダウンロード",
+    "backToTop": "トップへ戻る",
+    "email": "メール",
+    "name": "名前",
+    "message": "メッセージ",
+    "send": "送信",
+    "follow": "フォロー",
+    "share": "シェア",
+    "cookies": "クッキー",
+    "language": "言語"
+  },
+  "navbar": {
+    "home": "ホーム",
+    "dapps": "dApps",
+    "staking": "ステーキング",
+    "whitepaper": "ホワイトペーパー",
+    "about": "概要",
+    "contact": "連絡先"
+  },
+  "landing": {
+    "status": {
+      "layer0": "レイヤー0",
+      "isLive": "稼働中"
+    },
+    "hero": {
+      "title": "未来の",
+      "titleHighlight": "Web3シミュレーション",
+      "subtitle": "分散化を活用して不可能を可能に",
+      "issueCoin": "コインを発行",
+      "cta1": "構築を始める",
+      "cta2": "dAppsを探索"
+    },
+    "features": {
+      "title": "なぜDFS SimuChain？",
+      "subtitle": "開発者とユーザーのために構築",
+      "feature1": {
+        "title": "簡単なオンボーディング",
+        "description": "シードフレーズや複雑な設定は不要。メールで登録してすぐに探索を開始。"
+      },
+      "feature2": {
+        "title": "本物のブロックチェーンコンセプト",
+        "description": "トランザクション、ブロック、ウォレット、トークン - すべての馴染みのある概念をシンプルに。"
+      },
+      "feature3": {
+        "title": "成長するエコシステム",
+        "description": "DEX、ソーシャルプラットフォームなど、複数のdApps。"
+      }
+    }
+  },
+  "home": {
+    "stats": {
+      "title": {
+        "prefix": "毎日",
+        "highlight": "ブロックチェーン",
+        "suffix": "アクティブユーザーが更新される"
+      },
+      "description": "2026年1月現在、SimuChainはCeFi、AIエージェンシー、企業システム、デジタル認証、トランザクション集約型サービスをサポートするように設計されたブロックチェーンです。",
+      "activeUsers": "アクティブユーザー",
+      "activeDapps": "アクティブdApps",
+      "generatedTokens": "生成されたトークン"
+    },
+    "features": {
+      "title": {
+        "prefix": "DFS SimuChainが",
+        "highlight": "強力な理由"
+      },
+      "compatibility": {
+        "title": "比類なき互換性",
+        "description": "複雑で使いにくいWeb3プラットフォームとは異なり、DFS SimuChainは既存のWeb2システムとシームレスに統合されます。"
+      },
+      "multilingual": {
+        "title": "シームレスな多言語アクセス",
+        "description": "1つのQRコードで100以上の言語に即座に切り替え—障壁なく、グローバルな使いやすさ。"
+      },
+      "apps": {
+        "title": "無限のアプリ可能性",
+        "description": "すべてのWeb2コンテンツと互換性があり、DFS SimuChainは無限でスケーラブルな未来のアプリケーションを解放します。"
+      },
+      "validatorFree": {
+        "title": "バリデータフリーのシームレスなブロックチェーン",
+        "description": "DFS SimuChainはバリデータなしで動作し、速度、セキュリティ、スムーズなユーザー体験を優先します。"
+      }
+    },
+    "buildOn": {
+      "title": "DFS SimuChainで構築",
+      "description": "独自のトークンを作成したい、またはパートナーシップ、助成金、技術サポートが必要ですか？今すぐお問い合わせください！",
+      "cta": "構築を始める",
+      "exploreApps": "他のアプリを探索"
+    },
+    "join": {
+      "titleHighlight": "参加",
+      "title": "DFS SimuChainに今すぐ！",
+      "description": "コミュニティをDFS SimuChainに参加させるか、独自のトークンを作成してください。",
+      "cta": "始める"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "q1": {
+        "question": "DFS SimuChain (DSC)とは？",
+        "answer": "DFS SimuChainは、Web3ブロックチェーンとは異なり、Web2システムをベースにしたレイヤー0ブロックチェーンです。"
+      },
+      "q2": {
+        "question": "DFS SimuChain (DSC)の主な特徴は？",
+        "answer": "システムはデータとトランザクションの安全性を確保し、すべてがスムーズに実行されるよう信頼性の高い監視を提供します。"
+      },
+      "q3": {
+        "question": "DFS SimuChain (DSC)にはバリデータがありますか？",
+        "answer": "バリデータベースのブロックチェーンとは異なり、DFS SimuChainはバリデータなしで動作します。"
+      },
+      "q4": {
+        "question": "DFS SimuChain (DSC)の費用は？",
+        "answer": "多くのチェーンの中で最低料金を提供しています。トランザクションあたり0.001ドル〜"
+      },
+      "q5": {
+        "question": "DFS SimuChain (DSC)の普及から何が期待できますか？",
+        "answer": "Web3システムに不満を持つ人や初めてのユーザーのゲートウェイとして、Web3チェーンの概念とロジックを提供します。"
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "chains": "チェーン",
+      "useDfs": "DFS SimuChainを使う",
+      "build": "構築",
+      "participate": "参加",
+      "about": "概要",
+      "legal": "法的情報"
+    },
+    "links": {
+      "dfsSimuChain": "DFS SimuChain",
+      "makeWallet": "ウォレット作成",
+      "getDfs": "DFSを取得",
+      "stakeDfs": "DFSをステーク",
+      "exploreDapps": "dAppsを探索",
+      "payByCrypto": "暗号通貨で支払い",
+      "whitepaper": "ホワイトペーパー",
+      "faq": "よくある質問",
+      "feedback": "フィードバック",
+      "events": "イベント",
+      "governance": "ガバナンス",
+      "community": "コミュニティ",
+      "referralProgram": "紹介プログラム",
+      "newsletter": "ニュースレター",
+      "aboutUs": "私たちについて",
+      "blog": "ブログ",
+      "careers": "採用情報",
+      "partners": "パートナー",
+      "contactUs": "お問い合わせ",
+      "privacyPolicy": "プライバシーポリシー",
+      "termsOfUse": "利用規約",
+      "cookies": "クッキー"
+    },
+    "followUs": "フォロー：",
+    "copyright": "© 2026 DIFINES. All rights reserved."
+  },
+  "dapps": {
+    "title": "dAppsランキング",
+    "subtitle": "DFS SimuChainで最も人気のある分散型アプリケーションを発見",
+    "searchPlaceholder": "dAppsを検索...",
+    "hero": {
+      "title": "トップdApps",
+      "ecosystem": "エコシステム",
+      "subtitle": "DFS SimuChainエコシステムで構築されたトップdAppsを、ユーザー、TVL、TXNでソートして発見。"
+    },
+    "submitDapp": "dAppを提出",
+    "filters": {
+      "allChains": "すべてのチェーン",
+      "allCategories": "すべてのカテゴリ",
+      "newListings": "新規リスト",
+      "tradingDapps": "取引dApps"
+    },
+    "categories": {
+      "all": "すべて",
+      "defi": "DeFi",
+      "social": "ソーシャル",
+      "nft": "NFT",
+      "gaming": "ゲーム",
+      "tools": "ツール"
+    },
+    "table": {
+      "rank": "順位",
+      "dapp": "dApp",
+      "category": "カテゴリ",
+      "users": "ユーザー",
+      "volume": "取引量",
+      "change": "変動"
+    }
+  },
+  "exploreDapps": {
+    "title": "dAppsを",
+    "titleHighlight": "探索",
+    "subtitle": "DFS SimuChainで構築された分散型アプリケーションを発見",
+    "searchPlaceholder": "dAppsを検索...",
+    "submitDapp": "dAppを提出",
+    "showing": "表示中",
+    "dappsLabel": "dApps",
+    "in": "カテゴリ",
+    "visit": "訪問",
+    "noDappsFound": "dAppsが見つかりません",
+    "tryAdjusting": "検索条件やフィルターを調整してください",
+    "buildOn": "DFS SimuChainで構築",
+    "buildOnDescription": "すべてのdAppsはWeb2トークンを使用しています。今日から分散型アプリケーションの構築を始めましょう。",
+    "featured": "注目",
+    "official": "公式",
+    "new": "新着",
+    "popular": "人気",
+    "visitApp": "アプリを訪問",
+    "categories": {
+      "title": "カテゴリ",
+      "all": "すべて",
+      "wallet": "ウォレット",
+      "explorer": "エクスプローラー",
+      "tokenTools": "トークンツール",
+      "defi": "DeFi",
+      "social": "ソーシャル",
+      "exchange": "取引所",
+      "utility": "ユーティリティ"
+    }
+  },
+  "staking": {
+    "badge": "ステーキング稼働中",
+    "days": "日",
+    "toast": {
+      "underDevelopment": "この機能は開発中です。"
+    },
+    "hero": {
+      "title": "DFSをステーク、",
+      "titleHighlight": "報酬を獲得",
+      "subtitle": "DFSトークンを活用しましょう。ステークして最大25% APYを獲得し、DFS SimuChainネットワークの安全に貢献します。"
+    },
+    "stats": {
+      "tvl": "ロックされた総価値",
+      "activeStakers": "アクティブステーカー",
+      "maxApy": "最大APY",
+      "uptime": "稼働率"
+    },
+    "howToStake": {
+      "title": "ステーキング",
+      "titleHighlight": "方法",
+      "subtitle": "簡単なステップで報酬獲得を開始"
+    },
+    "steps": {
+      "connectWallet": {
+        "title": "ウォレットを接続",
+        "description": "MetafaceウォレットをDFSステーキングプラットフォームに安全に接続します。"
+      },
+      "chooseAmount": {
+        "title": "金額を選択",
+        "description": "ステークするDFSトークンの数を選択し、ティアを選びます。"
+      },
+      "selectLockPeriod": {
+        "title": "ロック期間を選択",
+        "description": "お好みのロック期間を選択してください。期間が長いほど報酬が高くなります。"
+      },
+      "startEarning": {
+        "title": "収益開始",
+        "description": "ステークを確認し、自動的に報酬を獲得し始めます。"
+      }
+    },
+    "tierNames": {
+      "starter": "スターター",
+      "growth": "グロース",
+      "premium": "プレミアム",
+      "elite": "エリート"
+    },
+    "lockPeriods": {
+      "30days": "30日",
+      "90days": "90日",
+      "180days": "180日",
+      "365days": "365日"
+    },
+    "tiers": {
+      "title": "ステーキング",
+      "titleHighlight": "ティア",
+      "subtitle": "投資戦略に最適なティアを選択",
+      "mostPopular": "最も人気",
+      "minStake": "最小ステーク",
+      "lockPeriod": "ロック期間",
+      "autoCompound": "自動複利",
+      "selectTier": "ティアを選択"
+    },
+    "whyStake": {
+      "title": "なぜDFSでステーク",
+      "subtitle": "DFSステーキングは業界トップクラスのセキュリティ、競争力のある報酬、シームレスなユーザー体験を提供します。"
+    },
+    "features": {
+      "secureStaking": {
+        "title": "安全なステーキング",
+        "description": "あなたのトークンはDFS Chainの堅牢なスマートコントラクトインフラストラクチャによって保護されています。"
+      },
+      "competitiveApy": {
+        "title": "競争力のあるAPY",
+        "description": "階層型報酬システムでステークしたDFSトークンに対して最大25% APYを獲得できます。"
+      },
+      "flexibleTerms": {
+        "title": "柔軟な条件",
+        "description": "投資戦略に合わせて複数のロック期間から選択できます。"
+      },
+      "autoCompound": {
+        "title": "自動複利",
+        "description": "報酬は自動的に複利で運用され、収益を最大化します。"
+      }
+    },
+    "calculator": {
+      "title": "ステーキング計算機",
+      "preview": "プレビュー",
+      "amountToStake": "ステーク金額",
+      "estimatedEarnings": "推定収益（180日）",
+      "connectWallet": "ウォレットを接続して開始"
+    },
+    "faq": {
+      "title": "よくある",
+      "titleHighlight": "質問",
+      "subtitle": "DFSステーキングについて知っておくべきすべて",
+      "questions": {
+        "whatIsStaking": {
+          "question": "DFSステーキングとは？",
+          "answer": "DFSステーキングでは、指定された期間DFSトークンをロックして報酬を獲得できます。ステーキングすることで、ネットワークのセキュリティに貢献しながらパッシブ収入を得られます。"
+        },
+        "rewardsCalculated": {
+          "question": "ステーキング報酬はどのように計算されますか？",
+          "answer": "報酬はステーク金額、選択したティア、ロック期間に基づいて計算されます。上位ティアと長いロック期間ではより良いAPYレートが提供されます。報酬は毎日分配され、自動複利で運用されます。"
+        },
+        "unstakeEarly": {
+          "question": "早期にアンステークできますか？",
+          "answer": "早期アンステークは可能ですが、ペナルティ料金が発生します。報酬を最大化するために、投資タイムラインに合ったロック期間を選択することをお勧めします。"
+        },
+        "whatWallet": {
+          "question": "どのウォレットが必要ですか？",
+          "answer": "DFS SimuChainネットワークに接続されたMetafaceウォレットが必要です。まだお持ちでない場合は、metaface.dfsscan.comで作成できます。"
+        },
+        "receiveRewards": {
+          "question": "報酬はいつ受け取れますか？",
+          "answer": "ステーキング報酬は毎日計算・分配されます。自動複利を通じてステーク残高に自動的に追加され、収益の可能性を最大化します。"
+        }
+      }
+    },
+    "cta": {
+      "title": "始める準備は",
+      "titleHighlight": "できていますか",
+      "subtitle": "DFS SimuChainでパッシブ収入を得ている何千人ものステーカーに参加しましょう。今日からステーキングの旅を始めましょう。",
+      "startStaking": "ステーキング開始",
+      "launchApp": "アプリを起動",
+      "readDocs": "ドキュメントを読む"
+    }
+  },
+  "whitepaper": {
+    "badge": "公式ドキュメント",
+    "title": "ホワイトペーパー",
+    "subtitle": "DFS SimuChainを理解するための包括的なガイド — 分散化の概念を従来のウェブインフラに導入する革新的なWeb2によるWeb3ブロックチェーン技術のシミュレーション。",
+    "version": "バージョン 1.0",
+    "downloadPdf": "PDFダウンロード",
+    "readOnline": "オンラインで読む",
+    "generating": "生成中...",
+    "tableOfContents": "目次",
+    "stats": {
+      "blockTime": "ブロック時間",
+      "tpsCapacity": "TPS容量",
+      "tokenStandard": "トークン規格",
+      "infrastructure": "インフラ"
+    },
+    "sections": {
+      "introduction": "はじめに",
+      "coreConcepts": "コアコンセプト",
+      "architecture": "アーキテクチャ",
+      "walletSystem": "ウォレットシステム",
+      "drc20Standard": "DRC20トークン規格",
+      "nativeToken": "ネイティブトークン（DFS）",
+      "gasMechanism": "ガスメカニズム",
+      "useCases": "ユースケース",
+      "roadmap": "ロードマップ"
+    },
+    "cta": {
+      "title": "DFS SimuChainで構築する準備はできましたか？",
+      "subtitle": "Web2-Web3統合の未来を創造する開発者とイノベーターの成長するエコシステムに参加しましょう。",
+      "createWallet": "ウォレット作成",
+      "exploreChain": "チェーンを探索"
+    }
+  },
+  "blog": {
+    "title": "ブログ",
+    "subtitle": "DFS SimuChainからの最新ニュースとアップデート",
+    "featured": "注目",
+    "latest": "最新記事",
+    "readTime": "分で読める",
+    "by": "著者",
+    "relatedArticles": "関連記事",
+    "shareArticle": "この記事をシェア",
+    "hero": {
+      "badge": "DFS SimuChainブログ",
+      "title": "ニュース &",
+      "titleHighlight": "アップデート",
+      "subtitle": "DFS SimuChainエコシステムの最新の開発、チュートリアル、コミュニティストーリーをご覧ください。"
+    },
+    "readArticle": "記事を読む",
+    "searchPlaceholder": "記事を検索...",
+    "noArticles": "記事が見つかりません",
+    "noArticlesHint": "検索条件やフィルターを調整してみてください",
+    "postNotFound": "ブログ記事が見つかりません",
+    "backToBlog": "ブログに戻る",
+    "share": "シェア",
+    "save": "保存",
+    "writtenBy": "著者",
+    "officialTeam": "DFS SimuChain公式",
+    "newsletter": {
+      "title": "ニュースレターを購読",
+      "subtitle": "最新のニュース、チュートリアル、アップデートを直接受信トレイにお届けします。",
+      "placeholder": "メールアドレスを入力"
+    },
+    "categories": {
+      "all": "すべて",
+      "announcements": "お知らせ",
+      "tutorials": "チュートリアル",
+      "updates": "アップデート",
+      "community": "コミュニティ",
+      "technical": "技術"
+    }
+  },
+  "faq": {
+    "title": "よくある",
+    "titleHighlight": "質問",
+    "subtitle": "DFS SimuChain、ウォレット、トークンなどに関するよくある質問の回答を見つけてください。",
+    "searchPlaceholder": "回答を検索...",
+    "categories": {
+      "all": "すべて",
+      "gettingStarted": "はじめに",
+      "wallet": "ウォレット",
+      "tokens": "トークン",
+      "transactions": "トランザクション",
+      "technical": "技術的"
+    },
+    "noResults": "結果が見つかりません",
+    "tryAdjusting": "検索を調整するか、カテゴリで閲覧してください",
+    "stillHaveQuestions": "まだ質問がありますか？",
+    "cantFind": "お探しのものが見つかりませんか？サポートチームがお手伝いします。",
+    "contactSupport": "サポートに連絡",
+    "items": {
+      "whatIsDfs": {
+        "question": "DFS SimuChainとは何ですか？",
+        "answer": "DFS SimuChainは、Web3ブロックチェーン技術のWeb2シミュレーションです。ブロック、トランザクション、ウォレット、トークンなど、おなじみのブロックチェーン概念をすべて提供しながら、従来のウェブインフラで動作します。これにより、シードフレーズや秘密鍵の管理の複雑さなしに、誰でもアクセスできます。"
+      },
+      "howToStart": {
+        "question": "DFS SimuChainを始めるには？",
+        "answer": "始めるのは簡単です！metaface.dfsscan.comにアクセスし、メールアドレスでサインアップするだけです。ウォレットは自動的に作成され、一意のウォレットアドレス（dfs_0xで始まる）が割り当てられます。そこからエコシステムを探索し、DFSトークンを取得し、様々なdAppと対話できます。"
+      },
+      "isFree": {
+        "question": "DFS SimuChainは無料で使用できますか？",
+        "answer": "アカウントとウォレットの作成は完全に無料です。ただし、ネットワーク上のトランザクションにはDRC20_DFSトークンで支払うガス料金が必要です。これらの料金は最小限であり、ネットワークの持続可能性を維持するのに役立ちます。"
+      },
+      "createWallet": {
+        "question": "ウォレットを作成するには？",
+        "answer": "metaface.dfsscan.comにアクセスし、「始める」をクリックしてください。メールアドレスでサインアップすると、ウォレットが自動的に生成されます。従来のブロックチェーンウォレットとは異なり、シードフレーズを管理する必要はありません - ウォレットはメールアカウントに安全にリンクされています。"
+      },
+      "walletAddress": {
+        "question": "ウォレットアドレスはどのように見えますか？",
+        "answer": "DFS SimuChainのウォレットアドレスは「dfs_0x」で始まり、その後に一意の英数字文字列が続きます。例：dfs_0x1a2b3c4d5e6f7890... この形式により、DFS SimuChainアドレスを簡単に識別できます。"
+      },
+      "multipleWallets": {
+        "question": "複数のウォレットを持つことはできますか？",
+        "answer": "現在、各ユーザーアカウントは1つのウォレットアドレスにリンクされています。これにより、簡単なユーザー体験が確保され、資産管理が簡素化されます。将来のアップデートでマルチウォレットサポートを導入する可能性があります。"
+      },
+      "recoverWallet": {
+        "question": "アクセスを失った場合、ウォレットを回復するには？",
+        "answer": "ウォレットはメールアドレスにリンクされているため、Metafaceのパスワード回復オプションを使用してアクセスを回復できます。メールにアクセスできる限り、ウォレットへのアクセスを取り戻すことができます。"
+      },
+      "whatIsDrc20": {
+        "question": "DRC20とは何ですか？",
+        "answer": "DRC20は、EthereumのERC20に似たDFS SimuChainのトークン標準です。ネットワーク上でトークンがどのように作成、転送、管理されるかを定義します。DRC20トークンアドレスは「drc20_0x」で始まります。"
+      },
+      "createToken": {
+        "question": "独自のトークンを作成するには？",
+        "answer": "drc20.dfsscan.comのWhitecreatorプラットフォームを使用して、独自のDRC20トークンを作成できます。トークンの詳細（名前、シンボル、総供給量など）を入力し、作成料金を支払い、承認のために提出するだけです。承認されると、トークンはネットワーク全体で使用できます。"
+      },
+      "whatIsDfsCoin": {
+        "question": "DRC20_DFSとは何ですか？",
+        "answer": "DRC20_DFSは、DFS SimuChainのネイティブトークンです。ネットワーク上のすべてのトランザクションのガス料金を支払うために使用されます。EthereumのETHのようなものと考えてください - チェーン上で任意の操作を実行するために必要です。"
+      },
+      "getDfsTokens": {
+        "question": "DFSトークンを取得するには？",
+        "answer": "DFSトークンは、いくつかの方法で取得できます：WEXSWAP（DEX）での取引、コミュニティイベントやエアドロップへの参加、POIPIなどのプラットフォームでのエコシステム活動を通じた獲得、またはHeyOTCで他のユーザーからの購入です。"
+      },
+      "transactionTime": {
+        "question": "トランザクションにはどのくらいの時間がかかりますか？",
+        "answer": "トランザクションは通常5分以内に処理されます。これはブロック生成間隔です。ブロックに含まれると、トランザクションは最終的とみなされ、取り消すことはできません。"
+      },
+      "gasFees": {
+        "question": "ガス料金とは何ですか？",
+        "answer": "ガス料金は、トランザクションを処理するためにDRC20_DFSトークンで支払う少額の支払いです。スパムを防ぎ、ネットワークリソースを公平に配分し、エコシステムを維持するために役立ちます。料金の額は、操作の複雑さに基づいて変動します。"
+      },
+      "cancelTransaction": {
+        "question": "トランザクションをキャンセルまたは取り消すことはできますか？",
+        "answer": "トランザクションが確認されてブロックに含まれると、キャンセルまたは取り消すことはできません。これは、台帳の整合性を維持するための設計です。確認する前に、常にトランザクションの詳細を再確認してください。"
+      },
+      "transactionHistory": {
+        "question": "トランザクション履歴はどこで見られますか？",
+        "answer": "すべてのトランザクションは、ブロックエクスプローラーであるDFSScan（dfsscan.com）で確認できます。ウォレットアドレスを検索するだけで、タイムスタンプ、金額、トランザクションハッシュを含む完全なトランザクション履歴を確認できます。"
+      },
+      "blockGeneration": {
+        "question": "ブロックはどのくらいの頻度で生成されますか？",
+        "answer": "DFS SimuChainでは、5分ごとに新しいブロックが生成されます。各ブロックには数千のトランザクションを含めることができ、整然とした処理を維持しながら高いスループットを確保します。"
+      },
+      "isDecentralized": {
+        "question": "DFS SimuChainは分散化されていますか？",
+        "answer": "DFS SimuChainはブロックチェーン技術のWeb2シミュレーションであり、ブロックチェーンのような機能を提供しながら中央集権的なインフラで動作します。このアプローチにより、透明性とトークン化の利点を提供しながら、オンボーディングとメンテナンスが容易になります。"
+      },
+      "buildApps": {
+        "question": "DFS SimuChain上でアプリケーションを構築できますか？",
+        "answer": "はい！DFS SimuChainには成長するdAppエコシステムがあります。APIと統合して、ウォレット、取引所、ソーシャルプラットフォームなどを構築できます。ドキュメントを確認するか、DFS SimuChainでの構築について詳しく知るためにお問い合わせください。"
+      },
+      "dataHandling": {
+        "question": "私のデータはどうなりますか？",
+        "answer": "トランザクションデータはDFS SimuChainに永続的に保存され、ブロックエクスプローラーで公開されます。個人情報（メールなど）はプライベートで安全に保たれます。データ処理の詳細については、プライバシーポリシーを参照してください。"
+      }
+    }
+  },
+  "about": {
+    "badge": "私たちについて",
+    "title": "架け橋を構築",
+    "titleHighlight": "Web2とWeb3の間に",
+    "subtitle": "DFS SimuChainはブロックチェーン技術をすべての人にアクセス可能にするというミッションを持っています。",
+    "ourStory": {
+      "title": "私たちのストーリー",
+      "p1": "DFS SimuChainは単純な観察から生まれました：ブロックチェーン技術は革命的な可能性を持っているにもかかわらず、大多数のインターネットユーザーにはアクセスできないままでした。複雑なウォレット設定、紛らわしいシードフレーズ、技術的な専門用語が、多くの人々がWeb3の恩恵を受けることを妨げる障壁を作っていました。",
+      "p2": "私たちは自問しました：「透明性、トークン化、不変のレコードなど、ブロックチェーンのすべての利点を、複雑さなしに提供できたらどうだろう？」この質問がDFS SimuChainの誕生につながりました。これは、馴染みのある使いやすい技術を使用してブロックチェーンの概念を実現するWeb2シミュレーションです。",
+      "p3": "今日、DFS SimuChainはウォレットやエクスプローラーからソーシャルプラットフォームやDEXまで、成長するアプリケーションエコシステムを支えています。初めてブロックチェーンのような機能を体験している何千人ものユーザーにサービスを提供できることを誇りに思っています。"
+    },
+    "stats": {
+      "activeUsers": "アクティブユーザー",
+      "dappsBuilt": "構築されたdApps",
+      "transactions": "トランザクション",
+      "countries": "国"
+    },
+    "ourVision": {
+      "title": "私たちのビジョン",
+      "subtitle": "私たちが目指すところ",
+      "quote": "ブロックチェーン技術がメールと同じくらい簡単に使える世界を作り、誰もがトークンエコノミーに参加でき、分散化の恩恵がすべての人にアクセス可能な世界を実現すること。",
+      "futureTitle": "未来へのビジョン",
+      "p1": "私たちは、DFS SimuChainが何百万人ものユーザーがブロックチェーン技術を体験するためのゲートウェイとなる未来を思い描いています。クリエイターが自分の作品をトークン化し、企業がシームレスに暗号通貨支払いを受け入れ、コミュニティが透明に自己統治できる未来です。",
+      "p2": "私たちのロードマップには、ステーキング、ガバナンス、クロスチェーンブリッジ、エンタープライズソリューションなどの高度な機能が含まれています。しかし、私たちの核心的なミッションは変わりません：ブロックチェーンをすべての人にアクセス可能にすること。"
+    },
+    "values": {
+      "title": "私たちの価値観",
+      "subtitle": "私たちのすべての行動を導く原則",
+      "accessibility": {
+        "title": "アクセシビリティ",
+        "description": "技術的なバックグラウンドに関係なく、すべての人にブロックチェーン技術をアクセス可能にする。"
+      },
+      "security": {
+        "title": "セキュリティ",
+        "description": "あらゆる段階で資産とデータを保護するエンタープライズグレードのセキュリティ。"
+      },
+      "innovation": {
+        "title": "イノベーション",
+        "description": "最先端のソリューションを提供するために常に限界を押し広げる。"
+      },
+      "community": {
+        "title": "コミュニティ",
+        "description": "コミュニティを中心に据えて共に構築する。"
+      }
+    },
+    "journey": {
+      "title": "私たちの旅"
+    },
+    "milestones": {
+      "founded": { "title": "プロジェクト設立", "description": "DFS SimuChainのコンセプト開発" },
+      "coreDev": { "title": "コア開発", "description": "ブロックシステムとウォレットインフラの構築" },
+      "launch": { "title": "エコシステム立ち上げ", "description": "Metaface、DFSScan、Whitecreatorをローンチ" },
+      "dapps": { "title": "dAppsエコシステム", "description": "複数のコミュニティdAppsをローンチ" },
+      "expansion": { "title": "グローバル展開", "description": "世界中のユーザーへのサービス拡大" }
+    },
+    "team": {
+      "title": "私たちのチーム",
+      "subtitle": "DFS SimuChainの背後にいる情熱的な人々",
+      "roles": {
+        "ceo": "創業者 & CEO",
+        "cto": "CTO",
+        "leadDev": "リード開発者",
+        "communityLead": "コミュニティリード"
+      }
+    },
+    "cta": {
+      "title": "この旅に参加してください",
+      "subtitle": "DFS SimuChainコミュニティの一員となり、アクセス可能なブロックチェーン技術の未来を一緒に構築しましょう。",
+      "button1": "始める",
+      "button2": "チームに参加"
+    }
+  },
+  "contact": {
+    "badge": "お問い合わせ",
+    "title": "お問い合わせ",
+    "titleHighlight": "ください",
+    "subtitle": "質問がありますか？メッセージをお送りください。できるだけ早く返信いたします。",
+    "form": {
+      "title": "メッセージを送る",
+      "name": "お名前",
+      "namePlaceholder": "山田太郎",
+      "email": "メールアドレス",
+      "emailPlaceholder": "taro@example.com",
+      "category": "カテゴリ",
+      "subject": "件名",
+      "subjectPlaceholder": "どのようにお手伝いできますか？",
+      "message": "メッセージ",
+      "messagePlaceholder": "お問い合わせ内容を詳しくお聞かせください...",
+      "send": "メッセージを送信",
+      "sending": "送信中..."
+    },
+    "methods": {
+      "email": {
+        "title": "メールでのお問い合わせ",
+        "description": "いつでもメールをお送りください"
+      }
+    },
+    "categories": {
+      "general": "一般的なお問い合わせ",
+      "technical": "技術サポート",
+      "partnership": "パートナーシップ",
+      "bugReport": "バグ報告",
+      "feature": "機能リクエスト",
+      "tokenApproval": "トークン承認",
+      "other": "その他"
+    },
+    "success": {
+      "title": "メッセージが送信されました！",
+      "message": "お問い合わせいただきありがとうございます。24〜48時間以内にご連絡いたします。",
+      "sendAnother": "別のメッセージを送信"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "wallet": {
+        "question": "ウォレットを作成するにはどうすればいいですか？",
+        "answer": "metaface.dfsscan.comにアクセスし、メールアドレスでサインアップしてください。ウォレットは自動的に作成されます。"
+      },
+      "tokens": {
+        "question": "DFSトークンを入手するにはどうすればいいですか？",
+        "answer": "DEX（WEXSWAP）を通じてDFSトークンを取得するか、コミュニティイベントやエアドロップに参加できます。"
+      },
+      "publish": {
+        "question": "DRC20トークンを発行するにはどうすればいいですか？",
+        "answer": "drc20.dfsscan.comのWhitecreatorプラットフォームを使用して、独自のトークンを作成・発行できます。"
+      },
+      "approval": {
+        "question": "トークン承認プロセスとは何ですか？",
+        "answer": "トークンを作成後、審査プロセスを経ます。承認されたトークンはネットワーク全体で取引に使用できます。"
+      }
+    },
+    "social": {
+      "title": "コミュニティに参加",
+      "subtitle": "最新のニュースやお知らせをフォローしてください。"
+    },
+    "responseTime": {
+      "title": "返信時間",
+      "message": "通常、24〜48時間以内にすべてのお問い合わせに返信いたします。緊急の場合は、Telegramコミュニティからお問い合わせください。"
+    },
+    "quickAnswers": {
+      "title": "クイック回答",
+      "subtitle": "FAQで即座に回答を確認"
+    }
+  },
+  "careers": {
+    "badge": "チームに参加",
+    "title": "未来を構築",
+    "titleHighlight": "私たちと一緒にWeb3の",
+    "subtitle": "ブロックチェーン技術をすべての人にアクセス可能にする情熱的なチームに参加してください。",
+    "viewPositions": "募集中のポジションを見る",
+    "whyJoin": {
+      "title": "なぜDFS SimuChainに参加するのか？",
+      "subtitle": "単なる仕事以上のもの - 技術の未来を形作るチャンスを提供します。",
+      "remoteFirst": {
+        "title": "リモートファースト",
+        "description": "世界中どこからでも働けます。才能に国境はないと信じています。"
+      },
+      "flexibleHours": {
+        "title": "フレキシブルな時間",
+        "description": "時間より結果を重視。最も生産的な時に働いてください。"
+      },
+      "learningBudget": {
+        "title": "学習予算",
+        "description": "コース、カンファレンス、専門能力開発のための年間予算。"
+      },
+      "healthWellness": {
+        "title": "健康とウェルネス",
+        "description": "包括的な健康保険とウェルネスプログラム。"
+      },
+      "innovationTime": {
+        "title": "イノベーション時間",
+        "description": "個人プロジェクトと実験的なアイデアのための20%の時間。"
+      },
+      "teamEvents": {
+        "title": "チームイベント",
+        "description": "定期的なバーチャルおよび対面でのチーム集会とリトリート。"
+      }
+    },
+    "openPositions": {
+      "title": "募集中のポジション",
+      "available": "件の募集中ポジション",
+      "apply": "今すぐ応募"
+    },
+    "hiringProcess": {
+      "title": "採用プロセス",
+      "subtitle": "シンプル、透明、そしてあなたの時間を尊重",
+      "step1": { "title": "応募", "description": "履歴書を提出" },
+      "step2": { "title": "スクリーニング", "description": "初期審査とスクリーニングコール" },
+      "step3": { "title": "面接", "description": "技術面接とカルチャーフィット面接" },
+      "step4": { "title": "オファー", "description": "オファーを受け取り、承諾" }
+    },
+    "cta": {
+      "title": "適切なポジションが見つかりませんか？",
+      "subtitle": "常に才能ある個人を探しています。履歴書を送って、どのように貢献したいかを教えてください。",
+      "button": "連絡する"
+    }
+  },
+  "partners": {
+    "badge": "パートナーシッププログラム",
+    "title": "パートナーになる",
+    "titleHighlight": "DFS SimuChainの",
+    "subtitle": "イノベーターのエコシステムに参加し、アクセス可能なブロックチェーン技術の未来を一緒に構築しましょう。",
+    "becomePartner": "パートナーになる",
+    "learnMore": "詳しく見る",
+    "ourPartners": {
+      "title": "私たちのパートナー",
+      "subtitle": "業界リーダーと協力して卓越した価値を提供"
+    },
+    "categories": {
+      "technology": {
+        "title": "テクノロジーパートナー",
+        "description": "明日のインフラを構築"
+      },
+      "strategic": {
+        "title": "戦略的パートナー",
+        "description": "エコシステムを一緒に拡大"
+      },
+      "integration": {
+        "title": "統合パートナー",
+        "description": "プラットフォーム間のシームレスな接続"
+      }
+    },
+    "types": {
+      "infrastructure": "インフラ",
+      "security": "セキュリティ",
+      "dataAnalytics": "データ分析",
+      "integration": "統合",
+      "investment": "投資",
+      "rd": "研究開発",
+      "consulting": "コンサルティング",
+      "marketing": "マーケティング",
+      "payments": "決済",
+      "authentication": "認証",
+      "realtimeData": "リアルタイムデータ",
+      "storage": "ストレージ"
+    },
+    "benefitsSection": {
+      "title": "パートナーシップの特典",
+      "subtitle": "DFS SimuChainとパートナーになると得られるもの"
+    },
+    "benefits": {
+      "globalReach": { "title": "グローバルリーチ", "description": "50以上の国で成長するユーザーベースにアクセス" },
+      "apiAccess": { "title": "APIアクセス", "description": "完全なAPIドキュメントと開発者サポート" },
+      "revenueShare": { "title": "収益分配", "description": "資格のあるパートナーへの競争力のある収益分配" },
+      "coMarketing": { "title": "共同マーケティング", "description": "共同マーケティングの機会とブランド露出" },
+      "prioritySupport": { "title": "優先サポート", "description": "専任のパートナーサクセスマネージャーとサポート" },
+      "earlyAccess": { "title": "早期アクセス", "description": "一般公開前に新機能をプレビュー" }
+    },
+    "tiersSection": {
+      "title": "パートナーティア",
+      "subtitle": "あなたに適したパートナーシップレベルを選択"
+    },
+    "tierNames": {
+      "bronze": "ブロンズ",
+      "silver": "シルバー",
+      "gold": "ゴールド",
+      "platinum": "プラチナ"
+    },
+    "tierFeatures": {
+      "apiAccess": "APIアクセス",
+      "basicSupport": "基本サポート",
+      "partnerBadge": "パートナーバッジ",
+      "documentation": "ドキュメント",
+      "allBronze": "全ブロンズ特典",
+      "coMarketing": "共同マーケティング",
+      "prioritySupport": "優先サポート",
+      "quarterlyReviews": "四半期レビュー",
+      "allSilver": "全シルバー特典",
+      "revenueShare": "収益分配",
+      "earlyAccess": "早期アクセス",
+      "customIntegration": "カスタム統合",
+      "allGold": "全ゴールド特典",
+      "dedicatedManager": "専任マネージャー",
+      "strategicPlanning": "戦略計画",
+      "executiveAccess": "エグゼクティブアクセス"
+    },
+    "tiers": {
+      "mostPopular": "最も人気"
+    },
+    "stats": {
+      "activePartners": "アクティブパートナー",
+      "countriesReached": "到達国数",
+      "usersServed": "サービス提供ユーザー",
+      "uptimeSla": "稼働率SLA"
+    },
+    "cta": {
+      "title": "パートナーになる準備はできましたか？",
+      "subtitle": "相互の成功を達成するためにどのように協力できるか話し合いましょう。パートナー申請を提出していただければ、チームからご連絡いたします。",
+      "button": "今すぐ申請"
+    }
+  },
+  "newsletter": {
+    "badge": "ニュースレター",
+    "hero": {
+      "badge": "ニュースレター",
+      "title": "最新情報を",
+      "titleHighlight": "キャッチ",
+      "subtitle": "DFS SimuChainからの最新ニュース、アップデート、インサイトを受信トレイに直接お届けします。"
+    },
+    "emailPlaceholder": "メールアドレスを入力",
+    "privacyNote": "プライバシーを尊重します。いつでも登録解除できます。",
+    "whatYouGet": {
+      "title": "受け取れるもの",
+      "subtitle": "毎週届く価値あるコンテンツ"
+    },
+    "features": {
+      "productUpdates": { "title": "製品アップデート", "description": "新機能、改善、プラットフォームの更新を最初にお知らせします。" },
+      "tipsTutorials": { "title": "ヒントとチュートリアル", "description": "役立つガイドとチュートリアルでDFS SimuChainを最大限に活用する方法を学びましょう。" },
+      "eventAnnouncements": { "title": "イベント告知", "description": "独占イベント、AMA、コミュニティミートアップへの招待を受け取りましょう。" },
+      "exclusiveOffers": { "title": "限定オファー", "description": "特別プロモーション、エアドロップ、早期アクセスの機会を得ましょう。" }
+    },
+    "preferences": {
+      "title": "好みをカスタマイズ",
+      "subtitle": "受け取りたいコンテンツを選択",
+      "updates": { "label": "製品アップデート", "description": "新機能と改善" },
+      "tutorials": { "label": "ヒントとチュートリアル", "description": "ガイドとハウツーコンテンツ" },
+      "events": { "label": "イベントとニュース", "description": "コミュニティイベントとお知らせ" },
+      "community": { "label": "コミュニティハイライト", "description": "注目プロジェクトと成功事例" }
+    },
+    "recent": {
+      "title": "最近のニュースレター",
+      "subtitle": "受け取れるもののサンプル"
+    },
+    "past": {
+      "payviner": {
+        "title": "Payviner紹介：クリプトで支払い",
+        "excerpt": "新しい決済システムが間もなく登場します。DFSトークンでの支払い方法をご紹介..."
+      },
+      "yearReview": {
+        "title": "DFS SimuChain年間レビュー",
+        "excerpt": "成長、新機能、コミュニティの成果に満ちた素晴らしい一年を振り返ります..."
+      },
+      "dappsUpdate": {
+        "title": "新dAppsエコシステムアップデート",
+        "excerpt": "エコシステムに5つの新しいdAppsを追加しました。新着情報と使い方をご紹介..."
+      },
+      "staking": {
+        "title": "ステーキングプログラム開始",
+        "excerpt": "DFSトークンをステーキングして報酬を獲得しましょう。知っておくべきすべて..."
+      }
+    },
+    "stats": {
+      "subscribers": "購読者",
+      "sent": "送信済みニュースレター",
+      "openRate": "開封率"
+    },
+    "success": {
+      "title": "登録完了！",
+      "welcome": "DFS SimuChainニュースレターへようこそ！確認メールを送信しました：",
+      "checkInbox": "受信トレイ（とスパムフォルダ）を確認して登録を確認してください。",
+      "subscribeAnother": "別のメールを登録"
+    },
+    "cta": {
+      "title": "お見逃しなく",
+      "subtitle": "毎週のアップデートで先を行く何千人もの購読者に参加しましょう。"
+    }
+  },
+  "feedback": {
+    "hero": {
+      "badge": "改善にご協力ください",
+      "title": "フィードバックを",
+      "titleHighlight": "共有",
+      "subtitle": "あなたのアイデアとバグレポートは、より良いプラットフォームを構築するのに役立ちます。すべてのフィードバックはチームによってレビューされます。"
+    },
+    "typeQuestion": "どのようなフィードバックですか？",
+    "types": {
+      "suggestion": { "title": "機能の提案", "description": "新機能や改善を提案" },
+      "bug": { "title": "バグレポート", "description": "動作しないものを報告" },
+      "other": { "title": "一般的なフィードバック", "description": "あなたの考えと経験を共有" }
+    },
+    "form": {
+      "title": "タイトル",
+      "bugPlaceholder": "問題の簡単な説明",
+      "ideaPlaceholder": "あなたのアイデアは？",
+      "category": "カテゴリ",
+      "description": "説明",
+      "bugDescPlaceholder": "以下を説明してください:\n- 何が起こりましたか？\n- 何が起こると予想しましたか？\n- 問題を再現する手順",
+      "ideaDescPlaceholder": "アイデアやフィードバックを詳しく説明してください...",
+      "url": "問題が発生したURL（オプション）",
+      "priority": "優先度",
+      "email": "メール（オプション）",
+      "emailNote": "フォローアップをご希望の場合はメールをご記入ください。"
+    },
+    "priority": {
+      "low": "低 - 軽微な問題、ブロックなし",
+      "medium": "中 - 面倒だが使える",
+      "high": "高 - 使用に大きな影響",
+      "critical": "重大 - 機能が全く使えない"
+    },
+    "categories": {
+      "general": "一般",
+      "wallet": "ウォレット（Metaface）",
+      "explorer": "エクスプローラー（DFSScan）",
+      "dapps": "dApps",
+      "website": "このウェブサイト"
+    },
+    "submit": "フィードバックを送信",
+    "success": {
+      "title": "ありがとうございます！",
+      "message": "フィードバックが正常に送信されました。DFS SimuChainの改善にご協力いただきありがとうございます。",
+      "submitAnother": "別のフィードバックを送信"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "howUsed": { "question": "フィードバックはどのように使用されますか？", "answer": "すべてのフィードバックはチームによってレビューされます。機能の提案はロードマップの検討に入り、バグレポートは影響に基づいて優先順位付けされます。" },
+      "response": { "question": "返信はもらえますか？", "answer": "メールを提供いただいた場合、詳細の確認やフィードバックの状況をお知らせするために連絡することがあります。" },
+      "anonymous": { "question": "匿名で送信できますか？", "answer": "はい！メールフィールドはオプションです。連絡先情報なしでフィードバックを送信できます。" }
+    }
+  },
+  "referral": {
+    "badge": "近日公開",
+    "title": "友達を紹介。",
+    "titleHighlight": "報酬を獲得。",
+    "subtitle": "DFS SimuChainを友達と共有し、紹介が成功するたびにDFSトークンを獲得しましょう。シェアすればするほど、稼げます。",
+    "getEarlyAccess": "早期アクセスを取得",
+    "emailPlaceholder": "メールを入力",
+    "benefits": {
+      "title": "なぜ紹介プログラムに参加するのか？",
+      "subtitle": "ネットワークをパッシブ収入に変える",
+      "earnTokens": { "title": "DFSトークンを獲得", "description": "紹介するすべてのユーザーに対してDFSトークンで報酬を受け取ります。" },
+      "tieredRewards": { "title": "ティア報酬", "description": "より多くのユーザーを紹介するほど、より高い報酬ティアをアンロック。" },
+      "passiveIncome": { "title": "パッシブ収入", "description": "紹介がアクティブな場合、継続的な報酬を獲得。" },
+      "bonusRewards": { "title": "ボーナス報酬", "description": "特別ボーナスキャンペーンと季節報酬。" }
+    },
+    "howItWorks": {
+      "title": "仕組み",
+      "subtitle": "4つの簡単なステップで稼ぎ始める",
+      "step1": { "title": "リンクを取得", "description": "ダッシュボードからユニークな紹介リンクを生成。" },
+      "step2": { "title": "友達とシェア", "description": "ソーシャルメディアや友達とリンクを共有。" },
+      "step3": { "title": "友達が登録", "description": "あなたのリンクを使って誰かが登録すると、彼らはあなたの紹介になります。" },
+      "step4": { "title": "報酬を獲得", "description": "紹介がアクションを完了するとDFSトークンを受け取ります。" }
+    },
+    "tiers": {
+      "title": "報酬ティア",
+      "subtitle": "紹介するほど稼げる",
+      "starter": "スターター",
+      "bronze": "ブロンズ",
+      "silver": "シルバー",
+      "gold": "ゴールド",
+      "platinum": "プラチナ"
+    },
+    "table": {
+      "tier": "ティア",
+      "referrals": "紹介数",
+      "perReferral": "紹介ごと",
+      "tierBonus": "ティアボーナス"
+    },
+    "success": {
+      "message": "リストに追加されました！プログラムがローンチしたらお知らせします。"
+    },
+    "comingFeatures": {
+      "title": "今後の機能",
+      "customLinks": { "title": "カスタム紹介リンク", "description": "カスタムスラッグでパーソナライズされた紹介リンクを作成。" },
+      "analytics": { "title": "分析ダッシュボード", "description": "紹介、コンバージョン、収益をリアルタイムで追跡。" },
+      "leaderboard": { "title": "リーダーボード", "description": "他の紹介者と競い合い、月間限定賞品を獲得。" }
+    },
+    "cta": {
+      "title": "最初に知る",
+      "subtitle": "ウェイトリストに参加して、紹介プログラムがローンチしたら通知を受け取りましょう。早期登録者にはボーナス報酬があるかも！",
+      "button": "ウェイトリストに参加"
+    }
+  },
+  "events": {
+    "badge": "近日公開",
+    "title": "DFS SimuChain",
+    "titleHighlight": "イベント",
+    "subtitle": "コミュニティイベント、AMA、ワークショップなどに参加しましょう。つながり続け、最高から学びましょう。",
+    "notifyMe": "通知を受け取る",
+    "emailPlaceholder": "メールを入力",
+    "upcoming": {
+      "title": "今後の機能",
+      "amas": { "title": "ライブAMA", "description": "チームとの直接Q&Aセッション" },
+      "workshops": { "title": "ワークショップ", "description": "DFS SimuChainでの構築を学ぶ" },
+      "meetups": { "title": "コミュニティミートアップ", "description": "他のコミュニティメンバーとつながる" },
+      "hackathons": { "title": "ハッカソン", "description": "構築して賞を獲得" }
+    },
+    "success": {
+      "message": "イベントが発表されたら通知されます！"
+    }
+  },
+  "governance": {
+    "badge": "近日公開",
+    "title": "DFS SimuChain",
+    "titleHighlight": "ガバナンス",
+    "subtitle": "あなたの声を届けましょう。分散型ガバナンスを通じてDFS SimuChainの未来を形作ることに参加してください。",
+    "notifyMe": "通知を受け取る",
+    "emailPlaceholder": "メールを入力",
+    "howItWorks": {
+      "title": "仕組み",
+      "step1": { "title": "DFSトークンを保持", "description": "投票力はDFS保有量に基づきます" },
+      "step2": { "title": "提案をレビュー", "description": "コミュニティ提案を閲覧して議論" },
+      "step3": { "title": "投票", "description": "重要な提案に投票" },
+      "step4": { "title": "未来を形作る", "description": "あなたの決定が実現するのを見守る" }
+    },
+    "votingPower": {
+      "title": "投票力ティア"
+    },
+    "success": {
+      "message": "ガバナンスがローンチしたら通知されます！"
+    }
+  },
+  "payviner": {
+    "hero": {
+      "tagline": "暗号通貨決済をシンプルに",
+      "subtitle": "DFS SimuChainのPayPal。数行のコードでアプリケーションにDFSトークン決済を導入できます。高速、安全、開発者フレンドリー。"
+    },
+    "waitlist": {
+      "title": "ウェイトリストに参加",
+      "subtitle": "Payvinerを統合する最初の加盟店の一員になりましょう",
+      "emailPlaceholder": "メールアドレスを入力",
+      "button": "参加する"
+    },
+    "stats": {
+      "transactionTime": "取引時間",
+      "transactionFee": "取引手数料",
+      "globalReach": "グローバルリーチ"
+    },
+    "howItWorks": {
+      "title": "Payvinerの仕組み",
+      "subtitle": "加盟店と顧客の両方にシンプルな決済フロー"
+    },
+    "flow": {
+      "customer": "顧客",
+      "wantsToPay": "支払いたい",
+      "processesPayment": "決済処理",
+      "merchant": "加盟店",
+      "receivesDfs": "DFSを受け取る"
+    },
+    "whyChoose": {
+      "title": "なぜPayvinerを選ぶのか？",
+      "subtitle": "現代のウェブのために構築、DFS SimuChainで動作"
+    },
+    "useCasesSection": {
+      "title": "ユースケース",
+      "subtitle": "暗号通貨決済を受け入れたいあらゆるビジネスに対応"
+    },
+    "integration": {
+      "title": "シンプルな統合",
+      "subtitle": "最小限のコードでPayvinerをアプリに追加"
+    },
+    "cta": {
+      "title": "暗号通貨決済を受け入れる準備はできましたか？",
+      "subtitle": "ウェイトリストに参加してPayvinerのローンチ通知を受け取りましょう。早期導入者には特別な特典と優先サポートがあります。",
+      "contactSales": "営業に連絡"
+    },
+    "features": {
+      "instantPayments": { "title": "即時決済", "description": "DFSトークンで数秒で決済処理。銀行振込を待つ必要はありません。" },
+      "secureTransactions": { "title": "安全な取引", "description": "DFS SimuChainに記録された暗号化された取引によるエンタープライズグレードのセキュリティ。" },
+      "easyIntegration": { "title": "簡単な統合", "description": "開発者向けのシンプルなAPIとSDK。数日ではなく数分で統合。" },
+      "globalReach": { "title": "グローバルリーチ", "description": "通貨換算手数料なしで世界中から決済を受け付け。" },
+      "lowFees": { "title": "低手数料", "description": "従来の決済処理と比較して最小限の取引手数料。" },
+      "refundSupport": { "title": "返金サポート", "description": "加盟店と顧客を保護する組み込みの返金メカニズム。" }
+    },
+    "useCases": {
+      "ecommerce": { "title": "Eコマース", "description": "オンラインストアにDFS決済オプションを追加" },
+      "mobileApps": { "title": "モバイルアプリ", "description": "DFSでのアプリ内購入とサブスクリプション" },
+      "posSystems": { "title": "POSシステム", "description": "実店舗でDFS決済を受け付け" },
+      "saas": { "title": "SaaSプラットフォーム", "description": "暗号通貨決済によるサブスクリプション課金" }
+    },
+    "steps": {
+      "signUp": { "title": "サインアップ", "description": "Payviner加盟店アカウントを作成" },
+      "getApiKeys": { "title": "APIキーを取得", "description": "固有のAPI認証情報を受け取る" },
+      "integrate": { "title": "統合", "description": "アプリケーションにPayvinerを追加" },
+      "acceptPayments": { "title": "決済を受け付け", "description": "DFS決済の受け付けを開始" }
+    },
+    "success": {
+      "message": "ウェイトリストに追加されました！Payvinerがローンチしたらお知らせします。"
+    }
+  },
+  "privacy": {
+    "title": "プライバシー",
+    "titleHighlight": "ポリシー",
+    "lastUpdated": "最終更新日"
+  },
+  "terms": {
+    "title": "利用",
+    "titleHighlight": "規約",
+    "lastUpdated": "最終更新日"
+  },
+  "cookies": {
+    "title": "クッキー",
+    "titleHighlight": "ポリシー",
+    "lastUpdated": "最終更新日",
+    "noteLabel": "注意",
+    "note": "DFS SimuChainを使用することで、このポリシーに記載されているクッキーの使用に同意したことになります。ブラウザの設定からいつでも設定を管理できます。",
+    "sections": {
+      "whatAreCookies": {
+        "title": "1. クッキーとは？",
+        "content": "クッキーは、ウェブサイトを訪問した際にお使いのデバイス（コンピューター、タブレット、モバイル）に保存される小さなテキストファイルです。クッキーはウェブサイトをより効率的に機能させ、ウェブサイト所有者に情報を提供するために広く使用されています。\n\nクッキーにより、ウェブサイトはお使いのデバイスを認識し、設定やプリファレンスなど、訪問に関する特定の情報を記憶することができます。"
+      },
+      "howWeUse": {
+        "title": "2. クッキーの使用方法",
+        "content": "DFS SimuChainは、以下の目的でクッキーおよび類似の技術を使用しています：\n\n**必須クッキー**\nこれらのクッキーはウェブサイトが正常に機能するために必要です。\n\n**パフォーマンスクッキー**\nこれらのクッキーは、訪問者がウェブサイトとどのようにやり取りするかを理解するのに役立ちます。\n\n**機能性クッキー**\nこれらのクッキーにより、ウェブサイトはあなたの選択を記憶することができます。\n\n**分析クッキー**\n当社のサービスをどのように使用しているかを理解するために分析クッキーを使用しています。"
+      },
+      "typesOfCookies": {
+        "title": "3. 使用するクッキーの種類",
+        "content": "**セッションクッキー**\nブラウザを閉じると期限切れになる一時的なクッキー。\n\n**永続クッキー**\n設定された期間、デバイスに残るクッキー。\n\n**ファーストパーティクッキー**\nDFS SimuChainが直接設定するクッキー。\n\n**サードパーティクッキー**\n当社が使用するサードパーティサービスによって設定されるクッキー。"
+      },
+      "specificCookies": {
+        "title": "4. 使用する特定のクッキー",
+        "content": "• **theme_preference** - ライト/ダークモードの設定を保存\n• **session_id** - ログインセッションを維持\n• **analytics_id** - 匿名の使用状況分析に使用\n• **consent_status** - クッキー同意の選択を記憶\n• **language** - 言語設定を保存"
+      },
+      "managingCookies": {
+        "title": "5. クッキーの管理",
+        "content": "クッキーを受け入れるか拒否するかを決定する権利があります。ブラウザの設定またはウェブサイトの設定を通じてクッキーの設定を管理できます。"
+      },
+      "cookieRetention": {
+        "title": "6. クッキーの保持期間",
+        "content": "• **セッションクッキー**：ブラウザを閉じると削除\n• **設定クッキー**：1年間保持\n• **分析クッキー**：最大2年間保持\n• **必須クッキー**：セッション期間中保持"
+      },
+      "updates": {
+        "title": "7. このポリシーの更新",
+        "content": "当社の慣行の変更、またはその他の運用上、法的、または規制上の理由により、このクッキーポリシーを随時更新する場合があります。"
+      },
+      "contactUs": {
+        "title": "8. お問い合わせ",
+        "content": "クッキーの使用またはこのクッキーポリシーについてご質問がある場合は、お問い合わせください：\n\n**メール：** privacy@dfsscan.com\n**ウェブサイト：** https://dfsscan.com/contact"
+      }
+    }
+  },
+  "community": {
+    "badge": "つながろう",
+    "title": "私たちの",
+    "titleHighlight": "コミュニティに参加",
+    "subtitle": "すべてのプラットフォームでDFS SimuChainとつながり続けましょう。アップデートを受け取り、議論に参加し、成長するエコシステムの一部になりましょう。",
+    "followers": "フォロワー",
+    "follow": "フォロー",
+    "socials": {
+      "twitter": {
+        "description": "最新ニュース、アップデート、お知らせをフォローしてください。"
+      },
+      "telegram": {
+        "description": "議論やサポートのためのアクティブなコミュニティチャットに参加しましょう。"
+      },
+      "discord": {
+        "description": "開発者とつながり、サポートを受け、イベントに参加しましょう。"
+      },
+      "github": {
+        "description": "オープンソースリポジトリを探索し、開発に貢献しましょう。"
+      },
+      "youtube": {
+        "description": "チュートリアル、デモ、コミュニティハイライトを視聴しましょう。"
+      },
+      "medium": {
+        "description": "詳細な記事、ガイド、技術的な深堀りを読みましょう。"
+      },
+      "reddit": {
+        "description": "議論に参加し、アイデアを共有し、コミュニティの最新情報を入手しましょう。"
+      },
+      "linkedin": {
+        "description": "プロフェッショナルにつながり、キャリアの機会を探索しましょう。"
+      }
+    },
+    "stats": {
+      "title": "成長するコミュニティ",
+      "subtitle": "DFS SimuChainで構築している何千人ものユーザーと開発者に参加",
+      "totalCommunity": "総コミュニティ",
+      "activeDevelopers": "アクティブ開発者",
+      "dappsBuilt": "構築されたdApps",
+      "countries": "国"
+    },
+    "newsletter": {
+      "title": "最新情報を入手",
+      "subtitle": "毎週のアップデート、お知らせ、コミュニティハイライトのニュースレターに登録してください。",
+      "emailPlaceholder": "メールを入力"
+    }
+  },
+  "privacyPolicy": {
+    "badge": "法的事項",
+    "title": "プライバシー",
+    "titleHighlight": "ポリシー",
+    "lastUpdated": "最終更新日"
+  },
+  "termsOfUse": {
+    "badge": "法的事項",
+    "title": "利用",
+    "titleHighlight": "規約",
+    "lastUpdated": "最終更新日"
+  },
+  "errors": {
+    "notFound": "ページが見つかりません",
+    "notFoundMessage": "お探しのページは存在しないか、移動されました。",
+    "goBack": "戻る",
+    "goHome": "ホームへ"
+  },
+  "careers": {
+    "hero": {
+      "badge": "チームに参加",
+      "title": "Web3の未来を",
+      "titleHighlight": "一緒に築こう",
+      "subtitle": "ブロックチェーン技術をすべての人に届けることに情熱を持つチームに参加しませんか。私たちのビジョンを共有する才能ある人材を常に求めています。",
+      "viewPositions": "募集職種を見る"
+    },
+    "whyJoin": {
+      "title": "DFS SimuChainに参加する理由",
+      "subtitle": "単なる仕事以上のもの - テクノロジーの未来を形作るチャンスを提供します。"
+    },
+    "benefits": {
+      "remoteFirst": { "title": "リモートファースト", "description": "世界中どこからでも働けます" },
+      "flexibleHours": { "title": "フレックスタイム", "description": "最も生産性が高い時間に働けます" },
+      "learningBudget": { "title": "学習予算", "description": "コースやカンファレンスのための年間予算" },
+      "healthWellness": { "title": "健康と福利厚生", "description": "充実した健康保険" },
+      "innovationTime": { "title": "イノベーションタイム", "description": "個人プロジェクトのための20%時間" },
+      "teamEvents": { "title": "チームイベント", "description": "定期的なオンライン・オフラインミーティング" }
+    },
+    "values": {
+      "title": "私たちの信念",
+      "belief1": "ブロックチェーンはすべての人がアクセスできるべき",
+      "belief2": "すべての行動において透明性を重視する",
+      "belief3": "品質を維持しながら迅速に進む",
+      "belief4": "お互いの成長をサポートする",
+      "belief5": "思考とバックグラウンドの多様性を大切にする"
+    },
+    "openPositions": {
+      "title": "募集中のポジション",
+      "available": "件の募集があります"
+    },
+    "positions": {
+      "seniorBackend": { "title": "シニアバックエンドエンジニア", "department": "エンジニアリング", "description": "スケーラブルなブロックチェーンインフラを構築" },
+      "frontendDev": { "title": "フロントエンドエンジニア", "department": "エンジニアリング", "description": "美しいユーザー体験を創造" },
+      "productDesigner": { "title": "プロダクトデザイナー", "department": "デザイン", "description": "Web3インターフェースの未来をデザイン" },
+      "communityManager": { "title": "コミュニティマネージャー", "department": "マーケティング", "description": "グローバルコミュニティの成長と活性化" },
+      "technicalWriter": { "title": "テクニカルライター", "department": "ドキュメント", "description": "明確で役立つドキュメントを作成" },
+      "devOps": { "title": "DevOpsエンジニア", "department": "インフラ", "description": "インフラの維持とスケーリング" }
+    },
+    "remote": "リモート",
+    "fullTime": "フルタイム",
+    "partTime": "パートタイム",
+    "applyNow": "応募する",
+    "hiring": {
+      "title": "採用プロセス",
+      "subtitle": "シンプル、透明、あなたの時間を尊重します",
+      "apply": { "title": "応募", "description": "申請書と履歴書を提出" },
+      "screen": { "title": "スクリーニング", "description": "初期レビューと電話面談" },
+      "interview": { "title": "面接", "description": "技術面接とカルチャーフィット面接" },
+      "offer": { "title": "オファー", "description": "オファーを受け取り、承諾" }
+    },
+    "cta": {
+      "title": "適切な役割が見つかりませんか？",
+      "subtitle": "才能ある人材を常に探しています。履歴書を送り、どのように貢献したいか教えてください。",
+      "button": "お問い合わせ"
+    }
+  }
+}
+

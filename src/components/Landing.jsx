@@ -1,9 +1,11 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import "../css/Landing.css";
 
 const Landing = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <div className={`first-section px-4 sm:pl-8 md:pl-16 lg:pl-20 ${!isDark ? "first-section-light" : ""}`}>
@@ -14,10 +16,10 @@ const Landing = () => {
         }`}>
           <div className="w-2 h-2 bg-[#53EAA1] rounded-[50%]"></div>
           <div className={`text-[14px] leading-[24px] font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
-            LAYER 0{" "}
+            {t('landing.status.layer0')}{" "}
             <span className={`text-[14px] leading-[24px] ${isDark ? "text-[#C4C5CB]" : "text-gray-500"}`}>
               {" "}
-              IS LIVE
+              {t('landing.status.isLive')}
             </span>
           </div>
         </div>
@@ -29,7 +31,7 @@ const Landing = () => {
 
         {/* Sub Heading */}
         <p className={`text-2xl sm:text-5xl font-space text-start max-w-3xl ${isDark ? "text-white" : "text-gray-900"}`}>
-          Harnessing Cecentralization to Make the Impossible Possible
+          {t('landing.hero.subtitle')}
         </p>
 
         {/* Buttons */}
@@ -39,14 +41,14 @@ const Landing = () => {
               ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
               : "bg-gray-900 text-white hover:bg-gray-800"
           }`}>
-            Issue Coin
+            {t('landing.hero.issueCoin')}
           </button>
           <button className={`font-space w-full bg-transparent border-2 py-2 px-6 rounded-lg transition duration-300 ${
             isDark 
               ? "text-slate-300 border-white hover:bg-white hover:text-black" 
               : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
           }`}>
-            Contact Us
+            {t('common.contactUs')}
           </button>
         </div>
       </div>

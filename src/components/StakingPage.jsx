@@ -12,11 +12,13 @@ import {
 } from "react-icons/hi";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const StakingPage = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const [showComingSoon, setShowComingSoon] = useState(false);
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -38,34 +40,34 @@ const StakingPage = () => {
 
   const stakingTiers = [
     {
-      name: "Starter",
+      nameKey: "staking.tierNames.starter",
       minStake: "100",
       apy: "8%",
-      lockPeriod: "30 days",
+      lockPeriodKey: "staking.lockPeriods.30days",
       color: "from-gray-600 to-gray-500",
       popular: false,
     },
     {
-      name: "Growth",
+      nameKey: "staking.tierNames.growth",
       minStake: "1,000",
       apy: "12%",
-      lockPeriod: "90 days",
+      lockPeriodKey: "staking.lockPeriods.90days",
       color: "from-blue-600 to-cyan-500",
       popular: false,
     },
     {
-      name: "Premium",
+      nameKey: "staking.tierNames.premium",
       minStake: "10,000",
       apy: "18%",
-      lockPeriod: "180 days",
+      lockPeriodKey: "staking.lockPeriods.180days",
       color: "from-[#21f201] to-emerald-400",
       popular: true,
     },
     {
-      name: "Elite",
+      nameKey: "staking.tierNames.elite",
       minStake: "50,000",
       apy: "25%",
-      lockPeriod: "365 days",
+      lockPeriodKey: "staking.lockPeriods.365days",
       color: "from-purple-600 to-pink-500",
       popular: false,
     },
@@ -74,26 +76,26 @@ const StakingPage = () => {
   const steps = [
     {
       number: "01",
-      title: "Connect Wallet",
-      description: "Connect your Metaface wallet to the DFS Staking platform securely.",
+      titleKey: "staking.steps.connectWallet.title",
+      descriptionKey: "staking.steps.connectWallet.description",
       icon: HiOutlineLockClosed,
     },
     {
       number: "02",
-      title: "Choose Amount",
-      description: "Select how many DFS tokens you want to stake and pick your tier.",
+      titleKey: "staking.steps.chooseAmount.title",
+      descriptionKey: "staking.steps.chooseAmount.description",
       icon: HiOutlineCurrencyDollar,
     },
     {
       number: "03",
-      title: "Select Lock Period",
-      description: "Choose your preferred lock period. Longer periods earn higher rewards.",
+      titleKey: "staking.steps.selectLockPeriod.title",
+      descriptionKey: "staking.steps.selectLockPeriod.description",
       icon: HiOutlineClock,
     },
     {
       number: "04",
-      title: "Start Earning",
-      description: "Confirm your stake and start earning rewards automatically.",
+      titleKey: "staking.steps.startEarning.title",
+      descriptionKey: "staking.steps.startEarning.description",
       icon: HiOutlineLightningBolt,
     },
   ];
@@ -101,54 +103,54 @@ const StakingPage = () => {
   const features = [
     {
       icon: HiOutlineShieldCheck,
-      title: "Secure Staking",
-      description: "Your tokens are secured by DFS Chain's robust smart contract infrastructure.",
+      titleKey: "staking.features.secureStaking.title",
+      descriptionKey: "staking.features.secureStaking.description",
     },
     {
       icon: HiOutlineChartBar,
-      title: "Competitive APY",
-      description: "Earn up to 25% APY on your staked DFS tokens with our tiered reward system.",
+      titleKey: "staking.features.competitiveApy.title",
+      descriptionKey: "staking.features.competitiveApy.description",
     },
     {
       icon: HiOutlineClock,
-      title: "Flexible Terms",
-      description: "Choose from multiple lock periods to match your investment strategy.",
+      titleKey: "staking.features.flexibleTerms.title",
+      descriptionKey: "staking.features.flexibleTerms.description",
     },
     {
       icon: HiOutlineCurrencyDollar,
-      title: "Auto-Compound",
-      description: "Rewards are automatically compounded to maximize your earnings.",
+      titleKey: "staking.features.autoCompound.title",
+      descriptionKey: "staking.features.autoCompound.description",
     },
   ];
 
   const faqs = [
     {
-      question: "What is DFS Staking?",
-      answer: "DFS Staking allows you to lock your DFS tokens for a specified period to earn rewards. By staking, you contribute to the network's security while earning passive income.",
+      questionKey: "staking.faq.questions.whatIsStaking.question",
+      answerKey: "staking.faq.questions.whatIsStaking.answer",
     },
     {
-      question: "How are staking rewards calculated?",
-      answer: "Rewards are calculated based on your staked amount, chosen tier, and lock period. Higher tiers and longer lock periods offer better APY rates. Rewards are distributed daily and auto-compounded.",
+      questionKey: "staking.faq.questions.rewardsCalculated.question",
+      answerKey: "staking.faq.questions.rewardsCalculated.answer",
     },
     {
-      question: "Can I unstake early?",
-      answer: "Early unstaking is possible but will incur a penalty fee. We recommend choosing a lock period that aligns with your investment timeline to maximize rewards.",
+      questionKey: "staking.faq.questions.unstakeEarly.question",
+      answerKey: "staking.faq.questions.unstakeEarly.answer",
     },
     {
-      question: "What wallet do I need?",
-      answer: "You need a Metaface wallet connected to the DFS SimuChain network. You can create one at metaface.dfsscan.com if you don't have one already.",
+      questionKey: "staking.faq.questions.whatWallet.question",
+      answerKey: "staking.faq.questions.whatWallet.answer",
     },
     {
-      question: "When do I receive rewards?",
-      answer: "Staking rewards are calculated and distributed daily. They are automatically added to your staked balance through auto-compounding, maximizing your earning potential.",
+      questionKey: "staking.faq.questions.receiveRewards.question",
+      answerKey: "staking.faq.questions.receiveRewards.answer",
     },
   ];
 
   const stats = [
-    { value: "$12.5M+", label: "Total Value Locked" },
-    { value: "15,000+", label: "Active Stakers" },
-    { value: "25%", label: "Max APY" },
-    { value: "99.9%", label: "Uptime" },
+    { value: "$12.5M+", labelKey: "staking.stats.tvl" },
+    { value: "15,000+", labelKey: "staking.stats.activeStakers" },
+    { value: "25%", labelKey: "staking.stats.maxApy" },
+    { value: "99.9%", labelKey: "staking.stats.uptime" },
   ];
 
   return (
@@ -167,8 +169,8 @@ const StakingPage = () => {
               <HiOutlineClock className="w-5 h-5 text-[#21f201]" />
             </div>
             <div>
-              <p className={`font-bold ${isDark ? "text-white" : "text-gray-900"}`}>Coming Soon!</p>
-              <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>This feature is under development.</p>
+              <p className={`font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{t('common.comingSoon')}!</p>
+              <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t('staking.toast.underDevelopment')}</p>
             </div>
             <button 
               onClick={() => setShowComingSoon(false)}
@@ -197,18 +199,18 @@ const StakingPage = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[#21f201]/10 border border-[#21f201]/30 rounded-full px-4 py-2 mb-8">
               <span className="w-2 h-2 bg-[#21f201] rounded-full animate-pulse"></span>
-              <span className="text-[#21f201] text-sm font-medium">Staking is Live</span>
+              <span className="text-[#21f201] text-sm font-medium">{t('staking.badge')}</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Stake DFS,{" "}
+              {t('staking.hero.title')}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#21f201] to-emerald-400">
-                Earn Rewards
+                {t('staking.hero.titleHighlight')}
               </span>
             </h1>
             
             <p className={`text-xl mb-10 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Put your DFS tokens to work. Stake and earn up to 25% APY while helping secure the DFS SimuChain network.
+              {t('staking.hero.subtitle')}
             </p>
 
             {/* CTA Buttons */}
@@ -217,7 +219,7 @@ const StakingPage = () => {
                 onClick={handleComingSoon}
                 className="w-full sm:w-auto bg-[#21f201] text-black font-bold py-4 px-8 rounded-xl hover:bg-[#1ad901] transition-all duration-300 flex items-center justify-center gap-2 group"
               >
-                Start Staking
+                {t('staking.cta.startStaking')}
                 <HiOutlineArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button 
@@ -228,7 +230,7 @@ const StakingPage = () => {
                     : "border-gray-300 text-gray-900 hover:bg-gray-100"
                 }`}
               >
-                Learn More
+                {t('common.learnMore')}
               </button>
             </div>
 
@@ -241,7 +243,7 @@ const StakingPage = () => {
                     : "bg-white/80 border-gray-200 shadow-sm"
                 }`}>
                   <div className="text-3xl md:text-4xl font-bold text-[#21f201] mb-2">{stat.value}</div>
-                  <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{stat.label}</div>
+                  <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t(stat.labelKey)}</div>
                 </div>
               ))}
             </div>
@@ -254,10 +256,10 @@ const StakingPage = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How to <span className="text-[#21f201]">Stake</span>
+              {t('staking.howToStake.title')} <span className="text-[#21f201]">{t('staking.howToStake.titleHighlight')}</span>
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Start earning rewards in just a few simple steps
+              {t('staking.howToStake.subtitle')}
             </p>
           </div>
 
@@ -282,8 +284,8 @@ const StakingPage = () => {
                       </div>
                       <span className={`text-4xl font-bold ${isDark ? "text-gray-700" : "text-gray-300"}`}>{step.number}</span>
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{step.description}</p>
+                    <h3 className="text-xl font-bold mb-2">{t(step.titleKey)}</h3>
+                    <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t(step.descriptionKey)}</p>
                   </div>
                 </div>
               );
@@ -297,10 +299,10 @@ const StakingPage = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Staking <span className="text-[#21f201]">Tiers</span>
+              {t('staking.tiers.title')} <span className="text-[#21f201]">{t('staking.tiers.titleHighlight')}</span>
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Choose the tier that best fits your investment strategy
+              {t('staking.tiers.subtitle')}
             </p>
           </div>
 
@@ -320,7 +322,7 @@ const StakingPage = () => {
                 {tier.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-[#21f201] text-black text-xs font-bold px-4 py-1 rounded-full">
-                      MOST POPULAR
+                      {t('staking.tiers.mostPopular')}
                     </span>
                   </div>
                 )}
@@ -328,7 +330,7 @@ const StakingPage = () => {
                 {/* Tier Header */}
                 <div className={`w-full h-2 rounded-full bg-gradient-to-r ${tier.color} mb-6`}></div>
                 
-                <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                <h3 className="text-2xl font-bold mb-2">{t(tier.nameKey)}</h3>
                 
                 <div className="mb-6">
                   <span className="text-5xl font-bold text-[#21f201]">{tier.apy}</span>
@@ -337,15 +339,15 @@ const StakingPage = () => {
 
                 <div className="space-y-4 mb-6">
                   <div className={`flex items-center justify-between py-3 border-b ${isDark ? "border-gray-800" : "border-gray-200"}`}>
-                    <span className={isDark ? "text-gray-400" : "text-gray-500"}>Min. Stake</span>
+                    <span className={isDark ? "text-gray-400" : "text-gray-500"}>{t('staking.tiers.minStake')}</span>
                     <span className="font-semibold">{tier.minStake} DFS</span>
                   </div>
                   <div className={`flex items-center justify-between py-3 border-b ${isDark ? "border-gray-800" : "border-gray-200"}`}>
-                    <span className={isDark ? "text-gray-400" : "text-gray-500"}>Lock Period</span>
-                    <span className="font-semibold">{tier.lockPeriod}</span>
+                    <span className={isDark ? "text-gray-400" : "text-gray-500"}>{t('staking.tiers.lockPeriod')}</span>
+                    <span className="font-semibold">{t(tier.lockPeriodKey)}</span>
                   </div>
                   <div className="flex items-center justify-between py-3">
-                    <span className={isDark ? "text-gray-400" : "text-gray-500"}>Auto-Compound</span>
+                    <span className={isDark ? "text-gray-400" : "text-gray-500"}>{t('staking.tiers.autoCompound')}</span>
                     <HiOutlineCheckCircle className="w-5 h-5 text-[#21f201]" />
                   </div>
                 </div>
@@ -358,7 +360,7 @@ const StakingPage = () => {
                       : isDark ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                   }`}
                 >
-                  Select Tier
+                  {t('staking.tiers.selectTier')}
                 </button>
               </div>
             ))}
@@ -373,11 +375,11 @@ const StakingPage = () => {
             {/* Left - Content */}
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Why Stake with{" "}
+                {t('staking.whyStake.title')}{" "}
                 <span className="text-[#21f201]">DFS</span>?
               </h2>
               <p className={`text-xl mb-10 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                DFS Staking offers industry-leading security, competitive rewards, and a seamless user experience.
+                {t('staking.whyStake.subtitle')}
               </p>
 
               <div className="space-y-6">
@@ -389,8 +391,8 @@ const StakingPage = () => {
                         <Icon className="w-6 h-6 text-[#21f201]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold mb-1">{feature.title}</h3>
-                        <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{feature.description}</p>
+                        <h3 className="text-lg font-bold mb-1">{t(feature.titleKey)}</h3>
+                        <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t(feature.descriptionKey)}</p>
                       </div>
                     </div>
                   );
@@ -409,12 +411,12 @@ const StakingPage = () => {
                 {/* Staking Calculator Preview */}
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className={isDark ? "text-gray-400" : "text-gray-500"}>Staking Calculator</span>
-                    <span className="text-xs bg-[#21f201]/10 text-[#21f201] px-3 py-1 rounded-full">Preview</span>
+                    <span className={isDark ? "text-gray-400" : "text-gray-500"}>{t('staking.calculator.title')}</span>
+                    <span className="text-xs bg-[#21f201]/10 text-[#21f201] px-3 py-1 rounded-full">{t('staking.calculator.preview')}</span>
                   </div>
                   
                   <div className={`rounded-xl p-4 mb-4 ${isDark ? "bg-[#0B0E11]" : "bg-gray-50 border border-gray-200"}`}>
-                    <label className={`text-sm block mb-2 ${isDark ? "text-gray-400" : "text-gray-500"}`}>Amount to Stake</label>
+                    <label className={`text-sm block mb-2 ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t('staking.calculator.amountToStake')}</label>
                     <div className="flex items-center gap-2">
                       <input 
                         type="text" 
@@ -428,8 +430,8 @@ const StakingPage = () => {
 
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div className={`rounded-xl p-4 ${isDark ? "bg-[#0B0E11]" : "bg-gray-50 border border-gray-200"}`}>
-                      <span className={`text-sm block mb-1 ${isDark ? "text-gray-400" : "text-gray-500"}`}>Lock Period</span>
-                      <span className="text-xl font-bold">180 days</span>
+                      <span className={`text-sm block mb-1 ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t('staking.tiers.lockPeriod')}</span>
+                      <span className="text-xl font-bold">180 {t('staking.days')}</span>
                     </div>
                     <div className={`rounded-xl p-4 ${isDark ? "bg-[#0B0E11]" : "bg-gray-50 border border-gray-200"}`}>
                       <span className={`text-sm block mb-1 ${isDark ? "text-gray-400" : "text-gray-500"}`}>APY</span>
@@ -438,7 +440,7 @@ const StakingPage = () => {
                   </div>
 
                   <div className="bg-gradient-to-r from-[#21f201]/10 to-transparent border border-[#21f201]/30 rounded-xl p-4">
-                    <span className={`text-sm block mb-1 ${isDark ? "text-gray-400" : "text-gray-500"}`}>Estimated Earnings (180 days)</span>
+                    <span className={`text-sm block mb-1 ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t('staking.calculator.estimatedEarnings')}</span>
                     <span className="text-2xl font-bold text-[#21f201]">+ 900 DFS</span>
                   </div>
                 </div>
@@ -447,7 +449,7 @@ const StakingPage = () => {
                   onClick={handleComingSoon}
                   className="w-full bg-[#21f201] text-black font-bold py-4 rounded-xl hover:bg-[#1ad901] transition-all duration-300"
                 >
-                  Connect Wallet to Start
+                  {t('staking.calculator.connectWallet')}
                 </button>
               </div>
             </div>
@@ -460,10 +462,10 @@ const StakingPage = () => {
         <div className="max-w-[800px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Frequently Asked <span className="text-[#21f201]">Questions</span>
+              {t('staking.faq.title')} <span className="text-[#21f201]">{t('staking.faq.titleHighlight')}</span>
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Everything you need to know about DFS Staking
+              {t('staking.faq.subtitle')}
             </p>
           </div>
 
@@ -483,7 +485,7 @@ const StakingPage = () => {
                     isDark ? "hover:bg-[#1a1d23]" : "hover:bg-gray-50"
                   }`}
                 >
-                  <span className="font-semibold pr-4">{faq.question}</span>
+                  <span className="font-semibold pr-4">{t(faq.questionKey)}</span>
                   {openFaq === index ? (
                     <FiChevronUp className="w-5 h-5 text-[#21f201] shrink-0" />
                   ) : (
@@ -493,7 +495,7 @@ const StakingPage = () => {
                 <div className={`overflow-hidden transition-all duration-300 ${
                   openFaq === index ? "max-h-96" : "max-h-0"
                 }`}>
-                  <p className={`px-6 pb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{faq.answer}</p>
+                  <p className={`px-6 pb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{t(faq.answerKey)}</p>
                 </div>
               </div>
             ))}
@@ -515,17 +517,17 @@ const StakingPage = () => {
 
             <div className="relative z-10 text-center max-w-2xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Ready to Start <span className="text-[#21f201]">Earning</span>?
+                {t('staking.cta.title')} <span className="text-[#21f201]">{t('staking.cta.titleHighlight')}</span>?
               </h2>
               <p className={`text-xl mb-10 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                Join thousands of stakers earning passive income on DFS SimuChain. Start your staking journey today.
+                {t('staking.cta.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button 
                   onClick={handleComingSoon}
                   className="w-full sm:w-auto bg-[#21f201] text-black font-bold py-4 px-10 rounded-xl hover:bg-[#1ad901] transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
-                  Launch App
+                  {t('staking.cta.launchApp')}
                   <HiOutlineArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
@@ -536,7 +538,7 @@ const StakingPage = () => {
                       : "border-gray-300 text-gray-900 hover:bg-gray-100"
                   }`}
                 >
-                  Read Documentation
+                  {t('staking.cta.readDocs')}
                 </button>
               </div>
             </div>

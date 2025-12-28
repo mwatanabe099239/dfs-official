@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 const FaqItem = ({ question, answer, index }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   const toggleAnswer = () => setIsOpen(!isOpen);
 

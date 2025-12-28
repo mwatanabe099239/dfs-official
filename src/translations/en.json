@@ -1,0 +1,1309 @@
+{
+  "common": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "submit": "Submit",
+    "subscribe": "Subscribe",
+    "cancel": "Cancel",
+    "close": "Close",
+    "search": "Search",
+    "loading": "Loading...",
+    "comingSoon": "Coming Soon",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "goHome": "Go Home",
+    "applyNow": "Apply Now",
+    "contactUs": "Contact Us",
+    "joinWaitlist": "Join Waitlist",
+    "downloadPdf": "Download PDF",
+    "backToTop": "Back to Top",
+    "email": "Email",
+    "name": "Name",
+    "message": "Message",
+    "send": "Send",
+    "follow": "Follow",
+    "share": "Share",
+    "cookies": "Cookies",
+    "language": "Language"
+  },
+  "navbar": {
+    "home": "Home",
+    "dapps": "dApps",
+    "staking": "Staking",
+    "whitepaper": "Whitepaper",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "landing": {
+    "status": {
+      "layer0": "LAYER 0",
+      "isLive": "IS LIVE"
+    },
+    "hero": {
+      "title": "The Future of",
+      "titleHighlight": "Web3 Simulation",
+      "subtitle": "Harnessing Decentralization to Make the Impossible Possible",
+      "issueCoin": "Issue Coin",
+      "cta1": "Start Building",
+      "cta2": "Explore dApps"
+    },
+    "features": {
+      "title": "Why DFS SimuChain?",
+      "subtitle": "Built for developers and users alike",
+      "feature1": {
+        "title": "Easy Onboarding",
+        "description": "No seed phrases or complex setups. Just sign up with your email and start exploring."
+      },
+      "feature2": {
+        "title": "Real Blockchain Concepts",
+        "description": "Transactions, blocks, wallets, and tokens - all the familiar concepts, simplified."
+      },
+      "feature3": {
+        "title": "Growing Ecosystem",
+        "description": "Multiple dApps including DEX, social platforms, and more."
+      }
+    }
+  },
+  "home": {
+    "stats": {
+      "title": {
+        "prefix": "A",
+        "highlight": "Blockchain",
+        "suffix": "with Daily Active User Updates"
+      },
+      "description": "As of January 2026, SimuChain is a blockchain designed to support CeFi, AI agencies, enterprise systems, digital verification, and transaction-intensive services.",
+      "activeUsers": "Active Users",
+      "activeDapps": "Active dApps",
+      "generatedTokens": "Generated Tokens"
+    },
+    "features": {
+      "title": {
+        "prefix": "What Makes DFS SimuChain So",
+        "highlight": "Powerful?"
+      },
+      "compatibility": {
+        "title": "Unmatched Compatibility",
+        "description": "Unlike complex and hard-to-use Web3 platforms, DFS SimuChain offers seamless integration with existing Web2 systems. An innovative and practical blockchain that anyone can start using right away."
+      },
+      "multilingual": {
+        "title": "Seamless Multilingual Access",
+        "description": "One QR code, instant switch to over 100 languages—no barriers, just global usability."
+      },
+      "apps": {
+        "title": "Endless Possibilities for Apps",
+        "description": "Compatible with all Web2 content, DFS SimuChain unlocks a universe of applications— limitless, scalable, and ready for the future."
+      },
+      "validatorFree": {
+        "title": "Validator-Free, Seamless Blockchain",
+        "description": "DFS SimuChain runs without validators, prioritizing speed, security, and smooth user experience."
+      }
+    },
+    "buildOn": {
+      "title": "Build on DFS SimuChain",
+      "description": "Looking to create your own token or need support with partnerships, grants, or technical assistance? Contact us today!",
+      "cta": "Start Building",
+      "exploreApps": "Explore Other Apps"
+    },
+    "join": {
+      "titleHighlight": "Join",
+      "title": "DFS SimuChain Today!",
+      "description": "Join your community to the DFS SimuChain, or create your own token.",
+      "cta": "Get Started"
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "What Is DFS SimuChain (DSC)?",
+        "answer": "DFS SimuChain is a layer 0 blockchain based on the web2 system, unlike web3 blockchains. It is an up-to-date version of the blockchain that is made to be easy, smooth, and least expensive, even for first-time users, without the need to connect to complex wallets like Web3."
+      },
+      "q2": {
+        "question": "What are the main features of DFS SimuChain (DSC)?",
+        "answer": "The system ensures the safety of your data and transactions and provides reliable monitoring to ensure that everything runs smoothly. Unlike Web3 tools, it can be easily integrated with the Web2 tools you are familiar with, resulting in faster transaction processing and lower costs."
+      },
+      "q3": {
+        "question": "Does DFS SimuChain (DSC) have validators?",
+        "answer": "Unlike validator-based blockchains, DFS SimuChain operates without validators. However, our system focuses on optimized asset, user, and transaction management with high reliability and efficiency."
+      },
+      "q4": {
+        "question": "How much does DFS SimuChain (DSC) cost?",
+        "answer": "We try to offer the lowest rates among the many chains. Per transaction, 0.001$~ It depends on the service content."
+      },
+      "q5": {
+        "question": "What can we expect from the widespread adoption of DFS SimuChain (DSC)?",
+        "answer": "As a gateway for those who are frustrated with the Web3 system and for first-time users, it provides the concept and logic of Web3 chains, and DFS SimuChain and all web3 chains are connected, so you can create a large market volume."
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "chains": "Chains",
+      "useDfs": "Use DFS SimuChain",
+      "build": "Build",
+      "participate": "Participate",
+      "about": "About",
+      "legal": "Legal"
+    },
+    "links": {
+      "dfsSimuChain": "DFS SimuChain",
+      "makeWallet": "Make Wallet",
+      "getDfs": "Get DFS",
+      "stakeDfs": "Stake DFS",
+      "exploreDapps": "Explore dApps",
+      "payByCrypto": "Pay by Crypto",
+      "whitepaper": "Whitepaper",
+      "faq": "FAQ",
+      "feedback": "Feedback",
+      "events": "Events",
+      "governance": "Governance",
+      "community": "Community",
+      "referralProgram": "Referral Program",
+      "newsletter": "Newsletter",
+      "aboutUs": "About Us",
+      "blog": "Blog",
+      "careers": "Careers",
+      "partners": "Partners",
+      "contactUs": "Contact Us",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfUse": "Terms of Use",
+      "cookies": "Cookies"
+    },
+    "followUs": "Follow us:",
+    "copyright": "© 2026 DIFINES. All rights reserved."
+  },
+  "dapps": {
+    "title": "dApps Ranking",
+    "subtitle": "Discover the most popular decentralized applications on DFS SimuChain",
+    "searchPlaceholder": "Search dApps...",
+    "hero": {
+      "title": "Top dApps on",
+      "ecosystem": "ecosystem",
+      "subtitle": "Discover the top dApps built on DFS SimuChain ecosystem, sorted by Users, TVL, and TXN."
+    },
+    "submitDapp": "Submit Your dApp",
+    "filters": {
+      "allChains": "All Chains",
+      "allCategories": "All Categories",
+      "newListings": "New Listings",
+      "tradingDapps": "Trading dApps"
+    },
+    "categories": {
+      "all": "All",
+      "defi": "DeFi",
+      "social": "Social",
+      "nft": "NFT",
+      "gaming": "Gaming",
+      "tools": "Tools",
+      "wallets": "Wallets",
+      "games": "Games",
+      "ai": "AI"
+    },
+    "table": {
+      "rank": "#",
+      "dapp": "dApp",
+      "category": "Category",
+      "users": "Users",
+      "transactions": "Transactions",
+      "last7Days": "Last 7 days",
+      "change": "Change"
+    }
+  },
+  "exploreDapps": {
+    "title": "Explore",
+    "titleHighlight": "dApps",
+    "subtitle": "Discover decentralized applications built on DFS SimuChain",
+    "searchPlaceholder": "Search dApps...",
+    "submitDapp": "Submit Your dApp",
+    "showing": "Showing",
+    "dappsLabel": "dApps",
+    "in": "in",
+    "visit": "Visit",
+    "noDappsFound": "No dApps found",
+    "tryAdjusting": "Try adjusting your search or filter criteria",
+    "buildOn": "Build on DFS SimuChain",
+    "buildOnDescription": "All dApps are using Web2 tokens. Start building your decentralized application today.",
+    "featured": "Featured",
+    "official": "Official",
+    "new": "New",
+    "popular": "Popular",
+    "visitApp": "Visit App",
+    "categories": {
+      "title": "Categories",
+      "all": "All",
+      "wallet": "Wallet",
+      "explorer": "Explorer",
+      "tokenTools": "Token Tools",
+      "defi": "DeFi",
+      "social": "Social",
+      "exchange": "Exchange",
+      "utility": "Utility"
+    }
+  },
+  "staking": {
+    "badge": "Staking is Live",
+    "days": "days",
+    "toast": {
+      "underDevelopment": "This feature is under development."
+    },
+    "hero": {
+      "title": "Stake DFS,",
+      "titleHighlight": "Earn Rewards",
+      "subtitle": "Put your DFS tokens to work. Stake and earn up to 25% APY while helping secure the DFS SimuChain network."
+    },
+    "stats": {
+      "tvl": "Total Value Locked",
+      "activeStakers": "Active Stakers",
+      "maxApy": "Max APY",
+      "uptime": "Uptime"
+    },
+    "howToStake": {
+      "title": "How to",
+      "titleHighlight": "Stake",
+      "subtitle": "Start earning rewards in just a few simple steps"
+    },
+    "steps": {
+      "connectWallet": {
+        "title": "Connect Wallet",
+        "description": "Connect your Metaface wallet to the DFS Staking platform securely."
+      },
+      "chooseAmount": {
+        "title": "Choose Amount",
+        "description": "Select how many DFS tokens you want to stake and pick your tier."
+      },
+      "selectLockPeriod": {
+        "title": "Select Lock Period",
+        "description": "Choose your preferred lock period. Longer periods earn higher rewards."
+      },
+      "startEarning": {
+        "title": "Start Earning",
+        "description": "Confirm your stake and start earning rewards automatically."
+      }
+    },
+    "tierNames": {
+      "starter": "Starter",
+      "growth": "Growth",
+      "premium": "Premium",
+      "elite": "Elite"
+    },
+    "lockPeriods": {
+      "30days": "30 days",
+      "90days": "90 days",
+      "180days": "180 days",
+      "365days": "365 days"
+    },
+    "tiers": {
+      "title": "Staking",
+      "titleHighlight": "Tiers",
+      "subtitle": "Choose the tier that best fits your investment strategy",
+      "mostPopular": "MOST POPULAR",
+      "minStake": "Min. Stake",
+      "lockPeriod": "Lock Period",
+      "autoCompound": "Auto-Compound",
+      "selectTier": "Select Tier"
+    },
+    "whyStake": {
+      "title": "Why Stake with",
+      "subtitle": "DFS Staking offers industry-leading security, competitive rewards, and a seamless user experience."
+    },
+    "features": {
+      "secureStaking": {
+        "title": "Secure Staking",
+        "description": "Your tokens are secured by DFS Chain's robust smart contract infrastructure."
+      },
+      "competitiveApy": {
+        "title": "Competitive APY",
+        "description": "Earn up to 25% APY on your staked DFS tokens with our tiered reward system."
+      },
+      "flexibleTerms": {
+        "title": "Flexible Terms",
+        "description": "Choose from multiple lock periods to match your investment strategy."
+      },
+      "autoCompound": {
+        "title": "Auto-Compound",
+        "description": "Rewards are automatically compounded to maximize your earnings."
+      }
+    },
+    "calculator": {
+      "title": "Staking Calculator",
+      "preview": "Preview",
+      "amountToStake": "Amount to Stake",
+      "estimatedEarnings": "Estimated Earnings (180 days)",
+      "connectWallet": "Connect Wallet to Start"
+    },
+    "faq": {
+      "title": "Frequently Asked",
+      "titleHighlight": "Questions",
+      "subtitle": "Everything you need to know about DFS Staking",
+      "questions": {
+        "whatIsStaking": {
+          "question": "What is DFS Staking?",
+          "answer": "DFS Staking allows you to lock your DFS tokens for a specified period to earn rewards. By staking, you contribute to the network's security while earning passive income."
+        },
+        "rewardsCalculated": {
+          "question": "How are staking rewards calculated?",
+          "answer": "Rewards are calculated based on your staked amount, chosen tier, and lock period. Higher tiers and longer lock periods offer better APY rates. Rewards are distributed daily and auto-compounded."
+        },
+        "unstakeEarly": {
+          "question": "Can I unstake early?",
+          "answer": "Early unstaking is possible but will incur a penalty fee. We recommend choosing a lock period that aligns with your investment timeline to maximize rewards."
+        },
+        "whatWallet": {
+          "question": "What wallet do I need?",
+          "answer": "You need a Metaface wallet connected to the DFS SimuChain network. You can create one at metaface.dfsscan.com if you don't have one already."
+        },
+        "receiveRewards": {
+          "question": "When do I receive rewards?",
+          "answer": "Staking rewards are calculated and distributed daily. They are automatically added to your staked balance through auto-compounding, maximizing your earning potential."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Start",
+      "titleHighlight": "Earning",
+      "subtitle": "Join thousands of stakers earning passive income on DFS SimuChain. Start your staking journey today.",
+      "startStaking": "Start Staking",
+      "launchApp": "Launch App",
+      "readDocs": "Read Documentation"
+    }
+  },
+  "whitepaper": {
+    "badge": "Official Documentation",
+    "title": "Whitepaper",
+    "subtitle": "A comprehensive guide to understanding DFS SimuChain — the innovative Web2 simulation of Web3 blockchain technology, bringing decentralized concepts to traditional web infrastructure.",
+    "version": "Version 1.0",
+    "downloadPdf": "Download PDF",
+    "readOnline": "Read Online",
+    "generating": "Generating...",
+    "tableOfContents": "Table of Contents",
+    "stats": {
+      "blockTime": "Block Time",
+      "tpsCapacity": "TPS Capacity",
+      "tokenStandard": "Token Standard",
+      "infrastructure": "Infrastructure"
+    },
+    "sections": {
+      "introduction": "Introduction",
+      "coreConcepts": "Core Concepts",
+      "architecture": "Architecture",
+      "walletSystem": "Wallet System",
+      "drc20Standard": "DRC20 Token Standard",
+      "nativeToken": "Native Token (DFS)",
+      "gasMechanism": "Gas Mechanism",
+      "useCases": "Use Cases",
+      "roadmap": "Roadmap"
+    },
+    "cta": {
+      "title": "Ready to Build on DFS SimuChain?",
+      "subtitle": "Join our growing ecosystem of developers and innovators creating the future of Web2-Web3 integration.",
+      "createWallet": "Create Wallet",
+      "exploreChain": "Explore Chain"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest news and updates from DFS SimuChain",
+    "featured": "Featured",
+    "latest": "Latest Articles",
+    "readTime": "min read",
+    "by": "By",
+    "relatedArticles": "Related Articles",
+    "shareArticle": "Share this article",
+    "hero": {
+      "badge": "DFS SimuChain Blog",
+      "title": "News &",
+      "titleHighlight": "Updates",
+      "subtitle": "Stay informed about the latest developments, tutorials, and community stories from the DFS SimuChain ecosystem."
+    },
+    "readArticle": "Read Article",
+    "searchPlaceholder": "Search articles...",
+    "noArticles": "No articles found",
+    "noArticlesHint": "Try adjusting your search or filter criteria",
+    "postNotFound": "Blog post not found",
+    "backToBlog": "Back to Blog",
+    "share": "Share",
+    "save": "Save",
+    "writtenBy": "Written by",
+    "officialTeam": "DFS SimuChain Official",
+    "newsletter": {
+      "title": "Subscribe to Our Newsletter",
+      "subtitle": "Get the latest news, tutorials, and updates delivered directly to your inbox.",
+      "placeholder": "Enter your email"
+    },
+    "categories": {
+      "all": "All",
+      "announcements": "Announcements",
+      "tutorials": "Tutorials",
+      "updates": "Updates",
+      "community": "Community",
+      "technical": "Technical"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked",
+    "titleHighlight": "Questions",
+    "subtitle": "Find answers to common questions about DFS SimuChain, wallets, tokens, and more.",
+    "searchPlaceholder": "Search for answers...",
+    "categories": {
+      "all": "All",
+      "gettingStarted": "Getting Started",
+      "wallet": "Wallet",
+      "tokens": "Tokens",
+      "transactions": "Transactions",
+      "technical": "Technical"
+    },
+    "noResults": "No results found",
+    "tryAdjusting": "Try adjusting your search or browse by category",
+    "stillHaveQuestions": "Still have questions?",
+    "cantFind": "Can't find what you're looking for? Our support team is here to help.",
+    "contactSupport": "Contact Support",
+    "items": {
+      "whatIsDfs": {
+        "question": "What is DFS SimuChain?",
+        "answer": "DFS SimuChain is a Web2 simulation of Web3 blockchain technology. It provides all the familiar blockchain concepts like blocks, transactions, wallets, and tokens, but runs on traditional web infrastructure. This makes it accessible to everyone without the complexity of managing seed phrases or private keys."
+      },
+      "howToStart": {
+        "question": "How do I get started with DFS SimuChain?",
+        "answer": "Getting started is easy! Simply visit metaface.dfsscan.com and sign up with your email address. Your wallet will be automatically created, and you'll receive a unique wallet address (starting with dfs_0x). From there, you can explore the ecosystem, acquire DFS tokens, and interact with various dApps."
+      },
+      "isFree": {
+        "question": "Is DFS SimuChain free to use?",
+        "answer": "Creating an account and wallet is completely free. However, transactions on the network require gas fees paid in DRC20_DFS tokens. These fees are minimal and help maintain the network's sustainability."
+      },
+      "createWallet": {
+        "question": "How do I create a wallet?",
+        "answer": "Visit metaface.dfsscan.com and click \"Get Started\". Sign up with your email address, and your wallet will be automatically generated. Unlike traditional blockchain wallets, you don't need to manage seed phrases - your wallet is securely linked to your email account."
+      },
+      "walletAddress": {
+        "question": "What does my wallet address look like?",
+        "answer": "DFS SimuChain wallet addresses start with \"dfs_0x\" followed by a unique alphanumeric string. For example: dfs_0x1a2b3c4d5e6f7890... This format makes it easy to identify DFS SimuChain addresses."
+      },
+      "multipleWallets": {
+        "question": "Can I have multiple wallets?",
+        "answer": "Currently, each user account is linked to one wallet address. This ensures a straightforward user experience and simplifies asset management. We may introduce multi-wallet support in future updates."
+      },
+      "recoverWallet": {
+        "question": "How do I recover my wallet if I lose access?",
+        "answer": "Since your wallet is linked to your email address, you can recover access by using the password recovery option on Metaface. As long as you have access to your email, you can regain access to your wallet."
+      },
+      "whatIsDrc20": {
+        "question": "What is DRC20?",
+        "answer": "DRC20 is the token standard for DFS SimuChain, similar to ERC20 on Ethereum. It defines how tokens are created, transferred, and managed on our network. DRC20 token addresses start with \"drc20_0x\"."
+      },
+      "createToken": {
+        "question": "How do I create my own token?",
+        "answer": "You can create your own DRC20 token using the Whitecreator platform at drc20.dfsscan.com. Simply fill in your token details (name, symbol, total supply, etc.), pay the creation fee, and submit for approval. Once approved, your token can be used across the network."
+      },
+      "whatIsDfsCoin": {
+        "question": "What is DRC20_DFS?",
+        "answer": "DRC20_DFS is the native token of DFS SimuChain. It's used to pay gas fees for all transactions on the network. Think of it like ETH on Ethereum - you need it to perform any operation on the chain."
+      },
+      "getDfsTokens": {
+        "question": "How do I get DFS tokens?",
+        "answer": "You can acquire DFS tokens through several methods: trading on WEXSWAP (our DEX), participating in community events and airdrops, earning through ecosystem activities on platforms like POIPI, or purchasing from other users on HeyOTC."
+      },
+      "transactionTime": {
+        "question": "How long do transactions take?",
+        "answer": "Transactions are typically processed within 5 minutes, which is our block generation interval. Once included in a block, transactions are considered final and cannot be reversed."
+      },
+      "gasFees": {
+        "question": "What are gas fees?",
+        "answer": "Gas fees are small payments made in DRC20_DFS tokens to process your transactions. They serve to prevent spam, allocate network resources fairly, and sustain the ecosystem. Fee amounts vary based on the complexity of the operation."
+      },
+      "cancelTransaction": {
+        "question": "Can I cancel or reverse a transaction?",
+        "answer": "Once a transaction is confirmed and included in a block, it cannot be cancelled or reversed. This is by design to maintain the integrity of the ledger. Always double-check transaction details before confirming."
+      },
+      "transactionHistory": {
+        "question": "Where can I view my transaction history?",
+        "answer": "You can view all your transactions on DFSScan (dfsscan.com), our block explorer. Simply search for your wallet address to see your complete transaction history, including timestamps, amounts, and transaction hashes."
+      },
+      "blockGeneration": {
+        "question": "How often are blocks generated?",
+        "answer": "New blocks are generated every 5 minutes on DFS SimuChain. Each block can contain thousands of transactions, ensuring high throughput while maintaining orderly processing."
+      },
+      "isDecentralized": {
+        "question": "Is DFS SimuChain decentralized?",
+        "answer": "DFS SimuChain is a Web2 simulation of blockchain technology, meaning it runs on centralized infrastructure while providing blockchain-like functionality. This approach allows for easier onboarding and maintenance while still offering transparency and tokenization benefits."
+      },
+      "buildApps": {
+        "question": "Can I build applications on DFS SimuChain?",
+        "answer": "Yes! DFS SimuChain has a growing ecosystem of dApps. You can integrate with our APIs to build wallets, exchanges, social platforms, and more. Check out our documentation or contact us to learn about building on DFS SimuChain."
+      },
+      "dataHandling": {
+        "question": "What happens to my data?",
+        "answer": "Transaction data is stored permanently on DFS SimuChain and is publicly viewable on our block explorer. Personal information (like your email) is kept private and secure. Please refer to our Privacy Policy for complete details on data handling."
+      }
+    }
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "Building the Bridge Between",
+    "titleHighlight": "Web2 and Web3",
+    "subtitle": "DFS SimuChain is on a mission to make blockchain technology accessible to everyone.",
+    "ourStory": {
+      "title": "Our Story",
+      "p1": "DFS SimuChain was born from a simple observation: blockchain technology, despite its revolutionary potential, remained inaccessible to the majority of internet users. Complex wallet setups, confusing seed phrases, and technical jargon created barriers that kept many from experiencing the benefits of Web3.",
+      "p2": "We asked ourselves: \"What if we could provide all the benefits of blockchain—transparency, tokenization, and immutable records—without the complexity?\" This question led to the creation of DFS SimuChain, a Web2 simulation that brings blockchain concepts to life using familiar, accessible technology.",
+      "p3": "Today, DFS SimuChain powers a growing ecosystem of applications, from wallets and explorers to social platforms and DEXs. We're proud to serve thousands of users who are experiencing blockchain-like functionality for the first time."
+    },
+    "stats": {
+      "activeUsers": "Active Users",
+      "dappsBuilt": "dApps Built",
+      "transactions": "Transactions",
+      "countries": "Countries"
+    },
+    "ourVision": {
+      "title": "Our Vision",
+      "subtitle": "Where we're headed",
+      "quote": "To create a world where blockchain technology is as easy to use as email, where everyone can participate in the token economy, and where the benefits of decentralization are accessible to all.",
+      "futureTitle": "Our Vision for the Future",
+      "p1": "We envision a future where DFS SimuChain serves as the gateway for millions of users to experience blockchain technology. A future where creators can tokenize their work, businesses can accept crypto payments seamlessly, and communities can govern themselves transparently.",
+      "p2": "Our roadmap includes advanced features like staking, governance, cross-chain bridges, and enterprise solutions. But our core mission remains the same: making blockchain accessible to everyone."
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide everything we do",
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "Making blockchain technology accessible to everyone, regardless of technical background."
+      },
+      "security": {
+        "title": "Security",
+        "description": "Enterprise-grade security protecting your assets and data at every step."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Constantly pushing boundaries to deliver cutting-edge solutions."
+      },
+      "community": {
+        "title": "Community",
+        "description": "Building together with our community at the heart of everything we do."
+      }
+    },
+    "journey": {
+      "title": "Our Journey"
+    },
+    "milestones": {
+      "founded": { "title": "Project Founded", "description": "DFS SimuChain concept developed" },
+      "coreDev": { "title": "Core Development", "description": "Block system and wallet infrastructure built" },
+      "launch": { "title": "Ecosystem Launch", "description": "Launched Metaface, DFSScan, and Whitecreator" },
+      "dapps": { "title": "dApps Ecosystem", "description": "Multiple community dApps launched" },
+      "expansion": { "title": "Global Expansion", "description": "Scaling to serve users worldwide" }
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "The passionate people behind DFS SimuChain",
+      "roles": {
+        "ceo": "Founder & CEO",
+        "cto": "CTO",
+        "leadDev": "Lead Developer",
+        "communityLead": "Community Lead"
+      }
+    },
+    "cta": {
+      "title": "Join Us on This Journey",
+      "subtitle": "Be part of the DFS SimuChain community and help us build the future of accessible blockchain technology.",
+      "button1": "Get Started",
+      "button2": "Join Our Team"
+    }
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "title": "Contact",
+    "titleHighlight": "Us",
+    "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "title": "Send us a Message",
+      "name": "Your Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "category": "Category",
+      "subject": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us more about your inquiry...",
+      "send": "Send Message",
+      "sending": "Sending..."
+    },
+    "methods": {
+      "email": {
+        "title": "Email Us",
+        "description": "Send us an email anytime"
+      }
+    },
+    "categories": {
+      "general": "General Inquiry",
+      "technical": "Technical Support",
+      "partnership": "Partnership",
+      "bugReport": "Bug Report",
+      "feature": "Feature Request",
+      "tokenApproval": "Token Approval",
+      "other": "Other"
+    },
+    "success": {
+      "title": "Message Sent!",
+      "message": "Thank you for reaching out. We'll get back to you within 24-48 hours.",
+      "sendAnother": "Send another message"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "wallet": {
+        "question": "How do I create a wallet?",
+        "answer": "Visit metaface.dfsscan.com and sign up with your email address. Your wallet will be automatically created."
+      },
+      "tokens": {
+        "question": "How do I get DFS tokens?",
+        "answer": "You can acquire DFS tokens through our DEX (WEXSWAP) or participate in community events and airdrops."
+      },
+      "publish": {
+        "question": "How can I publish a DRC20 token?",
+        "answer": "Use our Whitecreator platform at drc20.dfsscan.com to create and publish your own tokens."
+      },
+      "approval": {
+        "question": "What is the token approval process?",
+        "answer": "After creating a token, it goes through our review process. Approved tokens can be used in transactions across the network."
+      }
+    },
+    "social": {
+      "title": "Connect With Us",
+      "subtitle": "Join our community and stay updated on the latest news and announcements."
+    },
+    "responseTime": {
+      "title": "Response Time",
+      "message": "We typically respond to all inquiries within 24-48 hours. For urgent matters, please reach out via our Telegram community."
+    }
+  },
+  "careers": {
+    "badge": "Join Our Team",
+    "title": "Build the Future of",
+    "titleHighlight": "Web3 with Us",
+    "subtitle": "Join a passionate team making blockchain technology accessible to everyone.",
+    "viewPositions": "View Open Positions",
+    "whyJoin": {
+      "title": "Why Join DFS SimuChain?",
+      "subtitle": "We offer more than just a job - we offer the chance to shape the future of technology.",
+      "remoteFirst": {
+        "title": "Remote-First",
+        "description": "Work from anywhere in the world. We believe talent has no borders."
+      },
+      "flexibleHours": {
+        "title": "Flexible Hours",
+        "description": "We value results over hours. Work when you're most productive."
+      },
+      "learningBudget": {
+        "title": "Learning Budget",
+        "description": "Annual budget for courses, conferences, and professional development."
+      },
+      "healthWellness": {
+        "title": "Health & Wellness",
+        "description": "Comprehensive health coverage and wellness programs."
+      },
+      "innovationTime": {
+        "title": "Innovation Time",
+        "description": "20% time for personal projects and experimental ideas."
+      },
+      "teamEvents": {
+        "title": "Team Events",
+        "description": "Regular virtual and in-person team gatherings and retreats."
+      }
+    },
+    "openPositions": {
+      "title": "Open Positions",
+      "available": "open positions available",
+      "apply": "Apply Now"
+    },
+    "hiringProcess": {
+      "title": "Our Hiring Process",
+      "subtitle": "Simple, transparent, and respectful of your time",
+      "step1": { "title": "Apply", "description": "Submit your application and resume" },
+      "step2": { "title": "Screen", "description": "Initial review and screening call" },
+      "step3": { "title": "Interview", "description": "Technical and culture fit interviews" },
+      "step4": { "title": "Offer", "description": "Receive and accept your offer" }
+    },
+    "cta": {
+      "title": "Don't See the Right Role?",
+      "subtitle": "We're always looking for talented individuals. Send us your resume and tell us how you'd like to contribute.",
+      "button": "Get in Touch"
+    }
+  },
+  "partners": {
+    "badge": "Partnership Program",
+    "title": "Partner with",
+    "titleHighlight": "DFS SimuChain",
+    "subtitle": "Join our ecosystem of innovators and build the future of accessible blockchain technology together.",
+    "becomePartner": "Become a Partner",
+    "learnMore": "Learn More",
+    "ourPartners": {
+      "title": "Our Partners",
+      "subtitle": "Working together with industry leaders to deliver exceptional value"
+    },
+    "categories": {
+      "technology": {
+        "title": "Technology Partners",
+        "description": "Building the infrastructure of tomorrow"
+      },
+      "strategic": {
+        "title": "Strategic Partners",
+        "description": "Expanding the ecosystem together"
+      },
+      "integration": {
+        "title": "Integration Partners",
+        "description": "Seamless connectivity across platforms"
+      }
+    },
+    "types": {
+      "infrastructure": "Infrastructure",
+      "security": "Security",
+      "dataAnalytics": "Data Analytics",
+      "integration": "Integration",
+      "investment": "Investment",
+      "rd": "R&D",
+      "consulting": "Consulting",
+      "marketing": "Marketing",
+      "payments": "Payments",
+      "authentication": "Authentication",
+      "realtimeData": "Real-time Data",
+      "storage": "Storage"
+    },
+    "benefitsSection": {
+      "title": "Partnership Benefits",
+      "subtitle": "What you get when you partner with DFS SimuChain"
+    },
+    "benefits": {
+      "globalReach": { "title": "Global Reach", "description": "Access our growing user base across 50+ countries" },
+      "apiAccess": { "title": "API Access", "description": "Full API documentation and developer support" },
+      "revenueShare": { "title": "Revenue Share", "description": "Competitive revenue sharing for qualified partners" },
+      "coMarketing": { "title": "Co-Marketing", "description": "Joint marketing opportunities and brand exposure" },
+      "prioritySupport": { "title": "Priority Support", "description": "Dedicated partner success manager and support" },
+      "earlyAccess": { "title": "Early Access", "description": "Preview new features before public release" }
+    },
+    "tiersSection": {
+      "title": "Partner Tiers",
+      "subtitle": "Choose the partnership level that's right for you"
+    },
+    "tierNames": {
+      "bronze": "Bronze",
+      "silver": "Silver",
+      "gold": "Gold",
+      "platinum": "Platinum"
+    },
+    "tierFeatures": {
+      "apiAccess": "API Access",
+      "basicSupport": "Basic Support",
+      "partnerBadge": "Partner Badge",
+      "documentation": "Documentation",
+      "allBronze": "All Bronze Benefits",
+      "coMarketing": "Co-Marketing",
+      "prioritySupport": "Priority Support",
+      "quarterlyReviews": "Quarterly Reviews",
+      "allSilver": "All Silver Benefits",
+      "revenueShare": "Revenue Share",
+      "earlyAccess": "Early Access",
+      "customIntegration": "Custom Integration",
+      "allGold": "All Gold Benefits",
+      "dedicatedManager": "Dedicated Manager",
+      "strategicPlanning": "Strategic Planning",
+      "executiveAccess": "Executive Access"
+    },
+    "tiers": {
+      "mostPopular": "Most Popular"
+    },
+    "stats": {
+      "activePartners": "Active Partners",
+      "countriesReached": "Countries Reached",
+      "usersServed": "Users Served",
+      "uptimeSla": "Uptime SLA"
+    },
+    "cta": {
+      "title": "Ready to Partner?",
+      "subtitle": "Let's discuss how we can work together to achieve mutual success. Fill out our partner application and our team will be in touch.",
+      "button": "Apply Now"
+    }
+  },
+  "newsletter": {
+    "badge": "Newsletter",
+    "hero": {
+      "badge": "Newsletter",
+      "title": "Stay in the",
+      "titleHighlight": "Loop",
+      "subtitle": "Get the latest news, updates, and insights from DFS SimuChain delivered straight to your inbox."
+    },
+    "emailPlaceholder": "Enter your email address",
+    "privacyNote": "We respect your privacy. Unsubscribe anytime.",
+    "whatYouGet": {
+      "title": "What You'll Get",
+      "subtitle": "Valuable content delivered weekly"
+    },
+    "features": {
+      "productUpdates": { "title": "Product Updates", "description": "Be the first to know about new features, improvements, and platform updates." },
+      "tipsTutorials": { "title": "Tips & Tutorials", "description": "Learn how to make the most of DFS SimuChain with helpful guides and tutorials." },
+      "eventAnnouncements": { "title": "Event Announcements", "description": "Get invited to exclusive events, AMAs, and community meetups." },
+      "exclusiveOffers": { "title": "Exclusive Offers", "description": "Access special promotions, airdrops, and early access opportunities." }
+    },
+    "preferences": {
+      "title": "Customize Your Preferences",
+      "subtitle": "Choose what content you'd like to receive",
+      "updates": { "label": "Product Updates", "description": "New features and improvements" },
+      "tutorials": { "label": "Tips & Tutorials", "description": "Guides and how-to content" },
+      "events": { "label": "Events & News", "description": "Community events and announcements" },
+      "community": { "label": "Community Highlights", "description": "Featured projects and success stories" }
+    },
+    "recent": {
+      "title": "Recent Newsletters",
+      "subtitle": "Here's a taste of what you'll receive"
+    },
+    "past": {
+      "payviner": {
+        "title": "Introducing Payviner: Pay with Crypto",
+        "excerpt": "Our new payment system is coming soon. Learn how you'll be able to pay with DFS tokens..."
+      },
+      "yearReview": {
+        "title": "DFS SimuChain Year in Review",
+        "excerpt": "Looking back at an incredible year of growth, new features, and community achievements..."
+      },
+      "dappsUpdate": {
+        "title": "New dApps Ecosystem Update",
+        "excerpt": "We've added 5 new dApps to our ecosystem. Discover what's new and how to use them..."
+      },
+      "staking": {
+        "title": "Staking Program Launch",
+        "excerpt": "Stake your DFS tokens and earn rewards. Here's everything you need to know..."
+      }
+    },
+    "stats": {
+      "subscribers": "Subscribers",
+      "sent": "Newsletters Sent",
+      "openRate": "Open Rate"
+    },
+    "success": {
+      "title": "You're Subscribed!",
+      "welcome": "Welcome to the DFS SimuChain newsletter! We've sent a confirmation email to:",
+      "checkInbox": "Check your inbox (and spam folder) to confirm your subscription.",
+      "subscribeAnother": "Subscribe Another Email"
+    },
+    "cta": {
+      "title": "Don't Miss Out",
+      "subtitle": "Join thousands of subscribers who stay ahead with our weekly updates."
+    }
+  },
+  "feedback": {
+    "hero": {
+      "badge": "Help Us Improve",
+      "title": "Share Your",
+      "titleHighlight": "Feedback",
+      "subtitle": "Your ideas and bug reports help us build a better platform. Every piece of feedback is reviewed by our team."
+    },
+    "typeQuestion": "What type of feedback do you have?",
+    "types": {
+      "suggestion": { "title": "Feature Suggestion", "description": "Suggest new features or improvements" },
+      "bug": { "title": "Bug Report", "description": "Report something that isn't working" },
+      "other": { "title": "General Feedback", "description": "Share your thoughts and experience" }
+    },
+    "form": {
+      "title": "Title",
+      "bugPlaceholder": "Brief description of the issue",
+      "ideaPlaceholder": "What's your idea?",
+      "category": "Category",
+      "description": "Description",
+      "bugDescPlaceholder": "Please describe:\n- What happened?\n- What did you expect to happen?\n- Steps to reproduce the issue",
+      "ideaDescPlaceholder": "Please describe your idea or feedback in detail...",
+      "url": "URL where issue occurred (optional)",
+      "priority": "Priority",
+      "email": "Email (optional)",
+      "emailNote": "Provide your email if you'd like us to follow up with you."
+    },
+    "priority": {
+      "low": "Low - Minor issue, not blocking",
+      "medium": "Medium - Annoying but workable",
+      "high": "High - Significantly impacts usage",
+      "critical": "Critical - Cannot use the feature at all"
+    },
+    "categories": {
+      "general": "General",
+      "wallet": "Wallet (Metaface)",
+      "explorer": "Explorer (DFSScan)",
+      "dapps": "dApps",
+      "website": "This Website"
+    },
+    "submit": "Submit Feedback",
+    "success": {
+      "title": "Thank You!",
+      "message": "Your feedback has been submitted successfully. We appreciate you taking the time to help us improve DFS SimuChain.",
+      "submitAnother": "Submit Another"
+    },
+    "faq": {
+      "title": "Frequently Asked",
+      "howUsed": { "question": "How is my feedback used?", "answer": "All feedback is reviewed by our team. Feature suggestions go into our roadmap consideration, and bug reports are prioritized based on impact." },
+      "response": { "question": "Will I get a response?", "answer": "If you provide your email, we may reach out for more details or to update you on your feedback's status." },
+      "anonymous": { "question": "Can I submit anonymously?", "answer": "Yes! The email field is optional. You can submit feedback without providing any contact information." }
+    }
+  },
+  "referral": {
+    "badge": "Coming Soon",
+    "title": "Refer Friends.",
+    "titleHighlight": "Earn Rewards.",
+    "subtitle": "Share DFS SimuChain with friends and earn DFS tokens for every successful referral. The more you share, the more you earn.",
+    "getEarlyAccess": "Get Early Access",
+    "emailPlaceholder": "Enter your email",
+    "benefits": {
+      "title": "Why Join the Referral Program?",
+      "subtitle": "Turn your network into passive income",
+      "earnTokens": { "title": "Earn DFS Tokens", "description": "Get rewarded in DFS tokens for every user you refer." },
+      "tieredRewards": { "title": "Tiered Rewards", "description": "Unlock higher reward tiers as you refer more users." },
+      "passiveIncome": { "title": "Passive Income", "description": "Earn ongoing rewards when your referrals are active." },
+      "bonusRewards": { "title": "Bonus Rewards", "description": "Special bonus campaigns and seasonal rewards." }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Start earning in 4 simple steps",
+      "step1": { "title": "Get Your Link", "description": "Generate your unique referral link from your dashboard." },
+      "step2": { "title": "Share with Friends", "description": "Share your link on social media or with friends." },
+      "step3": { "title": "Friends Sign Up", "description": "When someone signs up using your link, they become your referral." },
+      "step4": { "title": "Earn Rewards", "description": "Receive DFS tokens when your referrals complete actions." }
+    },
+    "tiers": {
+      "title": "Reward Tiers",
+      "subtitle": "Earn more as you refer more",
+      "starter": "Starter",
+      "bronze": "Bronze",
+      "silver": "Silver",
+      "gold": "Gold",
+      "platinum": "Platinum"
+    },
+    "table": {
+      "tier": "Tier",
+      "referrals": "Referrals",
+      "perReferral": "Per Referral",
+      "tierBonus": "Tier Bonus"
+    },
+    "success": {
+      "message": "You're on the list! We'll notify you when the program launches."
+    },
+    "comingFeatures": {
+      "title": "Coming Features",
+      "customLinks": { "title": "Custom Referral Links", "description": "Create personalized referral links with your own custom slugs." },
+      "analytics": { "title": "Analytics Dashboard", "description": "Track your referrals, conversions, and earnings in real-time." },
+      "leaderboard": { "title": "Leaderboard", "description": "Compete with other referrers and win exclusive monthly prizes." }
+    },
+    "cta": {
+      "title": "Be the First to Know",
+      "subtitle": "Join the waitlist and get notified when the referral program launches. Early subscribers may receive bonus rewards!",
+      "button": "Join Waitlist"
+    }
+  },
+  "events": {
+    "badge": "Coming Soon",
+    "title": "DFS SimuChain",
+    "titleHighlight": "Events",
+    "subtitle": "Join our community events, AMAs, workshops, and more. Stay connected and learn from the best.",
+    "notifyMe": "Notify Me",
+    "emailPlaceholder": "Enter your email",
+    "upcoming": {
+      "title": "Upcoming Features",
+      "amas": { "title": "Live AMAs", "description": "Direct Q&A sessions with our team" },
+      "workshops": { "title": "Workshops", "description": "Learn to build on DFS SimuChain" },
+      "meetups": { "title": "Community Meetups", "description": "Connect with other community members" },
+      "hackathons": { "title": "Hackathons", "description": "Build and win prizes" }
+    },
+    "success": {
+      "message": "You'll be notified when events are announced!"
+    }
+  },
+  "governance": {
+    "badge": "Coming Soon",
+    "title": "DFS SimuChain",
+    "titleHighlight": "Governance",
+    "subtitle": "Have your voice heard. Participate in shaping the future of DFS SimuChain through decentralized governance.",
+    "notifyMe": "Notify Me",
+    "emailPlaceholder": "Enter your email",
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": { "title": "Hold DFS Tokens", "description": "Your voting power is based on your DFS holdings" },
+      "step2": { "title": "Review Proposals", "description": "Browse and discuss community proposals" },
+      "step3": { "title": "Cast Your Vote", "description": "Vote on proposals that matter to you" },
+      "step4": { "title": "Shape the Future", "description": "Watch your decisions come to life" }
+    },
+    "votingPower": {
+      "title": "Voting Power Tiers"
+    },
+    "success": {
+      "message": "You'll be notified when governance launches!"
+    }
+  },
+  "payviner": {
+    "hero": {
+      "tagline": "Pay by Crypto, Simplified",
+      "subtitle": "The PayPal of DFS SimuChain. Accept DFS token payments in your application with just a few lines of code. Fast, secure, and developer-friendly."
+    },
+    "waitlist": {
+      "title": "Join the Waitlist",
+      "subtitle": "Be among the first merchants to integrate Payviner",
+      "emailPlaceholder": "Enter your email",
+      "button": "Join Waitlist"
+    },
+    "stats": {
+      "transactionTime": "Transaction Time",
+      "transactionFee": "Transaction Fee",
+      "globalReach": "Global Reach"
+    },
+    "howItWorks": {
+      "title": "How Payviner Works",
+      "subtitle": "Simple payment flow for both merchants and customers"
+    },
+    "flow": {
+      "customer": "Customer",
+      "wantsToPay": "Wants to pay",
+      "processesPayment": "Processes payment",
+      "merchant": "Merchant",
+      "receivesDfs": "Receives DFS"
+    },
+    "whyChoose": {
+      "title": "Why Choose Payviner?",
+      "subtitle": "Built for the modern web, powered by DFS SimuChain"
+    },
+    "useCasesSection": {
+      "title": "Use Cases",
+      "subtitle": "Payviner works for any business that wants to accept crypto payments"
+    },
+    "integration": {
+      "title": "Simple Integration",
+      "subtitle": "Add Payviner to your app with minimal code"
+    },
+    "cta": {
+      "title": "Ready to Accept Crypto Payments?",
+      "subtitle": "Join our waitlist to be notified when Payviner launches. Early adopters will receive special benefits and priority support.",
+      "contactSales": "Contact Sales"
+    },
+    "features": {
+      "instantPayments": { "title": "Instant Payments", "description": "Process payments in seconds with DFS tokens. No waiting for bank transfers." },
+      "secureTransactions": { "title": "Secure Transactions", "description": "Enterprise-grade security with encrypted transactions recorded on DFS SimuChain." },
+      "easyIntegration": { "title": "Easy Integration", "description": "Simple API and SDK for developers. Integrate Payviner in minutes, not days." },
+      "globalReach": { "title": "Global Reach", "description": "Accept payments from anywhere in the world without currency conversion fees." },
+      "lowFees": { "title": "Low Fees", "description": "Minimal transaction fees compared to traditional payment processors." },
+      "refundSupport": { "title": "Refund Support", "description": "Built-in refund mechanism for merchant and customer protection." }
+    },
+    "useCases": {
+      "ecommerce": { "title": "E-Commerce", "description": "Add DFS payment option to your online store" },
+      "mobileApps": { "title": "Mobile Apps", "description": "In-app purchases and subscriptions with DFS" },
+      "posSystems": { "title": "POS Systems", "description": "Accept DFS payments at physical locations" },
+      "saas": { "title": "SaaS Platforms", "description": "Subscription billing with crypto payments" }
+    },
+    "steps": {
+      "signUp": { "title": "Sign Up", "description": "Create your Payviner merchant account" },
+      "getApiKeys": { "title": "Get API Keys", "description": "Receive your unique API credentials" },
+      "integrate": { "title": "Integrate", "description": "Add Payviner to your application" },
+      "acceptPayments": { "title": "Accept Payments", "description": "Start receiving DFS payments" }
+    },
+    "success": {
+      "message": "You're on the waitlist! We'll notify you when Payviner launches."
+    }
+  },
+  "privacy": {
+    "title": "Privacy",
+    "titleHighlight": "Policy",
+    "lastUpdated": "Last Updated"
+  },
+  "terms": {
+    "title": "Terms of",
+    "titleHighlight": "Use",
+    "lastUpdated": "Last Updated"
+  },
+  "cookies": {
+    "title": "Cookie",
+    "titleHighlight": "Policy",
+    "lastUpdated": "Last Updated",
+    "noteLabel": "Note",
+    "note": "By using DFS SimuChain, you consent to our use of cookies as described in this policy. You can manage your preferences at any time through your browser settings.",
+    "sections": {
+      "whatAreCookies": {
+        "title": "1. What Are Cookies?",
+        "content": "Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners.\n\nCookies allow websites to recognize your device and remember certain information about your visit, such as your preferences and settings."
+      },
+      "howWeUse": {
+        "title": "2. How We Use Cookies",
+        "content": "DFS SimuChain uses cookies and similar technologies for several purposes:\n\n**Essential Cookies**\nThese cookies are necessary for the website to function properly.\n\n**Performance Cookies**\nThese cookies help us understand how visitors interact with our website.\n\n**Functionality Cookies**\nThese cookies allow the website to remember choices you make.\n\n**Analytics Cookies**\nWe use analytics cookies to understand how you use our services."
+      },
+      "typesOfCookies": {
+        "title": "3. Types of Cookies We Use",
+        "content": "**Session Cookies**\nTemporary cookies that expire when you close your browser.\n\n**Persistent Cookies**\nCookies that remain on your device for a set period.\n\n**First-Party Cookies**\nCookies set by DFS SimuChain directly.\n\n**Third-Party Cookies**\nCookies set by third-party services we use."
+      },
+      "specificCookies": {
+        "title": "4. Specific Cookies We Use",
+        "content": "• **theme_preference** - Stores your light/dark mode preference\n• **session_id** - Maintains your login session\n• **analytics_id** - Used for anonymous usage analytics\n• **consent_status** - Remembers your cookie consent choice\n• **language** - Stores your language preference"
+      },
+      "managingCookies": {
+        "title": "5. Managing Cookies",
+        "content": "You have the right to decide whether to accept or reject cookies. You can manage your cookie preferences through your browser settings or our website settings."
+      },
+      "cookieRetention": {
+        "title": "6. Cookie Retention",
+        "content": "• **Session cookies**: Deleted when you close your browser\n• **Preference cookies**: Retained for 1 year\n• **Analytics cookies**: Retained for up to 2 years\n• **Essential cookies**: Retained for the duration of your session"
+      },
+      "updates": {
+        "title": "7. Updates to This Policy",
+        "content": "We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons."
+      },
+      "contactUs": {
+        "title": "8. Contact Us",
+        "content": "If you have any questions about our use of cookies or this Cookie Policy, please contact us:\n\n**Email:** privacy@dfsscan.com\n**Website:** https://dfsscan.com/contact"
+      }
+    }
+  },
+  "careers": {
+    "badge": "Join Our Team",
+    "title": "Build the Future",
+    "titleHighlight": "With Us",
+    "subtitle": "We're looking for passionate individuals to help build the next generation of blockchain technology.",
+    "remote": "Remote",
+    "fullTime": "Full-time",
+    "partTime": "Part-time",
+    "benefits": {
+      "remoteFirst": { "title": "Remote-First", "description": "Work from anywhere in the world. We believe talent has no borders." },
+      "flexibleHours": { "title": "Flexible Hours", "description": "We value results over hours. Work when you're most productive." },
+      "learningBudget": { "title": "Learning Budget", "description": "Annual budget for courses, conferences, and professional development." },
+      "healthWellness": { "title": "Health & Wellness", "description": "Comprehensive health coverage and wellness programs." },
+      "innovationTime": { "title": "Innovation Time", "description": "20% time for personal projects and experimental ideas." },
+      "teamEvents": { "title": "Team Events", "description": "Regular virtual and in-person team gatherings and retreats." }
+    },
+    "positions": {
+      "seniorBackend": { "title": "Senior Backend Developer", "department": "Engineering", "description": "Build and scale our core blockchain simulation infrastructure." },
+      "frontendDev": { "title": "Frontend Developer (React)", "department": "Engineering", "description": "Create beautiful, responsive interfaces for our ecosystem applications." },
+      "productDesigner": { "title": "Product Designer", "department": "Design", "description": "Design intuitive user experiences for blockchain technology." },
+      "communityManager": { "title": "Community Manager", "department": "Marketing", "description": "Build and nurture our global community of users and developers." },
+      "technicalWriter": { "title": "Technical Writer", "department": "Documentation", "description": "Create clear, comprehensive documentation for our platform." },
+      "devOps": { "title": "DevOps Engineer", "department": "Engineering", "description": "Maintain and improve our infrastructure and deployment pipelines." }
+    }
+  },
+  "newsletter": {
+    "features": {
+      "productUpdates": { "title": "Product Updates", "description": "Be the first to know about new features, improvements, and platform updates." },
+      "tipsTutorials": { "title": "Tips & Tutorials", "description": "Learn how to make the most of DFS SimuChain with helpful guides and tutorials." },
+      "eventAnnouncements": { "title": "Event Announcements", "description": "Get invited to exclusive events, AMAs, and community meetups." },
+      "exclusiveOffers": { "title": "Exclusive Offers", "description": "Access special promotions, airdrops, and early access opportunities." }
+    }
+  },
+  "community": {
+    "badge": "Connect With Us",
+    "title": "Join Our",
+    "titleHighlight": "Community",
+    "subtitle": "Stay connected with DFS SimuChain across all platforms. Get updates, join discussions, and be part of our growing ecosystem.",
+    "followers": "followers",
+    "follow": "Follow",
+    "socials": {
+      "twitter": {
+        "description": "Follow us for the latest news, updates, and announcements."
+      },
+      "telegram": {
+        "description": "Join our active community chat for discussions and support."
+      },
+      "discord": {
+        "description": "Connect with developers, get support, and participate in events."
+      },
+      "github": {
+        "description": "Explore our open-source repositories and contribute to development."
+      },
+      "youtube": {
+        "description": "Watch tutorials, demos, and community highlights."
+      },
+      "medium": {
+        "description": "Read in-depth articles, guides, and technical deep-dives."
+      },
+      "reddit": {
+        "description": "Join discussions, share ideas, and stay updated with the community."
+      },
+      "linkedin": {
+        "description": "Connect professionally and explore career opportunities."
+      }
+    },
+    "stats": {
+      "title": "Our Growing Community",
+      "subtitle": "Join thousands of users and developers building on DFS SimuChain",
+      "totalCommunity": "Total Community",
+      "activeDevelopers": "Active Developers",
+      "dappsBuilt": "dApps Built",
+      "countries": "Countries"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "subtitle": "Subscribe to our newsletter for weekly updates, announcements, and community highlights.",
+      "emailPlaceholder": "Enter your email"
+    }
+  },
+  "privacyPolicy": {
+    "badge": "Legal",
+    "title": "Privacy",
+    "titleHighlight": "Policy",
+    "lastUpdated": "Last Updated"
+  },
+  "termsOfUse": {
+    "badge": "Legal",
+    "title": "Terms of",
+    "titleHighlight": "Use",
+    "lastUpdated": "Last Updated"
+  },
+  "errors": {
+    "notFound": "Page Not Found",
+    "notFoundMessage": "The page you're looking for doesn't exist or has been moved.",
+    "goBack": "Go Back",
+    "goHome": "Go Home"
+  },
+  "careers": {
+    "hero": {
+      "badge": "Join Our Team",
+      "title": "Build the Future of",
+      "titleHighlight": "Web3 with Us",
+      "subtitle": "Join a passionate team making blockchain technology accessible to everyone. We're always looking for talented individuals who share our vision.",
+      "viewPositions": "View Open Positions"
+    },
+    "whyJoin": {
+      "title": "Why Join DFS SimuChain?",
+      "subtitle": "We offer more than just a job - we offer the chance to shape the future of technology."
+    },
+    "benefits": {
+      "remoteFirst": { "title": "Remote First", "description": "Work from anywhere in the world" },
+      "flexibleHours": { "title": "Flexible Hours", "description": "Work when you're most productive" },
+      "learningBudget": { "title": "Learning Budget", "description": "Annual budget for courses and conferences" },
+      "healthWellness": { "title": "Health & Wellness", "description": "Comprehensive health benefits" },
+      "innovationTime": { "title": "Innovation Time", "description": "20% time for personal projects" },
+      "teamEvents": { "title": "Team Events", "description": "Regular virtual and in-person meetups" }
+    },
+    "values": {
+      "title": "What We Believe",
+      "belief1": "We believe blockchain should be accessible to everyone",
+      "belief2": "We value transparency in everything we do",
+      "belief3": "We move fast but maintain quality",
+      "belief4": "We support each other's growth",
+      "belief5": "We celebrate diversity of thought and background"
+    },
+    "openPositions": {
+      "title": "Open Positions",
+      "available": "open positions available"
+    },
+    "positions": {
+      "seniorBackend": { "title": "Senior Backend Developer", "department": "Engineering", "description": "Build scalable blockchain infrastructure" },
+      "frontendDev": { "title": "Frontend Developer", "department": "Engineering", "description": "Create beautiful user experiences" },
+      "productDesigner": { "title": "Product Designer", "department": "Design", "description": "Design the future of Web3 interfaces" },
+      "communityManager": { "title": "Community Manager", "department": "Marketing", "description": "Grow and engage our global community" },
+      "technicalWriter": { "title": "Technical Writer", "department": "Documentation", "description": "Create clear, helpful documentation" },
+      "devOps": { "title": "DevOps Engineer", "department": "Infrastructure", "description": "Maintain and scale our infrastructure" }
+    },
+    "remote": "Remote",
+    "fullTime": "Full-time",
+    "partTime": "Part-time",
+    "applyNow": "Apply Now",
+    "hiring": {
+      "title": "Our Hiring Process",
+      "subtitle": "Simple, transparent, and respectful of your time",
+      "apply": { "title": "Apply", "description": "Submit your application and resume" },
+      "screen": { "title": "Screen", "description": "Initial review and screening call" },
+      "interview": { "title": "Interview", "description": "Technical and culture fit interviews" },
+      "offer": { "title": "Offer", "description": "Receive and accept your offer" }
+    },
+    "cta": {
+      "title": "Don't See the Right Role?",
+      "subtitle": "We're always looking for talented individuals. Send us your resume and tell us how you'd like to contribute.",
+      "button": "Get in Touch"
+    }
+  }
+}
+

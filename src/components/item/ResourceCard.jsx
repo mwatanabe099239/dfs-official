@@ -1,8 +1,10 @@
 import React from "react";
 import { useTheme } from "../../context/ThemeContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 const ResourceCard = ({ title, description, icon }) => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <div className={`flex flex-col gap-2 md:text-start text-center p-6 rounded-3xl shadow-lg transition-all duration-300 ${

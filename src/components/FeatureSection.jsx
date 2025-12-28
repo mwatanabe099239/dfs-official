@@ -1,8 +1,10 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const FeaturesSection = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <div className={`px-4 py-16 sm:px-8 md:px-16 lg:px-24 transition-colors duration-300 ${
@@ -13,8 +15,8 @@ const FeaturesSection = () => {
         <h2 className={`md:text-[3rem] md:leading-[3.5rem] text-3xl font-bold font-space ${
           isDark ? "text-white" : "text-gray-900"
         }`}>
-          What Makes DFS SimuChain So{" "}
-          <span className="text-[#21f201]">Powerful?</span>
+          {t('home.features.title.prefix')}{" "}
+          <span className="text-[#21f201]">{t('home.features.title.highlight')}</span>
         </h2>
       </div>
 
@@ -47,14 +49,12 @@ const FeaturesSection = () => {
           <h3 className={`text-[2rem] leading-[2.5rem] text-start font-bold font-space mb-2 ${
             isDark ? "text-white" : "text-gray-900"
           }`}>
-            Unmatched Compatibility
+            {t('home.features.compatibility.title')}
           </h3>
           <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
             isDark ? "text-[#C4C5CB]" : "text-gray-600"
           }`}>
-            Unlike complex and hard-to-use Web3 platforms, DFS SimuChain offers
-            seamless integration with existing Web2 systems. An innovative and
-            practical blockchain that anyone can start using right away.
+            {t('home.features.compatibility.description')}
           </p>
         </div>
 
@@ -85,13 +85,12 @@ const FeaturesSection = () => {
           <h3 className={`text-[2rem] leading-[2.5rem] text-start font-bold font-space mb-2 ${
             isDark ? "text-white" : "text-gray-900"
           }`}>
-            Seamless Multilingual Access{" "}
+            {t('home.features.multilingual.title')}
           </h3>
           <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
             isDark ? "text-[#C4C5CB]" : "text-gray-600"
           }`}>
-            One QR code, instant switch to over 100 languages—no barriers, just
-            global usability.
+            {t('home.features.multilingual.description')}
           </p>
         </div>
 
@@ -122,13 +121,12 @@ const FeaturesSection = () => {
           <h3 className={`text-[2rem] text-start leading-[2.5rem] font-bold font-space mb-2 ${
             isDark ? "text-white" : "text-gray-900"
           }`}>
-            Endless Possibilities for Apps{" "}
+            {t('home.features.apps.title')}
           </h3>
           <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
             isDark ? "text-[#C4C5CB]" : "text-gray-600"
           }`}>
-            Compatible with all Web2 content, DFS SimuChain unlocks a universe of
-            applications— limitless, scalable, and ready for the future.
+            {t('home.features.apps.description')}
           </p>
         </div>
 
@@ -159,13 +157,12 @@ const FeaturesSection = () => {
           <h3 className={`text-[2rem] leading-[2.5rem] text-start font-bold font-space mb-2 ${
             isDark ? "text-white" : "text-gray-900"
           }`}>
-            Validator-Free, Seamless Blockchain
+            {t('home.features.validatorFree.title')}
           </h3>
           <p className={`text-start font-space text-[1.25rem] leading-[1.75rem] ${
             isDark ? "text-[#C4C5CB]" : "text-gray-600"
           }`}>
-            DFS SimuChain runs without validators, prioritizing speed, security,
-            and smooth user eperience.
+            {t('home.features.validatorFree.description')}
           </p>
         </div>
       </div>

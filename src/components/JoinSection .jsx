@@ -1,8 +1,10 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const JoinSection = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <div className={`py-16 px-4 sm:px-8 md:px-16 lg:px-24 transition-colors duration-300 ${
@@ -14,12 +16,12 @@ const JoinSection = () => {
         <h2 className={`md:text-[3rem] md:leading-[3.5rem] text-3xl font-bold font-space mb-4 ${
           isDark ? "text-white" : "text-gray-900"
         }`}>
-          <span className="text-[#21f201]">Join</span> DFS SimuChain Today!
+          <span className="text-[#21f201]">{t('home.join.titleHighlight')}</span> {t('home.join.title')}
         </h2>
         <p className={`text-[1.25rem] leading-[1.75rem] font-medium mb-8 font-space ${
           isDark ? "text-[#C4C5CB]" : "text-gray-600"
         }`}>
-          Join your community to the DFS SimuChain, or create your own token.
+          {t('home.join.description')}
         </p>
         <a
           href="#"
@@ -27,7 +29,7 @@ const JoinSection = () => {
             isDark ? "text-white" : "text-gray-900"
           }`}
         >
-          Issue Coin
+          {t('landing.hero.issueCoin')}
         </a>
       </div>
     </div>

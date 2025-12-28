@@ -13,25 +13,29 @@ import {
   HiOutlineCash
 } from "react-icons/hi";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const ExploreDapps = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   // Categories for sidebar
   const categories = [
-    { name: "All", icon: HiOutlineCollection, count: 10 },
-    { name: "Wallet", icon: HiOutlineCurrencyDollar, count: 1 },
-    { name: "Explorer", icon: HiOutlineGlobe, count: 1 },
-    { name: "Token Tools", icon: HiOutlineSparkles, count: 2 },
-    { name: "Social", icon: HiOutlineUserGroup, count: 2 },
-    { name: "DeFi", icon: HiOutlineSwitchHorizontal, count: 2 },
-    { name: "Exchange", icon: HiOutlineShoppingCart, count: 2 },
-    { name: "Utility", icon: HiOutlineGift, count: 1 },
+    { name: "All", nameKey: "exploreDapps.categories.all", icon: HiOutlineCollection, count: 10 },
+    { name: "Wallet", nameKey: "exploreDapps.categories.wallet", icon: HiOutlineCurrencyDollar, count: 1 },
+    { name: "Explorer", nameKey: "exploreDapps.categories.explorer", icon: HiOutlineGlobe, count: 1 },
+    { name: "Token Tools", nameKey: "exploreDapps.categories.tokenTools", icon: HiOutlineSparkles, count: 2 },
+    { name: "Social", nameKey: "exploreDapps.categories.social", icon: HiOutlineUserGroup, count: 2 },
+    { name: "DeFi", nameKey: "exploreDapps.categories.defi", icon: HiOutlineSwitchHorizontal, count: 2 },
+    { name: "Exchange", nameKey: "exploreDapps.categories.exchange", icon: HiOutlineShoppingCart, count: 2 },
+    { name: "Utility", nameKey: "exploreDapps.categories.utility", icon: HiOutlineGift, count: 1 },
   ];
 
   // dApps data with your actual projects
+  // Logo images should be placed in /public/dapps/ folder
+  // White logos for dark theme, Black logos for light theme
   const dappsData = [
     {
       id: 1,
@@ -39,7 +43,8 @@ const ExploreDapps = () => {
       description: "DFS Chain's main wallet. Secure, fast, and easy to use for managing your DFS assets.",
       category: "Wallet",
       url: "https://metaface.dfsscan.com",
-      icon: "👤",
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/o2cerargskdqluetq0vs.png",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/o2cerargskdqluetq0vs.png",
       gradient: "from-blue-500 to-cyan-400",
       tag: "Featured",
       tagColor: "bg-[#21f201] text-black",
@@ -50,7 +55,8 @@ const ExploreDapps = () => {
       description: "DFS Chain's main explorer for exploring Transactions, Blocks, and on-chain data.",
       category: "Explorer",
       url: "https://dfsscan.com",
-      icon: "🔍",
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/guwymkq7msbhbxfwmsly.png",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/guwymkq7msbhbxfwmsly.png",
       gradient: "from-purple-500 to-pink-400",
       tag: "Official",
       tagColor: "bg-blue-500 text-white",
@@ -61,7 +67,8 @@ const ExploreDapps = () => {
       description: "DFS Chain's token publishing platform. Publish your DRC20 tokens with approval system.",
       category: "Token Tools",
       url: "https://drc20.dfsscan.com",
-      icon: "🪙",
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673521/ees9tjh8fd6z2rzklgjq.png",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/lfbyfr2uevv1l0qhswkd.png",
       gradient: "from-yellow-400 to-orange-500",
       tag: "New",
       tagColor: "bg-emerald-500 text-white",
@@ -72,7 +79,8 @@ const ExploreDapps = () => {
       description: "Social Media of DFS Chain. Post articles with IP tokens, all certified and engraved on-chain.",
       category: "Social",
       url: "https://uhalisi.com",
-      icon: "📝",
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/qaftjnw8sscjxcood5uv.png",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/ksxqd6cvgntpvfbasbd4.png",
       gradient: "from-indigo-500 to-purple-500",
       tag: null,
       tagColor: null,
@@ -83,7 +91,8 @@ const ExploreDapps = () => {
       description: "Point Earning Platform. Earn points, swap for tokens, participate in airdrops and more.",
       category: "Social",
       url: "https://app.poipi.com",
-      icon: "🎯",
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673518/p8cncrxj370owxtc90pu.png",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673518/p8cncrxj370owxtc90pu.png",
       gradient: "from-green-400 to-emerald-500",
       tag: "Popular",
       tagColor: "bg-amber-500 text-black",
@@ -94,7 +103,8 @@ const ExploreDapps = () => {
       description: "Donation Platform. Donate DRC20 tokens to live streamers and receive gratitude tokens.",
       category: "Utility",
       url: "https://dfs-gyakusen-eight.vercel.app",
-      icon: "💝",
+      logoWhite: "/dapps/gyakusen-white.png",
+      logoBlack: "/dapps/gyakusen-black.png",
       gradient: "from-pink-500 to-rose-500",
       tag: null,
       tagColor: null,
@@ -105,7 +115,8 @@ const ExploreDapps = () => {
       description: "Token Burning Platform. Burn your DRC20 tokens to reduce supply and increase value.",
       category: "Token Tools",
       url: "https://dfs-arigataki-one.vercel.app",
-      icon: "🔥",
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/czwuvtbjgza6s3uydyrs.png",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/g0mfxdgr7rj3kberur3q.png",
       gradient: "from-orange-500 to-red-500",
       tag: null,
       tagColor: null,
@@ -116,7 +127,8 @@ const ExploreDapps = () => {
       description: "Token Sale Platform. Launch and participate in token sales on DFS Chain.",
       category: "DeFi",
       url: "https://dfs-moegi.vercel.app",
-      icon: "🚀",
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/ihrgv1ojboawarw7j1km.png",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/ihrgv1ojboawarw7j1km.png",
       gradient: "from-teal-400 to-cyan-500",
       tag: "New",
       tagColor: "bg-emerald-500 text-white",
@@ -127,7 +139,8 @@ const ExploreDapps = () => {
       description: "Trading Platform. P2P trading for DRC20 tokens with secure escrow system.",
       category: "Exchange",
       url: "https://heyotc.com",
-      icon: "🤝",
+      logoWhite: "/dapps/heyotc-white.png",
+      logoBlack: "/dapps/heyotc-black.png",
       gradient: "from-violet-500 to-purple-600",
       tag: null,
       tagColor: null,
@@ -138,7 +151,8 @@ const ExploreDapps = () => {
       description: "DEX Platform. Decentralized exchange for swapping DRC20 tokens instantly.",
       category: "Exchange",
       url: "https://wexswap.com",
-      icon: "💱",
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766674347/yw14nsguzbvwonwpfgyx.png",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766674347/yw14nsguzbvwonwpfgyx.png",
       gradient: "from-blue-600 to-indigo-600",
       tag: "Featured",
       tagColor: "bg-[#21f201] text-black",
@@ -171,25 +185,29 @@ const ExploreDapps = () => {
                 <h3 className={`text-sm font-semibold uppercase tracking-wider mb-3 ${
                   isDark ? "text-gray-400" : "text-gray-500"
                 }`}>
-                  Categories
+                  {t('exploreDapps.categories.title')}
                 </h3>
                 <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
                   {categories.map((category) => {
                     const Icon = category.icon;
+                    const isSelected = selectedCategory === category.name;
                     return (
                       <button
                         key={category.name}
                         onClick={() => setSelectedCategory(category.name)}
-                        className={`flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 rounded-xl transition-colors ${
-                          selectedCategory === category.name
-                            ? "bg-[#21f201]/10 text-[#21f201] border-2 border-[#21f201]/30"
+                        className={`flex-shrink-0 flex items-center justify-center gap-2 rounded-xl transition-all duration-200 ${
+                          isSelected
+                            ? "bg-[#21f201]/10 text-[#21f201] border-2 border-[#21f201]/30 px-4 py-3"
                             : isDark 
-                              ? "text-gray-400 bg-gray-800/50 hover:bg-gray-800 hover:text-white border border-gray-700" 
-                              : "text-gray-500 bg-gray-100 hover:bg-gray-200 hover:text-gray-900 border border-gray-200"
+                              ? "text-gray-400 bg-gray-800/50 hover:bg-gray-800 hover:text-white border border-gray-700 w-12 h-12" 
+                              : "text-gray-500 bg-gray-100 hover:bg-gray-200 hover:text-gray-900 border border-gray-200 w-12 h-12"
                         }`}
                         title={category.name}
                       >
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-5 h-5 flex-shrink-0" />
+                        {isSelected && (
+                          <span className="text-sm font-medium whitespace-nowrap">{t(category.nameKey)}</span>
+                        )}
                       </button>
                     );
                   })}
@@ -205,7 +223,7 @@ const ExploreDapps = () => {
                 <h3 className={`text-sm font-semibold uppercase tracking-wider mb-4 px-3 ${
                   isDark ? "text-gray-400" : "text-gray-500"
                 }`}>
-                  Categories
+                  {t('exploreDapps.categories.title')}
                 </h3>
                 <nav className="space-y-1">
                   {categories.map((category) => {
@@ -224,7 +242,7 @@ const ExploreDapps = () => {
                       >
                         <div className="flex items-center gap-3">
                           <Icon className="w-5 h-5" />
-                          <span className="text-sm font-medium">{category.name}</span>
+                          <span className="text-sm font-medium">{t(category.nameKey)}</span>
                         </div>
                         <span className={`text-xs px-2 py-0.5 rounded-full ${
                           selectedCategory === category.name
@@ -242,7 +260,7 @@ const ExploreDapps = () => {
                 <div className={`mt-6 pt-6 border-t ${isDark ? "border-gray-700" : "border-gray-200"}`}>
                   <button className="w-full bg-[#21f201] text-black font-semibold py-3 px-4 rounded-lg hover:bg-[#1ad901] transition-colors flex items-center justify-center gap-2">
                     <HiOutlineSparkles className="w-5 h-5" />
-                    Submit Your dApp
+                    {t('exploreDapps.submitDapp')}
                   </button>
                 </div>
               </div>
@@ -259,10 +277,10 @@ const ExploreDapps = () => {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="text-start">
                     <h1 className="text-2xl md:text-3xl font-bold mb-1">
-                      Explore <span className="text-[#21f201]">dApps</span>
+                      {t('exploreDapps.title')} <span className="text-[#21f201]">{t('exploreDapps.titleHighlight')}</span>
                     </h1>
                     <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                      Discover decentralized applications built on DFS SimuChain
+                      {t('exploreDapps.subtitle')}
                     </p>
                   </div>
                   
@@ -271,7 +289,7 @@ const ExploreDapps = () => {
                     <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                     <input
                       type="text"
-                      placeholder="Search dApps..."
+                      placeholder={t('exploreDapps.searchPlaceholder')}
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                       className={`w-full border rounded-lg pl-10 pr-4 py-2.5 placeholder-gray-400 focus:outline-none focus:border-[#21f201] transition-colors text-sm ${
@@ -283,11 +301,35 @@ const ExploreDapps = () => {
                   </div>
                 </div>
                 
-                {/* Results Count */}
-                <div className="mt-4 flex items-center justify-between">
-                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                    Showing <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{filteredDapps.length}</span> dApps
-                  </p>
+                {/* Results Count & Selected Category */}
+                <div className="mt-4 flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                      {t('exploreDapps.showing')} <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{filteredDapps.length}</span> {t('exploreDapps.dappsLabel')}
+                    </p>
+                    {/* Selected Category Badge - Mobile */}
+                    {selectedCategory !== "All" && (
+                      <div className="lg:hidden flex items-center gap-2">
+                        <span className={`text-sm ${isDark ? "text-gray-500" : "text-gray-400"}`}>{t('exploreDapps.in')}</span>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium">
+                          {(() => {
+                            const cat = categories.find(c => c.name === selectedCategory);
+                            const Icon = cat?.icon;
+                            return Icon ? <Icon className="w-4 h-4" /> : null;
+                          })()}
+                          {t(categories.find(c => c.name === selectedCategory)?.nameKey)}
+                          <button 
+                            onClick={() => setSelectedCategory("All")}
+                            className="ml-1 hover:bg-[#21f201]/20 rounded-full p-0.5"
+                          >
+                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -309,9 +351,25 @@ const ExploreDapps = () => {
                     >
                       {/* Card Header */}
                       <div className="flex items-start justify-between mb-3">
-                        {/* Icon */}
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${dapp.gradient} flex items-center justify-center text-xl shadow-lg`}>
-                          {dapp.icon}
+                        {/* Logo */}
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden ${
+                          isDark ? "bg-gray-800" : "bg-gray-100"
+                        }`}>
+                          <img 
+                            src={isDark ? dapp.logoWhite : dapp.logoBlack} 
+                            alt={`${dapp.name} logo`}
+                            className="w-8 h-8 object-contain"
+                            onError={(e) => {
+                              // Fallback to a placeholder if image fails to load
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'flex';
+                            }}
+                          />
+                          <div 
+                            className={`w-full h-full hidden items-center justify-center text-xl bg-gradient-to-br ${dapp.gradient}`}
+                          >
+                            {dapp.name.charAt(0)}
+                          </div>
                         </div>
                         
                         {/* Tag */}
@@ -349,7 +407,7 @@ const ExploreDapps = () => {
                           {dapp.category}
                         </span>
                         <span className="text-xs text-[#21f201] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                          Visit →
+                          {t('exploreDapps.visit')} →
                         </span>
                       </div>
                     </a>
@@ -360,8 +418,8 @@ const ExploreDapps = () => {
                 {filteredDapps.length === 0 && (
                   <div className="text-center py-16">
                     <div className="text-6xl mb-4">🔍</div>
-                    <h3 className={`text-xl font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>No dApps found</h3>
-                    <p className={isDark ? "text-gray-400" : "text-gray-500"}>Try adjusting your search or filter criteria</p>
+                    <h3 className={`text-xl font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>{t('exploreDapps.noDappsFound')}</h3>
+                    <p className={isDark ? "text-gray-400" : "text-gray-500"}>{t('exploreDapps.tryAdjusting')}</p>
                   </div>
                 )}
               </div>
@@ -378,9 +436,9 @@ const ExploreDapps = () => {
           }`}>
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
-                <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>Build on DFS SimuChain</h3>
+                <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>{t('exploreDapps.buildOn')}</h3>
                 <p className={isDark ? "text-gray-400" : "text-gray-600"}>
-                  All dApps are using Web2 tokens. Start building your decentralized application today.
+                  {t('exploreDapps.buildOnDescription')}
                 </p>
               </div>
               <button className={`shrink-0 font-semibold py-3 px-6 rounded-lg transition-colors ${
@@ -388,7 +446,7 @@ const ExploreDapps = () => {
                   ? "bg-white text-black hover:bg-gray-100" 
                   : "bg-gray-900 text-white hover:bg-gray-800"
               }`}>
-                Get Started
+                {t('common.getStarted')}
               </button>
             </div>
           </div>

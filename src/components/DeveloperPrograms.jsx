@@ -1,8 +1,10 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const DeveloperPrograms = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <div className={`px-4 py-16 sm:px-8 md:px-16 lg:px-24 md:pt-44 pt-20 transition-colors duration-300 ${

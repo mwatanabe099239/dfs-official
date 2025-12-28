@@ -1,8 +1,10 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const Second = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <div className={`px-4 py-16 sm:px-8 md:px-16 lg:px-24 transition-colors duration-300 ${
@@ -13,13 +15,12 @@ const Second = () => {
         <h2 className={`font-bold text-start text-3xl sm:text-5xl max-w-xl font-space leading-[3.5rem] mb-4 sm:mb-0 ${
           isDark ? "text-white" : "text-gray-900"
         }`}>
-          A <span className="text-[#21f201]">Blockchain</span> with Daily Active
-          User Updates
+          {t('home.stats.title.prefix')} <span className="text-[#21f201]">{t('home.stats.title.highlight')}</span> {t('home.stats.title.suffix')}
         </h2>
         <p className={`text-[1.25rem] font-space mt-4 sm:mt-0 text-start max-w-[25rem] ${
           isDark ? "text-[#C4C5CB]" : "text-gray-600"
         }`}>
-          As of January 2026, SimuChain is a blockchain designed to support CeFi, AI agencies, enterprise systems, digital verification, and transaction-intensive services.
+          {t('home.stats.description')}
         </p>
       </div>
 
@@ -40,7 +41,7 @@ const Second = () => {
             <span className={`text-[1.25rem] leading-[1.75rem] font-space mb-12 ${
               isDark ? "text-[#C4C5CB]" : "text-gray-600"
             }`}>
-              Active Users
+              {t('home.stats.activeUsers')}
             </span>
           </div>
 
@@ -80,7 +81,7 @@ const Second = () => {
             <span className={`text-[1.25rem] leading-[1.75rem] font-space mb-12 ${
               isDark ? "text-[#C4C5CB]" : "text-gray-600"
             }`}>
-              Active dApps
+              {t('home.stats.activeDapps')}
             </span>
           </div>
 
@@ -140,7 +141,7 @@ const Second = () => {
             <span className={`text-[1.25rem] leading-[1.75rem] font-space mb-12 ${
               isDark ? "text-[#C4C5CB]" : "text-gray-600"
             }`}>
-              Generated token
+              {t('home.stats.generatedTokens')}
             </span>
           </div>
 

@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 
 const Navbar = () => {
   const { isDark, toggleTheme } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <nav className={`py-4 transition-colors duration-300 ${
@@ -102,7 +104,7 @@ const Navbar = () => {
                     : "bg-white border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-black"
                 }`}
               >
-                Contact Us
+                {t("common.contactUs")}
               </a>
             </li>
             <li>
@@ -114,7 +116,7 @@ const Navbar = () => {
                     : "bg-gray-900 text-white hover:bg-gray-800"
                 }`}
               >
-                Get Started
+                {t("common.getStarted")}
               </a>
             </li>
           </ul>

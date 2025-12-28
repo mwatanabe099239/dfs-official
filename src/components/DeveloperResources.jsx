@@ -1,9 +1,11 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import ResourceCard from "./item/ResourceCard";
 
 const DeveloperResources = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   const resources = [
     {

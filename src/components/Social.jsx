@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import {
   FaTelegramPlane,
   FaDiscord,
@@ -13,6 +14,7 @@ import {
 } from "react-icons/fa";
 
 const Social = () => {
+  const { t } = useLanguage();
   const { isDark } = useTheme();
 
   return (
