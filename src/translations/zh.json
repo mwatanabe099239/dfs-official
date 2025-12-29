@@ -1,0 +1,1174 @@
+{
+  "common": {
+    "getStarted": "开始使用",
+    "learnMore": "了解更多",
+    "submit": "提交",
+    "subscribe": "订阅",
+    "cancel": "取消",
+    "close": "关闭",
+    "search": "搜索",
+    "loading": "加载中...",
+    "comingSoon": "即将推出",
+    "viewAll": "查看全部",
+    "readMore": "阅读更多",
+    "goHome": "返回首页",
+    "applyNow": "立即申请",
+    "contactUs": "联系我们",
+    "joinWaitlist": "加入等候名单",
+    "downloadPdf": "下载PDF",
+    "backToTop": "返回顶部",
+    "email": "电子邮件",
+    "name": "姓名",
+    "message": "消息",
+    "send": "发送",
+    "follow": "关注",
+    "share": "分享",
+    "cookies": "Cookie",
+    "language": "语言"
+  },
+  "navbar": {
+    "home": "首页",
+    "dapps": "dApps",
+    "staking": "质押",
+    "whitepaper": "白皮书",
+    "about": "关于",
+    "contact": "联系"
+  },
+  "landing": {
+    "status": {
+      "layer0": "第0层",
+      "isLive": "已上线"
+    },
+    "hero": {
+      "title": "未来的",
+      "titleHighlight": "Web3模拟",
+      "subtitle": "利用去中心化让不可能成为可能",
+      "issueCoin": "发行代币",
+      "cta1": "开始构建",
+      "cta2": "探索dApps"
+    },
+    "features": {
+      "title": "为什么选择DFS SimuChain？",
+      "subtitle": "为开发者和用户打造",
+      "feature1": {
+        "title": "轻松上手",
+        "description": "无需助记词或复杂设置。只需用电子邮件注册即可开始探索。"
+      },
+      "feature2": {
+        "title": "真正的区块链概念",
+        "description": "交易、区块、钱包和代币 - 所有熟悉的概念，简化呈现。"
+      },
+      "feature3": {
+        "title": "不断增长的生态系统",
+        "description": "包括DEX、社交平台等多个dApps。"
+      }
+    }
+  },
+  "home": {
+    "stats": {
+      "title": {
+        "prefix": "一个",
+        "highlight": "区块链",
+        "suffix": "每日活跃用户更新"
+      },
+      "description": "截至2026年1月，SimuChain是一个专为支持CeFi、AI代理、企业系统、数字认证和交易密集型服务而设计的区块链。",
+      "activeUsers": "活跃用户",
+      "activeDapps": "活跃dApps",
+      "generatedTokens": "已生成代币"
+    },
+    "features": {
+      "title": {
+        "prefix": "是什么让DFS SimuChain如此",
+        "highlight": "强大？"
+      },
+      "compatibility": {
+        "title": "无与伦比的兼容性",
+        "description": "与复杂难用的Web3平台不同，DFS SimuChain与现有Web2系统无缝集成。任何人都可以立即开始使用的创新实用区块链。"
+      },
+      "multilingual": {
+        "title": "无缝多语言访问",
+        "description": "一个二维码，即时切换100多种语言——无障碍，全球可用。"
+      },
+      "apps": {
+        "title": "无限的应用可能性",
+        "description": "兼容所有Web2内容，DFS SimuChain释放无限、可扩展、面向未来的应用程序世界。"
+      },
+      "validatorFree": {
+        "title": "无验证器的无缝区块链",
+        "description": "DFS SimuChain无需验证器运行，优先考虑速度、安全性和流畅的用户体验。"
+      }
+    },
+    "buildOn": {
+      "title": "在DFS SimuChain上构建",
+      "description": "想要创建自己的代币或需要合作、资助或技术支持？今天就联系我们！",
+      "cta": "开始构建",
+      "exploreApps": "探索其他应用"
+    },
+    "join": {
+      "titleHighlight": "加入",
+      "title": "DFS SimuChain！",
+      "description": "将您的社区加入DFS SimuChain，或创建您自己的代币。",
+      "cta": "开始使用"
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": {
+        "question": "什么是DFS SimuChain (DSC)？",
+        "answer": "DFS SimuChain是基于web2系统的第0层区块链，与web3区块链不同。它是区块链的最新版本，旨在让即使是首次用户也能轻松、流畅、低成本地使用，无需连接像Web3那样复杂的钱包。"
+      },
+      "q2": {
+        "question": "DFS SimuChain (DSC)的主要特点是什么？",
+        "answer": "系统确保您的数据和交易安全，并提供可靠的监控以确保一切顺利运行。与Web3工具不同，它可以轻松与您熟悉的Web2工具集成，从而实现更快的交易处理和更低的成本。"
+      },
+      "q3": {
+        "question": "DFS SimuChain (DSC)有验证器吗？",
+        "answer": "与基于验证器的区块链不同，DFS SimuChain无需验证器运行。然而，我们的系统专注于以高可靠性和效率进行优化的资产、用户和交易管理。"
+      },
+      "q4": {
+        "question": "DFS SimuChain (DSC)费用是多少？",
+        "answer": "我们努力在众多链中提供最低的费率。每笔交易约0.001美元，具体取决于服务内容。"
+      },
+      "q5": {
+        "question": "DFS SimuChain (DSC)广泛采用后我们可以期待什么？",
+        "answer": "作为Web3系统受挫用户和首次用户的入口，它提供Web3链的概念和逻辑，DFS SimuChain与所有web3链相连，因此您可以创建巨大的市场交易量。"
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "chains": "链",
+      "useDfs": "使用DFS SimuChain",
+      "build": "构建",
+      "participate": "参与",
+      "about": "关于",
+      "legal": "法律"
+    },
+    "links": {
+      "dfsSimuChain": "DFS SimuChain",
+      "makeWallet": "创建钱包",
+      "getDfs": "获取DFS",
+      "stakeDfs": "质押DFS",
+      "exploreDapps": "探索dApps",
+      "payByCrypto": "加密支付",
+      "whitepaper": "白皮书",
+      "faq": "常见问题",
+      "feedback": "反馈",
+      "events": "活动",
+      "governance": "治理",
+      "community": "社区",
+      "referralProgram": "推荐计划",
+      "newsletter": "新闻通讯",
+      "aboutUs": "关于我们",
+      "blog": "博客",
+      "careers": "招聘",
+      "partners": "合作伙伴",
+      "contactUs": "联系我们",
+      "privacyPolicy": "隐私政策",
+      "termsOfUse": "使用条款",
+      "cookies": "Cookie"
+    },
+    "followUs": "关注我们：",
+    "copyright": "© 2026 DIFINES. 版权所有。"
+  },
+  "dapps": {
+    "title": "dApps排名",
+    "subtitle": "发现DFS SimuChain上最受欢迎的去中心化应用",
+    "searchPlaceholder": "搜索dApps...",
+    "hero": {
+      "title": "热门dApps",
+      "ecosystem": "生态系统",
+      "subtitle": "发现在DFS SimuChain生态系统上构建的热门dApps，按用户、TVL和TXN排序。"
+    },
+    "submitDapp": "提交您的dApp",
+    "filters": {
+      "allChains": "所有链",
+      "allCategories": "所有类别",
+      "newListings": "新上线",
+      "tradingDapps": "交易dApps"
+    },
+    "categories": {
+      "all": "全部",
+      "defi": "DeFi",
+      "social": "社交",
+      "nft": "NFT",
+      "gaming": "游戏",
+      "tools": "工具",
+      "wallets": "钱包",
+      "games": "游戏",
+      "ai": "AI"
+    },
+    "table": {
+      "rank": "#",
+      "dapp": "dApp",
+      "category": "类别",
+      "users": "用户",
+      "transactions": "交易",
+      "last7Days": "过去7天",
+      "change": "变化"
+    }
+  },
+  "exploreDapps": {
+    "title": "探索",
+    "titleHighlight": "dApps",
+    "subtitle": "发现在DFS SimuChain上构建的去中心化应用",
+    "searchPlaceholder": "搜索dApps...",
+    "submitDapp": "提交您的dApp",
+    "showing": "显示",
+    "dappsLabel": "个dApps",
+    "in": "在",
+    "visit": "访问",
+    "noDappsFound": "未找到dApps",
+    "tryAdjusting": "尝试调整您的搜索或筛选条件",
+    "buildOn": "在DFS SimuChain上构建",
+    "buildOnDescription": "所有dApps都使用Web2代币。今天就开始构建您的去中心化应用吧。",
+    "featured": "精选",
+    "official": "官方",
+    "new": "新",
+    "popular": "热门",
+    "visitApp": "访问应用",
+    "categories": {
+      "title": "类别",
+      "all": "全部",
+      "wallet": "钱包",
+      "explorer": "浏览器",
+      "tokenTools": "代币工具",
+      "defi": "DeFi",
+      "social": "社交",
+      "exchange": "交易所",
+      "utility": "实用工具"
+    }
+  },
+  "staking": {
+    "badge": "质押已上线",
+    "days": "天",
+    "toast": {
+      "underDevelopment": "此功能正在开发中。"
+    },
+    "hero": {
+      "title": "质押DFS，",
+      "titleHighlight": "赚取奖励",
+      "subtitle": "让您的DFS代币发挥作用。质押并赚取高达25%的年化收益，同时帮助保护DFS SimuChain网络。"
+    },
+    "stats": {
+      "tvl": "总锁定价值",
+      "activeStakers": "活跃质押者",
+      "maxApy": "最高年化收益",
+      "uptime": "正常运行时间"
+    },
+    "howToStake": {
+      "title": "如何",
+      "titleHighlight": "质押",
+      "subtitle": "只需几个简单步骤即可开始赚取奖励"
+    },
+    "steps": {
+      "connectWallet": {
+        "title": "连接钱包",
+        "description": "安全地将您的Metaface钱包连接到DFS质押平台。"
+      },
+      "chooseAmount": {
+        "title": "选择金额",
+        "description": "选择您要质押的DFS代币数量并选择您的等级。"
+      },
+      "selectLockPeriod": {
+        "title": "选择锁定期",
+        "description": "选择您偏好的锁定期。锁定时间越长，奖励越高。"
+      },
+      "startEarning": {
+        "title": "开始赚取",
+        "description": "确认您的质押并自动开始赚取奖励。"
+      }
+    },
+    "tierNames": {
+      "starter": "入门级",
+      "growth": "成长级",
+      "premium": "高级",
+      "elite": "精英级"
+    },
+    "lockPeriods": {
+      "30days": "30天",
+      "90days": "90天",
+      "180days": "180天",
+      "365days": "365天"
+    },
+    "tiers": {
+      "title": "质押",
+      "titleHighlight": "等级",
+      "subtitle": "选择最适合您投资策略的等级",
+      "mostPopular": "最受欢迎",
+      "minStake": "最低质押",
+      "lockPeriod": "锁定期",
+      "autoCompound": "自动复投",
+      "selectTier": "选择等级"
+    },
+    "whyStake": {
+      "title": "为什么选择质押",
+      "subtitle": "DFS质押提供行业领先的安全性、有竞争力的奖励和无缝的用户体验。"
+    },
+    "features": {
+      "secureStaking": {
+        "title": "安全质押",
+        "description": "您的代币由DFS Chain强大的智能合约基础设施保护。"
+      },
+      "competitiveApy": {
+        "title": "有竞争力的年化收益",
+        "description": "通过我们的分级奖励系统，您质押的DFS代币可获得高达25%的年化收益。"
+      },
+      "flexibleTerms": {
+        "title": "灵活的条款",
+        "description": "从多个锁定期中选择，以匹配您的投资策略。"
+      },
+      "autoCompound": {
+        "title": "自动复投",
+        "description": "奖励自动复投以最大化您的收益。"
+      }
+    },
+    "calculator": {
+      "title": "质押计算器",
+      "preview": "预览",
+      "amountToStake": "质押金额",
+      "estimatedEarnings": "预计收益（180天）",
+      "connectWallet": "连接钱包开始"
+    },
+    "faq": {
+      "title": "常见",
+      "titleHighlight": "问题",
+      "subtitle": "关于DFS质押您需要了解的一切",
+      "questions": {
+        "whatIsStaking": {
+          "question": "什么是DFS质押？",
+          "answer": "DFS质押允许您锁定DFS代币一段时间以赚取奖励。通过质押，您为网络安全做出贡献，同时获得被动收入。"
+        },
+        "rewardsCalculated": {
+          "question": "质押奖励如何计算？",
+          "answer": "奖励根据您的质押金额、选择的等级和锁定期计算。更高的等级和更长的锁定期提供更好的年化收益率。奖励每天分发并自动复投。"
+        },
+        "unstakeEarly": {
+          "question": "我可以提前取消质押吗？",
+          "answer": "可以提前取消质押，但会产生罚款费用。我们建议选择与您的投资时间线一致的锁定期以最大化奖励。"
+        },
+        "whatWallet": {
+          "question": "我需要什么钱包？",
+          "answer": "您需要连接到DFS SimuChain网络的Metaface钱包。如果您还没有，可以在metaface.dfsscan.com创建一个。"
+        },
+        "receiveRewards": {
+          "question": "我什么时候能收到奖励？",
+          "answer": "质押奖励每天计算和分发。它们通过自动复投自动添加到您的质押余额中，最大化您的收益潜力。"
+        }
+      }
+    },
+    "cta": {
+      "title": "准备开始",
+      "titleHighlight": "赚取",
+      "subtitle": "加入数千名在DFS SimuChain上获得被动收入的质押者。今天就开始您的质押之旅。",
+      "startStaking": "开始质押",
+      "launchApp": "启动应用",
+      "readDocs": "阅读文档"
+    }
+  },
+  "whitepaper": {
+    "badge": "官方文档",
+    "title": "白皮书",
+    "subtitle": "全面了解DFS SimuChain的指南——创新的Web3区块链技术的Web2模拟，将去中心化概念带入传统网络基础设施。",
+    "version": "版本1.0",
+    "downloadPdf": "下载PDF",
+    "readOnline": "在线阅读",
+    "generating": "生成中...",
+    "tableOfContents": "目录",
+    "stats": {
+      "blockTime": "出块时间",
+      "tpsCapacity": "TPS容量",
+      "tokenStandard": "代币标准",
+      "infrastructure": "基础设施"
+    },
+    "sections": {
+      "introduction": "简介",
+      "coreConcepts": "核心概念",
+      "architecture": "架构",
+      "walletSystem": "钱包系统",
+      "drc20Standard": "DRC20代币标准",
+      "nativeToken": "原生代币（DFS）",
+      "gasMechanism": "Gas机制",
+      "useCases": "使用案例",
+      "roadmap": "路线图"
+    },
+    "cta": {
+      "title": "准备在DFS SimuChain上构建？",
+      "subtitle": "加入我们不断增长的开发者和创新者生态系统，共同创造Web2-Web3集成的未来。",
+      "createWallet": "创建钱包",
+      "exploreChain": "探索链"
+    }
+  },
+  "blog": {
+    "title": "博客",
+    "subtitle": "DFS SimuChain的最新新闻和更新",
+    "featured": "精选",
+    "latest": "最新文章",
+    "readTime": "分钟阅读",
+    "by": "作者",
+    "relatedArticles": "相关文章",
+    "shareArticle": "分享文章",
+    "hero": {
+      "badge": "DFS SimuChain博客",
+      "title": "新闻与",
+      "titleHighlight": "更新",
+      "subtitle": "了解DFS SimuChain生态系统的最新发展、教程和社区故事。"
+    },
+    "readArticle": "阅读文章",
+    "searchPlaceholder": "搜索文章...",
+    "noArticles": "未找到文章",
+    "noArticlesHint": "尝试调整您的搜索或筛选条件",
+    "postNotFound": "未找到博客文章",
+    "backToBlog": "返回博客",
+    "share": "分享",
+    "save": "保存",
+    "writtenBy": "作者",
+    "officialTeam": "DFS SimuChain官方",
+    "newsletter": {
+      "title": "订阅我们的新闻通讯",
+      "subtitle": "获取直接发送到您收件箱的最新新闻、教程和更新。",
+      "placeholder": "输入您的电子邮件"
+    },
+    "categories": {
+      "all": "全部",
+      "announcements": "公告",
+      "tutorials": "教程",
+      "updates": "更新",
+      "community": "社区",
+      "technical": "技术"
+    }
+  },
+  "faq": {
+    "title": "常见",
+    "titleHighlight": "问题",
+    "subtitle": "查找有关DFS SimuChain、钱包、代币等常见问题的答案。",
+    "searchPlaceholder": "搜索答案...",
+    "categories": {
+      "all": "全部",
+      "gettingStarted": "入门",
+      "wallet": "钱包",
+      "tokens": "代币",
+      "transactions": "交易",
+      "technical": "技术"
+    },
+    "noResults": "未找到结果",
+    "tryAdjusting": "尝试调整您的搜索或按类别浏览",
+    "stillHaveQuestions": "还有问题？",
+    "cantFind": "找不到您要找的内容？我们的支持团队随时为您提供帮助。",
+    "contactSupport": "联系支持",
+    "items": {
+      "whatIsDfs": {
+        "question": "什么是DFS SimuChain？",
+        "answer": "DFS SimuChain是Web3区块链技术的Web2模拟。它提供所有熟悉的区块链概念，如区块、交易、钱包和代币，但运行在传统的网络基础设施上。这使每个人都可以访问，无需管理助记词或私钥的复杂性。"
+      },
+      "howToStart": {
+        "question": "如何开始使用DFS SimuChain？",
+        "answer": "开始很简单！只需访问metaface.dfsscan.com并使用您的电子邮件地址注册。您的钱包将自动创建，您将收到一个唯一的钱包地址（以dfs_0x开头）。从那里，您可以探索生态系统、获取DFS代币并与各种dApps交互。"
+      },
+      "isFree": {
+        "question": "DFS SimuChain免费使用吗？",
+        "answer": "创建账户和钱包完全免费。但是，网络上的交易需要以DRC20_DFS代币支付Gas费。这些费用很低，有助于维持网络的可持续性。"
+      },
+      "createWallet": {
+        "question": "如何创建钱包？",
+        "answer": "访问metaface.dfsscan.com并点击「开始使用」。使用您的电子邮件地址注册，您的钱包将自动生成。与传统区块链钱包不同，您不需要管理助记词——您的钱包安全地链接到您的电子邮件账户。"
+      },
+      "walletAddress": {
+        "question": "我的钱包地址是什么样的？",
+        "answer": "DFS SimuChain钱包地址以「dfs_0x」开头，后跟唯一的字母数字字符串。例如：dfs_0x1a2b3c4d5e6f7890... 这种格式使DFS SimuChain地址易于识别。"
+      },
+      "multipleWallets": {
+        "question": "我可以拥有多个钱包吗？",
+        "answer": "目前，每个用户账户链接到一个钱包地址。这确保了简单的用户体验并简化了资产管理。我们可能会在未来的更新中引入多钱包支持。"
+      },
+      "recoverWallet": {
+        "question": "如果我失去访问权限，如何恢复我的钱包？",
+        "answer": "由于您的钱包链接到您的电子邮件地址，您可以通过使用Metaface上的密码恢复选项来恢复访问。只要您可以访问您的电子邮件，您就可以重新获得钱包访问权限。"
+      },
+      "whatIsDrc20": {
+        "question": "什么是DRC20？",
+        "answer": "DRC20是DFS SimuChain的代币标准，类似于以太坊上的ERC20。它定义了代币如何在我们的网络上创建、转移和管理。DRC20代币地址以「drc20_0x」开头。"
+      },
+      "createToken": {
+        "question": "如何创建自己的代币？",
+        "answer": "您可以使用drc20.dfsscan.com上的Whitecreator平台创建自己的DRC20代币。只需填写您的代币详细信息（名称、符号、总供应量等），支付创建费用并提交审批。一旦获得批准，您的代币就可以在整个网络中使用。"
+      },
+      "whatIsDfsCoin": {
+        "question": "什么是DRC20_DFS？",
+        "answer": "DRC20_DFS是DFS SimuChain的原生代币。它用于支付网络上所有交易的Gas费。把它想象成以太坊上的ETH——您需要它来执行链上的任何操作。"
+      },
+      "getDfsTokens": {
+        "question": "如何获取DFS代币？",
+        "answer": "您可以通过多种方式获取DFS代币：在WEXSWAP（我们的DEX）上交易、参与社区活动和空投、通过POIPI等平台上的生态系统活动赚取，或在HeyOTC上从其他用户购买。"
+      },
+      "transactionTime": {
+        "question": "交易需要多长时间？",
+        "answer": "交易通常在5分钟内处理，这是我们的出块间隔。一旦包含在区块中，交易被视为最终的，无法撤销。"
+      },
+      "gasFees": {
+        "question": "什么是Gas费？",
+        "answer": "Gas费是用DRC20_DFS代币支付的小额费用，用于处理您的交易。它们用于防止垃圾邮件、公平分配网络资源和维持生态系统。费用金额根据操作的复杂性而变化。"
+      },
+      "cancelTransaction": {
+        "question": "我可以取消或撤销交易吗？",
+        "answer": "一旦交易被确认并包含在区块中，就无法取消或撤销。这是设计上的，以维护账本的完整性。确认前请务必仔细检查交易详情。"
+      },
+      "transactionHistory": {
+        "question": "在哪里可以查看我的交易历史？",
+        "answer": "您可以在我们的区块浏览器DFSScan（dfsscan.com）上查看所有交易。只需搜索您的钱包地址即可查看完整的交易历史，包括时间戳、金额和交易哈希。"
+      },
+      "blockGeneration": {
+        "question": "区块多久生成一次？",
+        "answer": "DFS SimuChain每5分钟生成新区块。每个区块可以包含数千笔交易，确保高吞吐量，同时保持有序处理。"
+      },
+      "isDecentralized": {
+        "question": "DFS SimuChain是去中心化的吗？",
+        "answer": "DFS SimuChain是区块链技术的Web2模拟，这意味着它运行在中心化基础设施上，同时提供类似区块链的功能。这种方法允许更容易的入门和维护，同时仍提供透明度和代币化的好处。"
+      },
+      "buildApps": {
+        "question": "我可以在DFS SimuChain上构建应用吗？",
+        "answer": "是的！DFS SimuChain拥有不断增长的dApps生态系统。您可以与我们的API集成来构建钱包、交易所、社交平台等。查看我们的文档或联系我们了解有关在DFS SimuChain上构建的更多信息。"
+      },
+      "dataHandling": {
+        "question": "我的数据会发生什么？",
+        "answer": "交易数据永久存储在DFS SimuChain上，可在我们的区块浏览器上公开查看。个人信息（如您的电子邮件）保持私密和安全。请参阅我们的隐私政策了解数据处理的完整详细信息。"
+      }
+    }
+  },
+  "about": {
+    "badge": "关于我们",
+    "title": "架起",
+    "titleHighlight": "Web2和Web3之间的桥梁",
+    "subtitle": "DFS SimuChain的使命是让每个人都能使用区块链技术。",
+    "ourStory": {
+      "title": "我们的故事",
+      "p1": "DFS SimuChain源于一个简单的观察：尽管区块链技术具有革命性潜力，但对于大多数互联网用户来说仍然难以访问。复杂的钱包设置、令人困惑的助记词和技术术语创造了障碍，阻止许多人体验Web3的好处。",
+      "p2": "我们问自己：「如果我们能提供区块链的所有好处——透明度、代币化和不可变记录——而没有复杂性呢？」这个问题促成了DFS SimuChain的创建，这是一个Web2模拟，使用熟悉、可访问的技术将区块链概念带入生活。",
+      "p3": "今天，DFS SimuChain为不断增长的应用生态系统提供动力，从钱包和浏览器到社交平台和DEX。我们很自豪能够为首次体验类区块链功能的数千名用户提供服务。"
+    },
+    "stats": {
+      "activeUsers": "活跃用户",
+      "dappsBuilt": "已构建dApps",
+      "transactions": "交易",
+      "countries": "国家"
+    },
+    "ourVision": {
+      "title": "我们的愿景",
+      "subtitle": "我们的方向",
+      "quote": "创造一个区块链技术像电子邮件一样易于使用的世界，每个人都可以参与代币经济，去中心化的好处对所有人开放。",
+      "futureTitle": "我们对未来的愿景",
+      "p1": "我们设想一个未来，DFS SimuChain作为数百万用户体验区块链技术的入口。一个创作者可以将其作品代币化、企业可以无缝接受加密支付、社区可以透明地自我治理的未来。",
+      "p2": "我们的路线图包括质押、治理、跨链桥接和企业解决方案等高级功能。但我们的核心使命保持不变：让每个人都能使用区块链。"
+    },
+    "values": {
+      "title": "我们的价值观",
+      "subtitle": "指导我们所做一切的原则",
+      "accessibility": {
+        "title": "可访问性",
+        "description": "让每个人都能使用区块链技术，无论技术背景如何。"
+      },
+      "security": {
+        "title": "安全性",
+        "description": "企业级安全保护您的资产和数据。"
+      },
+      "innovation": {
+        "title": "创新",
+        "description": "不断突破界限，提供尖端解决方案。"
+      },
+      "community": {
+        "title": "社区",
+        "description": "以社区为核心，共同构建。"
+      }
+    },
+    "journey": {
+      "title": "我们的历程"
+    },
+    "milestones": {
+      "founded": { "title": "项目成立", "description": "DFS SimuChain概念开发" },
+      "coreDev": { "title": "核心开发", "description": "区块系统和钱包基础设施构建" },
+      "launch": { "title": "生态系统启动", "description": "推出Metaface、DFSScan和Whitecreator" },
+      "dapps": { "title": "dApps生态系统", "description": "多个社区dApps上线" },
+      "expansion": { "title": "全球扩展", "description": "扩展服务全球用户" }
+    },
+    "team": {
+      "title": "我们的团队",
+      "subtitle": "DFS SimuChain背后充满激情的人们",
+      "roles": {
+        "ceo": "创始人兼CEO",
+        "cto": "CTO",
+        "leadDev": "首席开发者",
+        "communityLead": "社区负责人"
+      }
+    },
+    "cta": {
+      "title": "加入我们的旅程",
+      "subtitle": "成为DFS SimuChain社区的一部分，帮助我们构建可访问区块链技术的未来。",
+      "button1": "开始使用",
+      "button2": "加入我们的团队"
+    }
+  },
+  "contact": {
+    "badge": "联系我们",
+    "title": "联系",
+    "titleHighlight": "我们",
+    "subtitle": "有问题？我们很乐意收到您的来信。给我们发消息，我们会尽快回复。",
+    "form": {
+      "title": "给我们发消息",
+      "name": "您的姓名",
+      "namePlaceholder": "张三",
+      "email": "电子邮件地址",
+      "emailPlaceholder": "zhangsan@example.com",
+      "category": "类别",
+      "subject": "主题",
+      "subjectPlaceholder": "我们能帮您什么？",
+      "message": "消息",
+      "messagePlaceholder": "告诉我们更多关于您的询问...",
+      "send": "发送消息",
+      "sending": "发送中..."
+    },
+    "methods": {
+      "email": {
+        "title": "发送邮件",
+        "description": "随时给我们发送邮件"
+      }
+    },
+    "categories": {
+      "general": "一般咨询",
+      "technical": "技术支持",
+      "partnership": "合作伙伴",
+      "bugReport": "错误报告",
+      "feature": "功能请求",
+      "tokenApproval": "代币审批",
+      "other": "其他"
+    },
+    "success": {
+      "title": "消息已发送！",
+      "message": "感谢您的联系。我们将在24-48小时内回复您。",
+      "sendAnother": "发送另一条消息"
+    },
+    "faq": {
+      "title": "常见问题",
+      "wallet": {
+        "question": "如何创建钱包？",
+        "answer": "访问metaface.dfsscan.com并使用您的电子邮件地址注册。您的钱包将自动创建。"
+      },
+      "tokens": {
+        "question": "如何获取DFS代币？",
+        "answer": "您可以通过我们的DEX（WEXSWAP）获取DFS代币或参与社区活动和空投。"
+      },
+      "publish": {
+        "question": "如何发布DRC20代币？",
+        "answer": "使用drc20.dfsscan.com上的Whitecreator平台创建和发布您自己的代币。"
+      },
+      "approval": {
+        "question": "代币审批流程是什么？",
+        "answer": "创建代币后，它将经过我们的审核流程。批准的代币可以在整个网络中用于交易。"
+      }
+    },
+    "social": {
+      "title": "与我们联系",
+      "subtitle": "加入我们的社区，了解最新新闻和公告。"
+    },
+    "responseTime": {
+      "title": "响应时间",
+      "message": "我们通常在24-48小时内回复所有询问。如有紧急事项，请通过我们的Telegram社区联系。"
+    }
+  },
+  "careers": {
+    "hero": {
+      "badge": "加入我们的团队",
+      "title": "与我们一起构建",
+      "titleHighlight": "Web3的未来",
+      "subtitle": "加入一个充满激情的团队，让区块链技术为每个人所用。我们一直在寻找与我们分享愿景的有才华的人。",
+      "viewPositions": "查看空缺职位"
+    },
+    "whyJoin": {
+      "title": "为什么加入DFS SimuChain？",
+      "subtitle": "我们提供的不仅仅是一份工作——我们提供塑造技术未来的机会。"
+    },
+    "benefits": {
+      "remoteFirst": { "title": "远程优先", "description": "在世界任何地方工作" },
+      "flexibleHours": { "title": "灵活工时", "description": "在最高效的时候工作" },
+      "learningBudget": { "title": "学习预算", "description": "年度课程和会议预算" },
+      "healthWellness": { "title": "健康与福利", "description": "全面的健康福利" },
+      "innovationTime": { "title": "创新时间", "description": "20%的时间用于个人项目" },
+      "teamEvents": { "title": "团队活动", "description": "定期的线上和线下聚会" }
+    },
+    "values": {
+      "title": "我们的信念",
+      "belief1": "我们相信区块链应该对每个人开放",
+      "belief2": "我们在所做的一切中重视透明度",
+      "belief3": "我们快速行动但保持质量",
+      "belief4": "我们支持彼此的成长",
+      "belief5": "我们庆祝思想和背景的多样性"
+    },
+    "openPositions": {
+      "title": "空缺职位",
+      "available": "个空缺职位"
+    },
+    "positions": {
+      "seniorBackend": { "title": "高级后端开发者", "department": "工程", "description": "构建可扩展的区块链基础设施" },
+      "frontendDev": { "title": "前端开发者", "department": "工程", "description": "创造美好的用户体验" },
+      "productDesigner": { "title": "产品设计师", "department": "设计", "description": "设计Web3界面的未来" },
+      "communityManager": { "title": "社区经理", "department": "市场", "description": "发展和参与我们的全球社区" },
+      "technicalWriter": { "title": "技术作家", "department": "文档", "description": "创建清晰、有帮助的文档" },
+      "devOps": { "title": "DevOps工程师", "department": "基础设施", "description": "维护和扩展我们的基础设施" }
+    },
+    "remote": "远程",
+    "fullTime": "全职",
+    "partTime": "兼职",
+    "applyNow": "立即申请",
+    "hiring": {
+      "title": "我们的招聘流程",
+      "subtitle": "简单、透明，尊重您的时间",
+      "apply": { "title": "申请", "description": "提交您的申请和简历" },
+      "screen": { "title": "筛选", "description": "初步审核和筛选电话" },
+      "interview": { "title": "面试", "description": "技术和文化契合度面试" },
+      "offer": { "title": "录用", "description": "接收并接受您的录用通知" }
+    },
+    "cta": {
+      "title": "没有找到合适的职位？",
+      "subtitle": "我们一直在寻找有才华的人。发送您的简历并告诉我们您想如何贡献。",
+      "button": "联系我们"
+    }
+  },
+  "partners": {
+    "badge": "合作伙伴计划",
+    "title": "与",
+    "titleHighlight": "DFS SimuChain合作",
+    "subtitle": "加入我们的创新者生态系统，共同构建可访问区块链技术的未来。",
+    "becomePartner": "成为合作伙伴",
+    "learnMore": "了解更多",
+    "ourPartners": {
+      "title": "我们的合作伙伴",
+      "subtitle": "与行业领导者合作，提供卓越价值"
+    },
+    "categories": {
+      "technology": {
+        "title": "技术合作伙伴",
+        "description": "构建明天的基础设施"
+      },
+      "strategic": {
+        "title": "战略合作伙伴",
+        "description": "共同扩展生态系统"
+      },
+      "integration": {
+        "title": "集成合作伙伴",
+        "description": "跨平台无缝连接"
+      }
+    },
+    "types": {
+      "infrastructure": "基础设施",
+      "security": "安全",
+      "dataAnalytics": "数据分析",
+      "integration": "集成",
+      "investment": "投资",
+      "rd": "研发",
+      "consulting": "咨询",
+      "marketing": "营销",
+      "payments": "支付",
+      "authentication": "认证",
+      "realtimeData": "实时数据",
+      "storage": "存储"
+    },
+    "benefitsSection": {
+      "title": "合作伙伴福利",
+      "subtitle": "与DFS SimuChain合作您将获得什么"
+    },
+    "benefits": {
+      "globalReach": { "title": "全球覆盖", "description": "访问我们在50多个国家不断增长的用户群" },
+      "apiAccess": { "title": "API访问", "description": "完整的API文档和开发者支持" },
+      "revenueShare": { "title": "收入分享", "description": "为合格合作伙伴提供有竞争力的收入分享" },
+      "coMarketing": { "title": "联合营销", "description": "联合营销机会和品牌曝光" },
+      "prioritySupport": { "title": "优先支持", "description": "专属合作伙伴成功经理和支持" },
+      "earlyAccess": { "title": "早期访问", "description": "在公开发布前预览新功能" }
+    },
+    "tiersSection": {
+      "title": "合作伙伴等级",
+      "subtitle": "选择适合您的合作伙伴级别"
+    },
+    "tierNames": {
+      "bronze": "青铜",
+      "silver": "白银",
+      "gold": "黄金",
+      "platinum": "铂金"
+    },
+    "tierFeatures": {
+      "apiAccess": "API访问",
+      "basicSupport": "基础支持",
+      "partnerBadge": "合作伙伴徽章",
+      "documentation": "文档",
+      "allBronze": "所有青铜级福利",
+      "coMarketing": "联合营销",
+      "prioritySupport": "优先支持",
+      "quarterlyReviews": "季度审查",
+      "allSilver": "所有白银级福利",
+      "revenueShare": "收入分享",
+      "earlyAccess": "早期访问",
+      "customIntegration": "定制集成",
+      "allGold": "所有黄金级福利",
+      "dedicatedManager": "专属经理",
+      "strategicPlanning": "战略规划",
+      "executiveAccess": "高管访问"
+    },
+    "tiers": {
+      "mostPopular": "最受欢迎"
+    },
+    "stats": {
+      "activePartners": "活跃合作伙伴",
+      "countriesReached": "覆盖国家",
+      "usersServed": "服务用户",
+      "uptimeSla": "正常运行时间SLA"
+    },
+    "cta": {
+      "title": "准备成为合作伙伴？",
+      "subtitle": "让我们讨论如何共同实现互利成功。填写我们的合作伙伴申请，我们的团队将与您联系。",
+      "button": "立即申请"
+    }
+  },
+  "newsletter": {
+    "badge": "新闻通讯",
+    "hero": {
+      "badge": "新闻通讯",
+      "title": "保持",
+      "titleHighlight": "了解",
+      "subtitle": "获取DFS SimuChain的最新新闻、更新和见解，直接发送到您的收件箱。"
+    },
+    "emailPlaceholder": "输入您的电子邮件地址",
+    "privacyNote": "我们尊重您的隐私。随时可以取消订阅。",
+    "whatYouGet": {
+      "title": "您将获得什么",
+      "subtitle": "每周发送的有价值内容"
+    },
+    "features": {
+      "productUpdates": { "title": "产品更新", "description": "第一时间了解新功能、改进和平台更新。" },
+      "tipsTutorials": { "title": "技巧和教程", "description": "通过有用的指南和教程学习如何充分利用DFS SimuChain。" },
+      "eventAnnouncements": { "title": "活动公告", "description": "获得独家活动、AMA和社区聚会的邀请。" },
+      "exclusiveOffers": { "title": "独家优惠", "description": "获得特别促销、空投和早期访问机会。" }
+    },
+    "preferences": {
+      "title": "自定义您的偏好",
+      "subtitle": "选择您想接收的内容",
+      "updates": { "label": "产品更新", "description": "新功能和改进" },
+      "tutorials": { "label": "技巧和教程", "description": "指南和教程内容" },
+      "events": { "label": "活动和新闻", "description": "社区活动和公告" },
+      "community": { "label": "社区亮点", "description": "精选项目和成功故事" }
+    },
+    "recent": {
+      "title": "最近的新闻通讯",
+      "subtitle": "这是您将收到的内容预览"
+    },
+    "past": {
+      "payviner": {
+        "title": "介绍Payviner：加密支付",
+        "excerpt": "我们的新支付系统即将推出。了解如何使用DFS代币支付..."
+      },
+      "yearReview": {
+        "title": "DFS SimuChain年度回顾",
+        "excerpt": "回顾增长、新功能和社区成就的精彩一年..."
+      },
+      "dappsUpdate": {
+        "title": "新dApps生态系统更新",
+        "excerpt": "我们向生态系统添加了5个新dApps。了解新内容和使用方法..."
+      },
+      "staking": {
+        "title": "质押计划启动",
+        "excerpt": "质押您的DFS代币并赚取奖励。这是您需要知道的一切..."
+      }
+    },
+    "stats": {
+      "subscribers": "订阅者",
+      "sent": "已发送新闻通讯",
+      "openRate": "打开率"
+    },
+    "success": {
+      "title": "订阅成功！",
+      "welcome": "欢迎订阅DFS SimuChain新闻通讯！我们已发送确认邮件至：",
+      "checkInbox": "检查您的收件箱（和垃圾邮件文件夹）以确认您的订阅。",
+      "subscribeAnother": "订阅另一个邮箱"
+    },
+    "cta": {
+      "title": "不要错过",
+      "subtitle": "加入数千名通过我们每周更新保持领先的订阅者。"
+    }
+  },
+  "feedback": {
+    "hero": {
+      "badge": "帮助我们改进",
+      "title": "分享您的",
+      "titleHighlight": "反馈",
+      "subtitle": "您的想法和错误报告帮助我们构建更好的平台。每条反馈都由我们的团队审核。"
+    },
+    "typeQuestion": "您有什么类型的反馈？",
+    "types": {
+      "suggestion": { "title": "功能建议", "description": "建议新功能或改进" },
+      "bug": { "title": "错误报告", "description": "报告不工作的内容" },
+      "other": { "title": "一般反馈", "description": "分享您的想法和体验" }
+    },
+    "form": {
+      "title": "标题",
+      "bugPlaceholder": "问题的简要描述",
+      "ideaPlaceholder": "您的想法是什么？",
+      "category": "类别",
+      "description": "描述",
+      "bugDescPlaceholder": "请描述：\n- 发生了什么？\n- 您期望发生什么？\n- 重现问题的步骤",
+      "ideaDescPlaceholder": "请详细描述您的想法或反馈...",
+      "url": "问题发生的URL（可选）",
+      "priority": "优先级",
+      "email": "电子邮件（可选）",
+      "emailNote": "如果您希望我们跟进，请提供您的电子邮件。"
+    },
+    "priority": {
+      "low": "低 - 小问题，不阻塞",
+      "medium": "中 - 烦人但可以工作",
+      "high": "高 - 严重影响使用",
+      "critical": "紧急 - 完全无法使用该功能"
+    },
+    "categories": {
+      "general": "一般",
+      "wallet": "钱包（Metaface）",
+      "explorer": "浏览器（DFSScan）",
+      "dapps": "dApps",
+      "website": "本网站"
+    },
+    "submit": "提交反馈",
+    "success": {
+      "title": "谢谢！",
+      "message": "您的反馈已成功提交。感谢您花时间帮助我们改进DFS SimuChain。",
+      "submitAnother": "提交另一条"
+    },
+    "faq": {
+      "title": "常见问题",
+      "howUsed": { "question": "我的反馈如何被使用？", "answer": "所有反馈都由我们的团队审核。功能建议将纳入我们的路线图考虑，错误报告根据影响优先处理。" },
+      "response": { "question": "我会收到回复吗？", "answer": "如果您提供电子邮件，我们可能会联系您获取更多详细信息或更新您反馈的状态。" },
+      "anonymous": { "question": "我可以匿名提交吗？", "answer": "是的！电子邮件字段是可选的。您可以在不提供任何联系信息的情况下提交反馈。" }
+    }
+  },
+  "referral": {
+    "badge": "即将推出",
+    "title": "推荐朋友。",
+    "titleHighlight": "赚取奖励。",
+    "subtitle": "与朋友分享DFS SimuChain，每次成功推荐都可以赚取DFS代币。分享越多，赚得越多。",
+    "getEarlyAccess": "获取早期访问",
+    "emailPlaceholder": "输入您的电子邮件",
+    "benefits": {
+      "title": "为什么加入推荐计划？",
+      "subtitle": "将您的网络转化为被动收入",
+      "earnTokens": { "title": "赚取DFS代币", "description": "每推荐一位用户都可以获得DFS代币奖励。" },
+      "tieredRewards": { "title": "分级奖励", "description": "推荐用户越多，解锁更高的奖励等级。" },
+      "passiveIncome": { "title": "被动收入", "description": "当您的推荐用户活跃时，持续获得奖励。" },
+      "bonusRewards": { "title": "奖金奖励", "description": "特别奖金活动和季节性奖励。" }
+    },
+    "howItWorks": {
+      "title": "如何运作",
+      "subtitle": "4个简单步骤开始赚取",
+      "step1": { "title": "获取您的链接", "description": "从您的仪表板生成您的唯一推荐链接。" },
+      "step2": { "title": "与朋友分享", "description": "在社交媒体上或与朋友分享您的链接。" },
+      "step3": { "title": "朋友注册", "description": "当有人使用您的链接注册时，他们成为您的推荐用户。" },
+      "step4": { "title": "赚取奖励", "description": "当您的推荐用户完成操作时收到DFS代币。" }
+    },
+    "tiers": {
+      "title": "奖励等级",
+      "subtitle": "推荐越多，赚得越多",
+      "starter": "入门",
+      "bronze": "青铜",
+      "silver": "白银",
+      "gold": "黄金",
+      "platinum": "铂金"
+    },
+    "table": {
+      "tier": "等级",
+      "referrals": "推荐数",
+      "perReferral": "每次推荐",
+      "tierBonus": "等级奖金"
+    },
+    "success": {
+      "message": "您已在名单中！计划启动时我们会通知您。"
+    },
+    "comingFeatures": {
+      "title": "即将推出的功能",
+      "customLinks": { "title": "自定义推荐链接", "description": "使用您自己的自定义slug创建个性化推荐链接。" },
+      "analytics": { "title": "分析仪表板", "description": "实时跟踪您的推荐、转化和收益。" },
+      "leaderboard": { "title": "排行榜", "description": "与其他推荐者竞争，赢取独家月度奖品。" }
+    },
+    "cta": {
+      "title": "第一时间获知",
+      "subtitle": "加入等候名单，推荐计划启动时获得通知。早期订阅者可能会获得奖金奖励！",
+      "button": "加入等候名单"
+    }
+  },
+  "payviner": {
+    "hero": {
+      "tagline": "简化加密支付",
+      "subtitle": "DFS SimuChain的PayPal。只需几行代码即可在您的应用中接受DFS代币支付。快速、安全、开发者友好。"
+    },
+    "waitlist": {
+      "title": "加入等候名单",
+      "subtitle": "成为首批集成Payviner的商家",
+      "emailPlaceholder": "输入您的电子邮件",
+      "button": "加入等候名单"
+    },
+    "stats": {
+      "transactionTime": "交易时间",
+      "transactionFee": "交易费",
+      "globalReach": "全球覆盖"
+    },
+    "howItWorks": {
+      "title": "Payviner如何工作",
+      "subtitle": "商家和客户的简单支付流程"
+    },
+    "flow": {
+      "customer": "客户",
+      "wantsToPay": "想要支付",
+      "processesPayment": "处理支付",
+      "merchant": "商家",
+      "receivesDfs": "收到DFS"
+    },
+    "whyChoose": {
+      "title": "为什么选择Payviner？",
+      "subtitle": "为现代网络构建，由DFS SimuChain提供支持"
+    },
+    "useCasesSection": {
+      "title": "使用案例",
+      "subtitle": "Payviner适用于任何想要接受加密支付的企业"
+    },
+    "integration": {
+      "title": "简单集成",
+      "subtitle": "用最少的代码将Payviner添加到您的应用"
+    },
+    "cta": {
+      "title": "准备接受加密支付？",
+      "subtitle": "加入我们的等候名单，Payviner启动时获得通知。早期采用者将获得特别福利和优先支持。",
+      "contactSales": "联系销售"
+    },
+    "features": {
+      "instantPayments": { "title": "即时支付", "description": "使用DFS代币秒级处理支付。无需等待银行转账。" },
+      "secureTransactions": { "title": "安全交易", "description": "企业级安全，加密交易记录在DFS SimuChain上。" },
+      "easyIntegration": { "title": "轻松集成", "description": "为开发者提供简单的API和SDK。几分钟而非几天完成Payviner集成。" },
+      "globalReach": { "title": "全球覆盖", "description": "接受来自世界任何地方的支付，无需货币兑换费用。" },
+      "lowFees": { "title": "低费用", "description": "与传统支付处理商相比，交易费用极低。" },
+      "refundSupport": { "title": "退款支持", "description": "内置退款机制保护商家和客户。" }
+    },
+    "useCases": {
+      "ecommerce": { "title": "电子商务", "description": "为您的在线商店添加DFS支付选项" },
+      "mobileApps": { "title": "移动应用", "description": "使用DFS进行应用内购买和订阅" },
+      "posSystems": { "title": "POS系统", "description": "在实体店接受DFS支付" },
+      "saas": { "title": "SaaS平台", "description": "使用加密支付进行订阅计费" }
+    },
+    "steps": {
+      "signUp": { "title": "注册", "description": "创建您的Payviner商家账户" },
+      "getApiKeys": { "title": "获取API密钥", "description": "接收您的唯一API凭证" },
+      "integrate": { "title": "集成", "description": "将Payviner添加到您的应用" },
+      "acceptPayments": { "title": "接受支付", "description": "开始接收DFS支付" }
+    },
+    "success": {
+      "message": "您已在等候名单中！Payviner启动时我们会通知您。"
+    }
+  },
+  "community": {
+    "badge": "与我们联系",
+    "title": "加入我们的",
+    "titleHighlight": "社区",
+    "subtitle": "在所有平台上与DFS SimuChain保持联系。获取更新、参与讨论，成为我们不断增长的生态系统的一部分。",
+    "followers": "关注者",
+    "follow": "关注",
+    "socials": {
+      "twitter": {
+        "description": "关注我们获取最新新闻、更新和公告。"
+      },
+      "telegram": {
+        "description": "加入我们活跃的社区聊天进行讨论和支持。"
+      },
+      "discord": {
+        "description": "与开发者联系，获取支持并参与活动。"
+      },
+      "github": {
+        "description": "探索我们的开源仓库并为开发做出贡献。"
+      },
+      "youtube": {
+        "description": "观看教程、演示和社区亮点。"
+      },
+      "medium": {
+        "description": "阅读深度文章、指南和技术深度分析。"
+      },
+      "reddit": {
+        "description": "参与讨论，分享想法，与社区保持更新。"
+      },
+      "linkedin": {
+        "description": "专业联系并探索职业机会。"
+      }
+    },
+    "stats": {
+      "title": "我们不断增长的社区",
+      "subtitle": "加入数千名在DFS SimuChain上构建的用户和开发者",
+      "totalCommunity": "总社区",
+      "activeDevelopers": "活跃开发者",
+      "dappsBuilt": "已构建dApps",
+      "countries": "国家"
+    },
+    "newsletter": {
+      "title": "保持更新",
+      "subtitle": "订阅我们的新闻通讯获取每周更新、公告和社区亮点。",
+      "emailPlaceholder": "输入您的电子邮件"
+    }
+  },
+  "privacyPolicy": {
+    "badge": "法律",
+    "title": "隐私",
+    "titleHighlight": "政策",
+    "lastUpdated": "最后更新"
+  },
+  "termsOfUse": {
+    "badge": "法律",
+    "title": "使用",
+    "titleHighlight": "条款",
+    "lastUpdated": "最后更新"
+  },
+  "cookies": {
+    "title": "Cookie",
+    "titleHighlight": "政策",
+    "lastUpdated": "最后更新",
+    "noteLabel": "注意",
+    "note": "使用DFS SimuChain即表示您同意我们按本政策所述使用Cookie。您可以随时通过浏览器设置管理您的偏好。",
+    "sections": {
+      "whatAreCookies": {
+        "title": "1. 什么是Cookie？",
+        "content": "Cookie是当您访问网站时存储在您的设备（计算机、平板电脑或手机）上的小型文本文件。它们被广泛用于使网站更有效地工作并向网站所有者提供信息。\n\nCookie允许网站识别您的设备并记住有关您访问的某些信息，例如您的偏好和设置。"
+      },
+      "howWeUse": {
+        "title": "2. 我们如何使用Cookie",
+        "content": "DFS SimuChain使用Cookie和类似技术用于多种目的：\n\n**必要Cookie**\n这些Cookie是网站正常运行所必需的。\n\n**性能Cookie**\n这些Cookie帮助我们了解访问者如何与我们的网站互动。\n\n**功能Cookie**\n这些Cookie允许网站记住您做出的选择。\n\n**分析Cookie**\n我们使用分析Cookie来了解您如何使用我们的服务。"
+      },
+      "typesOfCookies": {
+        "title": "3. 我们使用的Cookie类型",
+        "content": "**会话Cookie**\n当您关闭浏览器时过期的临时Cookie。\n\n**持久Cookie**\n在您的设备上保留一段时间的Cookie。\n\n**第一方Cookie**\n由DFS SimuChain直接设置的Cookie。\n\n**第三方Cookie**\n由我们使用的第三方服务设置的Cookie。"
+      },
+      "specificCookies": {
+        "title": "4. 我们使用的具体Cookie",
+        "content": "• **theme_preference** - 存储您的明/暗模式偏好\n• **session_id** - 维护您的登录会话\n• **analytics_id** - 用于匿名使用分析\n• **consent_status** - 记住您的Cookie同意选择\n• **language** - 存储您的语言偏好"
+      },
+      "managingCookies": {
+        "title": "5. 管理Cookie",
+        "content": "您有权决定接受或拒绝Cookie。您可以通过浏览器设置或我们的网站设置管理您的Cookie偏好。"
+      },
+      "cookieRetention": {
+        "title": "6. Cookie保留",
+        "content": "• **会话Cookie**：关闭浏览器时删除\n• **偏好Cookie**：保留1年\n• **分析Cookie**：最多保留2年\n• **必要Cookie**：在您的会话期间保留"
+      },
+      "updates": {
+        "title": "7. 本政策的更新",
+        "content": "我们可能会不时更新本Cookie政策，以反映我们实践的变化或出于其他运营、法律或监管原因。"
+      },
+      "contactUs": {
+        "title": "8. 联系我们",
+        "content": "如果您对我们使用Cookie或本Cookie政策有任何疑问，请联系我们：\n\n**电子邮件：** privacy@dfsscan.com\n**网站：** https://dfsscan.com/contact"
+      }
+    }
+  },
+  "errors": {
+    "notFound": "页面未找到",
+    "notFoundMessage": "您要查找的页面不存在或已被移动。",
+    "goBack": "返回",
+    "goHome": "返回首页"
+  }
+}
+

@@ -6,6 +6,8 @@ const LanguageContext = createContext();
 export const languages = [
   { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr' },
   { code: 'ja', name: 'Japanese', nativeName: '日本語', dir: 'ltr' },
+  { code: 'zh', name: 'Chinese', nativeName: '中文', dir: 'ltr' },
+  { code: 'th', name: 'Thai', nativeName: 'ไทย', dir: 'ltr' },
   { code: 'ar', name: 'Arabic', nativeName: 'العربية', dir: 'rtl' },
   { code: 'ko', name: 'Korean', nativeName: '한국어', dir: 'ltr' },
 ];
