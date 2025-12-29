@@ -1,41 +1,29 @@
 import React, { useState, useMemo } from "react";
-import { FiSearch, FiExternalLink } from "react-icons/fi";
-import { 
-  HiOutlineCollection, 
-  HiOutlineCurrencyDollar, 
-  HiOutlineUserGroup,
-  HiOutlineGlobe,
-  HiOutlineSparkles,
-  HiOutlineFire,
-  HiOutlineShoppingCart,
-  HiOutlineSwitchHorizontal,
-  HiOutlineGift,
-  HiOutlineCash
-} from "react-icons/hi";
+import { FiSearch, FiPlus, FiMail } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { Link } from "react-router-dom";
 
 const ExploreDapps = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [email, setEmail] = useState("");
   const { isDark } = useTheme();
   const { t } = useLanguage();
 
-  // Categories for sidebar
+  // Categories with emojis - ToolHub style
   const categories = [
-    { name: "All", nameKey: "exploreDapps.categories.all", icon: HiOutlineCollection, count: 10 },
-    { name: "Wallet", nameKey: "exploreDapps.categories.wallet", icon: HiOutlineCurrencyDollar, count: 1 },
-    { name: "Explorer", nameKey: "exploreDapps.categories.explorer", icon: HiOutlineGlobe, count: 1 },
-    { name: "Token Tools", nameKey: "exploreDapps.categories.tokenTools", icon: HiOutlineSparkles, count: 2 },
-    { name: "Social", nameKey: "exploreDapps.categories.social", icon: HiOutlineUserGroup, count: 2 },
-    { name: "DeFi", nameKey: "exploreDapps.categories.defi", icon: HiOutlineSwitchHorizontal, count: 2 },
-    { name: "Exchange", nameKey: "exploreDapps.categories.exchange", icon: HiOutlineShoppingCart, count: 2 },
-    { name: "Utility", nameKey: "exploreDapps.categories.utility", icon: HiOutlineGift, count: 1 },
+    { name: "All", nameKey: "exploreDapps.categories.all", emoji: "⚙️" },
+    { name: "Wallet", nameKey: "exploreDapps.categories.wallet", emoji: "👛" },
+    { name: "Explorer", nameKey: "exploreDapps.categories.explorer", emoji: "🔍" },
+    { name: "Token Tools", nameKey: "exploreDapps.categories.tokenTools", emoji: "🪙" },
+    { name: "Social", nameKey: "exploreDapps.categories.social", emoji: "👥" },
+    { name: "DeFi", nameKey: "exploreDapps.categories.defi", emoji: "💰" },
+    { name: "Exchange", nameKey: "exploreDapps.categories.exchange", emoji: "🔄" },
+    { name: "Utility", nameKey: "exploreDapps.categories.utility", emoji: "🛠️" },
   ];
 
-  // dApps data with your actual projects
-  // Logo images should be placed in /public/dapps/ folder
-  // White logos for dark theme, Black logos for light theme
+  // dApps data
   const dappsData = [
     {
       id: 1,
@@ -47,7 +35,6 @@ const ExploreDapps = () => {
       logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/o2cerargskdqluetq0vs.png",
       gradient: "from-blue-500 to-cyan-400",
       tag: "Featured",
-      tagColor: "bg-[#21f201] text-black",
     },
     {
       id: 2,
@@ -58,8 +45,7 @@ const ExploreDapps = () => {
       logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/guwymkq7msbhbxfwmsly.png",
       logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/guwymkq7msbhbxfwmsly.png",
       gradient: "from-purple-500 to-pink-400",
-      tag: "Official",
-      tagColor: "bg-blue-500 text-white",
+      tag: "Featured",
     },
     {
       id: 3,
@@ -71,7 +57,6 @@ const ExploreDapps = () => {
       logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/lfbyfr2uevv1l0qhswkd.png",
       gradient: "from-yellow-400 to-orange-500",
       tag: "New",
-      tagColor: "bg-emerald-500 text-white",
     },
     {
       id: 4,
@@ -82,8 +67,7 @@ const ExploreDapps = () => {
       logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/qaftjnw8sscjxcood5uv.png",
       logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/ksxqd6cvgntpvfbasbd4.png",
       gradient: "from-indigo-500 to-purple-500",
-      tag: null,
-      tagColor: null,
+      tag: "Popular",
     },
     {
       id: 5,
@@ -95,7 +79,6 @@ const ExploreDapps = () => {
       logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673518/p8cncrxj370owxtc90pu.png",
       gradient: "from-green-400 to-emerald-500",
       tag: "Popular",
-      tagColor: "bg-amber-500 text-black",
     },
     {
       id: 6,
@@ -106,8 +89,7 @@ const ExploreDapps = () => {
       logoWhite: "/dapps/gyakusen-white.png",
       logoBlack: "/dapps/gyakusen-black.png",
       gradient: "from-pink-500 to-rose-500",
-      tag: null,
-      tagColor: null,
+      tag: "New",
     },
     {
       id: 7,
@@ -119,7 +101,6 @@ const ExploreDapps = () => {
       logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/g0mfxdgr7rj3kberur3q.png",
       gradient: "from-orange-500 to-red-500",
       tag: null,
-      tagColor: null,
     },
     {
       id: 8,
@@ -131,7 +112,6 @@ const ExploreDapps = () => {
       logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/ihrgv1ojboawarw7j1km.png",
       gradient: "from-teal-400 to-cyan-500",
       tag: "New",
-      tagColor: "bg-emerald-500 text-white",
     },
     {
       id: 9,
@@ -143,7 +123,6 @@ const ExploreDapps = () => {
       logoBlack: "/dapps/heyotc-black.png",
       gradient: "from-violet-500 to-purple-600",
       tag: null,
-      tagColor: null,
     },
     {
       id: 10,
@@ -154,12 +133,11 @@ const ExploreDapps = () => {
       logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766674347/yw14nsguzbvwonwpfgyx.png",
       logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766674347/yw14nsguzbvwonwpfgyx.png",
       gradient: "from-blue-600 to-indigo-600",
-      tag: "Featured",
-      tagColor: "bg-[#21f201] text-black",
+      tag: "Popular",
     },
   ];
 
-  // Filter dApps based on search and category
+  // Filter dApps
   const filteredDapps = useMemo(() => {
     return dappsData.filter((dapp) => {
       const matchesSearch = dapp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -169,379 +147,307 @@ const ExploreDapps = () => {
     });
   }, [searchTerm, selectedCategory]);
 
+  // Featured dApps
+  const featuredDapps = dappsData.filter(d => d.tag === "Featured");
+
+  // Get tag color
+  const getTagStyle = (tag) => {
+    switch(tag) {
+      case "Featured": return "bg-[#21f201] text-black";
+      case "New": return "bg-emerald-500 text-white";
+      case "Popular": return "bg-orange-500 text-white";
+      default: return "";
+    }
+  };
+
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? "bg-[#0B0E11] text-white" : "bg-gray-50 text-gray-900"
-    }`}>
-      {/* Main Content */}
-      <div className="px-6 md:px-8 lg:px-12 xl:px-16 py-12">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Mobile Categories - Horizontal Scrollable */}
-            <div className="lg:hidden w-full">
-              <div className={`rounded-xl p-3 md:p-4 border transition-colors duration-300 ${
-                isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-sm"
-              }`}>
-                <h3 className={`text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 ${
-                  isDark ? "text-gray-400" : "text-gray-500"
-                }`}>
-                  {t('exploreDapps.categories.title')}
-                </h3>
-                {/* Using touch-scroll-enabled container for iOS Safari */}
-                <div 
-                  className="flex gap-2 pb-1 overflow-x-auto scrollbar-hide"
-                  style={{ 
-                    WebkitOverflowScrolling: 'touch',
-                    scrollSnapType: 'x mandatory'
-                  }}
+    <div className={`min-h-screen ${isDark ? "bg-[#141414]" : "bg-gray-100"}`}>
+      <div className="flex min-w-0">
+        {/* Left Sidebar - ToolHub Style */}
+        <aside className={`hidden lg:block w-56 h-screen sticky top-0 overflow-y-auto border-r ${
+          isDark ? "bg-[#181818] border-[#2a2a2a]" : "bg-white border-gray-200"
+        }`}>
+          <div className="py-4">
+            {categories.map((category) => {
+              const isActive = selectedCategory === category.name;
+              return (
+                <button
+                  key={category.name}
+                  onClick={() => setSelectedCategory(category.name)}
+                  className={`w-full flex items-center gap-3 px-5 py-2.5 text-left transition-all ${
+                    isActive
+                      ? "text-[#f5a623] bg-[#303030]/40"
+                      : isDark 
+                        ? "text-gray-400 hover:text-[#f5a623] hover:bg-[#181818]" 
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                  }`}
                 >
-                  {categories.map((category) => {
-                    const Icon = category.icon;
-                    const isSelected = selectedCategory === category.name;
-                    return (
-                      <button
-                        key={category.name}
-                        onClick={() => setSelectedCategory(category.name)}
-                        style={{ scrollSnapAlign: 'start' }}
-                        className={`flex-shrink-0 flex items-center justify-center gap-1.5 md:gap-2 rounded-xl transition-all duration-200 touch-manipulation ${
-                          isSelected
-                            ? "bg-[#21f201]/10 text-[#21f201] border-2 border-[#21f201]/30 px-3 py-2.5 md:px-4 md:py-3"
-                            : isDark 
-                              ? "text-gray-400 bg-gray-800/50 active:bg-gray-800 border border-gray-700 w-10 h-10 md:w-12 md:h-12" 
-                              : "text-gray-500 bg-gray-100 active:bg-gray-200 border border-gray-200 w-10 h-10 md:w-12 md:h-12"
-                        }`}
-                        title={category.name}
-                      >
-                        <Icon className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
-                        {isSelected && (
-                          <span className="text-xs md:text-sm font-medium whitespace-nowrap">{t(category.nameKey)}</span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
+                  <span className="text-lg">{category.emoji}</span>
+                  <span className="text-sm font-medium">{t(category.nameKey)}</span>
+                </button>
+              );
+            })}
+          </div>
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1 min-w-0 overflow-x-hidden">
+          <div className="px-4 sm:px-6 md:px-12 lg:px-16 pb-12 pt-6 max-w-[2048px] mx-auto w-full">
+            {/* Hero Section - ToolHub Style */}
+            <section className="py-6 sm:py-8 md:py-12">
+              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">⚙️</div>
+              <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
+                {t('exploreDapps.heroTitle')}
+              </h1>
+              <p className={`text-sm sm:text-base mb-4 sm:mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                {t('exploreDapps.heroSubtitle')}
+              </p>
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                <Link 
+                  to="/feedback"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
+                >
+                  <FiPlus className="w-4 h-4" />
+                  {t('exploreDapps.submitDapp')}
+                </Link>
+                <Link 
+                  to="/community"
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border transition-colors ${
+                    isDark 
+                      ? "border-gray-600 text-gray-300 hover:bg-white/5" 
+                      : "border-gray-300 text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  <FiMail className="w-4 h-4" />
+                  {t('exploreDapps.joinCommunity')}
+                </Link>
               </div>
+            </section>
+
+            {/* Search Bar - ToolHub Style */}
+            <div className={`relative mb-6 sm:mb-8 ${isDark ? "bg-[#1c1c1c]" : "bg-white"} rounded-lg sm:rounded-xl`}>
+              <input
+                type="text"
+                placeholder={t('exploreDapps.searchPlaceholder')}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className={`w-full px-4 sm:px-5 py-3 sm:py-4 pr-10 sm:pr-12 rounded-lg sm:rounded-xl text-sm outline-none ${
+                  isDark 
+                    ? "bg-[#1c1c1c] text-white placeholder-gray-500 border border-gray-800 focus:border-gray-700" 
+                    : "bg-white text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-gray-300"
+                }`}
+              />
+              <FiSearch className={`absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 ${
+                isDark ? "text-gray-500" : "text-gray-400"
+              }`} />
             </div>
 
-            {/* Desktop Sidebar */}
-            <div className="hidden lg:block lg:w-64 shrink-0">
-              <div className={`rounded-xl p-4 sticky top-8 border transition-colors duration-300 ${
-                isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-sm"
-              }`}>
-                <h3 className={`text-sm font-semibold uppercase tracking-wider mb-4 px-3 ${
-                  isDark ? "text-gray-400" : "text-gray-500"
-                }`}>
-                  {t('exploreDapps.categories.title')}
-                </h3>
-                <nav className="space-y-1">
-                  {categories.map((category) => {
-                    const Icon = category.icon;
-                    return (
-                      <button
-                        key={category.name}
-                        onClick={() => setSelectedCategory(category.name)}
-                        className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left transition-colors ${
-                          selectedCategory === category.name
-                            ? "bg-[#21f201]/10 text-[#21f201]"
-                            : isDark 
-                              ? "text-gray-300 hover:bg-gray-800 hover:text-white" 
-                              : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <Icon className="w-5 h-5" />
-                          <span className="text-sm font-medium">{t(category.nameKey)}</span>
-                        </div>
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${
-                          selectedCategory === category.name
-                            ? "bg-[#21f201]/20 text-[#21f201]"
-                            : isDark ? "bg-gray-700 text-gray-400" : "bg-gray-200 text-gray-500"
-                        }`}>
-                          {category.count}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </nav>
-
-                {/* Submit dApp Button */}
-                <div className={`mt-6 pt-6 border-t ${isDark ? "border-gray-700" : "border-gray-200"}`}>
-                  <button className="w-full bg-[#21f201] text-black font-semibold py-3 px-4 rounded-lg hover:bg-[#1ad901] transition-colors flex items-center justify-center gap-2">
-                    <HiOutlineSparkles className="w-5 h-5" />
-                    {t('exploreDapps.submitDapp')}
+            {/* Mobile Category Pills */}
+            <div className="lg:hidden flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+              {categories.map((category) => {
+                const isActive = selectedCategory === category.name;
+                return (
+                  <button
+                    key={category.name}
+                    onClick={() => setSelectedCategory(category.name)}
+                    className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                      isActive
+                        ? "bg-[#f5a623] text-black"
+                        : isDark 
+                          ? "bg-[#1c1c1c] text-gray-400" 
+                          : "bg-white text-gray-600"
+                    }`}
+                  >
+                    <span>{category.emoji}</span>
+                    <span>{t(category.nameKey)}</span>
                   </button>
-                </div>
-              </div>
+                );
+              })}
             </div>
 
-            {/* dApps Section with Border */}
-            <div className={`flex-1 border rounded-xl overflow-hidden transition-colors duration-300 ${
-              isDark ? "border-gray-700 bg-[#181A1E]" : "border-gray-200 bg-white shadow-sm"
-            }`}>
-              {/* Header inside bordered section */}
-              <div className={`p-4 md:p-6 border-b transition-colors duration-300 ${
-                isDark ? "border-gray-700 bg-[#0B0E11]" : "border-gray-200 bg-gray-50"
-              }`}>
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div className="text-start">
-                    <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-1">
-                      {t('exploreDapps.title')} <span className="text-[#21f201]">{t('exploreDapps.titleHighlight')}</span>
-                    </h1>
-                    <p className={`text-xs md:text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                      {t('exploreDapps.subtitle')}
-                    </p>
-                  </div>
-                  
-                  {/* Search Bar */}
-                  <div className="relative w-full md:w-72">
-                    <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="text"
-                      placeholder={t('exploreDapps.searchPlaceholder')}
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className={`w-full border rounded-lg pl-10 pr-4 py-2.5 placeholder-gray-400 focus:outline-none focus:border-[#21f201] transition-colors text-sm ${
-                        isDark 
-                          ? "bg-[#181A1E] border-gray-600 text-white" 
-                          : "bg-white border-gray-300 text-gray-900"
-                      }`}
-                    />
-                  </div>
-                </div>
-                
-                {/* Results Count & Selected Category */}
-                <div className="mt-3 md:mt-4 flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-2 md:gap-3 flex-wrap">
-                    <p className={`text-xs md:text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                      {t('exploreDapps.showing')} <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{filteredDapps.length}</span> {t('exploreDapps.dappsLabel')}
-                    </p>
-                    {/* Selected Category Badge - Mobile */}
-                    {selectedCategory !== "All" && (
-                      <div className="lg:hidden flex items-center gap-1.5 md:gap-2">
-                        <span className={`text-xs md:text-sm ${isDark ? "text-gray-500" : "text-gray-400"}`}>{t('exploreDapps.in')}</span>
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 md:px-3 md:py-1 rounded-full bg-[#21f201]/10 text-[#21f201] text-xs md:text-sm font-medium">
-                          {(() => {
-                            const cat = categories.find(c => c.name === selectedCategory);
-                            const Icon = cat?.icon;
-                            return Icon ? <Icon className="w-3 h-3 md:w-4 md:h-4" /> : null;
-                          })()}
-                          {t(categories.find(c => c.name === selectedCategory)?.nameKey)}
-                          <button 
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setSelectedCategory("All");
-                            }}
-                            className="ml-0.5 md:ml-1 hover:bg-[#21f201]/20 rounded-full p-0.5"
-                          >
-                            <svg className="w-2.5 h-2.5 md:w-3 md:h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Grid Container - Natural scroll on mobile, fixed height on desktop */}
-              <div className="p-3 sm:p-4 md:p-6 lg:h-[600px] lg:overflow-y-auto custom-scrollbar">
-                {/* Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-                  {filteredDapps.map((dapp) => (
+            {/* Featured dApps Section - ToolHub Style */}
+            {selectedCategory === "All" && (
+              <section className="mb-6 sm:mb-8 md:mb-10">
+                <h2 className={`text-base sm:text-lg font-bold mb-3 sm:mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  {t('exploreDapps.featuredDapps')}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 w-full max-w-full">
+                  {featuredDapps.map((dapp) => (
                     <a
                       key={dapp.id}
                       href={dapp.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`group block border rounded-lg sm:rounded-xl p-2.5 sm:p-4 md:p-5 active:scale-[0.98] transition-all duration-200 ${
+                      className={`group relative flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 rounded-xl transition-all hover:bg-opacity-90 overflow-hidden w-full max-w-full ${
                         isDark 
-                          ? "bg-[#0B0E11] border-gray-700 hover:border-[#21f201]/50 hover:bg-[#1a1d23]" 
-                          : "bg-gray-50 border-gray-200 hover:border-[#21f201]/50 hover:bg-gray-100"
+                          ? "bg-[#181818] hover:bg-[#2a2a2a]" 
+                          : "bg-white hover:shadow-md"
                       }`}
                     >
-                      {/* Mobile: Horizontal layout / Desktop: Vertical layout */}
-                      <div className="flex items-center gap-2.5 sm:block">
-                        {/* Logo */}
-                        <div className={`w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden sm:mb-3 ${
-                          isDark ? "bg-gray-800" : "bg-gray-100"
-                        }`}>
-                          <img 
-                            src={isDark ? dapp.logoWhite : dapp.logoBlack} 
-                            alt={`${dapp.name} logo`}
-                            className="w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 object-contain"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextSibling.style.display = 'flex';
-                            }}
-                          />
-                          <div 
-                            className={`w-full h-full hidden items-center justify-center text-base sm:text-lg md:text-xl bg-gradient-to-br ${dapp.gradient}`}
-                          >
-                            {dapp.name.charAt(0)}
-                          </div>
-                        </div>
-                        
-                        {/* Mobile: Name + Category inline */}
-                        <div className="flex-1 min-w-0 sm:hidden">
-                          <div className="flex items-center justify-between gap-2">
-                            <div className="flex items-center gap-1.5 min-w-0">
-                              <h3 className={`text-sm font-semibold truncate ${
-                                isDark ? "text-white" : "text-gray-900"
-                              }`}>
-                                {dapp.name}
-                              </h3>
-                              <FiExternalLink className="w-3 h-3 flex-shrink-0 text-gray-500" />
-                            </div>
-                            {dapp.tag && (
-                              <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-full flex-shrink-0 ${dapp.tagColor}`}>
-                                {dapp.tag}
-                              </span>
-                            )}
-                          </div>
-                          <div className="flex items-center justify-between mt-1">
-                            <span className={`text-[10px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>
-                              {dapp.category}
-                            </span>
-                            <span className="text-[10px] text-[#21f201] font-medium">
-                              {t('exploreDapps.visit')} →
-                            </span>
-                          </div>
-                        </div>
+                      {/* Badge - Top Right */}
+                      <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium z-10 ${getTagStyle(dapp.tag)}`}>
+                        {dapp.tag}
+                      </span>
 
-                        {/* Desktop: Tag position */}
-                        <div className="hidden sm:flex sm:absolute sm:top-4 sm:right-4">
-                          {dapp.tag && (
-                            <span className={`text-[10px] md:text-xs font-semibold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full ${dapp.tagColor}`}>
-                              {dapp.tag}
-                            </span>
-                          )}
+                      {/* Logo */}
+                      <div className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden flex items-center justify-center ${
+                        isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
+                      }`}>
+                        <img 
+                          src={isDark ? dapp.logoWhite : dapp.logoBlack} 
+                          alt={dapp.name}
+                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'flex';
+                          }}
+                        />
+                        <div 
+                          className={`w-full h-full hidden items-center justify-center text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                        >
+                          {dapp.name.charAt(0)}
                         </div>
                       </div>
 
-                      {/* Desktop only: Card Content */}
-                      <div className="hidden sm:block sm:mb-3">
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <h3 className={`text-sm md:text-base font-bold group-hover:text-[#21f201] transition-colors ${
-                            isDark ? "text-white" : "text-gray-900"
-                          }`}>
-                            {dapp.name}
-                          </h3>
-                          <FiExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5 text-gray-500 group-hover:text-[#21f201] transition-colors" />
-                          {dapp.tag && (
-                            <span className={`text-[10px] md:text-xs font-semibold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full ml-auto ${dapp.tagColor}`}>
-                              {dapp.tag}
-                            </span>
-                          )}
-                        </div>
-                        <p className={`text-xs leading-relaxed line-clamp-2 ${
-                          isDark ? "text-gray-400" : "text-gray-500"
-                        }`}>
+                      {/* Content */}
+                      <div className="flex-1 min-w-0 max-w-full pr-6 sm:pr-10 md:pr-14 text-left overflow-hidden">
+                        <h3 className={`text-sm sm:text-base font-semibold truncate mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`}>
+                          {dapp.name}
+                        </h3>
+                        <p className={`text-xs sm:text-sm line-clamp-2 break-words ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                           {dapp.description}
                         </p>
-                      </div>
-
-                      {/* Desktop only: Card Footer */}
-                      <div className={`hidden sm:flex items-center justify-between pt-2.5 md:pt-3 border-t ${
-                        isDark ? "border-gray-700" : "border-gray-200"
-                      }`}>
-                        <span className={`text-[10px] md:text-xs font-medium px-2 py-0.5 md:px-2.5 md:py-1 rounded-full ${
-                          isDark ? "text-gray-500 bg-gray-800" : "text-gray-600 bg-gray-200"
-                        }`}>
-                          {dapp.category}
-                        </span>
-                        <span className="text-[10px] md:text-xs text-[#21f201] font-medium">
-                          {t('exploreDapps.visit')} →
-                        </span>
                       </div>
                     </a>
                   ))}
                 </div>
+              </section>
+            )}
 
-                {/* Empty State */}
-                {filteredDapps.length === 0 && (
-                  <div className="text-center py-12 md:py-16">
-                    <div className="text-5xl md:text-6xl mb-4">🔍</div>
-                    <h3 className={`text-lg md:text-xl font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>{t('exploreDapps.noDappsFound')}</h3>
-                    <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t('exploreDapps.tryAdjusting')}</p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Info Banner */}
-      <div className="px-6 md:px-8 lg:px-12 xl:px-16 pb-16">
-        <div className="max-w-[1400px] mx-auto">
-          <div className={`bg-gradient-to-r from-[#21f201]/10 to-transparent border rounded-xl p-8 ${
-            isDark ? "border-[#21f201]/20" : "border-[#21f201]/30"
-          }`}>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div>
-                <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>{t('exploreDapps.buildOn')}</h3>
-                <p className={isDark ? "text-gray-400" : "text-gray-600"}>
-                  {t('exploreDapps.buildOnDescription')}
-                </p>
-              </div>
-              <button className={`shrink-0 font-semibold py-3 px-6 rounded-lg transition-colors ${
-                isDark 
-                  ? "bg-white text-black hover:bg-gray-100" 
-                  : "bg-gray-900 text-white hover:bg-gray-800"
+            {/* Join Community Banner - ToolHub Style */}
+            {selectedCategory === "All" && (
+              <section className={`mb-8 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden ${
+                isDark ? "bg-[#181818]" : "bg-white"
               }`}>
-                {t('common.getStarted')}
-              </button>
-            </div>
+                <div className="flex flex-col md:flex-row">
+                  <div className="w-full md:w-3/5 h-48 sm:h-56 md:h-64 relative overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop" 
+                      alt="Blockchain dApps" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
+                  </div>
+                  <div className="w-full md:w-2/5 p-4 sm:p-6 md:p-8">
+                    <h3 className={`text-lg sm:text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                      {t('exploreDapps.communityTitle')}
+                    </h3>
+                    <p className={`text-xs sm:text-sm mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                      {t('exploreDapps.communitySubtitle')}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <input
+                        type="email"
+                        placeholder={t('exploreDapps.emailPlaceholder')}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className={`flex-1 px-4 py-2.5 rounded-lg text-xs sm:text-sm outline-none ${
+                          isDark 
+                            ? "bg-[#2a2a2a] text-white placeholder-gray-500 border border-gray-700" 
+                            : "bg-gray-100 text-gray-900 placeholder-gray-400 border border-gray-200"
+                        }`}
+                      />
+                      <button className="px-5 py-2.5 bg-white text-black rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+                        {t('exploreDapps.subscribe')}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* All dApps Section - ToolHub Style */}
+            <section>
+              <h2 className={`text-base sm:text-lg font-bold mb-3 sm:mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+                {selectedCategory === "All" ? t('exploreDapps.allDapps') : `${t(`exploreDapps.categories.${selectedCategory.toLowerCase().replace(' ', '')}`)}:`}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 w-full">
+                {filteredDapps.map((dapp) => (
+                  <a
+                    key={dapp.id}
+                    href={dapp.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group relative flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 rounded-xl transition-all hover:bg-opacity-90 overflow-hidden w-full max-w-full ${
+                      isDark 
+                        ? "bg-[#181818] hover:bg-[#2a2a2a]" 
+                        : "bg-white hover:shadow-md"
+                    }`}
+                  >
+                    {/* Badge - Top Right */}
+                    {dapp.tag && (
+                      <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium z-10 ${getTagStyle(dapp.tag)}`}>
+                        {dapp.tag}
+                      </span>
+                    )}
+
+                    {/* Logo */}
+                    <div className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden flex items-center justify-center ${
+                      isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
+                    }`}>
+                      <img 
+                        src={isDark ? dapp.logoWhite : dapp.logoBlack} 
+                        alt={dapp.name}
+                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div 
+                        className={`w-full h-full hidden items-center justify-center text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                      >
+                        {dapp.name.charAt(0)}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0 max-w-full pr-6 sm:pr-10 md:pr-14 text-left overflow-hidden">
+                      <h3 className={`text-sm sm:text-base font-semibold truncate mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`}>
+                        {dapp.name}
+                      </h3>
+                      <p className={`text-xs sm:text-sm line-clamp-2 break-words ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                        {dapp.description}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* Empty State */}
+              {filteredDapps.length === 0 && (
+                <div className={`text-center py-16 rounded-2xl ${isDark ? "bg-[#181818]" : "bg-white"}`}>
+                  <div className="text-5xl mb-4">🔍</div>
+                  <h3 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                    {t('exploreDapps.noDappsFound')}
+                  </h3>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                    {t('exploreDapps.tryAdjusting')}
+                  </p>
+                </div>
+              )}
+            </section>
+
           </div>
-        </div>
+        </main>
       </div>
 
-      {/* Custom Scrollbar & Mobile Styles */}
       <style>{`
-        /* Desktop scrollbar styles */
-        @media (min-width: 1024px) {
-          .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-track {
-            background: #181A1E;
-            border-radius: 4px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #374151;
-            border-radius: 4px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #4B5563;
-          }
-        }
-        
-        /* Hide scrollbar on mobile for cleaner look */
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        
-        /* iOS Safari touch improvements */
-        .touch-manipulation {
-          touch-action: manipulation;
-          -webkit-tap-highlight-color: transparent;
-        }
-        
-        /* Prevent iOS Safari bounce effect on inner scroll */
-        @supports (-webkit-touch-callout: none) {
-          .custom-scrollbar {
-            -webkit-overflow-scrolling: touch;
-          }
-        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
     </div>
   );
 };
 
 export default ExploreDapps;
-
