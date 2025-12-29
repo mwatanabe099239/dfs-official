@@ -164,9 +164,7 @@ const ExploreDapps = () => {
     <div className={`min-h-screen ${isDark ? "bg-[#141414]" : "bg-gray-100"}`}>
       <div className="flex min-w-0">
         {/* Left Sidebar - ToolHub Style */}
-        <aside className={`hidden lg:block w-56 h-screen sticky top-0 overflow-y-auto border-r ${
-          isDark ? "bg-[#181818] border-[#2a2a2a]" : "bg-white border-gray-200"
-        }`}>
+        <aside className="hidden lg:block w-56 h-screen sticky top-0 overflow-y-auto border-r bg-white border-gray-200">
           <div className="py-4">
             {categories.map((category) => {
               const isActive = selectedCategory === category.name;
@@ -176,10 +174,8 @@ const ExploreDapps = () => {
                   onClick={() => setSelectedCategory(category.name)}
                   className={`w-full flex items-center gap-3 px-5 py-2.5 text-left transition-all ${
                     isActive
-                      ? "text-[#f5a623] bg-[#303030]/40"
-                      : isDark 
-                        ? "text-gray-400 hover:text-[#f5a623] hover:bg-[#181818]" 
-                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                      ? "text-[#f5a623] bg-gray-100"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                   }`}
                 >
                   <span className="text-lg">{category.emoji}</span>
@@ -253,9 +249,7 @@ const ExploreDapps = () => {
                     className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                       isActive
                         ? "bg-[#f5a623] text-black"
-                        : isDark 
-                          ? "bg-[#1c1c1c] text-gray-400" 
-                          : "bg-white text-gray-600"
+                        : "bg-white text-gray-600"
                     }`}
                   >
                     <span>{category.emoji}</span>

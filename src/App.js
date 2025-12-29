@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
+import ScrollToTop from './components/ScrollToTop';
 import Applist from './components/Applist';
 import BuildOnBnb from './components/BuildOnBnb';
 import DeveloperPrograms from './components/DeveloperPrograms';
@@ -271,6 +272,7 @@ function App() {
     <LanguageProvider>
       <ThemeProvider>
         <Router>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/dapps" element={<DappsPageWrapper />} />

@@ -95,57 +95,42 @@ export const themes = {
 
 // Theme Provider Component
 export const ThemeProvider = ({ children }) => {
-  // Get initial theme from localStorage or default to 'dark'
-  const getInitialTheme = () => {
-    if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("dfs-theme");
-      if (savedTheme && (savedTheme === "dark" || savedTheme === "light")) {
-        return savedTheme;
-      }
-    }
-    return "dark"; // Default theme
-  };
-
-  const [theme, setTheme] = useState(getInitialTheme);
+  // Always use light theme
+  const theme = "light";
   const [mounted, setMounted] = useState(false);
 
   // Get current theme configuration
   const currentTheme = themes[theme];
 
-  // Toggle between light and dark
+  // Toggle function (no-op, kept for compatibility)
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+    // No-op: theme is always light
   };
 
-  // Set specific theme
+  // Set specific theme (no-op, kept for compatibility)
   const setSpecificTheme = (themeName) => {
-    if (themeName === "dark" || themeName === "light") {
-      setTheme(themeName);
-    }
+    // No-op: theme is always light
   };
 
-  // Check if current theme is dark
-  const isDark = theme === "dark";
+  // Always return false for isDark
+  const isDark = false;
 
-  // Save theme to localStorage and update document
+  // Update document class for global styles
   useEffect(() => {
     setMounted(true);
-    localStorage.setItem("dfs-theme", theme);
+    localStorage.setItem("dfs-theme", "light");
     
     // Update document class for global styles
     const root = document.documentElement;
     root.classList.remove("light", "dark");
-    root.classList.add(theme);
+    root.classList.add("light");
     
     // Update meta theme-color for mobile browsers
     const metaThemeColor = document.querySelector("meta[name='theme-color']");
     if (metaThemeColor) {
-      metaThemeColor.setAttribute(
-        "content",
-        theme === "dark" ? "#0B0E11" : "#FFFFFF"
-      );
+      metaThemeColor.setAttribute("content", "#FFFFFF");
     }
-  }, [theme]);
+  }, []);
 
   // Prevent flash of wrong theme
   if (!mounted) {
