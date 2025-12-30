@@ -29,7 +29,7 @@ const Second = () => {
       {/* Stat Section */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-12">
         {/* Stat 1 */}
-        <div className={`flex md:flex-col gap-10 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
+        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
           isDark ? "border-[#373943]" : "border-gray-200"
         }`}>
           <div className="flex justify-center mb-4 flex-col items-start">
@@ -69,7 +69,7 @@ const Second = () => {
         </div>
 
         {/* Stat 2 */}
-        <div className={`flex md:flex-col gap-10 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
+        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
           isDark ? "border-[#373943]" : "border-gray-200"
         }`}>
           <div className="flex justify-center mb-4 flex-col items-start">
@@ -129,7 +129,7 @@ const Second = () => {
         </div>
 
         {/* Stat 3 */}
-        <div className={`flex md:flex-col gap-10 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:max-lg:border-b border-solid ${
+        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:max-lg:border-b border-solid ${
           isDark ? "border-[#373943]" : "border-gray-200"
         }`}>
           <div className="flex justify-center mb-4 flex-col items-start">

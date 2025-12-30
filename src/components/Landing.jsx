@@ -25,7 +25,7 @@ const Landing = () => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="sm:text-[3rem] text-2xl font-bold text-[#21f201] font-zen">
+        <h1 className="sm:text-[3rem] text-2xl font-bold text-black font-zen">
           DFS SimuChain
         </h1>
 
@@ -35,15 +35,15 @@ const Landing = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:justify-center w-full md:w-[22rem]">
-          <button className={`font-space py-2 px-6 rounded-lg transition duration-300 w-full ${
+        <div className="flex flex-row gap-2 w-full max-w-md">
+          <button className={`font-space py-1.5 px-4 text-xs sm:text-sm rounded-md transition duration-300 flex-1 ${
             isDark 
               ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
               : "bg-gray-900 text-white hover:bg-gray-800"
           }`}>
             {t('landing.hero.issueCoin')}
           </button>
-          <button className={`font-space w-full bg-transparent border-2 py-2 px-6 rounded-lg transition duration-300 ${
+          <button className={`font-space bg-transparent border py-1.5 px-4 text-xs sm:text-sm rounded-md transition duration-300 flex-1 ${
             isDark 
               ? "text-slate-300 border-white hover:bg-white hover:text-black" 
               : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"

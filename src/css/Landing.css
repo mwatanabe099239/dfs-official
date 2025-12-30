@@ -8,15 +8,15 @@
     overflow: hidden;
     background-color: rgb(20, 21, 26);
     background-image: url(/public/hero.jpg);
-    background-size: 100% 100%;
-    background-position: right bottom;
+    background-size: auto 100%;
+    background-position: right center;
     background-repeat: no-repeat;
 }
 
 .first-section-light {
     background-color: #f1f5f9;
     background-image: url(/public/hero-light.png);
-    background-size: 100% 110%;
+    background-size: auto 100%;
     background-position: right center;
     background-repeat: no-repeat;
 }
@@ -24,12 +24,12 @@
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .first-section {
-        background-size: cover;
-        background-position: center center;
+        background-size: auto 50%;
+        background-position: right top;
     }
     
     .first-section-light {
-        background-size: cover;
-        background-position: center center;
+        background-size: auto 50%;
+        background-position: right top;
     }
 }

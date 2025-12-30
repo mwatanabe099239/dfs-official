@@ -33,7 +33,7 @@ const Social = () => {
         <img 
           src="/logo.png" 
           alt="logo" 
-          className={`md:w-40 w-32 ${!isDark ? "brightness-0" : ""}`}
+          className="md:w-40 w-32 brightness-0"
         />
       </a>
 
