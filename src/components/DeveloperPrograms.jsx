@@ -7,19 +7,21 @@ const DeveloperPrograms = () => {
   const { t } = useLanguage();
 
   return (
-    <div className={`px-4 py-16 sm:px-8 md:px-16 lg:px-24 md:pt-44 pt-20 transition-colors duration-300 ${
+    <div className={`px-4 py-8 sm:py-12 md:py-16 sm:px-8 md:px-16 lg:px-24 md:pt-44 pt-12 sm:pt-20 transition-colors duration-300 ${
       isDark ? "bg-landing-color text-white" : "bg-white text-gray-900"
     }`}>
       <div
-        className={`h-auto flex flex-col lg:flex-row items-center justify-between rounded-[32px] p-8 md:pr-0 ${
+        className={`h-auto flex flex-col lg:flex-row items-center justify-between rounded-[32px] p-8 md:pr-0 border-t border-l border-r ${
           isDark 
-            ? "border-2 border-[#373943]" 
-            : "border border-gray-200 bg-gray-50"
+            ? "border-[#373943] bg-[#181A1E]" 
+            : "border-gray-300 bg-white"
         }`}
         style={{
+          borderBottomWidth: '4px',
+          borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
           boxShadow: isDark
-            ? "0px 24px 64px 0px rgba(0, 0, 0, 0.48), 0px 4px 0px 0px #21f201"
-            : "0px 8px 32px 0px rgba(0, 0, 0, 0.08), 0px 4px 0px 0px #21f201",
+            ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+            : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
         }}
       >
         {/* Left Section: Text and Button */}
@@ -36,14 +38,18 @@ const DeveloperPrograms = () => {
             incentives, and additional support to bring your ideas to life. Turn
             vision into reality—faster than ever!
           </p>
-          <a
-            href="#"
-            className={`inline-block bg-transparent border-2 border-[#21f201] md:w-auto w-full py-2 px-8 rounded-lg hover:bg-[#21f201] hover:text-black transition duration-300 text-center ${
-              isDark ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Make a Request
-          </a>
+          <div className="w-full flex justify-center lg:justify-start">
+            <a
+              href="#"
+              className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block bg-transparent border ${
+                isDark 
+                  ? "text-slate-300 border-white hover:bg-white hover:text-black" 
+                  : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
+              }`}
+            >
+              Make a Request
+            </a>
+          </div>
         </div>
 
         {/* Right Section: Image */}

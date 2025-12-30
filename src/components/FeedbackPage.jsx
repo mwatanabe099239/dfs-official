@@ -342,7 +342,7 @@ const FeedbackPage = () => {
             }`}>
               <button
                 type="submit"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors"
               >
                 <HiOutlinePaperAirplane className="w-5 h-5" />
                 {t('feedback.submit')}

@@ -11,37 +11,50 @@ const DeveloperResources = () => {
     {
       title: "DFS Scan",
       description: "Searching and Analyzing DFS SimuChain Data",
-      icon: "/resource/1.png",
+      icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/guwymkq7msbhbxfwmsly.png",
+      useBrightness: false,
     },
     {
-      title: "Quick ido",
-      description: "Instant Exchanges in Web3 and Web2",
-      icon: "/resource/2.png",
-    },
-    {
-      title: "White Creator",
-      description: "DRC20 Token Generator",
-      icon: "/resource/3.png",
+      title: "Metaface",
+      description: "DFS Chain's main wallet. Secure, fast, and easy to use.",
+      icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/o2cerargskdqluetq0vs.png",
+      useBrightness: false,
     },
     {
       title: "WEXSWAP",
       description: "An exchange similar to a DEX ",
-      icon: "/resource/4.png",
+      icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766674347/yw14nsguzbvwonwpfgyx.png",
+      useBrightness: false,
+    },
+    {
+      title: "White Creator",
+      description: "DRC20 Token Generator",
+      icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/lfbyfr2uevv1l0qhswkd.png",
+      useBrightness: false,
+      iconSize: "w-16 h-16",
+    },
+    {
+      title: "Quick ido",
+      description: "Instant Exchanges in Web3 and Web2",
+      icon: "/resource/5.png",
+      useBrightness: true,
     },
     {
       title: "Moegi Sale",
       description: "Platform for Early-Stage Fundraising",
-      icon: "/resource/5.png",
+      icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/ihrgv1ojboawarw7j1km.png",
+      useBrightness: false,
     },
     {
       title: "Other apps",
       description: "such as Cefi and AppTool, will be updated as needed",
       icon: "/resource/6.png",
+      useBrightness: true,
     },
   ];
 
   return (
-    <div className={`px-4 pt-32 pb-0 sm:px-8 md:px-16 lg:px-24 lg:pt-48 font-space transition-colors duration-300 ${
+    <div className={`px-4 pt-16 sm:pt-24 md:pt-32 pb-0 sm:px-8 md:px-16 lg:px-24 lg:pt-48 font-space transition-colors duration-300 ${
       isDark ? "bg-landing-color text-white" : "bg-white text-gray-900"
     }`}>
       <div className="text-center mb-12">
@@ -61,6 +74,8 @@ const DeveloperResources = () => {
             title={resource.title}
             description={resource.description}
             icon={resource.icon}
+            useBrightness={resource.useBrightness}
+            iconSize={resource.iconSize}
           />
         ))}
       </div>

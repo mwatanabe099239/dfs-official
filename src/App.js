@@ -51,7 +51,6 @@ const HomePage = () => {
       <DeveloperResources />
       <FAQ />
       <BuildOnBnb />
-      <Social />
       <Footer />
     </div>
   );

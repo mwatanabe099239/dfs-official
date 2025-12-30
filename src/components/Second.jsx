@@ -7,7 +7,7 @@ const Second = () => {
   const { t } = useLanguage();
 
   return (
-    <div className={`px-4 py-16 sm:px-8 md:px-16 lg:px-24 transition-colors duration-300 ${
+    <div className={`px-4 py-8 sm:py-12 md:py-16 sm:px-8 md:px-16 lg:px-24 transition-colors duration-300 ${
       isDark ? "bg-landing-color text-white" : "bg-white text-gray-900"
     }`}>
       {/* Title */}
@@ -29,28 +29,15 @@ const Second = () => {
       {/* Stat Section */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-12">
         {/* Stat 1 */}
-        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
+        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row justify-between items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
           isDark ? "border-[#373943]" : "border-gray-200"
         }`}>
-          <div className="flex justify-center mb-4 flex-col items-start">
-            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
-              isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
-            }`}>
-              100K<span className="text-[#21f201]">+</span>
-            </div>
-            <span className={`text-[1.25rem] leading-[1.75rem] font-space mb-12 ${
-              isDark ? "text-[#C4C5CB]" : "text-gray-600"
-            }`}>
-              {t('home.stats.activeUsers')}
-            </span>
-          </div>
-
           <a
             data-theme={isDark ? "dark" : "light"}
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] ${
+            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] flex-shrink-0 ${
               isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
             }`}
           >
@@ -66,31 +53,30 @@ const Second = () => {
               ></path>
             </svg>
           </a>
-        </div>
-
-        {/* Stat 2 */}
-        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
-          isDark ? "border-[#373943]" : "border-gray-200"
-        }`}>
-          <div className="flex justify-center mb-4 flex-col items-start">
+          <div className="flex justify-center mb-4 flex-col items-end text-right">
             <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
               isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
             }`}>
-              100<span className="text-[#21f201]">+</span>
+              100K<span className="text-[#21f201]">+</span>
             </div>
-            <span className={`text-[1.25rem] leading-[1.75rem] font-space mb-12 ${
+            <span className={`text-[1.25rem] leading-[1.75rem] font-space ${
               isDark ? "text-[#C4C5CB]" : "text-gray-600"
             }`}>
-              {t('home.stats.activeDapps')}
+              {t('home.stats.activeUsers')}
             </span>
           </div>
+        </div>
 
+        {/* Stat 2 */}
+        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row justify-between items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
+          isDark ? "border-[#373943]" : "border-gray-200"
+        }`}>
           <a
             data-theme={isDark ? "dark" : "light"}
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] ${
+            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] flex-shrink-0 ${
               isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
             }`}
           >
@@ -126,13 +112,40 @@ const Second = () => {
               ></path>
             </svg>
           </a>
+          <div className="flex justify-center mb-4 flex-col items-end text-right">
+            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
+              isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
+            }`}>
+              100<span className="text-[#21f201]">+</span>
+            </div>
+            <span className={`text-[1.25rem] leading-[1.75rem] font-space ${
+              isDark ? "text-[#C4C5CB]" : "text-gray-600"
+            }`}>
+              {t('home.stats.activeDapps')}
+            </span>
+          </div>
         </div>
 
         {/* Stat 3 */}
-        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row-reverse justify-end items-start text-center md:p-6 pt-8 shadow-xl w-full sm:w-1/3 md:max-lg:border-b border-solid ${
+        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row justify-between items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 shadow-xl w-full sm:w-1/3 md:max-lg:border-b border-solid ${
           isDark ? "border-[#373943]" : "border-gray-200"
         }`}>
-          <div className="flex justify-center mb-4 flex-col items-start">
+          <a
+            data-theme={isDark ? "dark" : "light"}
+            href="https://bscscan.com/chart/address"
+            target="_blank"
+            rel="noreferrer noopener"
+            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-[8px] h-16 w-16 pl-3 pt-[10px] flex-shrink-0 ${
+              isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
+            }`}
+          >
+            <img
+              src="/100k.png"
+              alt="logo"
+              className={`md:w-6 md:h-6 w-10 h-10 ${!isDark ? "opacity-60" : ""}`}
+            ></img>
+          </a>
+          <div className="flex justify-center mb-4 flex-col items-end text-right">
             <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
               isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
             }`}>
@@ -144,22 +157,6 @@ const Second = () => {
               {t('home.stats.generatedTokens')}
             </span>
           </div>
-
-          <a
-            data-theme={isDark ? "dark" : "light"}
-            href="https://bscscan.com/chart/address"
-            target="_blank"
-            rel="noreferrer noopener"
-            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-[8px] h-16 w-16 pl-3 pt-[10px] ${
-              isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
-            }`}
-          >
-            <img
-              src="/100k.png"
-              alt="logo"
-              className={`md:w-6 md:h-6 w-10 h-10 ${!isDark ? "opacity-60" : ""}`}
-            ></img>
-          </a>
         </div>
       </div>
     </div>

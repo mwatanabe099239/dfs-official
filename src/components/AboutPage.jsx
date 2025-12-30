@@ -300,16 +300,20 @@ const AboutPage = () => {
                 href="https://metaface.dfsscan.com/get-started"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-[#21f201] text-black font-bold rounded-lg hover:bg-[#1ad901] transition-colors"
+                className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
               >
                 {t('about.cta.button1')}
               </a>
               <a 
                 href="/careers"
-                className={`px-8 py-4 font-bold rounded-lg border transition-colors ${
+                className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
                   isDark 
-                    ? "border-gray-700 text-white hover:bg-gray-800"
-                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                    ? "text-slate-300 border-white hover:bg-white hover:text-black" 
+                    : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
                 }`}
               >
                 {t('about.cta.button2')}

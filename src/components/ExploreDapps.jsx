@@ -351,7 +351,7 @@ const ExploreDapps = () => {
                             : "bg-gray-100 text-gray-900 placeholder-gray-400 border border-gray-200"
                         }`}
                       />
-                      <button className="px-5 py-2.5 bg-white text-black rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+                      <button className="px-5 py-2.5 bg-white text-black rounded-lg text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
                         {t('exploreDapps.subscribe')}
                       </button>
                     </div>

@@ -7,30 +7,47 @@ const BuildOnBnb = () => {
   const { t } = useLanguage();
 
   return (
-    <div className={`font-space px-4 py-16 sm:px-8 md:px-16 lg:px-24 transition-colors duration-300 ${
+    <div className={`px-4 md:pb-3 pb-3 sm:px-8 md:px-16 lg:px-24 pt-16 sm:pt-24 md:pt-44 transition-colors duration-300 ${
       isDark ? "bg-landing-color text-white" : "bg-white text-gray-900"
     }`}>
-      {/* Container for the section */}
-      <div className="bg-[#21f201] p-8 px-8 sm:px-16 rounded-3xl flex flex-col sm:flex-row justify-between items-center sm:items-center space-y-8 sm:space-y-0">
-
-        {/* Left section - Title and Description */}
-        <div className='text-start max-w-full sm:max-w-2xl'>
-          <h2 className="text-[32px] sm:text-[3rem] leading-[3.5rem] text-[#181A1E] md:my-7 my-3">
+      <div
+        className={`h-auto flex flex-col items-start justify-between rounded-[32px] p-8 border-t border-l border-r ${
+          isDark 
+            ? "border-[#373943] bg-[#181A1E]" 
+            : "border-gray-300 bg-white"
+        }`}
+        style={{
+          borderBottomWidth: '4px',
+          borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+          boxShadow: isDark
+            ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+            : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+        }}
+      >
+        {/* Text and Button Section */}
+        <div className="w-full text-start">
+          <h2 className={`text-[2.5rem] sm:text-[3rem] font-space leading-[3.5rem] font-bold mb-4 ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}>
             {t('home.buildOn.title')}
           </h2>
-          <p className="sm:text-[1.25rem] text-[1rem] leading-[1.75rem] text-[#181A1E] md:mb-7 mb-3">
+          <p className={`text-[1.125rem] sm:text-[1.25rem] font-space leading-[1.75rem] mb-8 ${
+            isDark ? "text-[#C4C5CB]" : "text-gray-600"
+          }`}>
             {t('home.buildOn.description')}
           </p>
-        </div>
-
-        {/* Right section - Buttons */}
-        <div className="flex flex-col md:justify-center md:items-center md:mt-[30px] gap-5 sm:gap-4 w-full md:w-auto">
-          <button className="bg-[#181A1E] text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition duration-300 w-full">
-            {t('common.contactUs')}
-          </button>
-          <button className="bg-transparent border-2 border-[#181A1E] text-[#181A1E] px-6 py-2 rounded-lg w-full hover:bg-[#181A1E] hover:text-white transition duration-300">
-            <span className="mr-2">↗</span> {t('home.buildOn.exploreApps')}
-          </button>
+          <div className="flex justify-center">
+            <a
+              href="#"
+              className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block bg-transparent border ${
+                isDark 
+                  ? "text-slate-300 border-white hover:bg-white hover:text-black" 
+                  : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
+              }`}
+            >
+              {t('common.contactUs')}
+            </a>
+          </div>
         </div>
       </div>
     </div>

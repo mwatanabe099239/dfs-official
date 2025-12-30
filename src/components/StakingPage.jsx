@@ -217,17 +217,21 @@ const StakingPage = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <button 
                 onClick={handleComingSoon}
-                className="w-full sm:w-auto bg-[#21f201] text-black font-bold py-4 px-8 rounded-xl hover:bg-[#1ad901] transition-all duration-300 flex items-center justify-center gap-2 group"
+                className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-flex items-center justify-center gap-2 ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
               >
                 {t('staking.cta.startStaking')}
-                <HiOutlineArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <HiOutlineArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
               <button 
                 onClick={handleComingSoon}
-                className={`w-full sm:w-auto border font-semibold py-4 px-8 rounded-xl transition-all duration-300 ${
+                className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block ${
                   isDark 
-                    ? "border-gray-600 text-white hover:bg-gray-800" 
-                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                    ? "text-slate-300 border-white hover:bg-white hover:text-black" 
+                    : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
                 }`}
               >
                 {t('common.learnMore')}
@@ -525,17 +529,21 @@ const StakingPage = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button 
                   onClick={handleComingSoon}
-                  className="w-full sm:w-auto bg-[#21f201] text-black font-bold py-4 px-10 rounded-xl hover:bg-[#1ad901] transition-all duration-300 flex items-center justify-center gap-2 group"
+                  className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-flex items-center justify-center gap-2 ${
+                    isDark 
+                      ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                      : "bg-gray-900 text-white hover:bg-gray-800"
+                  }`}
                 >
                   {t('staking.cta.launchApp')}
-                  <HiOutlineArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <HiOutlineArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
                   onClick={handleComingSoon}
-                  className={`w-full sm:w-auto border font-semibold py-4 px-10 rounded-xl transition-all duration-300 ${
+                  className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block ${
                     isDark 
-                      ? "border-gray-600 text-white hover:bg-gray-800" 
-                      : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                      ? "text-slate-300 border-white hover:bg-white hover:text-black" 
+                      : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
                   }`}
                 >
                   {t('staking.cta.readDocs')}

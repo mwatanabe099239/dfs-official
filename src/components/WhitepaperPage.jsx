@@ -324,7 +324,7 @@ const WhitepaperPage = () => {
         {prevSection ? (
           <button
             onClick={() => navigateToSection(prevSection)}
-            className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg transition-colors w-full sm:w-auto ${
+            className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg transition-colors ${
               isDark 
                 ? "text-gray-400 hover:text-white hover:bg-[#1f1f1f]" 
                 : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
@@ -343,7 +343,7 @@ const WhitepaperPage = () => {
         {nextSection ? (
           <button
             onClick={() => navigateToSection(nextSection)}
-            className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg transition-colors w-full sm:w-auto sm:ml-auto ${
+            className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg transition-colors sm:ml-auto ${
               isDark 
                 ? "text-gray-400 hover:text-white hover:bg-[#1f1f1f]" 
                 : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"

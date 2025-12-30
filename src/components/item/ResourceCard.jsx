@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { useLanguage } from "../../context/LanguageContext";
 
-const ResourceCard = ({ title, description, icon }) => {
+const ResourceCard = ({ title, description, icon, useBrightness = true, iconSize = "w-8 h-8" }) => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
 
@@ -16,7 +16,7 @@ const ResourceCard = ({ title, description, icon }) => {
         <img 
           src={icon} 
           alt="resource" 
-          className={`w-8 h-8 ${!isDark ? "opacity-80" : ""}`}
+          className={`${iconSize} object-contain ${!isDark && useBrightness ? "brightness-0" : ""}`}
         />
       </div>
       <h3 className="md:text-2xl text-lg md:font-bold mb-2">{title}</h3>

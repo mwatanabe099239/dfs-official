@@ -35,15 +35,15 @@ const Landing = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-row gap-2 w-full max-w-md">
-          <button className={`font-space py-1.5 px-4 text-xs sm:text-sm rounded-md transition duration-300 flex-1 ${
+        <div className="flex flex-row gap-2 justify-center">
+          <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
             isDark 
               ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
               : "bg-gray-900 text-white hover:bg-gray-800"
           }`}>
             {t('landing.hero.issueCoin')}
           </button>
-          <button className={`font-space bg-transparent border py-1.5 px-4 text-xs sm:text-sm rounded-md transition duration-300 flex-1 ${
+          <button className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
             isDark 
               ? "text-slate-300 border-white hover:bg-white hover:text-black" 
               : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
