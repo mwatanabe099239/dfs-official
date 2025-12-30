@@ -125,14 +125,16 @@ const CareersPage = () => {
             isDark ? "bg-[#21f201]" : "bg-green-300"
           }`}></div>
           <div className={`absolute bottom-10 right-1/3 w-72 h-72 rounded-full blur-3xl opacity-15 ${
-            isDark ? "bg-purple-500" : "bg-purple-300"
+            isDark ? "bg-gray-400" : "bg-gray-300"
           }`}></div>
         </div>
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-28">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium mb-6">
-              <HiOutlineBriefcase className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineBriefcase className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('careers.hero.badge')}
             </div>
             
@@ -147,12 +149,18 @@ const CareersPage = () => {
               {t('careers.hero.subtitle')}
             </p>
 
-            <a 
-              href="#positions"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#21f201] text-black font-bold rounded-lg hover:bg-[#1ad901] transition-colors"
-            >
-              {t('careers.hero.viewPositions')}
-            </a>
+            <div className="flex justify-center">
+              <a 
+                href="#positions"
+                className={`font-space inline-flex items-center gap-2 py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
+              >
+                {t('careers.hero.viewPositions')}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -175,14 +183,16 @@ const CareersPage = () => {
               return (
                 <div 
                   key={idx}
-                  className={`p-6 rounded-xl border ${
+                  className={`p-6 rounded-xl border-l-2 pl-8 ${
                     isDark 
-                      ? "bg-[#181A1E] border-gray-700" 
-                      : "bg-white border-gray-200 shadow-sm"
+                      ? "bg-[#181A1E] border-[#A0AEC0]" 
+                      : "bg-white border-gray-400"
                   }`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#21f201]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-[#21f201]" />
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                    isDark ? "bg-gray-800" : "bg-gray-100"
+                  }`}>
+                    <Icon className={`w-6 h-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                   <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {benefit.title}
@@ -216,8 +226,10 @@ const CareersPage = () => {
                   isDark ? "bg-[#0B0E11]" : "bg-gray-50"
                 }`}
               >
-                <div className="w-8 h-8 rounded-full bg-[#21f201] flex items-center justify-center flex-shrink-0">
-                  <span className="text-black font-bold text-sm">{idx + 1}</span>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+                }`}>
+                  <span className={`font-bold text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{idx + 1}</span>
                 </div>
                 <p className={`font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                   {value}
@@ -244,10 +256,10 @@ const CareersPage = () => {
             {openPositions.map((position, idx) => (
               <div 
                 key={idx}
-                className={`p-6 rounded-xl border transition-all hover:border-[#21f201]/50 ${
+                className={`p-6 rounded-xl border-l-2 pl-8 transition-all ${
                   isDark 
-                    ? "bg-[#181A1E] border-gray-700 hover:bg-[#1a1d23]" 
-                    : "bg-white border-gray-200 hover:bg-gray-50 shadow-sm"
+                    ? "bg-[#181A1E] border-[#A0AEC0] hover:bg-[#1a1d23]" 
+                    : "bg-white border-gray-400 hover:bg-gray-50"
                 }`}
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -279,12 +291,18 @@ const CareersPage = () => {
                       </span>
                     </div>
                   </div>
-                  <a 
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors whitespace-nowrap"
-                  >
-                    {t('careers.applyNow')}
-                  </a>
+                  <div className="flex justify-center md:justify-end">
+                    <a 
+                      href="/contact"
+                      className={`font-space inline-flex items-center justify-center gap-2 py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 whitespace-nowrap ${
+                        isDark 
+                          ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                          : "bg-gray-900 text-white hover:bg-gray-800"
+                      }`}
+                    >
+                      {t('careers.applyNow')}
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -309,7 +327,9 @@ const CareersPage = () => {
           <div className="grid md:grid-cols-4 gap-6">
             {hiringSteps.map((item, idx) => (
               <div key={idx} className="text-center">
-                <div className="text-4xl font-bold text-[#21f201]/20 mb-2">{item.step}</div>
+                <div className={`text-4xl font-bold mb-2 ${
+                  isDark ? "text-gray-400/20" : "text-gray-300/20"
+                }`}>{item.step}</div>
                 <h3 className={`font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                   {t(item.titleKey)}
                 </h3>
@@ -325,24 +345,39 @@ const CareersPage = () => {
       {/* CTA */}
       <div className="px-6 md:px-8 lg:px-12 xl:px-16 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className={`rounded-2xl p-8 md:p-12 text-center ${
-            isDark 
-              ? "bg-gradient-to-r from-[#21f201]/10 to-transparent border border-[#21f201]/20"
-              : "bg-gradient-to-r from-green-50 to-white border border-green-200"
-          }`}>
-            <HiOutlineSparkles className="w-12 h-12 mx-auto mb-4 text-[#21f201]" />
+          <div 
+            className={`rounded-2xl p-8 md:p-12 text-center border-t border-l border-r ${
+              isDark 
+                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800"
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
+            <HiOutlineSparkles className={`w-12 h-12 mx-auto mb-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
             <h2 className={`text-2xl md:text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('careers.cta.title')}
             </h2>
             <p className={`mb-6 max-w-xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               {t('careers.cta.subtitle')}
             </p>
-            <a 
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#21f201] text-black font-bold rounded-lg hover:bg-[#1ad901] transition-colors"
-            >
-              {t('careers.cta.button')}
-            </a>
+            <div className="flex justify-center">
+              <a 
+                href="/contact"
+                className={`font-space inline-flex items-center gap-2 py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
+              >
+                {t('careers.cta.button')}
+              </a>
+            </div>
           </div>
         </div>
       </div>

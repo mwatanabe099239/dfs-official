@@ -98,14 +98,16 @@ const SocialLinksPage = () => {
             isDark ? "bg-[#21f201]" : "bg-green-300"
           }`}></div>
           <div className={`absolute bottom-10 right-1/4 w-60 h-60 rounded-full blur-3xl opacity-15 ${
-            isDark ? "bg-blue-500" : "bg-blue-300"
+            isDark ? "bg-gray-400" : "bg-gray-300"
           }`}></div>
         </div>
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-16 md:py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium mb-6">
-              <HiOutlineGlobeAlt className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineGlobeAlt className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('community.badge')}
             </div>
             
@@ -134,14 +136,16 @@ const SocialLinksPage = () => {
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group p-6 rounded-xl border transition-all hover:border-[#21f201]/50 hover:-translate-y-1 ${
+                  className={`group p-6 rounded-xl border-l-2 pl-8 transition-all hover:-translate-y-1 ${
                     isDark 
-                      ? "bg-[#181A1E] border-gray-700 hover:bg-[#1a1d23]" 
-                      : "bg-white border-gray-200 hover:bg-gray-50 shadow-sm"
+                      ? "bg-[#181A1E] border-[#A0AEC0] hover:bg-[#1a1d23]" 
+                      : "bg-white border-gray-400 hover:bg-gray-50"
                   }`}
                 >
-                  <div className={`w-14 h-14 rounded-xl ${social.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-7 h-7 text-white" />
+                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform ${
+                    isDark ? "bg-gray-800" : "bg-gray-100"
+                  }`}>
+                    <Icon className={`w-7 h-7 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                   <h3 className={`text-lg font-bold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {social.name}
@@ -153,7 +157,9 @@ const SocialLinksPage = () => {
                     {t(social.descriptionKey)}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-[#21f201] text-sm font-semibold">
+                    <span className={`text-sm font-semibold ${
+                      isDark ? "text-gray-400" : "text-gray-500"
+                    }`}>
                       {social.followers} {t('community.followers')}
                     </span>
                     <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
@@ -166,9 +172,18 @@ const SocialLinksPage = () => {
           </div>
 
           {/* Community Stats */}
-          <div className={`mt-16 rounded-2xl p-8 md:p-12 ${
-            isDark ? "bg-[#181A1E]" : "bg-white border border-gray-200"
-          }`}>
+          <div 
+            className={`mt-16 rounded-2xl p-8 md:p-12 border-t border-l border-r ${
+              isDark ? "bg-[#181A1E] border-gray-800" : "bg-white border-gray-200"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
             <div className="text-center mb-8">
               <h2 className={`text-2xl md:text-3xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                 {t('community.stats.title')}
@@ -185,7 +200,9 @@ const SocialLinksPage = () => {
                 { labelKey: 'community.stats.countries', value: '50+' },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-[#21f201] mb-1">
+                  <div className={`text-3xl md:text-4xl font-bold mb-1 ${
+                    isDark ? "text-gray-400" : "text-gray-500"
+                  }`}>
                     {stat.value}
                   </div>
                   <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
@@ -197,11 +214,20 @@ const SocialLinksPage = () => {
           </div>
 
           {/* Newsletter CTA */}
-          <div className={`mt-12 rounded-2xl p-8 text-center ${
-            isDark 
-              ? "bg-gradient-to-r from-[#21f201]/10 to-transparent border border-[#21f201]/20"
-              : "bg-gradient-to-r from-green-50 to-white border border-green-200"
-          }`}>
+          <div 
+            className={`mt-12 rounded-2xl p-8 text-center border-t border-l border-r ${
+              isDark 
+                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800"
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
             <h2 className={`text-2xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('community.newsletter.title')}
             </h2>
@@ -212,13 +238,17 @@ const SocialLinksPage = () => {
               <input
                 type="email"
                 placeholder={t('community.newsletter.emailPlaceholder')}
-                className={`flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] ${
+                className={`flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 ${
                   isDark 
                     ? "bg-[#0B0E11] border-gray-700 text-white"
                     : "bg-white border-gray-300 text-gray-900"
                 }`}
               />
-              <button className="px-6 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors">
+              <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                isDark 
+                  ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                  : "bg-gray-900 text-white hover:bg-gray-800"
+              }`}>
                 {t('common.subscribe')}
               </button>
             </div>

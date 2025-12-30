@@ -520,8 +520,8 @@ const WhitepaperPage = () => {
       {/* Glowing background effect - subtle */}
       {isDark && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#6366f1]/8 rounded-full blur-[180px]"></div>
-          <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-[#8b5cf6]/5 rounded-full blur-[150px]"></div>
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gray-400/8 rounded-full blur-[180px]"></div>
+          <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-gray-400/5 rounded-full blur-[150px]"></div>
         </div>
       )}
       
@@ -615,7 +615,7 @@ const WhitepaperPage = () => {
                             }}
                             className={`w-full text-left pl-3 py-2.5 text-sm transition-colors border-l-2 -ml-[2px] rounded-r-lg ${
                               activeSection === item.id
-                                ? `border-[#6366f1] ${isDark ? "text-white bg-[#6366f1]/10" : "text-gray-900 bg-blue-50"}`
+                                ? `border-[#21f201] ${isDark ? "text-white bg-[#21f201]/10" : "text-gray-900 bg-gray-100"}`
                                 : `${isDark ? "border-[#2a2a2a] text-gray-500 hover:text-gray-300 hover:bg-[#141414]" : "border-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-50"}`
                             }`}
                           >
@@ -675,7 +675,7 @@ const WhitepaperPage = () => {
                       onClick={() => navigateToSection(item.id)}
                       className={`w-full text-left pl-3 py-1.5 text-sm transition-colors border-l-2 -ml-[2px] ${
                         activeSection === item.id
-                          ? `border-[#6366f1] ${isDark ? "text-white" : "text-gray-900"}`
+                          ? `border-[#21f201] ${isDark ? "text-white" : "text-gray-900"}`
                           : `${isDark ? "border-[#2a2a2a] text-gray-500 hover:text-gray-300" : "border-gray-200 text-gray-500 hover:text-gray-700"}`
                       }`}
                     >
@@ -717,8 +717,8 @@ const WhitepaperPage = () => {
                     without the complexity of traditional decentralized infrastructure.
                   </p>
 
-                  <div className={`p-5 rounded-xl border-l-4 border-[#6366f1] ${
-                    isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
+                  <div className={`p-5 rounded-xl border-l-4 border-gray-400 ${
+                    isDark ? "bg-gray-800/50" : "bg-gray-50"
                   }`}>
                     <h4 className={`font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                       Purpose of This Document
@@ -814,8 +814,8 @@ const WhitepaperPage = () => {
                       />
                     </div>
 
-                    <div className={`p-4 rounded-xl border-l-4 border-[#6366f1] ${
-                      isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
+                    <div className={`p-4 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-800/50" : "bg-gray-50"
                     }`}>
                       <h4 className={`font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                         Logo Usage Guidelines
@@ -840,8 +840,8 @@ const WhitepaperPage = () => {
                   </h2>
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <div className={`p-8 rounded-xl border-l-4 border-[#6366f1] text-center ${
-                      isDark ? "bg-[#6366f1]/10 border-[#6366f1]" : "bg-blue-50 border-blue-500"
+                    <div className={`p-8 rounded-xl border-l-4 border-gray-400 text-center ${
+                      isDark ? "bg-gray-800/50 border-gray-400" : "bg-gray-50 border-gray-400"
                     }`}>
                       <h3 className={`text-2xl sm:text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                         "Bridging Web2 and Web3"
@@ -894,7 +894,7 @@ const WhitepaperPage = () => {
                           'Reduced dependency on intermediaries'
                         ].map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="text-[#6366f1] mt-1">•</span>
+                            <span className="text-gray-600 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -927,8 +927,8 @@ const WhitepaperPage = () => {
                       transaction times, and steep learning curves.
                     </p>
                     
-                    <div className={`p-5 rounded-xl border-l-4 border-[#6366f1] ${
-                      isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
+                    <div className={`p-5 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-800/50" : "bg-gray-50"
                     }`}>
                       <h4 className={`font-semibold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                         The Web2 Chain Advantage
@@ -973,8 +973,8 @@ const WhitepaperPage = () => {
                   </h2>
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <div className={`p-6 rounded-xl border-l-4 border-[#6366f1] text-center ${
-                      isDark ? "bg-[#6366f1]/10" : "bg-blue-50"
+                    <div className={`p-6 rounded-xl border-l-4 border-gray-400 text-center ${
+                      isDark ? "bg-gray-800/50" : "bg-gray-50"
                     }`}>
                       <h3 className={`text-xl sm:text-2xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                         "Trust, Transparency, and Freedom"
@@ -1029,7 +1029,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <div className={`p-6 rounded-xl border ${
-                      isDark ? "border-[#6366f1]/30 bg-gradient-to-br from-[#6366f1]/10 to-transparent" : "border-blue-200 bg-gradient-to-br from-blue-50 to-white"
+                      isDark ? "border-gray-400/30 bg-gradient-to-br from-gray-800/50 to-transparent" : "border-gray-300 bg-gradient-to-br from-gray-50 to-white"
                     }`}>
                       <h3 className={`text-lg font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                         What is Chain?
@@ -1057,15 +1057,15 @@ const WhitepaperPage = () => {
                           isDark ? "border-[#1f1f1f] bg-[#111111]" : "border-gray-200 bg-gray-50"
                         }`}>
                           <div className="flex items-start gap-3">
-                            <span className="text-[#6366f1] font-bold">{idx + 1}.</span>
+                            <span className="text-gray-600 font-bold">{idx + 1}.</span>
                             <span className="text-sm">{item}</span>
                           </div>
                         </div>
                       ))}
                     </div>
 
-                    <div className={`p-4 rounded-xl border-l-4 border-amber-500 ${
-                      isDark ? "bg-amber-500/5" : "bg-amber-50"
+                    <div className={`p-4 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-500/5" : "bg-gray-50"
                     }`}>
                       <p className="text-sm">
                         <strong>Note:</strong> Chain is not a replacement for true blockchain technology, 
@@ -1110,7 +1110,7 @@ const WhitepaperPage = () => {
                           'Block explorer functionality'
                         ].map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="text-[#6366f1] mt-1">•</span>
+                            <span className="text-gray-600 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -1192,8 +1192,8 @@ const WhitepaperPage = () => {
                       blockchain. This design decision provides significant advantages for our use case.
                     </p>
                     
-                    <div className={`p-5 rounded-xl border-l-4 border-[#6366f1] ${
-                      isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
+                    <div className={`p-5 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-800/50" : "bg-gray-50"
                     }`}>
                       <h4 className={`font-semibold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                         Key Advantages of Simulation Approach
@@ -1239,8 +1239,8 @@ const WhitepaperPage = () => {
                   </h2>
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <div className={`p-5 rounded-xl border-l-4 border-red-500 ${
-                      isDark ? "bg-red-500/5" : "bg-red-50"
+                    <div className={`p-5 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-500/5" : "bg-gray-50"
                     }`}>
                       <h4 className={`font-semibold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                         ⚠️ Important Distinction
@@ -1319,27 +1319,27 @@ const WhitepaperPage = () => {
                       </h3>
                       <div className="space-y-2 text-sm font-mono">
                         <div className="flex gap-2">
-                          <span className="text-[#6366f1]">hash:</span>
+                          <span className="text-gray-600">hash:</span>
                           <span>dfs_0x7a8b9c...</span>
                         </div>
                         <div className="flex gap-2">
-                          <span className="text-[#6366f1]">from:</span>
+                          <span className="text-gray-600">from:</span>
                           <span>dfs_0x1a2b3c...</span>
                         </div>
                         <div className="flex gap-2">
-                          <span className="text-[#6366f1]">to:</span>
+                          <span className="text-gray-600">to:</span>
                           <span>dfs_0x4d5e6f...</span>
                         </div>
                         <div className="flex gap-2">
-                          <span className="text-[#6366f1]">value:</span>
+                          <span className="text-gray-600">value:</span>
                           <span>100 DFS</span>
                         </div>
                         <div className="flex gap-2">
-                          <span className="text-[#6366f1]">gas:</span>
+                          <span className="text-gray-600">gas:</span>
                           <span>21000</span>
                         </div>
                         <div className="flex gap-2">
-                          <span className="text-[#6366f1]">timestamp:</span>
+                          <span className="text-gray-600">timestamp:</span>
                           <span>2024-01-15 10:30:00</span>
                         </div>
                       </div>
@@ -1380,15 +1380,15 @@ const WhitepaperPage = () => {
                           'Transaction Count: Number of transactions in block'
                         ].map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="text-[#6366f1] mt-1">•</span>
+                            <span className="text-gray-600 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className={`p-4 rounded-xl border-l-4 border-[#6366f1] ${
-                      isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
+                    <div className={`p-4 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-800/50" : "bg-gray-50"
                     }`}>
                       <p className="text-sm">
                         <strong>Block Time:</strong> Blocks are generated every 5 minutes, providing 
@@ -1541,7 +1541,7 @@ const WhitepaperPage = () => {
                           'CDN integration: Fast content delivery'
                         ].map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="text-[#6366f1] mt-1">•</span>
+                            <span className="text-gray-600 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -1609,7 +1609,7 @@ const WhitepaperPage = () => {
                           <ul className="space-y-1 text-xs">
                             {item.features.map((feature, fIdx) => (
                               <li key={fIdx} className="flex items-start gap-2">
-                                <span className="text-[#6366f1] mt-0.5">•</span>
+                                <span className="text-gray-600 mt-0.5">•</span>
                                 <span>{feature}</span>
                               </li>
                             ))}
@@ -1717,8 +1717,8 @@ const WhitepaperPage = () => {
                       </div>
                     </div>
 
-                    <div className={`p-4 rounded-xl border-l-4 border-[#6366f1] ${
-                      isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
+                    <div className={`p-4 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-800/50" : "bg-gray-50"
                     }`}>
                       <p className="text-sm">
                         <strong>Gas Price:</strong> Gas prices are set dynamically based on network 
@@ -1812,7 +1812,7 @@ const WhitepaperPage = () => {
                         </ul>
                       </div>
                       <div className={`p-5 rounded-xl border ${
-                        isDark ? "border-red-500/30 bg-red-500/5" : "border-red-200 bg-red-50"
+                        isDark ? "border-gray-400/30 bg-gray-500/5" : "border-gray-300 bg-gray-50"
                       }`}>
                         <h4 className={`font-semibold text-base mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                           Deflation Mechanisms
@@ -1844,8 +1844,8 @@ const WhitepaperPage = () => {
                       within the DFS Chain ecosystem.
                     </p>
                     
-                    <div className={`p-6 rounded-xl border-l-4 border-amber-500 ${
-                      isDark ? "bg-amber-500/10" : "bg-amber-50"
+                    <div className={`p-6 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-500/10" : "bg-gray-50"
                     }`}>
                       <h3 className={`text-lg font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                         Characteristics of Digital Gold
@@ -1878,7 +1878,7 @@ const WhitepaperPage = () => {
                           }
                         ].map((item, idx) => (
                           <div key={idx} className="flex gap-3">
-                            <span className="text-amber-500 font-bold">{idx + 1}.</span>
+                            <span className="text-gray-600 font-bold">{idx + 1}.</span>
                             <div>
                               <strong className={isDark ? "text-white" : "text-gray-900"}>{item.title}:</strong>
                               <span className="ml-2 text-sm">{item.desc}</span>
@@ -1909,8 +1909,8 @@ const WhitepaperPage = () => {
                     
                     <div className="grid sm:grid-cols-2 gap-4">
                       {[
-                        { title: 'For Users', desc: 'Access dApps, manage tokens, participate in governance' },
-                        { title: 'For Developers', desc: 'Build dApps, access APIs, receive grants' },
+                        { title: 'For Users', desc: 'Access DApps, manage tokens, participate in governance' },
+                        { title: 'For Developers', desc: 'Build DApps, access APIs, receive grants' },
                         { title: 'For Companies', desc: 'Integrate services, partner programs, enterprise solutions' },
                         { title: 'For Partners', desc: 'Collaboration opportunities, revenue sharing' }
                       ].map((item, idx) => (
@@ -1940,7 +1940,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      All dApps built on DFS Chain are interconnected through the DFS Hub, creating 
+                      All DApps built on DFS Chain are interconnected through the DFS Hub, creating 
                       a unified ecosystem where applications can interact and share resources.
                     </p>
                     
@@ -1952,14 +1952,14 @@ const WhitepaperPage = () => {
                       </h3>
                       <ul className="space-y-2 text-sm">
                         {[
-                          'Shared user base across all dApps',
+                          'Shared user base across all DApps',
                           'Unified wallet and authentication',
-                          'Cross-dApp token compatibility',
+                          'Cross-DApp token compatibility',
                           'Shared infrastructure and APIs',
                           'Collaborative governance'
                         ].map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="text-[#6366f1] mt-1">•</span>
+                            <span className="text-gray-600 mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -1982,19 +1982,19 @@ const WhitepaperPage = () => {
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
                       DFS Chain follows a "chain success" model where the success of the entire 
-                      ecosystem benefits all participants, rather than focusing on individual dApp success.
+                      ecosystem benefits all participants, rather than focusing on individual DApp success.
                     </p>
                     
-                    <div className={`p-5 rounded-xl border-l-4 border-[#6366f1] ${
-                      isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
+                    <div className={`p-5 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-800/50" : "bg-gray-50"
                     }`}>
                       <h4 className={`font-semibold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                         Key Principles
                       </h4>
                       <div className="space-y-2 text-sm">
-                        <p>• <strong>Shared Growth:</strong> Success of one dApp benefits the entire chain</p>
-                        <p>• <strong>Network Effects:</strong> More dApps = more value for all</p>
-                        <p>• <strong>Collaboration:</strong> dApps work together rather than compete</p>
+                        <p>• <strong>Shared Growth:</strong> Success of one DApp benefits the entire chain</p>
+                        <p>• <strong>Network Effects:</strong> More DApps = more value for all</p>
+                        <p>• <strong>Collaboration:</strong> DApps work together rather than compete</p>
                         <p>• <strong>Ecosystem Value:</strong> Focus on overall ecosystem health</p>
                       </div>
                     </div>
@@ -2017,7 +2017,7 @@ const WhitepaperPage = () => {
                       Why don't you create an individual WP
                     </h3>
                     <p className="text-sm sm:text-base text-left">
-                      Instead of each dApp creating its own whitepaper, dApps on DFS Chain are 
+                      Instead of each DApp creating its own whitepaper, DApps on DFS Chain are 
                       integrated into the ecosystem whitepaper, emphasizing unity and shared vision.
                     </p>
                     
@@ -2028,12 +2028,12 @@ const WhitepaperPage = () => {
                       {[
                         'Unified ecosystem vision',
                         'Shared infrastructure and standards',
-                        'Cross-dApp compatibility',
+                        'Cross-DApp compatibility',
                         'Collective governance',
                         'Reduced fragmentation'
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <span className="text-[#6366f1] mt-1">•</span>
+                          <span className="text-gray-600 mt-1">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -2054,7 +2054,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Each dApp listed in the ecosystem follows a standardized format for documentation.
+                      Each DApp listed in the ecosystem follows a standardized format for documentation.
                     </p>
                     
                     <div className={`p-5 rounded-xl border ${
@@ -2065,20 +2065,20 @@ const WhitepaperPage = () => {
                       </h3>
                       <ul className="space-y-2 text-sm">
                         <li>• <strong>Overview:</strong> General description and purpose</li>
-                        <li>• <strong>Problem Solved:</strong> What problem does this dApp address</li>
+                        <li>• <strong>Problem Solved:</strong> What problem does this DApp address</li>
                         <li>• <strong>Relationship with DFS:</strong> How it integrates with DFS token</li>
                         <li>• <strong>Transaction Occurrence Point:</strong> When transactions occur</li>
-                        <li>• <strong>Revenue Model:</strong> How the dApp generates revenue</li>
+                        <li>• <strong>Revenue Model:</strong> How the DApp generates revenue</li>
                         <li>• <strong>User/Company Benefits:</strong> Value proposition</li>
                       </ul>
                     </div>
 
-                    <div className={`p-4 rounded-xl border-l-4 border-amber-500 ${
-                      isDark ? "bg-amber-500/5" : "bg-amber-50"
+                    <div className={`p-4 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-500/5" : "bg-gray-50"
                     }`}>
                       <p className="text-sm">
-                        <strong>Note:</strong> This section will be expanded as new dApps are added to 
-                        the ecosystem. Each dApp will follow the template above for consistency.
+                        <strong>Note:</strong> This section will be expanded as new DApps are added to 
+                        the ecosystem. Each DApp will follow the template above for consistency.
                       </p>
                     </div>
                   </div>
@@ -2106,7 +2106,7 @@ const WhitepaperPage = () => {
                         { step: '1. Sign Up', desc: 'Create an account using your email address' },
                         { step: '2. Get Wallet', desc: 'A wallet address is automatically generated' },
                         { step: '3. Acquire DFS', desc: 'Obtain DFS tokens for transactions' },
-                        { step: '4. Explore dApps', desc: 'Browse and use dApps in the ecosystem' },
+                        { step: '4. Explore DApps', desc: 'Browse and use DApps in the ecosystem' },
                         { step: '5. Participate', desc: 'Join governance, stake tokens, earn rewards' }
                       ].map((item, idx) => (
                         <div key={idx} className={`p-4 rounded-lg border ${
@@ -2135,7 +2135,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Developers can build dApps on DFS Chain using our APIs and SDKs.
+                      Developers can build DApps on DFS Chain using our APIs and SDKs.
                     </p>
                     
                     <div className={`p-5 rounded-xl border ${
@@ -2149,7 +2149,7 @@ const WhitepaperPage = () => {
                         <li>• JavaScript and Python SDKs</li>
                         <li>• Developer grants and funding</li>
                         <li>• Technical support and community</li>
-                        <li>• dApp deployment tools</li>
+                        <li>• DApp deployment tools</li>
                       </ul>
                     </div>
                   </div>
@@ -2239,8 +2239,8 @@ const WhitepaperPage = () => {
                       Earn rewards by referring new users to DFS Chain.
                     </p>
                     
-                    <div className={`p-5 rounded-xl border-l-4 border-[#6366f1] ${
-                      isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
+                    <div className={`p-5 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-800/50" : "bg-gray-50"
                     }`}>
                       <h4 className={`font-semibold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                         How It Works
@@ -2272,8 +2272,8 @@ const WhitepaperPage = () => {
                     
                     <div className="grid sm:grid-cols-2 gap-4">
                       {[
-                        { role: 'Users', desc: 'Active participants using dApps and services' },
-                        { role: 'Developers', desc: 'Building dApps and contributing code' },
+                        { role: 'Users', desc: 'Active participants using DApps and services' },
+                        { role: 'Developers', desc: 'Building DApps and contributing code' },
                         { role: 'Validators', desc: 'Maintaining network integrity' },
                         { role: 'Ambassadors', desc: 'Promoting the ecosystem' }
                       ].map((item, idx) => (
@@ -2318,7 +2318,7 @@ const WhitepaperPage = () => {
                           isDark ? "border-[#1f1f1f] bg-[#111111]" : "border-gray-200 bg-gray-50"
                         }`}>
                           <div className="flex items-center gap-3">
-                            <span className="w-6 h-6 rounded-full bg-[#6366f1] text-white text-xs flex items-center justify-center font-bold">
+                            <span className="w-6 h-6 rounded-full bg-gray-600 text-white text-xs flex items-center justify-center font-bold">
                               {idx + 1}
                             </span>
                             <span className="text-sm">{step}</span>
@@ -2379,8 +2379,8 @@ const WhitepaperPage = () => {
                       actively participates in platform management.
                     </p>
                     
-                    <div className={`p-5 rounded-xl border-l-4 border-[#6366f1] ${
-                      isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
+                    <div className={`p-5 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-800/50" : "bg-gray-50"
                     }`}>
                       <h4 className={`font-semibold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                         Key Components
@@ -2426,7 +2426,7 @@ const WhitepaperPage = () => {
                           isDark ? "border-[#1f1f1f] bg-[#111111]" : "border-gray-200 bg-gray-50"
                         }`}>
                           <p className="text-sm mb-2">
-                            <strong className={isDark ? "text-red-400" : "text-red-600"}>Misconception:</strong>{' '}
+                            <strong className={isDark ? "text-gray-400" : "text-gray-600"}>Misconception:</strong>{' '}
                             {item.misconception}
                           </p>
                           <p className="text-sm">
@@ -2459,7 +2459,7 @@ const WhitepaperPage = () => {
                         },
                         {
                           q: 'How do I get started?',
-                          a: 'Sign up with your email, get a wallet address, and start using dApps.'
+                          a: 'Sign up with your email, get a wallet address, and start using DApps.'
                         },
                         {
                           q: 'Is it free to use?',
@@ -2623,8 +2623,8 @@ const WhitepaperPage = () => {
                   </h2>
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <div className={`p-5 rounded-xl border-l-4 border-red-500 ${
-                      isDark ? "bg-red-500/5" : "bg-red-50"
+                    <div className={`p-5 rounded-xl border-l-4 border-gray-400 ${
+                      isDark ? "bg-gray-500/5" : "bg-gray-50"
                     }`}>
                       <h3 className={`text-lg font-semibold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                         Important Risks
@@ -2659,7 +2659,7 @@ const WhitepaperPage = () => {
                     <div className={`p-5 rounded-xl border ${
                       isDark ? "border-[#1f1f1f] bg-[#111111]" : "border-gray-200 bg-gray-50"
                     }`}>
-                      <a href="https://dfsscan.com" target="_blank" rel="noopener noreferrer" className={`text-[#6366f1] hover:underline ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                      <a href="https://dfsscan.com" target="_blank" rel="noopener noreferrer" className={`text-gray-600 hover:underline ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                         https://dfsscan.com
                       </a>
                     </div>
@@ -2721,7 +2721,7 @@ const WhitepaperPage = () => {
                     <div className={`p-5 rounded-xl border ${
                       isDark ? "border-[#1f1f1f] bg-[#111111]" : "border-gray-200 bg-gray-50"
                     }`}>
-                      <a href="https://github.com/dfsChain" target="_blank" rel="noopener noreferrer" className={`text-[#6366f1] hover:underline ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                      <a href="https://github.com/dfsChain" target="_blank" rel="noopener noreferrer" className={`text-gray-600 hover:underline ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                         https://github.com/dfsChain
                       </a>
                     </div>
@@ -2747,7 +2747,7 @@ const WhitepaperPage = () => {
                     <div className={`p-5 rounded-xl border ${
                       isDark ? "border-[#1f1f1f] bg-[#111111]" : "border-gray-200 bg-gray-50"
                     }`}>
-                      <a href="mailto:contact@dfsscan.com" className={`text-[#6366f1] hover:underline ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                      <a href="mailto:contact@dfsscan.com" className={`text-gray-600 hover:underline ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                         contact@dfsscan.com
                       </a>
                     </div>
@@ -2778,7 +2778,7 @@ const WhitepaperPage = () => {
                       <ol className="space-y-2 text-sm">
                         {['Email signup/login', 'Generate wallet address', 'Link to account', 'Full wallet access'].map((step, i) => (
                           <li key={i} className="flex gap-2 items-center">
-                            <span className="w-5 h-5 rounded-full bg-[#6366f1] text-white text-xs flex items-center justify-center font-bold">
+                            <span className="w-5 h-5 rounded-full bg-gray-600 text-white text-xs flex items-center justify-center font-bold">
                               {i + 1}
                             </span>
                             {step}
@@ -2796,7 +2796,7 @@ const WhitepaperPage = () => {
                       <div className={`p-3 rounded-lg font-mono text-sm ${
                         isDark ? "bg-[#0a0a0a]" : "bg-gray-100"
                           }`}>
-                        <span className="text-[#6366f1]">dfs_0x</span>
+                        <span className="text-gray-600">dfs_0x</span>
                         <span>1a2b3c4d5e6f...</span>
                           </div>
                       <p className="text-xs mt-3">All addresses begin with the dfs_0x prefix.</p>
@@ -2831,7 +2831,7 @@ const WhitepaperPage = () => {
                           ].map((item, idx) => (
                         <div key={idx} className="flex items-center gap-4">
                           <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg ${
-                            isDark ? "bg-[#6366f1]/20" : "bg-blue-100"
+                            isDark ? "bg-gray-100" : "bg-gray-100"
                           }`}>
                             {item.icon}
                           </div>
@@ -2879,8 +2879,8 @@ const WhitepaperPage = () => {
                         </div>
                       </div>
 
-                  <div className={`p-4 rounded-xl border-l-4 border-amber-500 ${
-                    isDark ? "bg-amber-500/5" : "bg-amber-50"
+                  <div className={`p-4 rounded-xl border-l-4 border-gray-400 ${
+                    isDark ? "bg-gray-500/5" : "bg-gray-50"
                   }`}>
                     <p className="text-sm">
                       <strong>Note:</strong> Only approved tokens can be used in transactions. 
@@ -2903,10 +2903,10 @@ const WhitepaperPage = () => {
 
                 <div className={`space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                       <div className={`p-6 rounded-xl border ${
-                    isDark ? "border-[#6366f1]/30 bg-gradient-to-br from-[#6366f1]/10 to-transparent" : "border-blue-200 bg-gradient-to-br from-blue-50 to-white"
+                    isDark ? "border-gray-400/30 bg-gradient-to-br from-gray-800/50 to-transparent" : "border-gray-300 bg-gradient-to-br from-gray-50 to-white"
                       }`}>
                         <div className="flex items-center gap-4 mb-4">
-                      <div className="w-14 h-14 rounded-2xl bg-[#6366f1] flex items-center justify-center text-2xl">
+                      <div className="w-14 h-14 rounded-2xl bg-gray-600 flex items-center justify-center text-2xl">
                             💎
                           </div>
                           <div>
@@ -2946,7 +2946,7 @@ const WhitepaperPage = () => {
                       'Ecosystem rewards',
                         ].map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-sm">
-                        <span className="text-[#6366f1]">✓</span>
+                        <span className="text-gray-600">✓</span>
                         {item}
                           </li>
                         ))}
@@ -2985,7 +2985,7 @@ const WhitepaperPage = () => {
                           <h4 className={`font-medium text-sm ${isDark ? "text-white" : "text-gray-900"}`}>
                                   {item.name}
                                 </h4>
-                          <p className="text-xs text-[#6366f1]">{item.example}</p>
+                          <p className="text-xs text-gray-600">{item.example}</p>
                             </div>
                           </div>
                         ))}
@@ -3013,7 +3013,7 @@ const WhitepaperPage = () => {
                         ].map((phase, idx) => (
                     <div key={idx} className={`p-5 rounded-xl border ${
                             phase.status === 'active' 
-                        ? 'border-[#6366f1] bg-[#6366f1]/5' 
+                        ? 'border-gray-400 bg-gray-800/50' 
                         : isDark ? "border-[#1f1f1f] bg-[#111111]" : "border-gray-200 bg-gray-50"
                           }`}>
                             <div className="flex items-center gap-3 mb-3">
@@ -3021,7 +3021,7 @@ const WhitepaperPage = () => {
                                 phase.status === 'completed' 
                                   ? 'bg-green-500/20 text-green-400'
                                   : phase.status === 'active'
-                              ? 'bg-[#6366f1]/20 text-[#6366f1]'
+                              ? 'bg-gray-100 text-gray-600'
                               : isDark ? 'bg-gray-800 text-gray-500' : 'bg-gray-200 text-gray-500'
                               }`}>
                                 {phase.phase}
@@ -3030,7 +3030,7 @@ const WhitepaperPage = () => {
                                 {phase.title}
                         </span>
                               {phase.status === 'active' && (
-                          <span className="ml-auto text-[#6366f1] text-xs font-medium animate-pulse">
+                          <span className="ml-auto text-gray-600 text-xs font-medium animate-pulse">
                                   In Progress
                                 </span>
                               )}

@@ -28,7 +28,7 @@
   },
   "navbar": {
     "home": "Home",
-    "dapps": "dApps",
+    "dapps": "DApps",
     "staking": "Staking",
     "whitepaper": "Whitepaper",
     "about": "About",
@@ -45,7 +45,7 @@
       "subtitle": "Harnessing Decentralization to Make the Impossible Possible",
       "issueCoin": "Issue Coin",
       "cta1": "Start Building",
-      "cta2": "Explore dApps"
+      "cta2": "Explore DApps"
     },
     "features": {
       "title": "Why DFS Chain?",
@@ -60,7 +60,7 @@
       },
       "feature3": {
         "title": "Growing Ecosystem",
-        "description": "Multiple dApps including DEX, social platforms, and more."
+        "description": "Multiple DApps including DEX, social platforms, and more."
       }
     }
   },
@@ -73,7 +73,7 @@
       },
       "description": "As of January 2026, Chain is a blockchain designed to support CeFi, AI agencies, enterprise systems, digital verification, and transaction-intensive services.",
       "activeUsers": "Active Users",
-      "activeDapps": "Active dApps",
+      "activeDapps": "Active DApps",
       "generatedTokens": "Generated Tokens"
     },
     "features": {
@@ -148,7 +148,7 @@
       "makeWallet": "Make Wallet",
       "getDfs": "Get Token",
       "stakeDfs": "Get Stake",
-      "exploreDapps": "Explore dApps",
+      "exploreDapps": "Explore DApps",
       "payByCrypto": "Pay by Crypto",
       "whitepaper": "Whitepaper",
       "faq": "FAQ",
@@ -171,20 +171,20 @@
     "copyright": "© 2026 DIFINES. All rights reserved."
   },
   "dapps": {
-    "title": "dApps Ranking",
+    "title": "DApps Ranking",
     "subtitle": "Discover the most popular decentralized applications on DFS Chain",
-    "searchPlaceholder": "Search dApps...",
+    "searchPlaceholder": "Search DApps...",
     "hero": {
-      "title": "Top dApps on",
+      "title": "Top DApps on",
       "ecosystem": "ecosystem",
-      "subtitle": "Discover the top dApps built on DFS Chain ecosystem, sorted by Users, TVL, and TXN."
+      "subtitle": "Discover the top DApps built on DFS Chain ecosystem, sorted by Users, TVL, and TXN."
     },
-    "submitDapp": "Submit Your dApp",
+    "submitDapp": "Submit Your DApp",
     "filters": {
       "allChains": "All Chains",
       "allCategories": "All Categories",
       "newListings": "New Listings",
-      "tradingDapps": "Trading dApps"
+      "tradingDapps": "Trading DApps"
     },
     "categories": {
       "all": "All",
@@ -199,7 +199,7 @@
     },
     "table": {
       "rank": "#",
-      "dapp": "dApp",
+      "dapp": "DApp",
       "category": "Category",
       "users": "Users",
       "transactions": "Transactions",
@@ -209,32 +209,35 @@
   },
   "exploreDapps": {
     "title": "Explore",
-    "titleHighlight": "dApps",
+    "titleHighlight": "DApps",
     "subtitle": "Discover decentralized applications built on DFS Chain",
-    "heroTitle": "The best dApps, curated!",
-    "heroSubtitle": "Discover amazing dApps built on DFS Chain",
-    "searchPlaceholder": "Search dApps...",
-    "submitDapp": "Submit dApp",
+    "heroTitle": "The best DApps, curated!",
+    "heroSubtitle": "Discover amazing DApps built on DFS Chain",
+    "searchPlaceholder": "Search DApps...",
+    "submitDapp": "Submit DApp",
     "joinCommunity": "Join our community",
-    "featuredDapps": "Featured dApps:",
-    "allDapps": "All dApps:",
+    "featuredDapps": "Featured DApps:",
+    "allDapps": "All DApps:",
     "communityTitle": "Join our community!",
-    "communitySubtitle": "Sign up to get updates on the latest dApps every week!",
+    "communitySubtitle": "Sign up to get updates on the latest DApps every week!",
     "emailPlaceholder": "name@email.com",
     "subscribe": "Subscribe",
     "showing": "Showing",
-    "dappsLabel": "dApps",
+    "dappsLabel": "DApps",
     "in": "in",
     "visit": "Visit",
-    "noDappsFound": "No dApps found",
+    "noDappsFound": "No DApps found",
     "tryAdjusting": "Try adjusting your search or filter criteria",
     "buildOn": "Build on DFS Chain",
-    "buildOnDescription": "All dApps are using Web2 tokens. Start building your decentralized application today.",
+    "buildOnDescription": "All DApps are using Web2 tokens. Start building your decentralized application today.",
     "featured": "Featured",
     "official": "Official",
     "new": "New",
     "popular": "Popular",
     "visitApp": "Visit App",
+    "backToDapps": "Back to DApps",
+    "visitWebsite": "Visit Website",
+    "keyFeatures": "Key Features:",
     "categories": {
       "title": "Categories",
       "all": "All",
@@ -471,7 +474,7 @@
       },
       "howToStart": {
         "question": "How do I get started with DFS Chain?",
-        "answer": "Getting started is easy! Simply visit metaface.dfsscan.com and sign up with your email address. Your wallet will be automatically created, and you'll receive a unique wallet address (starting with dfs_0x). From there, you can explore the ecosystem, acquire DFS tokens, and interact with various dApps."
+        "answer": "Getting started is easy! Simply visit metaface.dfsscan.com and sign up with your email address. Your wallet will be automatically created, and you'll receive a unique wallet address (starting with dfs_0x). From there, you can explore the ecosystem, acquire DFS tokens, and interact with various DApps."
       },
       "isFree": {
         "question": "Is DFS Chain free to use?",
@@ -533,9 +536,9 @@
         "question": "Is DFS Chain decentralized?",
         "answer": "DFS Chain is a Web2 simulation of blockchain technology, meaning it runs on centralized infrastructure while providing blockchain-like functionality. This approach allows for easier onboarding and maintenance while still offering transparency and tokenization benefits."
       },
-      "buildApps": {
+      "builDApps": {
         "question": "Can I build applications on DFS Chain?",
-        "answer": "Yes! DFS Chain has a growing ecosystem of dApps. You can integrate with our APIs to build wallets, exchanges, social platforms, and more. Check out our documentation or contact us to learn about building on DFS Chain."
+        "answer": "Yes! DFS Chain has a growing ecosystem of DApps. You can integrate with our APIs to build wallets, exchanges, social platforms, and more. Check out our documentation or contact us to learn about building on DFS Chain."
       },
       "dataHandling": {
         "question": "What happens to my data?",
@@ -556,7 +559,7 @@
     },
     "stats": {
       "activeUsers": "Active Users",
-      "dappsBuilt": "dApps Built",
+      "dappsBuilt": "DApps Built",
       "transactions": "Transactions",
       "countries": "Countries"
     },
@@ -595,7 +598,7 @@
       "founded": { "title": "Project Founded", "description": "DFS Chain concept developed" },
       "coreDev": { "title": "Core Development", "description": "Block system and wallet infrastructure built" },
       "launch": { "title": "Ecosystem Launch", "description": "Launched Metaface, DFSScan, and Whitecreator" },
-      "dapps": { "title": "dApps Ecosystem", "description": "Multiple community dApps launched" },
+      "dapps": { "title": "DApps Ecosystem", "description": "Multiple community DApps launched" },
       "expansion": { "title": "Global Expansion", "description": "Scaling to serve users worldwide" }
     },
     "team": {
@@ -871,8 +874,8 @@
         "excerpt": "Looking back at an incredible year of growth, new features, and community achievements..."
       },
       "dappsUpdate": {
-        "title": "New dApps Ecosystem Update",
-        "excerpt": "We've added 5 new dApps to our ecosystem. Discover what's new and how to use them..."
+        "title": "New DApps Ecosystem Update",
+        "excerpt": "We've added 5 new DApps to our ecosystem. Discover what's new and how to use them..."
       },
       "staking": {
         "title": "Staking Program Launch",
@@ -931,7 +934,7 @@
       "general": "General",
       "wallet": "Wallet (Metaface)",
       "explorer": "Explorer (DFSScan)",
-      "dapps": "dApps",
+      "dapps": "DApps",
       "website": "This Website"
     },
     "submit": "Submit Feedback",
@@ -1183,14 +1186,6 @@
       "devOps": { "title": "DevOps Engineer", "department": "Engineering", "description": "Maintain and improve our infrastructure and deployment pipelines." }
     }
   },
-  "newsletter": {
-    "features": {
-      "productUpdates": { "title": "Product Updates", "description": "Be the first to know about new features, improvements, and platform updates." },
-      "tipsTutorials": { "title": "Tips & Tutorials", "description": "Learn how to make the most of DFS Chain with helpful guides and tutorials." },
-      "eventAnnouncements": { "title": "Event Announcements", "description": "Get invited to exclusive events, AMAs, and community meetups." },
-      "exclusiveOffers": { "title": "Exclusive Offers", "description": "Access special promotions, airdrops, and early access opportunities." }
-    }
-  },
   "community": {
     "badge": "Connect With Us",
     "title": "Join Our",
@@ -1229,7 +1224,7 @@
       "subtitle": "Join thousands of users and developers building on DFS Chain",
       "totalCommunity": "Total Community",
       "activeDevelopers": "Active Developers",
-      "dappsBuilt": "dApps Built",
+      "dappsBuilt": "DApps Built",
       "countries": "Countries"
     },
     "newsletter": {

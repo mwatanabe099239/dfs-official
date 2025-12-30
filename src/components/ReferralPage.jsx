@@ -96,15 +96,17 @@ const ReferralPage = () => {
             isDark ? "bg-[#21f201]" : "bg-green-300"
           }`}></div>
           <div className={`absolute bottom-10 right-1/3 w-72 h-72 rounded-full blur-3xl opacity-15 ${
-            isDark ? "bg-yellow-500" : "bg-yellow-300"
+            isDark ? "bg-gray-400" : "bg-gray-300"
           }`}></div>
         </div>
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-28">
           <div className="max-w-4xl mx-auto text-center">
             {/* Coming Soon Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 text-yellow-500 text-sm font-medium mb-6">
-              <HiOutlineBell className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineBell className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('common.comingSoon')}
             </div>
             
@@ -122,9 +124,9 @@ const ReferralPage = () => {
             {/* Email Signup */}
             {subscribed ? (
               <div className={`inline-flex items-center gap-3 px-6 py-4 rounded-xl ${
-                isDark ? "bg-[#21f201]/10" : "bg-green-50"
+                isDark ? "bg-gray-800" : "bg-gray-100"
               }`}>
-                <HiOutlineCheck className="w-6 h-6 text-[#21f201]" />
+                <HiOutlineCheck className={`w-6 h-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                 <span className={isDark ? "text-white" : "text-gray-900"}>
                   {t('referral.success.message')}
                 </span>
@@ -137,7 +139,7 @@ const ReferralPage = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t('referral.emailPlaceholder')}
                   required
-                  className={`flex-1 px-4 py-4 rounded-xl border focus:outline-none focus:border-[#21f201] transition-colors ${
+                  className={`flex-1 px-4 py-4 rounded-xl border focus:outline-none focus:border-gray-400 transition-colors ${
                     isDark 
                       ? "bg-[#181A1E] border-gray-700 text-white placeholder-gray-500"
                       : "bg-white border-gray-300 text-gray-900 placeholder-gray-400"
@@ -145,7 +147,11 @@ const ReferralPage = () => {
                 />
                 <button
                   type="submit"
-                  className="px-6 py-4 bg-[#21f201] text-black font-bold rounded-xl hover:bg-[#1ad901] transition-colors whitespace-nowrap"
+                  className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 whitespace-nowrap ${
+                    isDark 
+                      ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                      : "bg-gray-900 text-white hover:bg-gray-800"
+                  }`}
                 >
                   {t('referral.getEarlyAccess')}
                 </button>
@@ -173,14 +179,16 @@ const ReferralPage = () => {
               return (
                 <div 
                   key={idx}
-                  className={`p-6 rounded-xl border text-center ${
+                  className={`p-6 rounded-xl border-l-2 pl-8 text-center ${
                     isDark 
-                      ? "bg-[#181A1E] border-gray-700" 
-                      : "bg-white border-gray-200 shadow-sm"
+                      ? "bg-[#181A1E] border-[#A0AEC0]" 
+                      : "bg-white border-gray-400"
                   }`}
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-[#21f201]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-[#21f201]" />
+                  <div className={`w-14 h-14 mx-auto rounded-xl flex items-center justify-center mb-4 ${
+                    isDark ? "bg-gray-800" : "bg-gray-100"
+                  }`}>
+                    <Icon className={`w-7 h-7 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                   <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {benefit.title}
@@ -209,27 +217,44 @@ const ReferralPage = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-4 gap-6 relative">
             {howItWorks.map((item, idx) => (
-              <div key={idx} className="text-center relative">
-                {idx < howItWorks.length - 1 && (
-                  <div className={`hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 ${
-                    isDark ? "bg-gray-700" : "bg-gray-200"
-                  }`}></div>
-                )}
-                <div className="relative z-10">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-[#21f201] flex items-center justify-center text-black font-bold text-xl mb-4">
-                    {item.step}
-                  </div>
-                  <h3 className={`font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
-                    {item.title}
-                  </h3>
-                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    {item.description}
-                  </p>
+              <div key={idx} className="text-center relative z-10">
+                <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center font-bold text-xl mb-4 ${
+                  isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+                }`}>
+                  {item.step}
                 </div>
+                <h3 className={`font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  {item.title}
+                </h3>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                  {item.description}
+                </p>
               </div>
             ))}
+            {/* Connector lines between steps */}
+            {howItWorks.map((_, idx) => {
+              if (idx >= howItWorks.length - 1) return null;
+              // For 4 columns, each column is 25% wide
+              // The gap between columns is 1.5rem (24px)
+              // Line should span from right edge of current column to left edge of next column
+              // Since circles are centered, line starts at column boundary and spans the gap
+              const columnEnd = ((idx + 1) * 100) / 4;
+              
+              return (
+                <div
+                  key={`line-${idx}`}
+                  className={`hidden md:block absolute top-8 h-0.5 ${
+                    isDark ? "bg-gray-700" : "bg-gray-200"
+                  }`}
+                  style={{
+                    left: `calc(${columnEnd}% - 0.75rem)`,
+                    width: '1.5rem',
+                  }}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
@@ -279,7 +304,7 @@ const ReferralPage = () => {
                         {tier.referrals}
                       </td>
                       <td className={`px-6 py-4 text-left`}>
-                        <span className="text-[#21f201] font-semibold">{tier.reward}</span>
+                        <span className={`font-semibold ${isDark ? "text-gray-400" : "text-gray-500"}`}>{tier.reward}</span>
                       </td>
                       <td className={`px-6 py-4 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                         {tier.bonus}
@@ -329,8 +354,8 @@ const ReferralPage = () => {
               return (
                 <div 
                   key={idx}
-                  className={`p-6 rounded-xl border ${
-                    isDark ? "bg-[#0B0E11] border-gray-700" : "bg-gray-50 border-gray-200"
+                  className={`p-6 rounded-xl border-l-2 pl-8 ${
+                    isDark ? "bg-[#0B0E11] border-[#A0AEC0]" : "bg-gray-50 border-gray-400"
                   }`}
                 >
                   <Icon className={`w-8 h-8 mb-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
@@ -350,12 +375,21 @@ const ReferralPage = () => {
       {/* CTA */}
       <div className="px-6 md:px-8 lg:px-12 xl:px-16 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className={`rounded-2xl p-8 md:p-12 text-center ${
-            isDark 
-              ? "bg-gradient-to-r from-[#21f201]/10 to-transparent border border-[#21f201]/20"
-              : "bg-gradient-to-r from-green-50 to-white border border-green-200"
-          }`}>
-            <HiOutlineUserAdd className="w-16 h-16 mx-auto mb-6 text-[#21f201]" />
+          <div 
+            className={`rounded-2xl p-8 md:p-12 text-center border-t border-l border-r ${
+              isDark 
+                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800"
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
+            <HiOutlineUserAdd className={`w-16 h-16 mx-auto mb-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
             <h2 className={`text-2xl md:text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('referral.cta.title')}
             </h2>
@@ -368,7 +402,11 @@ const ReferralPage = () => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#21f201] text-black font-bold rounded-lg hover:bg-[#1ad901] transition-colors"
+              className={`font-space inline-flex items-center gap-2 py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                isDark 
+                  ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                  : "bg-gray-900 text-white hover:bg-gray-800"
+              }`}
             >
               {t('referral.cta.button')}
             </a>

@@ -74,8 +74,10 @@ const FeedbackPage = () => {
       }`}>
         <div className="flex items-center justify-center min-h-screen px-6">
           <div className="text-center max-w-md">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#21f201]/10 flex items-center justify-center">
-              <HiOutlineCheckCircle className="w-10 h-10 text-[#21f201]" />
+            <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center ${
+              isDark ? "bg-gray-800" : "bg-gray-100"
+            }`}>
+              <HiOutlineCheckCircle className={`w-10 h-10 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
             </div>
             <h1 className={`text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('feedback.success.title')}
@@ -96,16 +98,20 @@ const FeedbackPage = () => {
                     url: ''
                   });
                 }}
-                className="px-6 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors"
+                className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
               >
                 {t('feedback.success.submitAnother')}
               </button>
               <a
                 href="/"
-                className={`px-6 py-3 font-semibold rounded-lg border transition-colors ${
+                className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block ${
                   isDark 
-                    ? "border-gray-700 text-white hover:bg-gray-800"
-                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                    ? "text-slate-300 border-white hover:bg-white hover:text-black" 
+                    : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
                 }`}
               >
                 {t('common.goHome')}
@@ -138,8 +144,10 @@ const FeedbackPage = () => {
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-16 md:py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium mb-6">
-              <HiOutlineLightBulb className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineLightBulb className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('feedback.hero.badge')}
             </div>
             
@@ -171,16 +179,16 @@ const FeedbackPage = () => {
                   <button
                     key={type.id}
                     onClick={() => setFeedbackType(type.id)}
-                    className={`p-4 rounded-xl border text-left transition-all ${
+                    className={`p-4 rounded-xl border-l-2 pl-8 text-left transition-all ${
                       feedbackType === type.id
-                        ? "border-[#21f201] bg-[#21f201]/10"
+                        ? isDark ? "border-[#A0AEC0] bg-gray-800" : "border-gray-400 bg-gray-100"
                         : isDark 
-                          ? "border-gray-700 bg-[#181A1E] hover:border-gray-600"
-                          : "border-gray-200 bg-white hover:border-gray-300"
+                          ? "border-[#A0AEC0] bg-[#181A1E] hover:border-gray-600"
+                          : "border-gray-400 bg-white hover:border-gray-300"
                     }`}
                   >
                     <Icon className={`w-8 h-8 mb-3 ${
-                      feedbackType === type.id ? "text-[#21f201]" : isDark ? "text-gray-400" : "text-gray-500"
+                      isDark ? "text-gray-400" : "text-gray-500"
                     }`} />
                     <h3 className={`font-semibold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
                       {type.title}
@@ -195,9 +203,14 @@ const FeedbackPage = () => {
           </div>
 
           {/* Feedback Form */}
-          <form onSubmit={handleSubmit} className={`rounded-xl border overflow-hidden ${
-            isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-sm"
-          }`}>
+          <form onSubmit={handleSubmit} className={`rounded-xl border-t border-l border-r overflow-hidden ${
+            isDark ? "bg-[#181A1E] border-gray-800" : "bg-white border-gray-200"
+          }`}
+          style={{ 
+            borderBottomWidth: '4px', 
+            borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+            boxShadow: isDark ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)" : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)"
+          }}>
             <div className="p-6 md:p-8 space-y-6">
               {/* Title */}
               <div>
@@ -211,7 +224,7 @@ const FeedbackPage = () => {
                   value={formData.title}
                   onChange={handleChange}
                   placeholder={feedbackType === 'bug' ? t('feedback.form.bugPlaceholder') : t('feedback.form.ideaPlaceholder')}
-                  className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] transition-colors ${
+                  className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 transition-colors ${
                     isDark 
                       ? "bg-[#0B0E11] border-gray-700 text-white placeholder-gray-500"
                       : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400"
@@ -232,7 +245,7 @@ const FeedbackPage = () => {
                       onClick={() => setFormData(prev => ({ ...prev, category: cat.id }))}
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                         formData.category === cat.id
-                          ? "bg-[#21f201] text-black"
+                          ? isDark ? "bg-gray-800 text-gray-300" : "bg-gray-200 text-gray-900"
                           : isDark 
                             ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
                             : "bg-gray-200 text-gray-600 hover:bg-gray-300"
@@ -260,7 +273,7 @@ const FeedbackPage = () => {
                       ? t('feedback.form.bugDescPlaceholder')
                       : t('feedback.form.ideaDescPlaceholder')
                   }
-                  className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] transition-colors resize-none ${
+                  className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 transition-colors resize-none ${
                     isDark 
                       ? "bg-[#0B0E11] border-gray-700 text-white placeholder-gray-500"
                       : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400"
@@ -324,7 +337,7 @@ const FeedbackPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="your@email.com"
-                  className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] transition-colors ${
+                  className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 transition-colors ${
                     isDark 
                       ? "bg-[#0B0E11] border-gray-700 text-white placeholder-gray-500"
                       : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400"
@@ -340,20 +353,33 @@ const FeedbackPage = () => {
             <div className={`px-6 md:px-8 py-4 border-t ${
               isDark ? "bg-[#0B0E11] border-gray-700" : "bg-gray-50 border-gray-200"
             }`}>
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors"
-              >
-                <HiOutlinePaperAirplane className="w-5 h-5" />
-                {t('feedback.submit')}
-              </button>
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className={`font-space inline-flex items-center justify-center gap-2 py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                    isDark 
+                      ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                      : "bg-gray-900 text-white hover:bg-gray-800"
+                  }`}
+                >
+                  <HiOutlinePaperAirplane className="w-5 h-5" />
+                  {t('feedback.submit')}
+                </button>
+              </div>
             </div>
           </form>
 
           {/* FAQ */}
-          <div className={`mt-12 rounded-xl border p-6 md:p-8 ${
-            isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200"
-          }`}>
+          <div 
+            className={`mt-12 rounded-xl border-t border-l border-r p-6 md:p-8 ${
+              isDark ? "bg-[#181A1E] border-gray-800" : "bg-white border-gray-200"
+            }`}
+            style={{ 
+              borderBottomWidth: '4px', 
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)" : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)"
+            }}
+          >
             <h2 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('feedback.faq.title')}
             </h2>

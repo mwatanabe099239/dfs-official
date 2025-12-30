@@ -68,10 +68,10 @@ const ContactUsPage = () => {
   ];
 
   const socialLinks = [
-    { icon: FaTwitter, name: 'Twitter', link: '#', color: 'hover:text-blue-400' },
-    { icon: FaTelegram, name: 'Telegram', link: '#', color: 'hover:text-blue-500' },
-    { icon: FaDiscord, name: 'Discord', link: '#', color: 'hover:text-indigo-400' },
-    { icon: FaGithub, name: 'GitHub', link: '#', color: 'hover:text-gray-400' },
+    { icon: FaTwitter, name: 'Twitter', link: '#', color: 'hover:text-gray-600' },
+    { icon: FaTelegram, name: 'Telegram', link: '#', color: 'hover:text-gray-600' },
+    { icon: FaDiscord, name: 'Discord', link: '#', color: 'hover:text-gray-600' },
+    { icon: FaGithub, name: 'GitHub', link: '#', color: 'hover:text-gray-600' },
   ];
 
   const faqs = [
@@ -99,13 +99,15 @@ const ContactUsPage = () => {
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-16 md:py-20">
           <div className="max-w-[1400px] mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium mb-6">
-              <HiOutlineMail className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineMail className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('contact.badge')}
             </div>
             
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {t('contact.title')} <span className="text-[#21f201]">{t('contact.titleHighlight')}</span>
+              {t('contact.title')} <span className={isDark ? "text-gray-400" : "text-gray-500"}>{t('contact.titleHighlight')}</span>
             </h1>
             
             <p className={`text-lg max-w-2xl mx-auto ${
@@ -128,14 +130,16 @@ const ContactUsPage = () => {
                 <a
                   key={idx}
                   href={method.link}
-                  className={`p-6 rounded-xl border text-center transition-all hover:border-[#21f201]/50 hover:-translate-y-1 w-full max-w-sm ${
+                  className={`p-6 rounded-xl border-l-2 pl-8 text-center transition-all hover:-translate-y-1 w-full max-w-sm ${
                     isDark 
-                      ? "bg-[#181A1E] border-gray-700 hover:bg-[#1a1d23]" 
-                      : "bg-white border-gray-200 hover:bg-gray-50 shadow-sm"
+                      ? "bg-[#181A1E] border-[#A0AEC0] hover:bg-[#1a1d23]" 
+                      : "bg-white border-gray-400 hover:bg-gray-50"
                   }`}
                 >
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-[#21f201]/10 flex items-center justify-center">
-                    <Icon className="w-7 h-7 text-[#21f201]" />
+                  <div className={`w-14 h-14 mx-auto mb-4 rounded-xl flex items-center justify-center ${
+                    isDark ? "bg-gray-800" : "bg-gray-100"
+                  }`}>
+                    <Icon className={`w-7 h-7 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                   <h3 className={`text-lg font-bold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {t(method.titleKey)}
@@ -143,7 +147,7 @@ const ContactUsPage = () => {
                   <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                     {t(method.descKey)}
                   </p>
-                  <p className="text-[#21f201] font-medium">
+                  <p className={`font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                     {method.value}
                   </p>
                 </a>
@@ -153,9 +157,16 @@ const ContactUsPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className={`rounded-xl border overflow-hidden h-fit ${
-              isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-sm"
-            }`}>
+            <div className={`rounded-xl border-t border-l border-r overflow-hidden h-fit ${
+              isDark ? "bg-[#181A1E] border-gray-800" : "bg-white border-gray-200"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}>
               <div className="p-6 md:p-8">
                 <h2 className={`text-2xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
                   {t('contact.form.title')}
@@ -163,8 +174,8 @@ const ContactUsPage = () => {
 
                 {isSubmitted ? (
                   <div className="text-center py-12">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#21f201]/10 flex items-center justify-center">
-                      <HiOutlineCheckCircle className="w-8 h-8 text-[#21f201]" />
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center">
+                      <HiOutlineCheckCircle className={`w-8 h-8 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                     </div>
                     <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                       {t('contact.success.title')}
@@ -174,7 +185,7 @@ const ContactUsPage = () => {
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="text-[#21f201] font-semibold hover:underline"
+                      className={`font-semibold hover:underline ${isDark ? "text-gray-400" : "text-gray-500"}`}
                     >
                       {t('contact.success.sendAnother')}
                     </button>
@@ -194,7 +205,7 @@ const ContactUsPage = () => {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] transition-colors ${
+                          className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 transition-colors ${
                             isDark 
                               ? "bg-[#0B0E11] border-gray-700 text-white placeholder-gray-500"
                               : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400"
@@ -214,7 +225,7 @@ const ContactUsPage = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] transition-colors ${
+                          className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 transition-colors ${
                             isDark 
                               ? "bg-[#0B0E11] border-gray-700 text-white placeholder-gray-500"
                               : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400"
@@ -235,7 +246,7 @@ const ContactUsPage = () => {
                           name="category"
                           value={formData.category}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] transition-colors ${
+                          className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 transition-colors ${
                             isDark 
                               ? "bg-[#0B0E11] border-gray-700 text-white"
                               : "bg-gray-50 border-gray-300 text-gray-900"
@@ -258,7 +269,7 @@ const ContactUsPage = () => {
                           value={formData.subject}
                           onChange={handleChange}
                           required
-                          className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] transition-colors ${
+                          className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 transition-colors ${
                             isDark 
                               ? "bg-[#0B0E11] border-gray-700 text-white placeholder-gray-500"
                               : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400"
@@ -280,7 +291,7 @@ const ContactUsPage = () => {
                         onChange={handleChange}
                         required
                         rows={5}
-                        className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] transition-colors resize-none ${
+                        className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 transition-colors resize-none ${
                           isDark 
                             ? "bg-[#0B0E11] border-gray-700 text-white placeholder-gray-500"
                             : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400"
@@ -292,7 +303,11 @@ const ContactUsPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                      className={`font-space w-full py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 flex items-center justify-center gap-2 disabled:opacity-50 ${
+                        isDark 
+                          ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                          : "bg-gray-900 text-white hover:bg-gray-800"
+                      }`}
                     >
                       {isSubmitting ? (
                         <>
@@ -317,14 +332,21 @@ const ContactUsPage = () => {
             {/* FAQ & Social */}
             <div className="space-y-8">
               {/* FAQ Section */}
-              <div className={`rounded-xl border overflow-hidden ${
-                isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-sm"
-              }`}>
+              <div className={`rounded-xl border-t border-l border-r overflow-hidden ${
+                isDark ? "bg-[#181A1E] border-gray-800" : "bg-white border-gray-200"
+              }`}
+              style={{
+                borderBottomWidth: '4px',
+                borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+                boxShadow: isDark
+                  ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                  : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+              }}>
                 <div className="p-6 md:p-8">
                   <h2 className={`text-2xl font-bold mb-6 flex items-center gap-2 ${
                     isDark ? "text-white" : "text-gray-900"
                   }`}>
-                    <HiOutlineQuestionMarkCircle className="w-6 h-6 text-[#21f201]" />
+                    <HiOutlineQuestionMarkCircle className={`w-6 h-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                     {t('contact.faq.title')}
                   </h2>
                   <div className="space-y-4">
@@ -345,9 +367,16 @@ const ContactUsPage = () => {
               </div>
 
               {/* Social Links */}
-              <div className={`rounded-xl border overflow-hidden ${
-                isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-sm"
-              }`}>
+              <div className={`rounded-xl border-t border-l border-r overflow-hidden ${
+                isDark ? "bg-[#181A1E] border-gray-800" : "bg-white border-gray-200"
+              }`}
+              style={{
+                borderBottomWidth: '4px',
+                borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+                boxShadow: isDark
+                  ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                  : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+              }}>
                 <div className="p-6 md:p-8">
                   <h2 className={`text-2xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {t('contact.social.title')}
@@ -378,8 +407,8 @@ const ContactUsPage = () => {
               </div>
 
               {/* Response Time */}
-              <div className={`p-6 rounded-xl border-l-4 border-[#21f201] ${
-                isDark ? "bg-[#21f201]/5" : "bg-green-50"
+              <div className={`p-6 rounded-xl border-l-2 pl-8 ${
+                isDark ? "bg-[#181A1E] border-[#A0AEC0]" : "bg-white border-gray-400"
               }`}>
                 <h4 className={`font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                   {t('contact.responseTime.title')}

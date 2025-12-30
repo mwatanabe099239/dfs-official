@@ -27,7 +27,7 @@ const DappsPage = () => {
     return data;
   };
 
-  // Sample dApps data - you can replace this with your actual dApps list
+  // Sample DApps data - you can replace this with your actual DApps list
   const dappsData = [
     {
       id: 1,
@@ -173,7 +173,7 @@ const DappsPage = () => {
 
   const chartData = generateChartData();
 
-  // Filter and sort dApps
+  // Filter and sort DApps
   const filteredAndSortedDapps = useMemo(() => {
     let filtered = dappsData.filter((dapp) => {
       const matchesSearch = dapp.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -185,7 +185,7 @@ const DappsPage = () => {
       return matchesSearch && matchesChain && matchesCategory && matchesNewListings && matchesTrading;
     });
 
-    // Sort dApps
+    // Sort DApps
     filtered.sort((a, b) => {
       let aValue, bValue;
       
@@ -420,7 +420,7 @@ const DappsPage = () => {
                       isDark ? "border-gray-600 bg-[#0B0E11]" : "border-gray-300 bg-white"
                     }`}
                   />
-                  Trading dApps
+                  Trading DApps
                 </label>
               </div>
 
@@ -447,7 +447,7 @@ const DappsPage = () => {
         </div>
       </div>
 
-      {/* dApps Table */}
+      {/* DApps Table */}
       <div className="px-6 md:px-8 lg:px-12 xl:px-16 pb-12">
         <div className="max-w-[1400px] mx-auto">
           <div className={`rounded-xl overflow-hidden transition-colors duration-300 ${
@@ -460,7 +460,7 @@ const DappsPage = () => {
                 }`}>
                   <tr>
                     <th className={`text-left py-5 px-6 text-sm font-medium w-16 align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>#</th>
-                    <th className={`text-left py-5 px-6 text-sm font-medium min-w-[200px] align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>dApp</th>
+                    <th className={`text-left py-5 px-6 text-sm font-medium min-w-[200px] align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>DApp</th>
                     <th className={`text-left py-5 px-6 text-sm font-medium w-32 align-middle ${isDark ? "text-gray-300" : "text-gray-600"}`}>Category</th>
                     <th 
                       className={`text-left py-5 px-6 text-sm font-medium cursor-pointer w-24 align-middle ${

@@ -28,7 +28,7 @@
   },
   "navbar": {
     "home": "首页",
-    "dapps": "dApps",
+    "dapps": "DApps",
     "staking": "质押",
     "whitepaper": "白皮书",
     "about": "关于",
@@ -45,7 +45,7 @@
       "subtitle": "利用去中心化让不可能成为可能",
       "issueCoin": "发行代币",
       "cta1": "开始构建",
-      "cta2": "探索dApps"
+      "cta2": "探索DApps"
     },
     "features": {
       "title": "为什么选择DFS Chain？",
@@ -60,7 +60,7 @@
       },
       "feature3": {
         "title": "不断增长的生态系统",
-        "description": "包括DEX、社交平台等多个dApps。"
+        "description": "包括DEX、社交平台等多个DApps。"
       }
     }
   },
@@ -73,7 +73,7 @@
       },
       "description": "截至2026年1月，Chain是一个专为支持CeFi、AI代理、企业系统、数字认证和交易密集型服务而设计的区块链。",
       "activeUsers": "活跃用户",
-      "activeDapps": "活跃dApps",
+      "activeDapps": "活跃DApps",
       "generatedTokens": "已生成代币"
     },
     "features": {
@@ -148,7 +148,7 @@
       "makeWallet": "创建钱包",
       "getDfs": "获取代币",
       "stakeDfs": "获取质押",
-      "exploreDapps": "探索dApps",
+      "exploreDapps": "探索DApps",
       "payByCrypto": "加密支付",
       "whitepaper": "白皮书",
       "faq": "常见问题",
@@ -171,20 +171,20 @@
     "copyright": "© 2026 DIFINES. 版权所有。"
   },
   "dapps": {
-    "title": "dApps排名",
+    "title": "DApps排名",
     "subtitle": "发现DFS Chain上最受欢迎的去中心化应用",
-    "searchPlaceholder": "搜索dApps...",
+    "searchPlaceholder": "搜索DApps...",
     "hero": {
-      "title": "热门dApps",
+      "title": "热门DApps",
       "ecosystem": "生态系统",
-      "subtitle": "发现在DFS Chain生态系统上构建的热门dApps，按用户、TVL和TXN排序。"
+      "subtitle": "发现在DFS Chain生态系统上构建的热门DApps，按用户、TVL和TXN排序。"
     },
-    "submitDapp": "提交您的dApp",
+    "submitDapp": "提交您的DApp",
     "filters": {
       "allChains": "所有链",
       "allCategories": "所有类别",
       "newListings": "新上线",
-      "tradingDapps": "交易dApps"
+      "tradingDapps": "交易DApps"
     },
     "categories": {
       "all": "全部",
@@ -199,7 +199,7 @@
     },
     "table": {
       "rank": "#",
-      "dapp": "dApp",
+      "dapp": "DApp",
       "category": "类别",
       "users": "用户",
       "transactions": "交易",
@@ -209,32 +209,35 @@
   },
   "exploreDapps": {
     "title": "探索",
-    "titleHighlight": "dApps",
+    "titleHighlight": "DApps",
     "subtitle": "发现在DFS Chain上构建的去中心化应用",
-    "heroTitle": "精选最佳dApps！",
-    "heroSubtitle": "发现在DFS Chain上构建的精彩dApps",
-    "searchPlaceholder": "搜索dApps...",
-    "submitDapp": "提交dApp",
+    "heroTitle": "精选最佳DApps！",
+    "heroSubtitle": "发现在DFS Chain上构建的精彩DApps",
+    "searchPlaceholder": "搜索DApps...",
+    "submitDapp": "提交DApp",
     "joinCommunity": "加入社区",
-    "featuredDapps": "精选dApps：",
-    "allDapps": "所有dApps：",
+    "featuredDapps": "精选DApps：",
+    "allDapps": "所有DApps：",
     "communityTitle": "加入我们的社区！",
-    "communitySubtitle": "注册以每周获取最新dApps更新！",
+    "communitySubtitle": "注册以每周获取最新DApps更新！",
     "emailPlaceholder": "电子邮箱",
     "subscribe": "订阅",
     "showing": "显示",
-    "dappsLabel": "个dApps",
+    "dappsLabel": "个DApps",
     "in": "在",
     "visit": "访问",
-    "noDappsFound": "未找到dApps",
+    "noDappsFound": "未找到DApps",
     "tryAdjusting": "尝试调整您的搜索或筛选条件",
     "buildOn": "在DFS Chain上构建",
-    "buildOnDescription": "所有dApps都使用Web2代币。今天就开始构建您的去中心化应用吧。",
+    "buildOnDescription": "所有DApps都使用Web2代币。今天就开始构建您的去中心化应用吧。",
     "featured": "精选",
     "official": "官方",
     "new": "新",
     "popular": "热门",
     "visitApp": "访问应用",
+    "backToDapps": "返回DApps",
+    "visitWebsite": "访问网站",
+    "keyFeatures": "主要功能：",
     "categories": {
       "title": "类别",
       "all": "全部",
@@ -471,7 +474,7 @@
       },
       "howToStart": {
         "question": "如何开始使用DFS Chain？",
-        "answer": "开始很简单！只需访问metaface.dfsscan.com并使用您的电子邮件地址注册。您的钱包将自动创建，您将收到一个唯一的钱包地址（以dfs_0x开头）。从那里，您可以探索生态系统、获取DFS代币并与各种dApps交互。"
+        "answer": "开始很简单！只需访问metaface.dfsscan.com并使用您的电子邮件地址注册。您的钱包将自动创建，您将收到一个唯一的钱包地址（以dfs_0x开头）。从那里，您可以探索生态系统、获取DFS代币并与各种DApps交互。"
       },
       "isFree": {
         "question": "DFS Chain免费使用吗？",
@@ -533,9 +536,9 @@
         "question": "DFS Chain是去中心化的吗？",
         "answer": "DFS Chain是区块链技术的Web2模拟，这意味着它运行在中心化基础设施上，同时提供类似区块链的功能。这种方法允许更容易的入门和维护，同时仍提供透明度和代币化的好处。"
       },
-      "buildApps": {
+      "builDApps": {
         "question": "我可以在DFS Chain上构建应用吗？",
-        "answer": "是的！DFS Chain拥有不断增长的dApps生态系统。您可以与我们的API集成来构建钱包、交易所、社交平台等。查看我们的文档或联系我们了解有关在DFS Chain上构建的更多信息。"
+        "answer": "是的！DFS Chain拥有不断增长的DApps生态系统。您可以与我们的API集成来构建钱包、交易所、社交平台等。查看我们的文档或联系我们了解有关在DFS Chain上构建的更多信息。"
       },
       "dataHandling": {
         "question": "我的数据会发生什么？",
@@ -556,7 +559,7 @@
     },
     "stats": {
       "activeUsers": "活跃用户",
-      "dappsBuilt": "已构建dApps",
+      "dappsBuilt": "已构建DApps",
       "transactions": "交易",
       "countries": "国家"
     },
@@ -595,7 +598,7 @@
       "founded": { "title": "项目成立", "description": "DFS Chain概念开发" },
       "coreDev": { "title": "核心开发", "description": "区块系统和钱包基础设施构建" },
       "launch": { "title": "生态系统启动", "description": "推出Metaface、DFSScan和Whitecreator" },
-      "dapps": { "title": "dApps生态系统", "description": "多个社区dApps上线" },
+      "dapps": { "title": "DApps生态系统", "description": "多个社区DApps上线" },
       "expansion": { "title": "全球扩展", "description": "扩展服务全球用户" }
     },
     "team": {
@@ -876,8 +879,8 @@
         "excerpt": "回顾增长、新功能和社区成就的精彩一年..."
       },
       "dappsUpdate": {
-        "title": "新dApps生态系统更新",
-        "excerpt": "我们向生态系统添加了5个新dApps。了解新内容和使用方法..."
+        "title": "新DApps生态系统更新",
+        "excerpt": "我们向生态系统添加了5个新DApps。了解新内容和使用方法..."
       },
       "staking": {
         "title": "质押计划启动",
@@ -936,7 +939,7 @@
       "general": "一般",
       "wallet": "钱包（Metaface）",
       "explorer": "浏览器（DFSScan）",
-      "dapps": "dApps",
+      "dapps": "DApps",
       "website": "本网站"
     },
     "submit": "提交反馈",
@@ -1111,7 +1114,7 @@
       "subtitle": "加入数千名在DFS Chain上构建的用户和开发者",
       "totalCommunity": "总社区",
       "activeDevelopers": "活跃开发者",
-      "dappsBuilt": "已构建dApps",
+      "dappsBuilt": "已构建DApps",
       "countries": "国家"
     },
     "newsletter": {

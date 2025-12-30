@@ -123,8 +123,10 @@ const BlogPage = () => {
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-16 md:py-20">
           <div className="max-w-[1400px] mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium mb-6">
-              <HiOutlineBookOpen className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineBookOpen className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('blog.hero.badge')}
             </div>
             
@@ -146,9 +148,16 @@ const BlogPage = () => {
         <div className="max-w-[1400px] mx-auto">
           {/* Featured Post */}
           {featuredPost && (
-            <div className={`mb-12 rounded-2xl overflow-hidden border transition-all hover:border-[#21f201]/50 ${
-              isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-lg"
-            }`}>
+            <div 
+              className={`mb-12 rounded-2xl overflow-hidden border-t border-l border-r transition-all ${
+                isDark ? "bg-[#181A1E] border-gray-800" : "bg-white border-gray-200"
+              }`}
+              style={{ 
+                borderBottomWidth: '4px', 
+                borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+                boxShadow: isDark ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)" : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)"
+              }}
+            >
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="aspect-video md:aspect-auto">
                   <img 
@@ -159,7 +168,9 @@ const BlogPage = () => {
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-[#21f201]/10 text-[#21f201] text-xs font-semibold">
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+                    }`}>
                       {t('blog.featured')}
                     </span>
                     <span className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
@@ -192,7 +203,9 @@ const BlogPage = () => {
                   </div>
                   <Link 
                     to={`/blog/${featuredPost.id}`}
-                    className="mt-6 inline-flex items-center gap-2 text-[#21f201] font-semibold hover:gap-3 transition-all"
+                    className={`mt-6 inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all ${
+                      isDark ? "text-gray-400 hover:text-gray-300" : "text-gray-500 hover:text-gray-600"
+                    }`}
                   >
                     {t('blog.readArticle')} <HiOutlineArrowRight className="w-4 h-4" />
                   </Link>
@@ -210,7 +223,7 @@ const BlogPage = () => {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     selectedCategory === category.id
-                      ? "bg-[#21f201] text-black"
+                      ? isDark ? "bg-gray-800 text-gray-300" : "bg-gray-200 text-gray-900"
                       : isDark 
                         ? "bg-gray-800 text-gray-300 hover:bg-gray-700"
                         : "bg-gray-200 text-gray-600 hover:bg-gray-300"
@@ -222,13 +235,15 @@ const BlogPage = () => {
             </div>
             
             <div className="relative w-full md:w-64">
-              <HiOutlineSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <HiOutlineSearch className={`absolute left-3 top-1/2 -translate-y-1/2 ${
+                isDark ? "text-gray-400" : "text-gray-500"
+              }`} />
               <input
                 type="text"
                 placeholder={t('blog.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className={`w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:border-[#21f201] transition-colors ${
+                className={`w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:border-gray-400 transition-colors ${
                   isDark 
                     ? "bg-[#181A1E] border-gray-700 text-white placeholder-gray-500"
                     : "bg-white border-gray-300 text-gray-900 placeholder-gray-400"
@@ -243,8 +258,8 @@ const BlogPage = () => {
               <Link 
                 key={post.id}
                 to={`/blog/${post.id}`}
-                className={`block rounded-xl overflow-hidden border transition-all hover:border-[#21f201]/50 hover:-translate-y-1 ${
-                  isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-sm"
+                className={`block rounded-xl overflow-hidden border-l-2 pl-8 transition-all hover:-translate-y-1 ${
+                  isDark ? "bg-[#181A1E] border-[#A0AEC0]" : "bg-white border-gray-400"
                 }`}
               >
                 <div className="aspect-video overflow-hidden">
@@ -256,7 +271,7 @@ const BlogPage = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <HiOutlineTag className="w-4 h-4 text-[#21f201]" />
+                    <HiOutlineTag className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                     <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                       {post.category}
                     </span>
@@ -290,7 +305,9 @@ const BlogPage = () => {
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-16">
-              <div className="text-6xl mb-4">📝</div>
+              <HiOutlineBookOpen className={`w-16 h-16 mx-auto mb-4 ${
+                isDark ? "text-gray-400" : "text-gray-500"
+              }`} />
               <h3 className={`text-xl font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                 {t('blog.noArticles')}
               </h3>
@@ -301,11 +318,18 @@ const BlogPage = () => {
           )}
 
           {/* Newsletter Section */}
-          <div className={`mt-16 rounded-2xl p-8 md:p-12 text-center ${
-            isDark 
-              ? "bg-gradient-to-r from-[#21f201]/10 to-[#181A1E] border border-[#21f201]/20"
-              : "bg-gradient-to-r from-green-50 to-white border border-green-200"
-          }`}>
+          <div 
+            className={`mt-16 rounded-2xl p-8 md:p-12 text-center border-t border-l border-r ${
+              isDark 
+                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800"
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
+            }`}
+            style={{ 
+              borderBottomWidth: '4px', 
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)" : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)"
+            }}
+          >
             <h2 className={`text-2xl md:text-3xl font-bold mb-4 ${
               isDark ? "text-white" : "text-gray-900"
             }`}>
@@ -318,13 +342,17 @@ const BlogPage = () => {
               <input
                 type="email"
                 placeholder={t('blog.newsletter.placeholder')}
-                className={`flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] ${
+                className={`flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 ${
                   isDark 
                     ? "bg-[#0B0E11] border-gray-700 text-white"
                     : "bg-white border-gray-300 text-gray-900"
                 }`}
               />
-              <button className="px-6 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors">
+              <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                isDark 
+                  ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                  : "bg-gray-900 text-white hover:bg-gray-800"
+              }`}>
                 {t('common.subscribe')}
               </button>
             </div>

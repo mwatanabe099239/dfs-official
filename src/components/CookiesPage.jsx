@@ -87,7 +87,7 @@ const CookiesPage = () => {
             <div className="p-6 md:p-10">
               {/* Cookie Banner Info */}
               <div className={`mb-8 p-4 rounded-lg border-l-4 border-[#21f201] ${
-                isDark ? "bg-[#21f201]/5" : "bg-green-50"
+                isDark ? "bg-gray-800/50" : "bg-gray-50"
               }`}>
                 <p className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                   <strong>{t('cookies.noteLabel')}:</strong> {t('cookies.note')}

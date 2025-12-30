@@ -1,6 +1,6 @@
 import React from "react";
 
-// Individual dApp Row Component
+// Individual DApp Row Component
 const DappRow = ({ rank, name, categories, users, growth, link }) => {
   return (
     <div className="flex flex-col sm:flex-row items-center bg-[#181a1e] p-6 rounded-xl text-start font-space space-y-4 sm:space-y-0 sm:space-x-4">

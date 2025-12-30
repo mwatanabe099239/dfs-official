@@ -24,7 +24,7 @@ If you do not agree to these Terms, you must not access or use our Services. We 
 • **Token Platform:** Publishing and managing DRC20 tokens through our Whitecreator platform
 • **Transaction Processing:** Recording and processing transactions on the simulated blockchain
 • **Block Explorer:** Viewing transaction history, blocks, and network data
-• **Ecosystem dApps:** Access to various decentralized applications built on DFS Chain
+• **Ecosystem DApps:** Access to various decentralized applications built on DFS Chain
 
 Our Services are provided "as is" and may be modified, suspended, or discontinued at any time without prior notice.`
     },
@@ -239,7 +239,7 @@ We encourage you to review these Terms periodically. Your continued use of the S
             <div className="p-6 md:p-10">
               {/* Important Notice */}
               <div className={`mb-8 p-4 rounded-lg border-l-4 border-[#21f201] ${
-                isDark ? "bg-[#21f201]/5" : "bg-green-50"
+                isDark ? "bg-gray-800/50" : "bg-gray-50"
               }`}>
                 <p className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                   <strong>Important:</strong> Please read these Terms of Use carefully before using DFS Chain. 

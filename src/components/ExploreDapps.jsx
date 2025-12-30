@@ -23,7 +23,7 @@ const ExploreDapps = () => {
     { name: "Utility", nameKey: "exploreDapps.categories.utility", icon: FiTool },
   ];
 
-  // dApps data
+  // DApps data
   const dappsData = [
     {
       id: 1,
@@ -137,7 +137,7 @@ const ExploreDapps = () => {
     },
   ];
 
-  // Filter dApps
+  // Filter DApps
   const filteredDapps = useMemo(() => {
     return dappsData.filter((dapp) => {
       const matchesSearch = dapp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -147,7 +147,7 @@ const ExploreDapps = () => {
     });
   }, [searchTerm, selectedCategory]);
 
-  // Featured dApps
+  // Featured DApps
   const featuredDapps = dappsData.filter(d => d.tag === "Featured");
 
   // Get tag color
@@ -261,7 +261,7 @@ const ExploreDapps = () => {
               })}
             </div>
 
-            {/* Featured dApps Section - ToolHub Style */}
+            {/* Featured DApps Section - ToolHub Style */}
             {selectedCategory === "All" && (
               <section className="mb-6 sm:mb-8 md:mb-10">
                 <h2 className={`text-base sm:text-lg font-bold mb-3 sm:mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -269,11 +269,9 @@ const ExploreDapps = () => {
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 w-full max-w-full">
                   {featuredDapps.map((dapp) => (
-                    <a
+                    <Link
                       key={dapp.id}
-                      href={dapp.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      to={`/explore-dapps/${dapp.id}`}
                       className={`group relative flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 rounded-xl transition-all hover:bg-opacity-90 overflow-hidden w-full max-w-full ${
                         isDark 
                           ? "bg-[#181818] hover:bg-[#2a2a2a]" 
@@ -314,7 +312,7 @@ const ExploreDapps = () => {
                           {dapp.description}
                         </p>
                       </div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </section>
@@ -322,14 +320,23 @@ const ExploreDapps = () => {
 
             {/* Join Community Banner - ToolHub Style */}
             {selectedCategory === "All" && (
-              <section className={`mb-8 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden ${
-                isDark ? "bg-[#181818]" : "bg-white"
-              }`}>
+              <section 
+                className={`mb-8 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden border-t border-l border-r ${
+                  isDark ? "bg-[#181818] border-gray-300" : "bg-white border-gray-300"
+                }`}
+                style={{
+                  borderBottomWidth: '4px',
+                  borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+                  boxShadow: isDark
+                    ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                    : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+                }}
+              >
                 <div className="flex flex-col md:flex-row">
                   <div className="w-full md:w-3/5 h-48 sm:h-56 md:h-64 relative overflow-hidden">
                     <img 
                       src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop" 
-                      alt="Blockchain dApps" 
+                      alt="Blockchain DApps" 
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
@@ -353,7 +360,11 @@ const ExploreDapps = () => {
                             : "bg-gray-100 text-gray-900 placeholder-gray-400 border border-gray-200"
                         }`}
                       />
-                      <button className="px-5 py-2.5 bg-white text-black rounded-lg text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">
+                      <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 whitespace-nowrap ${
+                        isDark 
+                          ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                          : "bg-gray-900 text-white hover:bg-gray-800"
+                      }`}>
                         {t('exploreDapps.subscribe')}
                       </button>
                     </div>
@@ -362,18 +373,16 @@ const ExploreDapps = () => {
               </section>
             )}
 
-            {/* All dApps Section - ToolHub Style */}
+            {/* All DApps Section - ToolHub Style */}
             <section>
               <h2 className={`text-base sm:text-lg font-bold mb-3 sm:mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                 {selectedCategory === "All" ? t('exploreDapps.allDapps') : `${t(`exploreDapps.categories.${selectedCategory.toLowerCase().replace(' ', '')}`)}:`}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 w-full">
                 {filteredDapps.map((dapp) => (
-                  <a
+                  <Link
                     key={dapp.id}
-                    href={dapp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    to={`/explore-dapps/${dapp.id}`}
                     className={`group relative flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 rounded-xl transition-all hover:bg-opacity-90 overflow-hidden w-full max-w-full ${
                       isDark 
                         ? "bg-[#181818] hover:bg-[#2a2a2a]" 
@@ -416,7 +425,7 @@ const ExploreDapps = () => {
                         {dapp.description}
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
 

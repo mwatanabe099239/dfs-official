@@ -18,6 +18,7 @@ import Second from './components/Second';
 import Social from './components/Social';
 import DappsPage from './components/DappsPage';
 import ExploreDapps from './components/ExploreDapps';
+import DappDetailPage from './components/DappDetailPage';
 import StakingPage from './components/StakingPage';
 import WhitepaperPage from './components/WhitepaperPage';
 import BlogPage from './components/BlogPage';
@@ -56,7 +57,7 @@ const HomePage = () => {
   );
 };
 
-// dApps Ranking Page Component
+// DApps Ranking Page Component
 const DappsPageWrapper = () => {
   return (
     <div className="App">
@@ -67,12 +68,23 @@ const DappsPageWrapper = () => {
   );
 };
 
-// Explore dApps Page Component
+// Explore DApps Page Component
 const ExploreDappsWrapper = () => {
   return (
     <div className="App">
       <Navbar />
       <ExploreDapps />
+      <Footer />
+    </div>
+  );
+};
+
+// DApp Detail Page Component
+const DappDetailPageWrapper = () => {
+  return (
+    <div className="App">
+      <Navbar />
+      <DappDetailPage />
       <Footer />
     </div>
   );
@@ -276,6 +288,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/dapps" element={<DappsPageWrapper />} />
             <Route path="/explore-dapps" element={<ExploreDappsWrapper />} />
+            <Route path="/explore-dapps/:id" element={<DappDetailPageWrapper />} />
             <Route path="/staking" element={<StakingPageWrapper />} />
             <Route path="/whitepaper" element={<WhitepaperPageWrapper />} />
             <Route path="/blog" element={<BlogPageWrapper />} />

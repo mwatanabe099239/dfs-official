@@ -28,7 +28,7 @@
   },
   "navbar": {
     "home": "ホーム",
-    "dapps": "dApps",
+    "dapps": "DApps",
     "staking": "ステーキング",
     "whitepaper": "ホワイトペーパー",
     "about": "概要",
@@ -45,7 +45,7 @@
       "subtitle": "分散化を活用して不可能を可能に",
       "issueCoin": "コインを発行",
       "cta1": "構築を始める",
-      "cta2": "dAppsを探索"
+      "cta2": "DAppsを探索"
     },
     "features": {
       "title": "なぜDFS Chain？",
@@ -60,7 +60,7 @@
       },
       "feature3": {
         "title": "成長するエコシステム",
-        "description": "DEX、ソーシャルプラットフォームなど、複数のdApps。"
+        "description": "DEX、ソーシャルプラットフォームなど、複数のDApps。"
       }
     }
   },
@@ -73,7 +73,7 @@
       },
       "description": "2026年1月現在、ChainはCeFi、AIエージェンシー、企業システム、デジタル認証、トランザクション集約型サービスをサポートするように設計されたブロックチェーンです。",
       "activeUsers": "アクティブユーザー",
-      "activeDapps": "アクティブdApps",
+      "activeDapps": "アクティブDApps",
       "generatedTokens": "生成されたトークン"
     },
     "features": {
@@ -148,7 +148,7 @@
       "makeWallet": "ウォレット作成",
       "getDfs": "トークンを取得",
       "stakeDfs": "ステークを取得",
-      "exploreDapps": "dAppsを探索",
+      "exploreDapps": "DAppsを探索",
       "payByCrypto": "暗号通貨で支払い",
       "whitepaper": "ホワイトペーパー",
       "faq": "よくある質問",
@@ -171,20 +171,20 @@
     "copyright": "© 2026 DIFINES. All rights reserved."
   },
   "dapps": {
-    "title": "dAppsランキング",
+    "title": "DAppsランキング",
     "subtitle": "DFS Chainで最も人気のある分散型アプリケーションを発見",
-    "searchPlaceholder": "dAppsを検索...",
+    "searchPlaceholder": "DAppsを検索...",
     "hero": {
-      "title": "トップdApps",
+      "title": "トップDApps",
       "ecosystem": "エコシステム",
-      "subtitle": "DFS Chainエコシステムで構築されたトップdAppsを、ユーザー、TVL、TXNでソートして発見。"
+      "subtitle": "DFS Chainエコシステムで構築されたトップDAppsを、ユーザー、TVL、TXNでソートして発見。"
     },
-    "submitDapp": "dAppを提出",
+    "submitDapp": "DAppを提出",
     "filters": {
       "allChains": "すべてのチェーン",
       "allCategories": "すべてのカテゴリ",
       "newListings": "新規リスト",
-      "tradingDapps": "取引dApps"
+      "tradingDapps": "取引DApps"
     },
     "categories": {
       "all": "すべて",
@@ -196,7 +196,7 @@
     },
     "table": {
       "rank": "順位",
-      "dapp": "dApp",
+      "dapp": "DApp",
       "category": "カテゴリ",
       "users": "ユーザー",
       "volume": "取引量",
@@ -204,33 +204,36 @@
     }
   },
   "exploreDapps": {
-    "title": "dAppsを",
+    "title": "DAppsを",
     "titleHighlight": "探索",
     "subtitle": "DFS Chainで構築された分散型アプリケーションを発見",
-    "heroTitle": "厳選されたベストdApps！",
-    "heroSubtitle": "DFS Chainで構築された素晴らしいdAppsを発見",
-    "searchPlaceholder": "dAppsを検索...",
-    "submitDapp": "dAppを提出",
+    "heroTitle": "厳選されたベストDApps！",
+    "heroSubtitle": "DFS Chainで構築された素晴らしいDAppsを発見",
+    "searchPlaceholder": "DAppsを検索...",
+    "submitDapp": "DAppを提出",
     "joinCommunity": "コミュニティに参加",
-    "featuredDapps": "注目のdApps：",
-    "allDapps": "すべてのdApps：",
+    "featuredDapps": "注目のDApps：",
+    "allDapps": "すべてのDApps：",
     "communityTitle": "コミュニティに参加しよう！",
-    "communitySubtitle": "毎週最新のdApps情報を受け取りましょう！",
+    "communitySubtitle": "毎週最新のDApps情報を受け取りましょう！",
     "emailPlaceholder": "メールアドレス",
     "subscribe": "購読する",
     "showing": "表示中",
-    "dappsLabel": "dApps",
+    "dappsLabel": "DApps",
     "in": "カテゴリ",
     "visit": "訪問",
-    "noDappsFound": "dAppsが見つかりません",
+    "noDappsFound": "DAppsが見つかりません",
     "tryAdjusting": "検索条件やフィルターを調整してください",
     "buildOn": "DFS Chainで構築",
-    "buildOnDescription": "すべてのdAppsはWeb2トークンを使用しています。今日から分散型アプリケーションの構築を始めましょう。",
+    "buildOnDescription": "すべてのDAppsはWeb2トークンを使用しています。今日から分散型アプリケーションの構築を始めましょう。",
     "featured": "注目",
     "official": "公式",
     "new": "新着",
     "popular": "人気",
     "visitApp": "アプリを訪問",
+    "backToDapps": "DAppsに戻る",
+    "visitWebsite": "ウェブサイトを訪問",
+    "keyFeatures": "主な機能：",
     "categories": {
       "title": "カテゴリ",
       "all": "すべて",
@@ -467,7 +470,7 @@
       },
       "howToStart": {
         "question": "DFS Chainを始めるには？",
-        "answer": "始めるのは簡単です！metaface.dfsscan.comにアクセスし、メールアドレスでサインアップするだけです。ウォレットは自動的に作成され、一意のウォレットアドレス（dfs_0xで始まる）が割り当てられます。そこからエコシステムを探索し、DFSトークンを取得し、様々なdAppと対話できます。"
+        "answer": "始めるのは簡単です！metaface.dfsscan.comにアクセスし、メールアドレスでサインアップするだけです。ウォレットは自動的に作成され、一意のウォレットアドレス（dfs_0xで始まる）が割り当てられます。そこからエコシステムを探索し、DFSトークンを取得し、様々なDAppと対話できます。"
       },
       "isFree": {
         "question": "DFS Chainは無料で使用できますか？",
@@ -529,9 +532,9 @@
         "question": "DFS Chainは分散化されていますか？",
         "answer": "DFS Chainはブロックチェーン技術のWeb2シミュレーションであり、ブロックチェーンのような機能を提供しながら中央集権的なインフラで動作します。このアプローチにより、透明性とトークン化の利点を提供しながら、オンボーディングとメンテナンスが容易になります。"
       },
-      "buildApps": {
+      "builDApps": {
         "question": "DFS Chain上でアプリケーションを構築できますか？",
-        "answer": "はい！DFS Chainには成長するdAppエコシステムがあります。APIと統合して、ウォレット、取引所、ソーシャルプラットフォームなどを構築できます。ドキュメントを確認するか、DFS Chainでの構築について詳しく知るためにお問い合わせください。"
+        "answer": "はい！DFS Chainには成長するDAppエコシステムがあります。APIと統合して、ウォレット、取引所、ソーシャルプラットフォームなどを構築できます。ドキュメントを確認するか、DFS Chainでの構築について詳しく知るためにお問い合わせください。"
       },
       "dataHandling": {
         "question": "私のデータはどうなりますか？",
@@ -552,7 +555,7 @@
     },
     "stats": {
       "activeUsers": "アクティブユーザー",
-      "dappsBuilt": "構築されたdApps",
+      "dappsBuilt": "構築されたDApps",
       "transactions": "トランザクション",
       "countries": "国"
     },
@@ -591,7 +594,7 @@
       "founded": { "title": "プロジェクト設立", "description": "DFS Chainのコンセプト開発" },
       "coreDev": { "title": "コア開発", "description": "ブロックシステムとウォレットインフラの構築" },
       "launch": { "title": "エコシステム立ち上げ", "description": "Metaface、DFSScan、Whitecreatorをローンチ" },
-      "dapps": { "title": "dAppsエコシステム", "description": "複数のコミュニティdAppsをローンチ" },
+      "dapps": { "title": "DAppsエコシステム", "description": "複数のコミュニティDAppsをローンチ" },
       "expansion": { "title": "グローバル展開", "description": "世界中のユーザーへのサービス拡大" }
     },
     "team": {
@@ -871,8 +874,8 @@
         "excerpt": "成長、新機能、コミュニティの成果に満ちた素晴らしい一年を振り返ります..."
       },
       "dappsUpdate": {
-        "title": "新dAppsエコシステムアップデート",
-        "excerpt": "エコシステムに5つの新しいdAppsを追加しました。新着情報と使い方をご紹介..."
+        "title": "新DAppsエコシステムアップデート",
+        "excerpt": "エコシステムに5つの新しいDAppsを追加しました。新着情報と使い方をご紹介..."
       },
       "staking": {
         "title": "ステーキングプログラム開始",
@@ -931,7 +934,7 @@
       "general": "一般",
       "wallet": "ウォレット（Metaface）",
       "explorer": "エクスプローラー（DFSScan）",
-      "dapps": "dApps",
+      "dapps": "DApps",
       "website": "このウェブサイト"
     },
     "submit": "フィードバックを送信",
@@ -1196,7 +1199,7 @@
       "subtitle": "DFS Chainで構築している何千人ものユーザーと開発者に参加",
       "totalCommunity": "総コミュニティ",
       "activeDevelopers": "アクティブ開発者",
-      "dappsBuilt": "構築されたdApps",
+      "dappsBuilt": "構築されたDApps",
       "countries": "国"
     },
     "newsletter": {

@@ -91,8 +91,8 @@ const NewsletterPage = () => {
       }`}>
         <div className="flex items-center justify-center min-h-screen px-6">
           <div className="text-center max-w-md">
-            <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-[#21f201]/10 flex items-center justify-center">
-              <HiOutlineCheckCircle className="w-12 h-12 text-[#21f201]" />
+            <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
+              <HiOutlineCheckCircle className={`w-12 h-12 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
             </div>
             <h1 className={`text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('newsletter.success.title')}
@@ -100,7 +100,7 @@ const NewsletterPage = () => {
             <p className={`mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               {t('newsletter.success.welcome')}
             </p>
-            <p className="text-[#21f201] font-semibold mb-6">{email}</p>
+            <p className={`font-semibold mb-6 ${isDark ? "text-gray-400" : "text-gray-500"}`}>{email}</p>
             <p className={`mb-8 text-sm ${isDark ? "text-gray-500" : "text-gray-500"}`}>
               {t('newsletter.success.checkInbox')}
             </p>
@@ -110,17 +110,21 @@ const NewsletterPage = () => {
                   setSubscribed(false);
                   setEmail('');
                 }}
-                className={`px-6 py-3 font-semibold rounded-lg border transition-colors ${
+                className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
                   isDark 
-                    ? "border-gray-700 text-white hover:bg-gray-800"
-                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                    ? "text-slate-300 border-white hover:bg-white hover:text-black" 
+                    : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
                 }`}
               >
                 {t('newsletter.success.subscribeAnother')}
               </button>
               <a
                 href="/"
-                className="px-6 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors"
+                className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
               >
                 {t('common.goHome')}
               </a>
@@ -146,14 +150,16 @@ const NewsletterPage = () => {
             isDark ? "bg-[#21f201]" : "bg-green-300"
           }`}></div>
           <div className={`absolute bottom-10 right-1/4 w-60 h-60 rounded-full blur-3xl opacity-15 ${
-            isDark ? "bg-purple-500" : "bg-purple-300"
+            isDark ? "bg-gray-400" : "bg-gray-300"
           }`}></div>
         </div>
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-28">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium mb-6">
-              <HiOutlineMail className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineMail className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('newsletter.hero.badge')}
             </div>
             
@@ -177,7 +183,7 @@ const NewsletterPage = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t('newsletter.emailPlaceholder')}
                   required
-                  className={`flex-1 px-5 py-4 rounded-xl border focus:outline-none focus:border-[#21f201] transition-colors ${
+                  className={`flex-1 px-5 py-4 rounded-xl border focus:outline-none focus:border-gray-400 transition-colors ${
                     isDark 
                       ? "bg-[#181A1E] border-gray-700 text-white placeholder-gray-500"
                       : "bg-white border-gray-300 text-gray-900 placeholder-gray-400"
@@ -185,7 +191,11 @@ const NewsletterPage = () => {
                 />
                 <button
                   type="submit"
-                  className="px-8 py-4 bg-[#21f201] text-black font-bold rounded-xl hover:bg-[#1ad901] transition-colors whitespace-nowrap"
+                  className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 whitespace-nowrap ${
+                    isDark 
+                      ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                      : "bg-gray-900 text-white hover:bg-gray-800"
+                  }`}
                 >
                   {t('common.subscribe')}
                 </button>
@@ -217,14 +227,16 @@ const NewsletterPage = () => {
               return (
                 <div 
                   key={idx}
-                  className={`p-6 rounded-xl border text-center ${
+                  className={`p-6 rounded-xl border-l-2 pl-8 text-center ${
                     isDark 
-                      ? "bg-[#181A1E] border-gray-700" 
-                      : "bg-white border-gray-200 shadow-sm"
+                      ? "bg-[#181A1E] border-[#A0AEC0]" 
+                      : "bg-white border-gray-400"
                   }`}
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-[#21f201]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-[#21f201]" />
+                  <div className={`w-14 h-14 mx-auto rounded-xl flex items-center justify-center mb-4 ${
+                    isDark ? "bg-gray-800" : "bg-gray-100"
+                  }`}>
+                    <Icon className={`w-7 h-7 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                   <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {feature.title}
@@ -263,26 +275,26 @@ const NewsletterPage = () => {
               <div 
                 key={pref.key}
                 onClick={() => togglePreference(pref.key)}
-                className={`p-4 rounded-xl border cursor-pointer transition-all ${
+                className={`p-4 rounded-xl border-l-2 pl-8 cursor-pointer transition-all ${
                   preferences[pref.key]
-                    ? "border-[#21f201] bg-[#21f201]/5"
+                    ? isDark ? "border-[#A0AEC0] bg-gray-800" : "border-gray-400 bg-gray-100"
                     : isDark 
-                      ? "border-gray-700 bg-[#0B0E11] hover:border-gray-600"
-                      : "border-gray-200 bg-gray-50 hover:border-gray-300"
+                      ? "border-[#A0AEC0] bg-[#0B0E11] hover:border-gray-600"
+                      : "border-gray-400 bg-gray-50 hover:border-gray-300"
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
+                  <div className="text-left">
+                    <h3 className={`font-semibold text-left ${isDark ? "text-white" : "text-gray-900"}`}>
                       {t(pref.labelKey)}
                     </h3>
-                    <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                    <p className={`text-sm text-left ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                       {t(pref.descKey)}
                     </p>
                   </div>
                   <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
                     preferences[pref.key]
-                      ? "border-[#21f201] bg-[#21f201]"
+                      ? isDark ? "border-gray-400 bg-gray-400" : "border-gray-400 bg-gray-400"
                       : isDark ? "border-gray-600" : "border-gray-300"
                   }`}>
                     {preferences[pref.key] && (
@@ -314,24 +326,24 @@ const NewsletterPage = () => {
             {pastNewsletters.map((newsletter, idx) => (
               <div 
                 key={idx}
-                className={`p-6 rounded-xl border transition-all hover:border-[#21f201]/50 ${
+                className={`p-6 rounded-xl border-l-2 pl-8 transition-all ${
                   isDark 
-                    ? "bg-[#181A1E] border-gray-700 hover:bg-[#1a1d23]" 
-                    : "bg-white border-gray-200 hover:bg-gray-50 shadow-sm"
+                    ? "bg-[#181A1E] border-[#A0AEC0] hover:bg-[#1a1d23]" 
+                    : "bg-white border-gray-400 hover:bg-gray-50"
                 }`}
               >
                 <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-lg bg-[#21f201]/10 flex items-center justify-center flex-shrink-0`}>
-                    <HiOutlineNewspaper className="w-6 h-6 text-[#21f201]" />
+                  <div className={`w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0`}>
+                    <HiOutlineNewspaper className={`w-6 h-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
-                  <div className="flex-1">
-                    <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                  <div className="flex-1 text-left">
+                    <span className={`text-xs block ${isDark ? "text-gray-500" : "text-gray-400"}`}>
                       {newsletter.date}
                     </span>
-                    <h3 className={`font-bold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
+                    <h3 className={`font-bold mb-1 text-left ${isDark ? "text-white" : "text-gray-900"}`}>
                       {t(newsletter.titleKey)}
                     </h3>
-                    <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                    <p className={`text-sm text-left ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                       {t(newsletter.excerptKey)}
                     </p>
                   </div>
@@ -354,7 +366,9 @@ const NewsletterPage = () => {
               { value: '45%', labelKey: 'newsletter.stats.openRate' },
             ].map((stat, idx) => (
               <div key={idx}>
-                <div className="text-3xl md:text-4xl font-bold text-[#21f201] mb-1">
+                <div className={`text-3xl md:text-4xl font-bold mb-1 ${
+                  isDark ? "text-gray-400" : "text-gray-500"
+                }`}>
                   {stat.value}
                 </div>
                 <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
@@ -369,12 +383,21 @@ const NewsletterPage = () => {
       {/* Final CTA */}
       <div className="px-6 md:px-8 lg:px-12 xl:px-16 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className={`rounded-2xl p-8 md:p-12 text-center ${
-            isDark 
-              ? "bg-gradient-to-r from-[#21f201]/10 to-transparent border border-[#21f201]/20"
-              : "bg-gradient-to-r from-green-50 to-white border border-green-200"
-          }`}>
-            <HiOutlineBell className="w-16 h-16 mx-auto mb-6 text-[#21f201]" />
+          <div 
+            className={`rounded-2xl p-8 md:p-12 text-center border-t border-l border-r ${
+              isDark 
+                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800"
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
+            <HiOutlineBell className={`w-16 h-16 mx-auto mb-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
             <h2 className={`text-2xl md:text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('newsletter.cta.title')}
             </h2>
@@ -388,7 +411,7 @@ const NewsletterPage = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('newsletter.emailPlaceholder')}
                 required
-                className={`flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:border-[#21f201] ${
+                className={`flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:border-gray-400 ${
                   isDark 
                     ? "bg-[#0B0E11] border-gray-700 text-white"
                     : "bg-white border-gray-300 text-gray-900"
@@ -396,7 +419,11 @@ const NewsletterPage = () => {
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-[#21f201] text-black font-bold rounded-lg hover:bg-[#1ad901] transition-colors"
+                className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
               >
                 {t('common.subscribe')}
               </button>

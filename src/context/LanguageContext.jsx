@@ -28,17 +28,44 @@ export const LanguageProvider = ({ children }) => {
 
   const t = (key, fallback = '') => {
     const keys = key.split('.');
+    
+    // Try current language first
     let value = translations[language];
+    let found = true;
     
     for (const k of keys) {
-      if (value && typeof value === 'object') {
+      if (value && typeof value === 'object' && k in value) {
         value = value[k];
       } else {
-        return fallback || key;
+        found = false;
+        break;
       }
     }
     
-    return value || translations['en']?.[keys[0]]?.[keys[1]] || fallback || key;
+    if (found && value !== undefined && value !== null) {
+      return value;
+    }
+    
+    // Fallback to English
+    if (language !== 'en') {
+      value = translations['en'];
+      found = true;
+      
+      for (const k of keys) {
+        if (value && typeof value === 'object' && k in value) {
+          value = value[k];
+        } else {
+          found = false;
+          break;
+        }
+      }
+      
+      if (found && value !== undefined && value !== null) {
+        return value;
+      }
+    }
+    
+    return fallback || key;
   };
 
   const changeLanguage = (langCode) => {

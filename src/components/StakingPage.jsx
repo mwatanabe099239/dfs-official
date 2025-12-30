@@ -165,8 +165,8 @@ const StakingPage = () => {
               ? "bg-[#181A1E] border-[#21f201]/50 shadow-[#21f201]/10" 
               : "bg-white border-[#21f201]/50 shadow-lg"
           }`}>
-            <div className="w-10 h-10 bg-[#21f201]/10 rounded-full flex items-center justify-center">
-              <HiOutlineClock className="w-5 h-5 text-[#21f201]" />
+            <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+              <HiOutlineClock className={`w-5 h-5 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
             </div>
             <div>
               <p className={`font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{t('common.comingSoon')}!</p>
@@ -241,10 +241,10 @@ const StakingPage = () => {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat, index) => (
-                <div key={index} className={`backdrop-blur-sm border rounded-2xl p-6 ${
+                <div key={index} className={`border-l-2 rounded-xl p-6 ${
                   isDark 
-                    ? "bg-[#181A1E]/50 border-gray-800" 
-                    : "bg-white/80 border-gray-200 shadow-sm"
+                    ? "bg-[#181A1E]/50 border-[#A0AEC0]" 
+                    : "bg-white/80 border-gray-400"
                 }`}>
                   <div className="text-3xl md:text-4xl font-bold text-[#21f201] mb-2">{stat.value}</div>
                   <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t(stat.labelKey)}</div>
@@ -277,14 +277,14 @@ const StakingPage = () => {
                     <div className="hidden lg:block absolute top-12 left-[60%] w-full h-0.5 bg-gradient-to-r from-[#21f201]/50 to-transparent"></div>
                   )}
                   
-                  <div className={`border rounded-2xl p-6 hover:border-[#21f201]/50 transition-all duration-300 h-full ${
+                  <div className={`border-l-2 rounded-xl p-6 pl-8 transition-all duration-300 h-full ${
                     isDark 
-                      ? "bg-[#181A1E] border-gray-800" 
-                      : "bg-white border-gray-200 shadow-sm"
+                      ? "bg-[#181A1E] border-[#A0AEC0]" 
+                      : "bg-white border-gray-400"
                   }`}>
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 bg-[#21f201]/10 rounded-xl flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-[#21f201]" />
+                      <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                        <Icon className={`w-6 h-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                       </div>
                       <span className={`text-4xl font-bold ${isDark ? "text-gray-700" : "text-gray-300"}`}>{step.number}</span>
                     </div>
@@ -314,12 +314,12 @@ const StakingPage = () => {
             {stakingTiers.map((tier, index) => (
               <div 
                 key={index} 
-                className={`relative border rounded-2xl p-6 transition-all duration-300 ${
-                  isDark ? "bg-[#181A1E]" : "bg-white shadow-sm"
+                className={`relative border-l-2 rounded-xl p-6 pl-8 transition-all duration-300 ${
+                  isDark ? "bg-[#181A1E]" : "bg-white"
                 } ${
                   tier.popular 
-                    ? "border-[#21f201] shadow-lg shadow-[#21f201]/10 scale-105" 
-                    : isDark ? "border-gray-800 hover:border-gray-700" : "border-gray-200 hover:border-gray-300"
+                    ? "border-[#21f201]" 
+                    : isDark ? "border-[#A0AEC0]" : "border-gray-400"
                 }`}
               >
                 {/* Popular Badge */}
@@ -352,20 +352,22 @@ const StakingPage = () => {
                   </div>
                   <div className="flex items-center justify-between py-3">
                     <span className={isDark ? "text-gray-400" : "text-gray-500"}>{t('staking.tiers.autoCompound')}</span>
-                    <HiOutlineCheckCircle className="w-5 h-5 text-[#21f201]" />
+                    <HiOutlineCheckCircle className={`w-5 h-5 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                 </div>
 
-                <button 
-                  onClick={handleComingSoon}
-                  className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 ${
-                    tier.popular 
-                      ? "bg-[#21f201] text-black hover:bg-[#1ad901]" 
-                      : isDark ? "bg-gray-800 text-white hover:bg-gray-700" : "bg-gray-100 text-gray-900 hover:bg-gray-200"
-                  }`}
-                >
-                  {t('staking.tiers.selectTier')}
-                </button>
+                <div className="flex justify-center">
+                  <button 
+                    onClick={handleComingSoon}
+                    className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block ${
+                      tier.popular 
+                        ? "bg-[#21f201] text-black hover:bg-[#1ad901]" 
+                        : isDark ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" : "bg-gray-900 text-white hover:bg-gray-800"
+                    }`}
+                  >
+                    {t('staking.tiers.selectTier')}
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -390,9 +392,11 @@ const StakingPage = () => {
                 {features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
-                    <div key={index} className="flex gap-4">
-                      <div className="w-12 h-12 bg-[#21f201]/10 rounded-xl flex items-center justify-center shrink-0">
-                        <Icon className="w-6 h-6 text-[#21f201]" />
+                    <div key={index} className={`flex gap-4 border-l-2 pl-8 rounded-xl py-4 ${
+                      isDark ? "border-[#A0AEC0]" : "border-gray-400"
+                    }`}>
+                      <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
+                        <Icon className={`w-6 h-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                       </div>
                       <div>
                         <h3 className="text-lg font-bold mb-1">{t(feature.titleKey)}</h3>
@@ -407,11 +411,18 @@ const StakingPage = () => {
             {/* Right - Visual */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#21f201]/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
-              <div className={`relative border rounded-3xl p-8 ${
-                isDark 
-                  ? "bg-[#181A1E] border-gray-800" 
-                  : "bg-white border-gray-200 shadow-lg"
-              }`}>
+              <div 
+                className={`relative border-t border-l border-r rounded-3xl p-8 ${
+                  isDark 
+                    ? "bg-[#181A1E] border-gray-800" 
+                    : "bg-white border-gray-200"
+                }`}
+                style={{ 
+                  borderBottomWidth: '4px', 
+                  borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+                  boxShadow: isDark ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)" : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)"
+                }}
+              >
                 {/* Staking Calculator Preview */}
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-4">
@@ -449,12 +460,18 @@ const StakingPage = () => {
                   </div>
                 </div>
 
-                <button 
-                  onClick={handleComingSoon}
-                  className="w-full bg-[#21f201] text-black font-bold py-4 rounded-xl hover:bg-[#1ad901] transition-all duration-300"
-                >
-                  {t('staking.calculator.connectWallet')}
-                </button>
+                <div className="flex justify-center">
+                  <button 
+                    onClick={handleComingSoon}
+                    className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block ${
+                      isDark 
+                        ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                        : "bg-gray-900 text-white hover:bg-gray-800"
+                    }`}
+                  >
+                    {t('staking.calculator.connectWallet')}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -477,10 +494,10 @@ const StakingPage = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className={`border rounded-xl overflow-hidden ${
+                className={`border-l-2 rounded-xl overflow-hidden pl-8 ${
                   isDark 
-                    ? "bg-[#181A1E] border-gray-800" 
-                    : "bg-white border-gray-200 shadow-sm"
+                    ? "bg-[#181A1E] border-[#A0AEC0]" 
+                    : "bg-white border-gray-400"
                 }`}
               >
                 <button
@@ -491,7 +508,7 @@ const StakingPage = () => {
                 >
                   <span className="font-semibold pr-4">{t(faq.questionKey)}</span>
                   {openFaq === index ? (
-                    <FiChevronUp className="w-5 h-5 text-[#21f201] shrink-0" />
+                    <FiChevronUp className={`w-5 h-5 shrink-0 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   ) : (
                     <FiChevronDown className={`w-5 h-5 shrink-0 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   )}
@@ -510,11 +527,18 @@ const StakingPage = () => {
       {/* CTA Section */}
       <div className="px-6 md:px-8 lg:px-12 xl:px-16 py-24">
         <div className="max-w-[1400px] mx-auto">
-          <div className={`relative overflow-hidden border rounded-3xl p-12 md:p-16 ${
-            isDark 
-              ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800" 
-              : "bg-gradient-to-r from-gray-50 to-white border-gray-200 shadow-sm"
-          }`}>
+          <div 
+            className={`relative overflow-hidden border-t border-l border-r rounded-3xl p-12 md:p-16 ${
+              isDark 
+                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800" 
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
+            }`}
+            style={{ 
+              borderBottomWidth: '4px', 
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)" : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)"
+            }}
+          >
             {/* Background Effects */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#21f201]/10 rounded-full blur-[128px]"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[96px]"></div>

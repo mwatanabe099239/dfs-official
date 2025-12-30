@@ -13,7 +13,9 @@ import {
   HiOutlineQrcode,
   HiOutlineDeviceMobile,
   HiOutlineShoppingCart,
-  HiOutlineRefresh
+  HiOutlineRefresh,
+  HiOutlineOfficeBuilding,
+  HiOutlineUser
 } from 'react-icons/hi';
 
 const PayvinerPage = () => {
@@ -132,12 +134,21 @@ const PayvinerPage = () => {
             </p>
 
             {/* Email Subscription */}
-            <div className={`max-w-lg mx-auto p-6 rounded-2xl border ${
-              isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200 shadow-lg"
-            }`}>
+            <div 
+              className={`max-w-lg mx-auto p-6 rounded-2xl border-t border-l border-r ${
+                isDark ? "bg-[#181A1E] border-gray-300" : "bg-white border-gray-300 shadow-lg"
+              }`}
+              style={{
+                borderBottomWidth: '4px',
+                borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+                boxShadow: isDark
+                  ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                  : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+              }}
+            >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#21f201]/10 flex items-center justify-center">
-                  <HiOutlineBell className="w-5 h-5 text-[#21f201]" />
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+                  <HiOutlineBell className={`w-5 h-5 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                 </div>
                 <div className="text-left">
                   <h3 className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -158,7 +169,11 @@ const PayvinerPage = () => {
                       : "bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400"
                   }`}
                 />
-                <button className="px-6 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors whitespace-nowrap">
+                <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 whitespace-nowrap ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}>
                   {t('payviner.waitlist.button')}
                 </button>
               </div>
@@ -200,16 +215,25 @@ const PayvinerPage = () => {
           </div>
 
           {/* Payment Flow Diagram */}
-          <div className={`rounded-2xl border p-8 mb-12 ${
-            isDark ? "bg-[#0B0E11] border-gray-700" : "bg-gray-50 border-gray-200"
-          }`}>
+          <div 
+            className={`rounded-2xl border-t border-l border-r p-8 mb-12 ${
+              isDark ? "bg-[#0B0E11] border-gray-300" : "bg-gray-50 border-gray-300"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {/* Customer */}
               <div className="text-center">
                 <div className={`w-20 h-20 mx-auto mb-3 rounded-full flex items-center justify-center ${
                   isDark ? "bg-gray-800" : "bg-gray-200"
                 }`}>
-                  <span className="text-3xl">👤</span>
+                  <HiOutlineUser className={`w-10 h-10 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                 </div>
                 <p className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{t('payviner.flow.customer')}</p>
                 <p className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>{t('payviner.flow.wantsToPay')}</p>
@@ -221,8 +245,8 @@ const PayvinerPage = () => {
 
               {/* Payviner */}
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-[#21f201]/20 flex items-center justify-center">
-                  <HiOutlineCreditCard className="w-10 h-10 text-[#21f201]" />
+                <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-gray-100 flex items-center justify-center">
+                  <HiOutlineCreditCard className={`w-10 h-10 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                 </div>
                 <p className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Payviner</p>
                 <p className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>{t('payviner.flow.processesPayment')}</p>
@@ -237,7 +261,7 @@ const PayvinerPage = () => {
                 <div className={`w-20 h-20 mx-auto mb-3 rounded-full flex items-center justify-center ${
                   isDark ? "bg-gray-800" : "bg-gray-200"
                 }`}>
-                  <span className="text-3xl">🏪</span>
+                  <HiOutlineOfficeBuilding className={`w-10 h-10 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                 </div>
                 <p className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{t('payviner.flow.merchant')}</p>
                 <p className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>{t('payviner.flow.receivesDfs')}</p>
@@ -246,29 +270,30 @@ const PayvinerPage = () => {
           </div>
 
           {/* Integration Steps */}
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="flex flex-col md:flex-row items-stretch gap-6">
             {integrationSteps.map((item, idx) => (
-              <div 
-                key={idx}
-                className={`relative p-6 rounded-xl border text-center ${
-                  isDark ? "bg-[#0B0E11] border-gray-700" : "bg-gray-50 border-gray-200"
-                }`}
-              >
-                <div className="text-4xl font-bold text-[#21f201]/20 mb-2">{item.step}</div>
-                <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
-                  {item.title}
-                </h3>
-                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                  {item.description}
-                </p>
+              <React.Fragment key={idx}>
+                <div 
+                  className={`p-6 rounded-xl border text-center flex-1 ${
+                    isDark ? "bg-[#0B0E11] border-gray-700" : "bg-gray-50 border-gray-200"
+                  }`}
+                >
+                  <div className="text-4xl font-bold text-[#21f201]/20 mb-2">{item.step}</div>
+                  <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                    {item.title}
+                  </h3>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                    {item.description}
+                  </p>
+                </div>
                 {idx < 3 && (
-                  <div className={`hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-2xl ${
+                  <div className={`hidden md:flex items-center justify-center text-2xl flex-shrink-0 ${
                     isDark ? "text-gray-600" : "text-gray-300"
                   }`}>
                     →
                   </div>
                 )}
-              </div>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -292,14 +317,14 @@ const PayvinerPage = () => {
               return (
                 <div 
                   key={idx}
-                  className={`p-6 rounded-xl border transition-all hover:border-[#21f201]/50 ${
+                  className={`p-6 rounded-xl border-l-2 border-t border-r border-b transition-all hover:border-[#21f201]/50 ${
                     isDark 
-                      ? "bg-[#181A1E] border-gray-700" 
-                      : "bg-white border-gray-200 shadow-sm"
+                      ? "bg-[#181A1E] border-l-gray-400 border-t-gray-300 border-r-gray-300 border-b-gray-300" 
+                      : "bg-white border-l-gray-400 border-t-gray-300 border-r-gray-300 border-b-gray-300 shadow-sm"
                   }`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#21f201]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-[#21f201]" />
+                  <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center mb-4">
+                    <Icon className={`w-6 h-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                   <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {feature.title}
@@ -334,12 +359,12 @@ const PayvinerPage = () => {
               return (
                 <div 
                   key={idx}
-                  className={`p-6 rounded-xl border text-center ${
-                    isDark ? "bg-[#0B0E11] border-gray-700" : "bg-gray-50 border-gray-200"
+                  className={`p-6 rounded-xl border-l-2 border-t border-r border-b text-center ${
+                    isDark ? "bg-[#0B0E11] border-l-gray-400 border-t-gray-300 border-r-gray-300 border-b-gray-300" : "bg-gray-50 border-l-gray-400 border-t-gray-300 border-r-gray-300 border-b-gray-300"
                   }`}
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-[#21f201]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-[#21f201]" />
+                  <div className="w-14 h-14 mx-auto rounded-xl bg-gray-100 flex items-center justify-center mb-4">
+                    <Icon className={`w-7 h-7 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                   <h3 className={`font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {useCase.title}
@@ -367,9 +392,18 @@ const PayvinerPage = () => {
           </div>
 
           {/* Code Block */}
-          <div className={`rounded-xl overflow-hidden border ${
-            isDark ? "border-gray-700" : "border-gray-200"
-          }`}>
+          <div 
+            className={`rounded-xl overflow-hidden border-t border-l border-r ${
+              isDark ? "border-gray-300" : "border-gray-300"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
             <div className={`px-4 py-3 flex items-center gap-2 ${
               isDark ? "bg-gray-800" : "bg-gray-100"
             }`}>
@@ -418,12 +452,21 @@ payviner.checkout(payment.id);`}
         isDark ? "bg-[#181A1E]" : "bg-white"
       }`}>
         <div className="max-w-4xl mx-auto">
-          <div className={`rounded-2xl p-8 md:p-12 text-center ${
-            isDark 
-              ? "bg-gradient-to-r from-[#21f201]/10 to-transparent border border-[#21f201]/20"
-              : "bg-gradient-to-r from-green-50 to-white border border-green-200"
-          }`}>
-            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#21f201] to-emerald-500 flex items-center justify-center shadow-lg shadow-[#21f201]/20">
+          <div 
+            className={`rounded-2xl p-8 md:p-12 text-center border-t border-l border-r ${
+              isDark 
+                ? "bg-gradient-to-r from-[#21f201]/10 to-transparent border-gray-300"
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-300"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
+            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#21f201] to-[#21f201] flex items-center justify-center shadow-lg shadow-[#21f201]/20">
               <HiOutlineCreditCard className="w-10 h-10 text-black" />
             </div>
             <h2 className={`text-2xl md:text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -433,15 +476,19 @@ payviner.checkout(payment.id);`}
               {t('payviner.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-[#21f201] text-black font-bold rounded-lg hover:bg-[#1ad901] transition-colors">
+              <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                isDark 
+                  ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                  : "bg-gray-900 text-white hover:bg-gray-800"
+              }`}>
                 {t('payviner.waitlist.button')}
               </button>
               <a 
                 href="/contact"
-                className={`px-8 py-4 font-bold rounded-lg border transition-colors ${
+                className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
                   isDark 
-                    ? "border-gray-700 text-white hover:bg-gray-800"
-                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                    ? "text-slate-300 border-white hover:bg-white hover:text-black" 
+                    : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
                 }`}
               >
                 {t('payviner.cta.contactSales')}

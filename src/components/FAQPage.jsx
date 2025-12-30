@@ -112,8 +112,8 @@ const FAQPage = () => {
     },
     {
       categoryKey: 'technical',
-      questionKey: 'faq.items.buildApps.question',
-      answerKey: 'faq.items.buildApps.answer'
+      questionKey: 'faq.items.builDApps.question',
+      answerKey: 'faq.items.builDApps.answer'
     },
     {
       categoryKey: 'technical',
@@ -149,8 +149,10 @@ const FAQPage = () => {
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-16 md:py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium mb-6">
-              <HiOutlineQuestionMarkCircle className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineQuestionMarkCircle className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('faq.title')}
             </div>
             
@@ -166,13 +168,15 @@ const FAQPage = () => {
 
             {/* Search */}
             <div className="relative max-w-xl mx-auto">
-              <HiOutlineSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <HiOutlineSearch className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${
+                isDark ? "text-gray-400" : "text-gray-500"
+              }`} />
               <input
                 type="text"
                 placeholder={t('faq.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className={`w-full pl-12 pr-4 py-4 rounded-xl border focus:outline-none focus:border-[#21f201] transition-colors ${
+                className={`w-full pl-12 pr-4 py-4 rounded-xl border focus:outline-none focus:border-gray-400 transition-colors ${
                   isDark 
                     ? "bg-[#181A1E] border-gray-700 text-white placeholder-gray-500"
                     : "bg-white border-gray-300 text-gray-900 placeholder-gray-400"
@@ -194,7 +198,7 @@ const FAQPage = () => {
                 onClick={() => setActiveCategory(category.key)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   activeCategory === category.key
-                    ? "bg-[#21f201] text-black"
+                    ? isDark ? "bg-gray-800 text-gray-300" : "bg-gray-200 text-gray-900"
                     : isDark 
                       ? "bg-gray-800 text-gray-300 hover:bg-gray-700"
                       : "bg-gray-200 text-gray-600 hover:bg-gray-300"
@@ -210,8 +214,8 @@ const FAQPage = () => {
             {filteredFaqs.map((faq, idx) => (
               <div 
                 key={idx}
-                className={`rounded-xl border overflow-hidden transition-all ${
-                  isDark ? "border-gray-700 bg-[#181A1E]" : "border-gray-200 bg-white"
+                className={`rounded-xl border-l-2 overflow-hidden transition-all pl-8 ${
+                  isDark ? "border-[#A0AEC0] bg-[#181A1E]" : "border-gray-400 bg-white"
                 }`}
               >
                 <button
@@ -233,7 +237,9 @@ const FAQPage = () => {
                     </span>
                   </div>
                   {expandedFaq === idx ? (
-                    <HiOutlineChevronUp className="w-5 h-5 text-[#21f201] flex-shrink-0" />
+                    <HiOutlineChevronUp className={`w-5 h-5 flex-shrink-0 ${
+                      isDark ? "text-gray-400" : "text-gray-500"
+                    }`} />
                   ) : (
                     <HiOutlineChevronDown className={`w-5 h-5 flex-shrink-0 ${
                       isDark ? "text-gray-400" : "text-gray-500"
@@ -266,23 +272,36 @@ const FAQPage = () => {
           )}
 
           {/* Still Need Help */}
-          <div className={`mt-12 rounded-2xl p-8 text-center ${
-            isDark 
-              ? "bg-gradient-to-r from-[#21f201]/10 to-[#181A1E] border border-[#21f201]/20"
-              : "bg-gradient-to-r from-green-50 to-white border border-green-200"
-          }`}>
+          <div 
+            className={`mt-12 rounded-2xl p-8 text-center border-t border-l border-r ${
+              isDark 
+                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800"
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
+            }`}
+            style={{ 
+              borderBottomWidth: '4px', 
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)" : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)"
+            }}
+          >
             <h2 className={`text-2xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('faq.stillHaveQuestions')}
             </h2>
             <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               {t('faq.cantFind')}
             </p>
-            <a 
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#21f201] text-black font-semibold rounded-lg hover:bg-[#1ad901] transition-colors"
-            >
-              {t('faq.contactSupport')}
-            </a>
+            <div className="flex justify-center">
+              <a 
+                href="/contact"
+                className={`font-space inline-flex items-center gap-2 py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
+              >
+                {t('faq.contactSupport')}
+              </a>
+            </div>
           </div>
         </div>
       </div>

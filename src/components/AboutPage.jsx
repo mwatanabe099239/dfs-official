@@ -69,14 +69,16 @@ const AboutPage = () => {
             isDark ? "bg-[#21f201]" : "bg-green-300"
           }`}></div>
           <div className={`absolute bottom-20 right-1/3 w-72 h-72 rounded-full blur-3xl opacity-15 ${
-            isDark ? "bg-purple-500" : "bg-purple-300"
+            isDark ? "bg-gray-400" : "bg-gray-300"
           }`}></div>
         </div>
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-28">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium mb-6">
-              <HiOutlineSparkles className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineSparkles className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('about.badge')}
             </div>
             
@@ -108,9 +110,16 @@ const AboutPage = () => {
                 <p>{t('about.ourStory.p3')}</p>
               </div>
             </div>
-            <div className={`rounded-2xl p-8 ${
-              isDark ? "bg-[#181A1E]" : "bg-white border border-gray-200"
-            }`}>
+            <div 
+              className={`rounded-2xl p-8 border-t border-l border-r ${
+                isDark ? "bg-[#181A1E] border-gray-800" : "bg-white border-gray-200"
+              }`}
+              style={{ 
+                borderBottomWidth: '4px', 
+                borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+                boxShadow: isDark ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)" : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)"
+              }}
+            >
               <div className="grid grid-cols-2 gap-6">
                 {[
                   { value: '10K+', labelKey: 'about.stats.activeUsers' },
@@ -119,7 +128,9 @@ const AboutPage = () => {
                   { value: '50+', labelKey: 'about.stats.countries' },
                 ].map((stat, idx) => (
                   <div key={idx} className="text-center">
-                    <div className="text-3xl font-bold text-[#21f201] mb-1">{stat.value}</div>
+                    <div className={`text-3xl font-bold mb-1 ${
+                      isDark ? "text-gray-400" : "text-gray-500"
+                    }`}>{stat.value}</div>
                     <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t(stat.labelKey)}</div>
                   </div>
                 ))}
@@ -135,12 +146,19 @@ const AboutPage = () => {
       }`}>
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className={`order-2 lg:order-1 rounded-2xl p-8 ${
-              isDark ? "bg-[#0B0E11]" : "bg-gray-50"
-            }`}>
+            <div 
+              className={`order-2 lg:order-1 rounded-2xl p-8 border-t border-l border-r ${
+                isDark ? "bg-[#0B0E11] border-gray-800" : "bg-gray-50 border-gray-200"
+              }`}
+              style={{ 
+                borderBottomWidth: '4px', 
+                borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+                boxShadow: isDark ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)" : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)"
+              }}
+            >
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-[#21f201]/10 flex items-center justify-center">
-                  <HiOutlineEye className="w-8 h-8 text-[#21f201]" />
+                <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center">
+                  <HiOutlineEye className={`w-8 h-8 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                 </div>
                 <div>
                   <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -186,14 +204,16 @@ const AboutPage = () => {
               return (
                 <div 
                   key={idx}
-                  className={`p-6 rounded-xl border text-center ${
+                  className={`p-6 rounded-xl border-l-2 pl-8 text-center ${
                     isDark 
-                      ? "bg-[#181A1E] border-gray-700" 
-                      : "bg-white border-gray-200 shadow-sm"
+                      ? "bg-[#181A1E] border-[#A0AEC0]" 
+                      : "bg-white border-gray-400"
                   }`}
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-[#21f201]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-[#21f201]" />
+                  <div className={`w-14 h-14 mx-auto rounded-xl flex items-center justify-center mb-4 ${
+                    isDark ? "bg-gray-800" : "bg-gray-100"
+                  }`}>
+                    <Icon className={`w-7 h-7 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                   <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {t(value.titleKey)}
@@ -219,30 +239,40 @@ const AboutPage = () => {
             </h2>
           </div>
 
-          <div className="space-y-6">
-            {milestones.map((milestone, idx) => (
-              <div key={idx} className="flex gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#21f201] flex items-center justify-center text-black font-bold text-sm">
-                    {milestone.year.slice(2)}
-                  </div>
-                  {idx < milestones.length - 1 && (
-                    <div className={`w-0.5 flex-1 mt-2 ${isDark ? "bg-gray-700" : "bg-gray-200"}`}></div>
-                  )}
-                </div>
-                <div className={`pb-6 ${idx < milestones.length - 1 ? "" : ""}`}>
-                  <span className={`text-sm ${isDark ? "text-gray-500" : "text-gray-400"}`}>
-                    {milestone.year}
-                  </span>
-                  <h3 className={`text-lg font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
-                    {t(milestone.titleKey)}
-                  </h3>
-                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    {t(milestone.descKey)}
-                  </p>
-                </div>
+          <div className="flex justify-center">
+            <div className="flex gap-6 max-w-2xl">
+              {/* Left column for circles and line */}
+              <div className="flex flex-col items-center">
+                {milestones.map((milestone, idx) => (
+                  <React.Fragment key={idx}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 ${
+                      isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+                    }`}>
+                      {milestone.year.slice(2)}
+                    </div>
+                    {idx < milestones.length - 1 && (
+                      <div className={`w-0.5 flex-1 min-h-[80px] ${isDark ? "bg-gray-700" : "bg-gray-200"}`}></div>
+                    )}
+                  </React.Fragment>
+                ))}
               </div>
-            ))}
+              {/* Right column for text content */}
+              <div className="flex-1 space-y-6">
+                {milestones.map((milestone, idx) => (
+                  <div key={idx} className={`text-left ${idx < milestones.length - 1 ? "pb-6" : ""}`}>
+                    <span className={`text-sm block text-left ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                      {milestone.year}
+                    </span>
+                    <h3 className={`text-lg font-bold text-left ${isDark ? "text-white" : "text-gray-900"}`}>
+                      {t(milestone.titleKey)}
+                    </h3>
+                    <p className={`text-sm text-left ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                      {t(milestone.descKey)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -263,11 +293,13 @@ const AboutPage = () => {
             {team.map((member, idx) => (
               <div 
                 key={idx}
-                className={`p-6 rounded-xl border text-center ${
-                  isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200"
+                className={`p-6 rounded-xl border-l-2 pl-8 text-center ${
+                  isDark ? "bg-[#181A1E] border-[#A0AEC0]" : "bg-white border-gray-400"
                 }`}
               >
-                <div className="w-20 h-20 mx-auto rounded-full bg-[#21f201]/10 flex items-center justify-center text-4xl mb-4">
+                <div className={`w-20 h-20 mx-auto rounded-full flex items-center justify-center text-4xl mb-4 ${
+                  isDark ? "bg-gray-800" : "bg-gray-100"
+                }`}>
                   {member.emoji}
                 </div>
                 <h3 className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -284,11 +316,20 @@ const AboutPage = () => {
         isDark ? "bg-[#181A1E]" : "bg-white"
       }`}>
         <div className="max-w-4xl mx-auto">
-          <div className={`rounded-2xl p-8 md:p-12 text-center ${
-            isDark 
-              ? "bg-gradient-to-r from-[#21f201]/10 to-transparent border border-[#21f201]/20"
-              : "bg-gradient-to-r from-green-50 to-white border border-green-200"
-          }`}>
+          <div 
+            className={`rounded-2xl p-8 md:p-12 text-center border-t border-l border-r ${
+              isDark 
+                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800"
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
             <h2 className={`text-2xl md:text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('about.cta.title')}
             </h2>

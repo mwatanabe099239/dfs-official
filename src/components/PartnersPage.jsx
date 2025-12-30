@@ -121,20 +121,22 @@ const PartnersPage = () => {
             isDark ? "bg-[#21f201]" : "bg-green-300"
           }`}></div>
           <div className={`absolute bottom-10 right-1/3 w-72 h-72 rounded-full blur-3xl opacity-15 ${
-            isDark ? "bg-blue-500" : "bg-blue-300"
+            isDark ? "bg-gray-400" : "bg-gray-300"
           }`}></div>
         </div>
 
         <div className="relative px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-28">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#21f201]/10 text-[#21f201] text-sm font-medium mb-6">
-              <HiOutlineCube className="w-4 h-4" />
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
+            }`}>
+              <HiOutlineCube className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
               {t('partners.badge')}
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               {t('partners.title')}
-              <span className="block text-[#21f201] mt-2">{t('partners.titleHighlight')}</span>
+              <span className={`block mt-2 ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t('partners.titleHighlight')}</span>
             </h1>
             
             <p className={`text-lg md:text-xl max-w-2xl mx-auto mb-8 ${
@@ -146,16 +148,20 @@ const PartnersPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/contact"
-                className="px-8 py-4 bg-[#21f201] text-black font-bold rounded-lg hover:bg-[#1ad901] transition-colors"
+                className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
               >
                 {t('partners.becomePartner')}
               </a>
               <a 
                 href="#benefits"
-                className={`px-8 py-4 font-bold rounded-lg border transition-colors ${
+                className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
                   isDark 
-                    ? "border-gray-700 text-white hover:bg-gray-800"
-                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                    ? "text-slate-300 border-white hover:bg-white hover:text-black" 
+                    : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
                 }`}
               >
                 {t('partners.learnMore')}
@@ -191,10 +197,10 @@ const PartnersPage = () => {
                 {category.partners.map((partner, idx) => (
                   <div 
                     key={idx}
-                    className={`p-6 rounded-xl border text-center transition-all hover:border-[#21f201]/50 ${
+                    className={`p-6 rounded-xl border-l-2 pl-8 text-center transition-all ${
                       isDark 
-                        ? "bg-[#181A1E] border-gray-700 hover:bg-[#1a1d23]" 
-                        : "bg-white border-gray-200 hover:bg-gray-50 shadow-sm"
+                        ? "bg-[#181A1E] border-[#A0AEC0] hover:bg-[#1a1d23]" 
+                        : "bg-white border-gray-400 hover:bg-gray-50"
                     }`}
                   >
                     <div className="text-4xl mb-3">{partner.logo}</div>
@@ -234,12 +240,14 @@ const PartnersPage = () => {
               return (
                 <div 
                   key={idx}
-                  className={`p-6 rounded-xl border ${
-                    isDark ? "bg-[#0B0E11] border-gray-700" : "bg-gray-50 border-gray-200"
+                  className={`p-6 rounded-xl border-l-2 pl-8 ${
+                    isDark ? "bg-[#0B0E11] border-[#A0AEC0]" : "bg-gray-50 border-gray-400"
                   }`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#21f201]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-[#21f201]" />
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                    isDark ? "bg-gray-800" : "bg-gray-100"
+                  }`}>
+                    <Icon className={`w-6 h-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                   </div>
                   <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {benefit.title}
@@ -270,16 +278,16 @@ const PartnersPage = () => {
             {partnerTiers.map((tier, idx) => (
               <div 
                 key={idx}
-                className={`p-6 rounded-xl border transition-all ${
+                className={`p-6 rounded-xl border-l-2 pl-8 transition-all ${
                   tier.highlighted
-                    ? "border-[#21f201] bg-[#21f201]/5 scale-105"
+                    ? `border-gray-400 ${isDark ? "bg-gray-800/50" : "bg-gray-50"} scale-105`
                     : isDark 
-                      ? "bg-[#181A1E] border-gray-700" 
-                      : "bg-white border-gray-200 shadow-sm"
+                      ? "bg-[#181A1E] border-[#A0AEC0]" 
+                      : "bg-white border-gray-400"
                 }`}
               >
                 {tier.highlighted && (
-                  <div className="text-[#21f201] text-xs font-bold uppercase mb-2">{t('partners.tiers.mostPopular')}</div>
+                  <div className={`text-xs font-bold uppercase mb-2 ${isDark ? "text-gray-400" : "text-gray-500"}`}>{t('partners.tiers.mostPopular')}</div>
                 )}
                 <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                   {t(tier.nameKey)}
@@ -287,7 +295,7 @@ const PartnersPage = () => {
                 <ul className="space-y-3">
                   {tier.featureKeys.map((featureKey, fIdx) => (
                     <li key={fIdx} className="flex items-center gap-2">
-                      <HiOutlineSparkles className="w-4 h-4 text-[#21f201] flex-shrink-0" />
+                      <HiOutlineSparkles className={`w-4 h-4 flex-shrink-0 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
                       <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                         {t(featureKey)}
                       </span>
@@ -313,7 +321,9 @@ const PartnersPage = () => {
               { value: '99.9%', labelKey: 'partners.stats.uptimeSla' },
             ].map((stat, idx) => (
               <div key={idx} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-[#21f201] mb-2">
+                <div className={`text-4xl md:text-5xl font-bold mb-2 ${
+                  isDark ? "text-gray-400" : "text-gray-500"
+                }`}>
                   {stat.value}
                 </div>
                 <div className={`${isDark ? "text-gray-400" : "text-gray-500"}`}>
@@ -328,24 +338,39 @@ const PartnersPage = () => {
       {/* CTA */}
       <div className="px-6 md:px-8 lg:px-12 xl:px-16 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className={`rounded-2xl p-8 md:p-12 text-center ${
-            isDark 
-              ? "bg-gradient-to-r from-[#21f201]/10 to-transparent border border-[#21f201]/20"
-              : "bg-gradient-to-r from-green-50 to-white border border-green-200"
-          }`}>
-            <HiOutlineChartBar className="w-16 h-16 mx-auto mb-6 text-[#21f201]" />
+          <div 
+            className={`rounded-2xl p-8 md:p-12 text-center border-t border-l border-r ${
+              isDark 
+                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800"
+                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
+            }`}
+            style={{
+              borderBottomWidth: '4px',
+              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
+              boxShadow: isDark
+                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
+                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
+            }}
+          >
+            <HiOutlineChartBar className={`w-16 h-16 mx-auto mb-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
             <h2 className={`text-2xl md:text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               {t('partners.cta.title')}
             </h2>
             <p className={`mb-8 max-w-xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               {t('partners.cta.subtitle')}
             </p>
-            <a 
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#21f201] text-black font-bold rounded-lg hover:bg-[#1ad901] transition-colors"
-            >
-              {t('partners.cta.button')}
-            </a>
+            <div className="flex justify-center">
+              <a 
+                href="/contact"
+                className={`font-space inline-flex items-center gap-2 py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
+                  isDark 
+                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                }`}
+              >
+                {t('partners.cta.button')}
+              </a>
+            </div>
           </div>
         </div>
       </div>
