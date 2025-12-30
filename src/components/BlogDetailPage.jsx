@@ -22,8 +22,8 @@ const BlogDetailPage = () => {
   const blogPosts = [
     {
       id: 1,
-      title: 'Introducing DFS SimuChain: The Future of Web2-Web3 Integration',
-      excerpt: 'Learn how DFS SimuChain bridges the gap between traditional web applications and blockchain technology, making decentralized concepts accessible to everyone.',
+      title: 'Introducing DFS Chain: The Future of Web2-Web3 Integration',
+      excerpt: 'Learn how DFS Chain bridges the gap between traditional web applications and blockchain technology, making decentralized concepts accessible to everyone.',
       category: 'Announcements',
       author: 'DFS Team',
       authorAvatar: '👤',
@@ -33,15 +33,15 @@ const BlogDetailPage = () => {
       content: `
 ## The Dawn of a New Era
 
-DFS SimuChain represents a groundbreaking approach to blockchain technology. By creating a Web2 simulation of Web3 concepts, we've made it possible for anyone to experience the benefits of decentralized systems without the traditional barriers to entry.
+DFS Chain represents a groundbreaking approach to blockchain technology. By creating a Web2 simulation of Web3 concepts, we've made it possible for anyone to experience the benefits of decentralized systems without the traditional barriers to entry.
 
-### What Makes DFS SimuChain Different?
+### What Makes DFS Chain Different?
 
-Unlike traditional blockchains that require complex wallet setups, seed phrases, and technical knowledge, DFS SimuChain offers:
+Unlike traditional blockchains that require complex wallet setups, seed phrases, and technical knowledge, DFS Chain offers:
 
 - **Email-based authentication**: Simply sign up with your email to get started
 - **Automatic wallet generation**: Your wallet address (dfs_0x...) is created instantly
-- **Familiar user experience**: If you can use Gmail, you can use DFS SimuChain
+- **Familiar user experience**: If you can use Gmail, you can use DFS Chain
 
 ### The Technology Behind It
 
@@ -54,7 +54,7 @@ Our platform simulates blockchain behavior using robust Web2 infrastructure:
 
 ### Building the Ecosystem
 
-We've already launched several applications on DFS SimuChain:
+We've already launched several applications on DFS Chain:
 
 - **Metaface**: The official wallet for managing your assets
 - **DFSScan**: Block explorer for tracking transactions
@@ -67,14 +67,14 @@ Our roadmap includes exciting features like staking, governance, and cross-chain
 
 ### Join the Revolution
 
-Ready to experience the future of Web2-Web3 integration? Create your wallet today at [metaface.dfsscan.com](https://metaface.dfsscan.com) and start exploring the DFS SimuChain ecosystem.
+Ready to experience the future of Web2-Web3 integration? Create your wallet today at [metaface.dfsscan.com](https://metaface.dfsscan.com) and start exploring the DFS Chain ecosystem.
       `,
-      tags: ['Blockchain', 'Web3', 'DFS SimuChain', 'Innovation'],
+      tags: ['Blockchain', 'Web3', 'DFS Chain', 'Innovation'],
     },
     {
       id: 2,
       title: 'How to Create Your First DRC20 Token',
-      excerpt: 'A step-by-step guide to publishing your own token on DFS SimuChain using the Whitecreator platform. No coding experience required!',
+      excerpt: 'A step-by-step guide to publishing your own token on DFS Chain using the Whitecreator platform. No coding experience required!',
       category: 'Tutorials',
       author: 'Dev Team',
       authorAvatar: '👨‍💻',
@@ -84,7 +84,7 @@ Ready to experience the future of Web2-Web3 integration? Create your wallet toda
       content: `
 ## Create Your Own Token in Minutes
 
-Have you ever wanted to create your own cryptocurrency? With DFS SimuChain's Whitecreator platform, you can launch your DRC20 token in just a few clicks!
+Have you ever wanted to create your own cryptocurrency? With DFS Chain's Whitecreator platform, you can launch your DRC20 token in just a few clicks!
 
 ### Prerequisites
 
@@ -129,13 +129,13 @@ Your token will be reviewed by our team. Once approved, it can be used in transa
 
 ### Conclusion
 
-Creating a DRC20 token is simple and accessible to everyone. Start building your project on DFS SimuChain today!
+Creating a DRC20 token is simple and accessible to everyone. Start building your project on DFS Chain today!
       `,
       tags: ['Tutorial', 'DRC20', 'Token', 'Whitecreator'],
     },
     {
       id: 3,
-      title: 'WEXSWAP DEX Now Live on DFS SimuChain',
+      title: 'WEXSWAP DEX Now Live on DFS Chain',
       excerpt: 'Our decentralized exchange is officially launched! Trade DRC20 tokens with instant swaps and competitive rates.',
       category: 'Updates',
       author: 'DFS Team',
@@ -146,7 +146,7 @@ Creating a DRC20 token is simple and accessible to everyone. Start building your
       content: `
 ## WEXSWAP is Live!
 
-We're thrilled to announce that WEXSWAP, the decentralized exchange for DFS SimuChain, is now officially live!
+We're thrilled to announce that WEXSWAP, the decentralized exchange for DFS Chain, is now officially live!
 
 ### What is WEXSWAP?
 
@@ -193,7 +193,7 @@ Start trading on WEXSWAP today!
     },
     {
       id: 4,
-      title: 'Understanding Gas Fees on DFS SimuChain',
+      title: 'Understanding Gas Fees on DFS Chain',
       excerpt: 'A comprehensive guide to how gas works on our platform, why it matters, and tips for optimizing your transaction costs.',
       category: 'Technical',
       author: 'Tech Team',
@@ -204,7 +204,7 @@ Start trading on WEXSWAP today!
       content: `
 ## What Are Gas Fees?
 
-Gas fees are payments made to process transactions on DFS SimuChain. They serve important purposes in maintaining network health and fairness.
+Gas fees are payments made to process transactions on DFS Chain. They serve important purposes in maintaining network health and fairness.
 
 ### Why Do Gas Fees Exist?
 
@@ -222,7 +222,7 @@ Gas fees depend on:
 
 ### Paying Gas Fees
 
-All gas fees are paid in **DRC20_DFS**, the native token of DFS SimuChain. Make sure you have enough DFS in your wallet before initiating transactions.
+All gas fees are paid in **DRC20_DFS**, the native token of DFS Chain. Make sure you have enough DFS in your wallet before initiating transactions.
 
 ### Tips for Saving on Gas
 
@@ -245,13 +245,13 @@ Always review the estimated gas cost before confirming a transaction.
 
 ### Conclusion
 
-Understanding gas fees helps you use DFS SimuChain more efficiently. Plan your transactions wisely to minimize costs!
+Understanding gas fees helps you use DFS Chain more efficiently. Plan your transactions wisely to minimize costs!
       `,
       tags: ['Gas', 'Technical', 'Fees', 'Guide'],
     },
     {
       id: 5,
-      title: 'Community Spotlight: Building on DFS SimuChain',
+      title: 'Community Spotlight: Building on DFS Chain',
       excerpt: 'Meet the developers and creators who are building innovative applications on our platform. Their stories and insights.',
       category: 'Community',
       author: 'Community Team',
@@ -262,13 +262,13 @@ Understanding gas fees helps you use DFS SimuChain more efficiently. Plan your t
       content: `
 ## Meet Our Amazing Community
 
-The DFS SimuChain ecosystem is powered by passionate developers and creators. Today, we spotlight some incredible projects and the people behind them.
+The DFS Chain ecosystem is powered by passionate developers and creators. Today, we spotlight some incredible projects and the people behind them.
 
 ### Featured Projects
 
 **Uhalisi - Social Media Reimagined**
 
-Uhalisi brings social media to DFS SimuChain with tokenized engagement. Every post is certified and recorded on-chain, giving creators true ownership of their content.
+Uhalisi brings social media to DFS Chain with tokenized engagement. Every post is certified and recorded on-chain, giving creators true ownership of their content.
 
 **POIPI - Rewards Platform**
 
@@ -280,7 +280,7 @@ Supporting creators has never been easier. Gyakusen enables DRC20 donations for 
 
 ### Developer Insights
 
-We asked our community builders: "Why DFS SimuChain?"
+We asked our community builders: "Why DFS Chain?"
 
 > "The email-based wallet system removes all barriers for users. My app's adoption increased 10x." — Uhalisi Developer
 
@@ -288,7 +288,7 @@ We asked our community builders: "Why DFS SimuChain?"
 
 ### Join Our Developer Community
 
-Want to build on DFS SimuChain? Here's how to get started:
+Want to build on DFS Chain? Here's how to get started:
 
 1. Read our documentation
 2. Join our Discord community
@@ -317,7 +317,7 @@ We can't wait to see what you'll build!
       content: `
 ## DFS Staking is Coming!
 
-We're excited to announce that staking will soon be available on DFS SimuChain. Here's everything you need to know to prepare.
+We're excited to announce that staking will soon be available on DFS Chain. Here's everything you need to know to prepare.
 
 ### What is Staking?
 

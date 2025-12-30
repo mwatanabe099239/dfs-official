@@ -11,7 +11,7 @@ const SocialLinksPage = () => {
   const socialLinks = [
     {
       name: 'Twitter',
-      handle: '@DFSSimuChain',
+      handle: '@DFSChain',
       descriptionKey: 'community.socials.twitter.description',
       icon: FaTwitter,
       link: '#',
@@ -29,7 +29,7 @@ const SocialLinksPage = () => {
     },
     {
       name: 'Discord',
-      handle: 'DFS SimuChain',
+      handle: 'DFS Chain',
       descriptionKey: 'community.socials.discord.description',
       icon: FaDiscord,
       link: '#',
@@ -38,7 +38,7 @@ const SocialLinksPage = () => {
     },
     {
       name: 'GitHub',
-      handle: 'dfs-simuchain',
+      handle: 'dfs-Chain',
       descriptionKey: 'community.socials.github.description',
       icon: FaGithub,
       link: '#',
@@ -47,7 +47,7 @@ const SocialLinksPage = () => {
     },
     {
       name: 'YouTube',
-      handle: 'DFS SimuChain',
+      handle: 'DFS Chain',
       descriptionKey: 'community.socials.youtube.description',
       icon: FaYoutube,
       link: '#',
@@ -56,7 +56,7 @@ const SocialLinksPage = () => {
     },
     {
       name: 'Medium',
-      handle: '@DFSSimuChain',
+      handle: '@DFSChain',
       descriptionKey: 'community.socials.medium.description',
       icon: FaMedium,
       link: '#',
@@ -65,7 +65,7 @@ const SocialLinksPage = () => {
     },
     {
       name: 'Reddit',
-      handle: 'r/DFSSimuChain',
+      handle: 'r/DFSChain',
       descriptionKey: 'community.socials.reddit.description',
       icon: FaReddit,
       link: '#',
@@ -74,7 +74,7 @@ const SocialLinksPage = () => {
     },
     {
       name: 'LinkedIn',
-      handle: 'DFS SimuChain',
+      handle: 'DFS Chain',
       descriptionKey: 'community.socials.linkedin.description',
       icon: FaLinkedin,
       link: '#',

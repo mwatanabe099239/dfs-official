@@ -50,16 +50,16 @@ const WhitepaperPage = () => {
       title: 'The Ideas and Philosophy of DIFINES',
       items: [
         { id: 'why-decentralize', title: 'Why Decentralize' },
-        { id: 'why-web2-simuchain', title: 'Why Web2 SimuChain' },
+        { id: 'why-web2-Chain', title: 'Why Web2 Chain' },
         { id: 'trust-transparency-freedom', title: '"Trust, transparency, and freedom"' },
-        { id: 'simuchain-definition', title: 'A definition of the idea called SimuChain' },
+        { id: 'Chain-definition', title: 'A definition of the idea called Chain' },
       ]
     },
     {
-      id: 'dfs-simuchain-overview',
-      title: 'DFS SimuChain 概要',
+      id: 'dfs-Chain-overview',
+      title: 'DFS Chain 概要',
       items: [
-        { id: 'what-is-simuchain', title: 'What is SimuChain' },
+        { id: 'what-is-Chain', title: 'What is Chain' },
         { id: 'reproduce-blockchain-behavior', title: 'How to reproduce the same behavior as blockchain on Web2' },
         { id: 'why-not-real-chain', title: 'Why doesn\'t it have to be a real chain' },
         { id: 'differences-from-centralization', title: 'Differences from centralization (←Important)' },
@@ -163,14 +163,14 @@ const WhitepaperPage = () => {
       id: 'introduction',
       icon: FiHome,
       title: 'Introduction',
-      description: 'Learn about DIFINES, logo, slogan, and introduction to DFS SimuChain.',
+      description: 'Learn about DIFINES, logo, slogan, and introduction to DFS Chain.',
       targetSection: 'introduction'
     },
     {
       id: 'ideas-philosophy',
       icon: FiZap,
       title: 'Ideas & Philosophy',
-      description: 'Understand the philosophy behind decentralization and Web2 SimuChain.',
+      description: 'Understand the philosophy behind decentralization and Web2 Chain.',
       targetSection: 'why-decentralize'
     },
     {
@@ -196,10 +196,10 @@ const WhitepaperPage = () => {
     'difines-logo',
     'slogan',
     'why-decentralize',
-    'why-web2-simuchain',
+    'why-web2-Chain',
     'trust-transparency-freedom',
-    'simuchain-definition',
-    'what-is-simuchain',
+    'Chain-definition',
+    'what-is-Chain',
     'reproduce-blockchain-behavior',
     'why-not-real-chain',
     'differences-from-centralization',
@@ -249,10 +249,10 @@ const WhitepaperPage = () => {
       'difines-logo': 'DIFINES Logo',
       'slogan': 'Slogan',
       'why-decentralize': 'Why Decentralize',
-      'why-web2-simuchain': 'Why Web2 SimuChain',
+      'why-web2-Chain': 'Why Web2 Chain',
       'trust-transparency-freedom': 'Trust, transparency, and freedom',
-      'simuchain-definition': 'Definition of SimuChain',
-      'what-is-simuchain': 'What is SimuChain',
+      'Chain-definition': 'Definition of Chain',
+      'what-is-Chain': 'What is Chain',
       'reproduce-blockchain-behavior': 'How to reproduce blockchain behavior on Web2',
       'why-not-real-chain': 'Why doesn\'t it have to be a real chain',
       'differences-from-centralization': 'Differences from centralization',
@@ -449,7 +449,7 @@ const WhitepaperPage = () => {
     doc.setFontSize(42);
     doc.setFont('helvetica', 'bold');
     doc.setTextColor(255, 255, 255);
-    doc.text('DFS SimuChain', pageWidth / 2, 80, { align: 'center' });
+    doc.text('DFS Chain', pageWidth / 2, 80, { align: 'center' });
     
     doc.setFontSize(32);
     doc.setTextColor(33, 242, 1);
@@ -498,21 +498,21 @@ const WhitepaperPage = () => {
     yPos = margin;
     addTitle('1. Introduction');
     addSectionDivider();
-    addParagraph('DFS SimuChain represents a paradigm shift in blockchain accessibility — a sophisticated Web2 simulation that faithfully replicates the core mechanics of Web3 blockchain technology without the complexity of traditional decentralized infrastructure.');
-    addParagraph('By leveraging familiar Web2 technologies while maintaining blockchain-like semantics, DFS SimuChain provides developers and users with a seamless on-ramp to understanding and utilizing blockchain concepts.');
+    addParagraph('DFS Chain represents a paradigm shift in blockchain accessibility — a sophisticated Web2 simulation that faithfully replicates the core mechanics of Web3 blockchain technology without the complexity of traditional decentralized infrastructure.');
+    addParagraph('By leveraging familiar Web2 technologies while maintaining blockchain-like semantics, DFS Chain provides developers and users with a seamless on-ramp to understanding and utilizing blockchain concepts.');
 
     // Save the PDF
-    doc.save('DFS_SimuChain_Whitepaper.pdf');
+    doc.save('DFS_Chain_Whitepaper.pdf');
     setIsGeneratingPdf(false);
   };
 
   const glossaryTerms = [
-    { term: 'Block', definition: 'A container that holds multiple transactions. In DFS SimuChain, one block is generated every 5 minutes and can contain thousands of transactions.' },
+    { term: 'Block', definition: 'A container that holds multiple transactions. In DFS Chain, one block is generated every 5 minutes and can contain thousands of transactions.' },
     { term: 'Transaction', definition: 'A record of value or data transfer between addresses. Transaction hashes start with dfs_0x... for easy identification.' },
     { term: 'Gas', definition: 'The unit measuring computational effort. Users pay gas fees in DRC20_DFS tokens to process transactions.' },
     { term: 'Wallet Address', definition: 'A unique identifier for user accounts, formatted as dfs_0x... Each address is derived from user authentication.' },
-    { term: 'DRC20', definition: 'The token standard for DFS SimuChain, similar to ERC20. Token addresses start with drc20_0x...' },
-    { term: 'DRC20_DFS', definition: 'The native token of DFS SimuChain used for gas fees and network operations.' },
+    { term: 'DRC20', definition: 'The token standard for DFS Chain, similar to ERC20. Token addresses start with drc20_0x...' },
+    { term: 'DRC20_DFS', definition: 'The native token of DFS Chain used for gas fees and network operations.' },
   ];
 
   return (
@@ -706,13 +706,13 @@ const WhitepaperPage = () => {
                 
                 <div className={`space-y-3 sm:space-y-4 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                   <p className="leading-relaxed text-sm sm:text-base text-left">
-                    Welcome to the DFS SimuChain Whitepaper. This document provides a comprehensive overview of 
-                    DIFINES and the DFS SimuChain ecosystem, including its philosophy, technical architecture, 
+                    Welcome to the DFS Chain Whitepaper. This document provides a comprehensive overview of 
+                    DIFINES and the DFS Chain ecosystem, including its philosophy, technical architecture, 
                     token design, and participation methods.
                   </p>
                   
                   <p className="leading-relaxed text-sm sm:text-base text-left">
-                    DFS SimuChain represents a paradigm shift in blockchain accessibility — a sophisticated Web2 
+                    DFS Chain represents a paradigm shift in blockchain accessibility — a sophisticated Web2 
                     simulation that faithfully replicates the core mechanics of Web3 blockchain technology 
                     without the complexity of traditional decentralized infrastructure.
                   </p>
@@ -724,7 +724,7 @@ const WhitepaperPage = () => {
                       Purpose of This Document
                     </h4>
                     <p className="text-sm">
-                      This whitepaper serves as the definitive guide to understanding DFS SimuChain, its 
+                      This whitepaper serves as the definitive guide to understanding DFS Chain, its 
                       architecture, tokenomics, ecosystem, and how to participate as a user, developer, 
                       or company.
                     </p>
@@ -745,7 +745,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DIFINES is the organization behind DFS SimuChain, dedicated to creating an accessible 
+                      DIFINES is the organization behind DFS Chain, dedicated to creating an accessible 
                       blockchain simulation platform that bridges Web2 and Web3 technologies.
                     </p>
                     
@@ -902,7 +902,7 @@ const WhitepaperPage = () => {
                     </div>
 
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain embraces decentralization principles while providing the accessibility 
+                      DFS Chain embraces decentralization principles while providing the accessibility 
                       and user experience of Web2 technologies, creating a unique hybrid approach that 
                       combines the best of both worlds.
                     </p>
@@ -911,13 +911,13 @@ const WhitepaperPage = () => {
                 </section>
               )}
 
-              {/* Why Web2 SimuChain */}
-              {activeSection === 'why-web2-simuchain' && (
+              {/* Why Web2 Chain */}
+              {activeSection === 'why-web2-Chain' && (
                 <section className="mb-6 sm:mb-8 text-left">
                   <h2 className={`text-xl sm:text-2xl font-bold mb-3 sm:mb-4 pb-3 sm:pb-4 border-b text-left ${
                     isDark ? "text-white border-[#1f1f1f]" : "text-gray-900 border-gray-200"
                   }`}>
-                    Why Web2 SimuChain
+                    Why Web2 Chain
                   </h2>
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
@@ -931,7 +931,7 @@ const WhitepaperPage = () => {
                       isDark ? "bg-[#6366f1]/5" : "bg-blue-50"
                     }`}>
                       <h4 className={`font-semibold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
-                        The Web2 SimuChain Advantage
+                        The Web2 Chain Advantage
                       </h4>
                       <div className="space-y-3 text-sm">
                         <div>
@@ -980,7 +980,7 @@ const WhitepaperPage = () => {
                         "Trust, Transparency, and Freedom"
                       </h3>
                       <p className="text-sm sm:text-base italic">
-                        The three pillars of DFS SimuChain
+                        The three pillars of DFS Chain
                       </p>
                     </div>
 
@@ -1018,13 +1018,13 @@ const WhitepaperPage = () => {
                 </section>
               )}
 
-              {/* SimuChain Definition */}
-              {activeSection === 'simuchain-definition' && (
+              {/* Chain Definition */}
+              {activeSection === 'Chain-definition' && (
                 <section className="mb-6 sm:mb-8 text-left">
                   <h2 className={`text-xl sm:text-2xl font-bold mb-3 sm:mb-4 pb-3 sm:pb-4 border-b text-left ${
                     isDark ? "text-white border-[#1f1f1f]" : "text-gray-900 border-gray-200"
                   }`}>
-                    A Definition of the Idea Called SimuChain
+                    A Definition of the Idea Called Chain
                   </h2>
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
@@ -1032,10 +1032,10 @@ const WhitepaperPage = () => {
                       isDark ? "border-[#6366f1]/30 bg-gradient-to-br from-[#6366f1]/10 to-transparent" : "border-blue-200 bg-gradient-to-br from-blue-50 to-white"
                     }`}>
                       <h3 className={`text-lg font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-                        What is SimuChain?
+                        What is Chain?
                       </h3>
                       <p className="text-sm sm:text-base leading-relaxed">
-                        <strong>SimuChain</strong> is a revolutionary concept that simulates blockchain behavior 
+                        <strong>Chain</strong> is a revolutionary concept that simulates blockchain behavior 
                         using Web2 infrastructure. It replicates the core mechanics of blockchain technology — 
                         including blocks, transactions, gas fees, and token standards — while operating on 
                         traditional centralized servers.
@@ -1068,7 +1068,7 @@ const WhitepaperPage = () => {
                       isDark ? "bg-amber-500/5" : "bg-amber-50"
                     }`}>
                       <p className="text-sm">
-                        <strong>Note:</strong> SimuChain is not a replacement for true blockchain technology, 
+                        <strong>Note:</strong> Chain is not a replacement for true blockchain technology, 
                         but rather a bridge that makes blockchain concepts accessible and understandable 
                         through familiar Web2 technologies.
                       </p>
@@ -1078,18 +1078,18 @@ const WhitepaperPage = () => {
                 </section>
               )}
 
-              {/* What is SimuChain */}
-              {activeSection === 'what-is-simuchain' && (
+              {/* What is Chain */}
+              {activeSection === 'what-is-Chain' && (
                 <section className="mb-6 sm:mb-8 text-left">
                   <h2 className={`text-xl sm:text-2xl font-bold mb-3 sm:mb-4 pb-3 sm:pb-4 border-b text-left ${
                     isDark ? "text-white border-[#1f1f1f]" : "text-gray-900 border-gray-200"
                   }`}>
-                    What is SimuChain
+                    What is Chain
                   </h2>
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain is a Web2-based simulation platform that replicates blockchain behavior 
+                      DFS Chain is a Web2-based simulation platform that replicates blockchain behavior 
                       and semantics. It provides all the core features of blockchain technology — transactions, 
                       blocks, tokens, and gas — while operating on traditional Web2 infrastructure.
                     </p>
@@ -1132,7 +1132,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain achieves blockchain-like behavior through careful architectural design 
+                      DFS Chain achieves blockchain-like behavior through careful architectural design 
                       that mimics key blockchain concepts using Web2 technologies.
                     </p>
                     
@@ -1188,7 +1188,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain intentionally uses Web2 infrastructure rather than building a true 
+                      DFS Chain intentionally uses Web2 infrastructure rather than building a true 
                       blockchain. This design decision provides significant advantages for our use case.
                     </p>
                     
@@ -1246,7 +1246,7 @@ const WhitepaperPage = () => {
                         ⚠️ Important Distinction
                       </h4>
                       <p className="text-sm">
-                        While DFS SimuChain uses Web2 infrastructure, it is NOT a traditional centralized 
+                        While DFS Chain uses Web2 infrastructure, it is NOT a traditional centralized 
                         system. We maintain key decentralization principles through transparency, 
                         immutability, and user control.
                       </p>
@@ -1307,7 +1307,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Transactions in DFS SimuChain follow a structured format that mimics blockchain 
+                      Transactions in DFS Chain follow a structured format that mimics blockchain 
                       transaction semantics while operating on Web2 infrastructure.
                     </p>
                     
@@ -1360,7 +1360,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Blocks are containers that hold multiple transactions. In DFS SimuChain, one block 
+                      Blocks are containers that hold multiple transactions. In DFS Chain, one block 
                       is generated every 5 minutes and can contain thousands of transactions.
                     </p>
                     
@@ -1464,7 +1464,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain implements multiple layers of fraud prevention to ensure system 
+                      DFS Chain implements multiple layers of fraud prevention to ensure system 
                       security and transaction integrity.
                     </p>
                     
@@ -1521,7 +1521,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain is designed for high scalability, capable of handling thousands of 
+                      DFS Chain is designed for high scalability, capable of handling thousands of 
                       transactions per second while maintaining low latency.
                     </p>
                     
@@ -1572,7 +1572,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain provides comprehensive APIs and SDKs to enable developers to easily 
+                      DFS Chain provides comprehensive APIs and SDKs to enable developers to easily 
                       integrate and build on the platform.
                     </p>
                     
@@ -1633,7 +1633,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS (DIFINES SimuChain) token serves multiple critical roles within the ecosystem, 
+                      DFS (DIFINES Chain) token serves multiple critical roles within the ecosystem, 
                       functioning as both a utility token and a store of value.
                     </p>
                     
@@ -1687,7 +1687,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Gas fees in DFS SimuChain are calculated based on transaction complexity and network 
+                      Gas fees in DFS Chain are calculated based on transaction complexity and network 
                       conditions, ensuring fair resource allocation while maintaining affordability.
                     </p>
                     
@@ -1841,7 +1841,7 @@ const WhitepaperPage = () => {
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
                       DFS shares key characteristics with gold, making it a digital store of value 
-                      within the DFS SimuChain ecosystem.
+                      within the DFS Chain ecosystem.
                     </p>
                     
                     <div className={`p-6 rounded-xl border-l-4 border-amber-500 ${
@@ -1903,7 +1903,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS Hub serves as the central platform connecting all participants in the DFS SimuChain 
+                      DFS Hub serves as the central platform connecting all participants in the DFS Chain 
                       ecosystem, providing opportunities for users, developers, and companies.
                     </p>
                     
@@ -1940,7 +1940,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      All dApps built on DFS SimuChain are interconnected through the DFS Hub, creating 
+                      All dApps built on DFS Chain are interconnected through the DFS Hub, creating 
                       a unified ecosystem where applications can interact and share resources.
                     </p>
                     
@@ -1981,7 +1981,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain follows a "chain success" model where the success of the entire 
+                      DFS Chain follows a "chain success" model where the success of the entire 
                       ecosystem benefits all participants, rather than focusing on individual dApp success.
                     </p>
                     
@@ -2017,7 +2017,7 @@ const WhitepaperPage = () => {
                       Why don't you create an individual WP
                     </h3>
                     <p className="text-sm sm:text-base text-left">
-                      Instead of each dApp creating its own whitepaper, dApps on DFS SimuChain are 
+                      Instead of each dApp creating its own whitepaper, dApps on DFS Chain are 
                       integrated into the ecosystem whitepaper, emphasizing unity and shared vision.
                     </p>
                     
@@ -2097,7 +2097,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Getting started as a user on DFS SimuChain is simple and requires no technical 
+                      Getting started as a user on DFS Chain is simple and requires no technical 
                       knowledge.
                     </p>
                     
@@ -2135,7 +2135,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Developers can build dApps on DFS SimuChain using our APIs and SDKs.
+                      Developers can build dApps on DFS Chain using our APIs and SDKs.
                     </p>
                     
                     <div className={`p-5 rounded-xl border ${
@@ -2168,12 +2168,12 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Companies can integrate DFS SimuChain into their services or become partners.
+                      Companies can integrate DFS Chain into their services or become partners.
                     </p>
                     
                     <div className="grid sm:grid-cols-2 gap-4">
                       {[
-                        { title: 'Enterprise Integration', desc: 'Integrate DFS SimuChain into your business' },
+                        { title: 'Enterprise Integration', desc: 'Integrate DFS Chain into your business' },
                         { title: 'Partnership Programs', desc: 'Become an official partner' },
                         { title: 'Custom Solutions', desc: 'Tailored solutions for your needs' },
                         { title: 'Support', desc: 'Dedicated enterprise support' }
@@ -2204,7 +2204,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Our partner system enables organizations to collaborate with DFS SimuChain.
+                      Our partner system enables organizations to collaborate with DFS Chain.
                     </p>
                     
                     <div className={`p-5 rounded-xl border ${
@@ -2236,7 +2236,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Earn rewards by referring new users to DFS SimuChain.
+                      Earn rewards by referring new users to DFS Chain.
                     </p>
                     
                     <div className={`p-5 rounded-xl border-l-4 border-[#6366f1] ${
@@ -2266,7 +2266,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      The DFS SimuChain community consists of various roles, each contributing to the 
+                      The DFS Chain community consists of various roles, each contributing to the 
                       ecosystem's growth.
                     </p>
                     
@@ -2342,7 +2342,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      Decisions in DFS SimuChain are made with transparency, community input, and 
+                      Decisions in DFS Chain are made with transparency, community input, and 
                       long-term ecosystem health in mind.
                     </p>
                     
@@ -2410,12 +2410,12 @@ const WhitepaperPage = () => {
                     <div className="space-y-4">
                       {[
                         {
-                          misconception: 'DFS SimuChain is a real blockchain',
-                          truth: 'DFS SimuChain is a Web2 simulation that replicates blockchain behavior'
+                          misconception: 'DFS Chain is a real blockchain',
+                          truth: 'DFS Chain is a Web2 simulation that replicates blockchain behavior'
                         },
                         {
                           misconception: 'It requires validators',
-                          truth: 'DFS SimuChain operates without validators, using centralized infrastructure'
+                          truth: 'DFS Chain operates without validators, using centralized infrastructure'
                         },
                         {
                           misconception: 'It\'s fully decentralized',
@@ -2454,8 +2454,8 @@ const WhitepaperPage = () => {
                     <div className="space-y-3">
                       {[
                         {
-                          q: 'What is DFS SimuChain?',
-                          a: 'DFS SimuChain is a Web2 simulation platform that replicates blockchain behavior and semantics.'
+                          q: 'What is DFS Chain?',
+                          a: 'DFS Chain is a Web2 simulation platform that replicates blockchain behavior and semantics.'
                         },
                         {
                           q: 'How do I get started?',
@@ -2496,7 +2496,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      We acknowledge that DFS SimuChain is not a true blockchain and address common 
+                      We acknowledge that DFS Chain is not a true blockchain and address common 
                       criticisms transparently.
                     </p>
                     
@@ -2507,7 +2507,7 @@ const WhitepaperPage = () => {
                         Our Position
                       </h3>
                       <p className="text-sm">
-                        DFS SimuChain is intentionally designed as a simulation, not a replacement for 
+                        DFS Chain is intentionally designed as a simulation, not a replacement for 
                         true blockchain technology. We provide an accessible entry point to blockchain 
                         concepts while maintaining transparency about our architecture and limitations.
                       </p>
@@ -2528,7 +2528,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain is committed to protecting user privacy and data security.
+                      DFS Chain is committed to protecting user privacy and data security.
                     </p>
                     
                     <div className={`p-5 rounded-xl border ${
@@ -2561,7 +2561,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      By using DFS SimuChain, users agree to our terms of service.
+                      By using DFS Chain, users agree to our terms of service.
                     </p>
                     
                     <div className={`p-5 rounded-xl border ${
@@ -2593,7 +2593,7 @@ const WhitepaperPage = () => {
                   
                   <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <p className="text-sm sm:text-base text-left">
-                      DFS SimuChain uses cookies to enhance user experience and analyze platform usage.
+                      DFS Chain uses cookies to enhance user experience and analyze platform usage.
                     </p>
                     
                     <div className={`p-5 rounded-xl border ${
@@ -2630,7 +2630,7 @@ const WhitepaperPage = () => {
                         Important Risks
                       </h3>
                       <ul className="space-y-2 text-sm">
-                        <li>• Platform risk: DFS SimuChain uses centralized infrastructure</li>
+                        <li>• Platform risk: DFS Chain uses centralized infrastructure</li>
                         <li>• Token value volatility: DFS token value may fluctuate</li>
                         <li>• Technical risks: Potential bugs or security vulnerabilities</li>
                         <li>• Regulatory risks: Changing regulations may affect operations</li>
@@ -2684,10 +2684,10 @@ const WhitepaperPage = () => {
                     
                     <div className="grid sm:grid-cols-2 gap-4">
                       {[
-                        { platform: 'Twitter', desc: '@DFS_SimuChain' },
-                        { platform: 'Telegram', desc: 't.me/dfssimuchain' },
-                        { platform: 'Discord', desc: 'discord.gg/dfssimuchain' },
-                        { platform: 'LinkedIn', desc: 'DFS SimuChain' }
+                        { platform: 'Twitter', desc: '@DFS_Chain' },
+                        { platform: 'Telegram', desc: 't.me/dfsChain' },
+                        { platform: 'Discord', desc: 'discord.gg/dfsChain' },
+                        { platform: 'LinkedIn', desc: 'DFS Chain' }
                       ].map((item, idx) => (
                         <div key={idx} className={`p-4 rounded-lg border ${
                           isDark ? "border-[#1f1f1f] bg-[#111111]" : "border-gray-200 bg-gray-50"
@@ -2721,8 +2721,8 @@ const WhitepaperPage = () => {
                     <div className={`p-5 rounded-xl border ${
                       isDark ? "border-[#1f1f1f] bg-[#111111]" : "border-gray-200 bg-gray-50"
                     }`}>
-                      <a href="https://github.com/dfssimuchain" target="_blank" rel="noopener noreferrer" className={`text-[#6366f1] hover:underline ${isDark ? "text-blue-400" : "text-blue-600"}`}>
-                        https://github.com/dfssimuchain
+                      <a href="https://github.com/dfsChain" target="_blank" rel="noopener noreferrer" className={`text-[#6366f1] hover:underline ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                        https://github.com/dfsChain
                       </a>
                     </div>
                   </div>
@@ -2966,7 +2966,7 @@ const WhitepaperPage = () => {
                     </h2>
 
                 <div className={`space-y-4 sm:space-y-6 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                  <p className="text-sm sm:text-base text-left">DFS SimuChain powers diverse decentralized applications.</p>
+                  <p className="text-sm sm:text-base text-left">DFS Chain powers diverse decentralized applications.</p>
 
                   <div className="grid sm:grid-cols-2 gap-3">
                     {[

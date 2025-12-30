@@ -12,19 +12,19 @@ const TermsOfUsePage = () => {
   const sections = [
     {
       title: '1. Acceptance of Terms',
-      content: `By accessing, browsing, or using DFS SimuChain and its related services, including our website, applications, APIs, and any other features or content (collectively, the "Services"), you acknowledge that you have read, understood, and agree to be bound by these Terms of Use ("Terms").
+      content: `By accessing, browsing, or using DFS Chain and its related services, including our website, applications, APIs, and any other features or content (collectively, the "Services"), you acknowledge that you have read, understood, and agree to be bound by these Terms of Use ("Terms").
 
 If you do not agree to these Terms, you must not access or use our Services. We reserve the right to modify these Terms at any time, and your continued use of the Services constitutes acceptance of any modifications.`
     },
     {
       title: '2. Description of Services',
-      content: `DFS SimuChain is a Web2 simulation platform that replicates blockchain functionality, including:
+      content: `DFS Chain is a Web2 simulation platform that replicates blockchain functionality, including:
 
 • **Wallet Services:** Creation and management of digital wallets with unique addresses (dfs_0x...)
 • **Token Platform:** Publishing and managing DRC20 tokens through our Whitecreator platform
 • **Transaction Processing:** Recording and processing transactions on the simulated blockchain
 • **Block Explorer:** Viewing transaction history, blocks, and network data
-• **Ecosystem dApps:** Access to various decentralized applications built on DFS SimuChain
+• **Ecosystem dApps:** Access to various decentralized applications built on DFS Chain
 
 Our Services are provided "as is" and may be modified, suspended, or discontinued at any time without prior notice.`
     },
@@ -101,7 +101,7 @@ Our Services are provided "as is" and may be modified, suspended, or discontinue
     {
       title: '7. Intellectual Property',
       content: `**Our Property:**
-• DFS SimuChain, our logo, and related trademarks are our property
+• DFS Chain, our logo, and related trademarks are our property
 • The Services and all content, features, and functionality are owned by us
 • You may not copy, modify, or distribute our intellectual property without permission
 
@@ -127,7 +127,7 @@ Our Services are provided "as is" and may be modified, suspended, or discontinue
 • We are not responsible for delays or failures due to circumstances beyond our control
 
 **Simulated Environment:**
-• DFS SimuChain is a Web2 simulation, not a traditional blockchain
+• DFS Chain is a Web2 simulation, not a traditional blockchain
 • Tokens and transactions have no inherent real-world value
 • The platform is primarily for educational and ecosystem purposes`
     },
@@ -144,7 +144,7 @@ This limitation applies regardless of the legal theory upon which the claim is b
     },
     {
       title: '10. Indemnification',
-      content: `You agree to indemnify, defend, and hold harmless DFS SimuChain, its affiliates, officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including attorney's fees) arising from:
+      content: `You agree to indemnify, defend, and hold harmless DFS Chain, its affiliates, officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including attorney's fees) arising from:
 
 • Your use of the Services
 • Your violation of these Terms
@@ -242,7 +242,7 @@ We encourage you to review these Terms periodically. Your continued use of the S
                 isDark ? "bg-[#21f201]/5" : "bg-green-50"
               }`}>
                 <p className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                  <strong>Important:</strong> Please read these Terms of Use carefully before using DFS SimuChain. 
+                  <strong>Important:</strong> Please read these Terms of Use carefully before using DFS Chain. 
                   By using our Services, you agree to be bound by these Terms. If you do not agree, 
                   please do not use our Services.
                 </p>

@@ -28,7 +28,7 @@ const Footer = () => {
     {
       titleKey: "footer.sections.chains",
       items: [
-        { nameKey: "footer.links.dfsSimuChain", link: "https://dfsscan.com" },
+        { nameKey: "footer.links.dfsChain", link: "https://dfsscan.com" },
       ],
     },
     {
@@ -78,10 +78,24 @@ const Footer = () => {
   ];
 
   return (
-    <footer className={`md:px-24 px-6 pt-10 pb-6 text-sm font-space transition-colors duration-300 ${
-      isDark ? "bg-[#181A1E] text-white" : "bg-gray-100 text-gray-900 border-t border-gray-200"
-    }`}>
-      {/* Large Screen Layout */}
+    <>
+      {/* Logo Section */}
+      <div className={`md:px-24 px-6 py-4 transition-colors duration-300 ${
+        isDark ? "bg-[#181A1E]" : "bg-white border-t border-gray-200"
+      }`}>
+        <div className="flex justify-start">
+          <img 
+            src="/logo.png" 
+            alt="DFS Chain Logo" 
+            className={`md:w-32 w-24 brightness-0`}
+          />
+        </div>
+      </div>
+
+      <footer className={`md:px-24 px-6 pt-10 pb-6 text-sm font-space transition-colors duration-300 ${
+        isDark ? "bg-[#181A1E] text-white" : "bg-gray-100 text-gray-900 border-t border-gray-200"
+      }`}>
+        {/* Large Screen Layout */}
       <div className="hidden md:flex justify-between flex-wrap gap-6 text-start">
         {sections.map((section, idx) => (
           <div key={idx} className="min-w-[160px]">
@@ -245,6 +259,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </>
   );
 };
 

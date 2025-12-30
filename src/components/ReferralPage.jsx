@@ -250,7 +250,7 @@ const ReferralPage = () => {
             isDark ? "border-gray-700" : "border-gray-200"
           }`}>
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full border-collapse">
                 <thead className={isDark ? "bg-[#181A1E]" : "bg-gray-50"}>
                   <tr>
                     <th className={`px-6 py-4 text-left text-sm font-semibold ${isDark ? "text-gray-300" : "text-gray-600"}`}>
@@ -270,18 +270,18 @@ const ReferralPage = () => {
                 <tbody className={isDark ? "bg-[#0B0E11]" : "bg-white"}>
                   {tiers.map((tier, idx) => (
                     <tr key={idx} className={`border-t ${isDark ? "border-gray-700" : "border-gray-200"}`}>
-                      <td className="px-6 py-4">
-                        <span className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
+                      <td className={`px-6 py-4 text-left ${isDark ? "text-white" : "text-gray-900"}`}>
+                        <span className="font-semibold">
                           {tier.name}
                         </span>
                       </td>
-                      <td className={`px-6 py-4 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                      <td className={`px-6 py-4 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                         {tier.referrals}
                       </td>
-                      <td className="px-6 py-4">
+                      <td className={`px-6 py-4 text-left`}>
                         <span className="text-[#21f201] font-semibold">{tier.reward}</span>
                       </td>
-                      <td className={`px-6 py-4 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                      <td className={`px-6 py-4 text-left ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                         {tier.bonus}
                       </td>
                     </tr>

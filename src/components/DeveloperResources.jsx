@@ -10,7 +10,7 @@ const DeveloperResources = () => {
   const resources = [
     {
       title: "DFS Scan",
-      description: "Searching and Analyzing DFS SimuChain Data",
+      description: "Searching and Analyzing DFS Chain Data",
       icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/guwymkq7msbhbxfwmsly.png",
       useBrightness: false,
     },
@@ -62,7 +62,7 @@ const DeveloperResources = () => {
           Related <span className={isDark ? "text-white" : "text-gray-900"}>Tools</span>
         </h2>
         <p className={`text-lg mt-4 ${isDark ? "text-[#C4C5CB]" : "text-gray-600"}`}>
-          Let us introduce the related tools of DFS SimuChain.
+          Let us introduce the related tools of DFS Chain.
         </p>
       </div>
 

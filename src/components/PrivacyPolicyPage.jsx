@@ -12,7 +12,7 @@ const PrivacyPolicyPage = () => {
   const sections = [
     {
       title: '1. Introduction',
-      content: `Welcome to DFS SimuChain ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform, including our website, applications, and services (collectively, the "Services").
+      content: `Welcome to DFS Chain ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform, including our website, applications, and services (collectively, the "Services").
 
 By accessing or using our Services, you agree to the terms of this Privacy Policy. If you do not agree with our policies and practices, please do not use our Services.`
     },
@@ -49,7 +49,7 @@ By accessing or using our Services, you agree to the terms of this Privacy Polic
 
 • **Account Management:** To create and manage your account, authenticate your identity, and provide access to our Services.
 
-• **Service Delivery:** To process transactions, maintain your wallet, and facilitate token operations on the DFS SimuChain network.
+• **Service Delivery:** To process transactions, maintain your wallet, and facilitate token operations on the DFS Chain network.
 
 • **Communication:** To send you important updates, security alerts, and service-related notifications.
 
@@ -71,7 +71,7 @@ By accessing or using our Services, you agree to the terms of this Privacy Polic
 
 • **Business Transfers:** In connection with a merger, acquisition, or sale of assets, with appropriate notice to users.
 
-• **Public Blockchain Data:** Transaction data on DFS SimuChain is inherently transparent. Wallet addresses and transaction details are publicly visible on our block explorer.`
+• **Public Blockchain Data:** Transaction data on DFS Chain is inherently transparent. Wallet addresses and transaction details are publicly visible on our block explorer.`
     },
     {
       title: '5. Data Security',
@@ -94,7 +94,7 @@ However, no method of transmission over the Internet or electronic storage is 10
 • The need to resolve disputes or enforce agreements
 • Business and operational needs
 
-Transaction records on DFS SimuChain are maintained permanently as part of the blockchain's immutable record.`
+Transaction records on DFS Chain are maintained permanently as part of the blockchain's immutable record.`
     },
     {
       title: '7. Your Rights and Choices',

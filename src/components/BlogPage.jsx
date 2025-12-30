@@ -30,8 +30,8 @@ const BlogPage = () => {
   const blogPosts = [
     {
       id: 1,
-      title: 'Introducing DFS SimuChain: The Future of Web2-Web3 Integration',
-      excerpt: 'Learn how DFS SimuChain bridges the gap between traditional web applications and blockchain technology, making decentralized concepts accessible to everyone.',
+      title: 'Introducing DFS Chain: The Future of Web2-Web3 Integration',
+      excerpt: 'Learn how DFS Chain bridges the gap between traditional web applications and blockchain technology, making decentralized concepts accessible to everyone.',
       category: 'Announcements',
       author: 'DFS Team',
       date: 'Dec 20, 2025',
@@ -42,7 +42,7 @@ const BlogPage = () => {
     {
       id: 2,
       title: 'How to Create Your First DRC20 Token',
-      excerpt: 'A step-by-step guide to publishing your own token on DFS SimuChain using the Whitecreator platform. No coding experience required!',
+      excerpt: 'A step-by-step guide to publishing your own token on DFS Chain using the Whitecreator platform. No coding experience required!',
       category: 'Tutorials',
       author: 'Dev Team',
       date: 'Dec 18, 2025',
@@ -52,7 +52,7 @@ const BlogPage = () => {
     },
     {
       id: 3,
-      title: 'WEXSWAP DEX Now Live on DFS SimuChain',
+      title: 'WEXSWAP DEX Now Live on DFS Chain',
       excerpt: 'Our decentralized exchange is officially launched! Trade DRC20 tokens with instant swaps and competitive rates.',
       category: 'Updates',
       author: 'DFS Team',
@@ -63,7 +63,7 @@ const BlogPage = () => {
     },
     {
       id: 4,
-      title: 'Understanding Gas Fees on DFS SimuChain',
+      title: 'Understanding Gas Fees on DFS Chain',
       excerpt: 'A comprehensive guide to how gas works on our platform, why it matters, and tips for optimizing your transaction costs.',
       category: 'Technical',
       author: 'Tech Team',
@@ -74,7 +74,7 @@ const BlogPage = () => {
     },
     {
       id: 5,
-      title: 'Community Spotlight: Building on DFS SimuChain',
+      title: 'Community Spotlight: Building on DFS Chain',
       excerpt: 'Meet the developers and creators who are building innovative applications on our platform. Their stories and insights.',
       category: 'Community',
       author: 'Community Team',

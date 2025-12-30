@@ -48,7 +48,7 @@
       "cta2": "dAppsを探索"
     },
     "features": {
-      "title": "なぜDFS SimuChain？",
+      "title": "なぜDFS Chain？",
       "subtitle": "開発者とユーザーのために構築",
       "feature1": {
         "title": "簡単なオンボーディング",
@@ -71,19 +71,19 @@
         "highlight": "ブロックチェーン",
         "suffix": "アクティブユーザーが更新される"
       },
-      "description": "2026年1月現在、SimuChainはCeFi、AIエージェンシー、企業システム、デジタル認証、トランザクション集約型サービスをサポートするように設計されたブロックチェーンです。",
+      "description": "2026年1月現在、ChainはCeFi、AIエージェンシー、企業システム、デジタル認証、トランザクション集約型サービスをサポートするように設計されたブロックチェーンです。",
       "activeUsers": "アクティブユーザー",
       "activeDapps": "アクティブdApps",
       "generatedTokens": "生成されたトークン"
     },
     "features": {
       "title": {
-        "prefix": "DFS SimuChainが",
+        "prefix": "DFS Chainが",
         "highlight": "強力な理由"
       },
       "compatibility": {
         "title": "比類なき互換性",
-        "description": "複雑で使いにくいWeb3プラットフォームとは異なり、DFS SimuChainは既存のWeb2システムとシームレスに統合されます。"
+        "description": "複雑で使いにくいWeb3プラットフォームとは異なり、DFS Chainは既存のWeb2システムとシームレスに統合されます。"
       },
       "multilingual": {
         "title": "シームレスな多言語アクセス",
@@ -91,45 +91,45 @@
       },
       "apps": {
         "title": "無限のアプリ可能性",
-        "description": "すべてのWeb2コンテンツと互換性があり、DFS SimuChainは無限でスケーラブルな未来のアプリケーションを解放します。"
+        "description": "すべてのWeb2コンテンツと互換性があり、DFS Chainは無限でスケーラブルな未来のアプリケーションを解放します。"
       },
       "validatorFree": {
         "title": "バリデータフリーのシームレスなブロックチェーン",
-        "description": "DFS SimuChainはバリデータなしで動作し、速度、セキュリティ、スムーズなユーザー体験を優先します。"
+        "description": "DFS Chainはバリデータなしで動作し、速度、セキュリティ、スムーズなユーザー体験を優先します。"
       }
     },
     "buildOn": {
-      "title": "DFS SimuChainで構築",
+      "title": "DFS Chainで構築",
       "description": "独自のトークンを作成したい、またはパートナーシップ、助成金、技術サポートが必要ですか？今すぐお問い合わせください！",
       "cta": "構築を始める",
       "exploreApps": "他のアプリを探索"
     },
     "join": {
       "titleHighlight": "参加",
-      "title": "DFS SimuChainに今すぐ！",
-      "description": "コミュニティをDFS SimuChainに参加させるか、独自のトークンを作成してください。",
+      "title": "DFS Chainに今すぐ！",
+      "description": "コミュニティをDFS Chainに参加させるか、独自のトークンを作成してください。",
       "cta": "始める"
     },
     "faq": {
       "title": "よくある質問",
       "q1": {
-        "question": "DFS SimuChain (DSC)とは？",
-        "answer": "DFS SimuChainは、Web3ブロックチェーンとは異なり、Web2システムをベースにしたレイヤー0ブロックチェーンです。"
+        "question": "DFS Chain (DSC)とは？",
+        "answer": "DFS Chainは、Web3ブロックチェーンとは異なり、Web2システムをベースにしたレイヤー0ブロックチェーンです。"
       },
       "q2": {
-        "question": "DFS SimuChain (DSC)の主な特徴は？",
+        "question": "DFS Chain (DSC)の主な特徴は？",
         "answer": "システムはデータとトランザクションの安全性を確保し、すべてがスムーズに実行されるよう信頼性の高い監視を提供します。"
       },
       "q3": {
-        "question": "DFS SimuChain (DSC)にはバリデータがありますか？",
-        "answer": "バリデータベースのブロックチェーンとは異なり、DFS SimuChainはバリデータなしで動作します。"
+        "question": "DFS Chain (DSC)にはバリデータがありますか？",
+        "answer": "バリデータベースのブロックチェーンとは異なり、DFS Chainはバリデータなしで動作します。"
       },
       "q4": {
-        "question": "DFS SimuChain (DSC)の費用は？",
+        "question": "DFS Chain (DSC)の費用は？",
         "answer": "多くのチェーンの中で最低料金を提供しています。トランザクションあたり0.001ドル〜"
       },
       "q5": {
-        "question": "DFS SimuChain (DSC)の普及から何が期待できますか？",
+        "question": "DFS Chain (DSC)の普及から何が期待できますか？",
         "answer": "Web3システムに不満を持つ人や初めてのユーザーのゲートウェイとして、Web3チェーンの概念とロジックを提供します。"
       }
     }
@@ -137,14 +137,14 @@
   "footer": {
     "sections": {
       "chains": "チェーン",
-      "useDfs": "DFS SimuChainを使う",
+      "useDfs": "DFS Chainを使う",
       "build": "構築",
       "participate": "参加",
       "about": "概要",
       "legal": "法的情報"
     },
     "links": {
-      "dfsSimuChain": "DFS SimuChain",
+      "dfsChain": "DFS Chain",
       "makeWallet": "ウォレット作成",
       "getDfs": "DFSを取得",
       "stakeDfs": "DFSをステーク",
@@ -172,12 +172,12 @@
   },
   "dapps": {
     "title": "dAppsランキング",
-    "subtitle": "DFS SimuChainで最も人気のある分散型アプリケーションを発見",
+    "subtitle": "DFS Chainで最も人気のある分散型アプリケーションを発見",
     "searchPlaceholder": "dAppsを検索...",
     "hero": {
       "title": "トップdApps",
       "ecosystem": "エコシステム",
-      "subtitle": "DFS SimuChainエコシステムで構築されたトップdAppsを、ユーザー、TVL、TXNでソートして発見。"
+      "subtitle": "DFS Chainエコシステムで構築されたトップdAppsを、ユーザー、TVL、TXNでソートして発見。"
     },
     "submitDapp": "dAppを提出",
     "filters": {
@@ -206,9 +206,9 @@
   "exploreDapps": {
     "title": "dAppsを",
     "titleHighlight": "探索",
-    "subtitle": "DFS SimuChainで構築された分散型アプリケーションを発見",
+    "subtitle": "DFS Chainで構築された分散型アプリケーションを発見",
     "heroTitle": "厳選されたベストdApps！",
-    "heroSubtitle": "DFS SimuChainで構築された素晴らしいdAppsを発見",
+    "heroSubtitle": "DFS Chainで構築された素晴らしいdAppsを発見",
     "searchPlaceholder": "dAppsを検索...",
     "submitDapp": "dAppを提出",
     "joinCommunity": "コミュニティに参加",
@@ -224,7 +224,7 @@
     "visit": "訪問",
     "noDappsFound": "dAppsが見つかりません",
     "tryAdjusting": "検索条件やフィルターを調整してください",
-    "buildOn": "DFS SimuChainで構築",
+    "buildOn": "DFS Chainで構築",
     "buildOnDescription": "すべてのdAppsはWeb2トークンを使用しています。今日から分散型アプリケーションの構築を始めましょう。",
     "featured": "注目",
     "official": "公式",
@@ -252,7 +252,7 @@
     "hero": {
       "title": "DFSをステーク、",
       "titleHighlight": "報酬を獲得",
-      "subtitle": "DFSトークンを活用しましょう。ステークして最大25% APYを獲得し、DFS SimuChainネットワークの安全に貢献します。"
+      "subtitle": "DFSトークンを活用しましょう。ステークして最大25% APYを獲得し、DFS Chainネットワークの安全に貢献します。"
     },
     "stats": {
       "tvl": "ロックされた総価値",
@@ -353,7 +353,7 @@
         },
         "whatWallet": {
           "question": "どのウォレットが必要ですか？",
-          "answer": "DFS SimuChainネットワークに接続されたMetafaceウォレットが必要です。まだお持ちでない場合は、metaface.dfsscan.comで作成できます。"
+          "answer": "DFS Chainネットワークに接続されたMetafaceウォレットが必要です。まだお持ちでない場合は、metaface.dfsscan.comで作成できます。"
         },
         "receiveRewards": {
           "question": "報酬はいつ受け取れますか？",
@@ -364,7 +364,7 @@
     "cta": {
       "title": "始める準備は",
       "titleHighlight": "できていますか",
-      "subtitle": "DFS SimuChainでパッシブ収入を得ている何千人ものステーカーに参加しましょう。今日からステーキングの旅を始めましょう。",
+      "subtitle": "DFS Chainでパッシブ収入を得ている何千人ものステーカーに参加しましょう。今日からステーキングの旅を始めましょう。",
       "startStaking": "ステーキング開始",
       "launchApp": "アプリを起動",
       "readDocs": "ドキュメントを読む"
@@ -373,7 +373,7 @@
   "whitepaper": {
     "badge": "公式ドキュメント",
     "title": "ホワイトペーパー",
-    "subtitle": "DFS SimuChainを理解するための包括的なガイド — 分散化の概念を従来のウェブインフラに導入する革新的なWeb2によるWeb3ブロックチェーン技術のシミュレーション。",
+    "subtitle": "DFS Chainを理解するための包括的なガイド — 分散化の概念を従来のウェブインフラに導入する革新的なWeb2によるWeb3ブロックチェーン技術のシミュレーション。",
     "version": "バージョン 1.0",
     "downloadPdf": "PDFダウンロード",
     "readOnline": "オンラインで読む",
@@ -397,7 +397,7 @@
       "roadmap": "ロードマップ"
     },
     "cta": {
-      "title": "DFS SimuChainで構築する準備はできましたか？",
+      "title": "DFS Chainで構築する準備はできましたか？",
       "subtitle": "Web2-Web3統合の未来を創造する開発者とイノベーターの成長するエコシステムに参加しましょう。",
       "createWallet": "ウォレット作成",
       "exploreChain": "チェーンを探索"
@@ -405,7 +405,7 @@
   },
   "blog": {
     "title": "ブログ",
-    "subtitle": "DFS SimuChainからの最新ニュースとアップデート",
+    "subtitle": "DFS Chainからの最新ニュースとアップデート",
     "featured": "注目",
     "latest": "最新記事",
     "readTime": "分で読める",
@@ -413,10 +413,10 @@
     "relatedArticles": "関連記事",
     "shareArticle": "この記事をシェア",
     "hero": {
-      "badge": "DFS SimuChainブログ",
+      "badge": "DFS Chainブログ",
       "title": "ニュース &",
       "titleHighlight": "アップデート",
-      "subtitle": "DFS SimuChainエコシステムの最新の開発、チュートリアル、コミュニティストーリーをご覧ください。"
+      "subtitle": "DFS Chainエコシステムの最新の開発、チュートリアル、コミュニティストーリーをご覧ください。"
     },
     "readArticle": "記事を読む",
     "searchPlaceholder": "記事を検索...",
@@ -427,7 +427,7 @@
     "share": "シェア",
     "save": "保存",
     "writtenBy": "著者",
-    "officialTeam": "DFS SimuChain公式",
+    "officialTeam": "DFS Chain公式",
     "newsletter": {
       "title": "ニュースレターを購読",
       "subtitle": "最新のニュース、チュートリアル、アップデートを直接受信トレイにお届けします。",
@@ -445,7 +445,7 @@
   "faq": {
     "title": "よくある",
     "titleHighlight": "質問",
-    "subtitle": "DFS SimuChain、ウォレット、トークンなどに関するよくある質問の回答を見つけてください。",
+    "subtitle": "DFS Chain、ウォレット、トークンなどに関するよくある質問の回答を見つけてください。",
     "searchPlaceholder": "回答を検索...",
     "categories": {
       "all": "すべて",
@@ -462,15 +462,15 @@
     "contactSupport": "サポートに連絡",
     "items": {
       "whatIsDfs": {
-        "question": "DFS SimuChainとは何ですか？",
-        "answer": "DFS SimuChainは、Web3ブロックチェーン技術のWeb2シミュレーションです。ブロック、トランザクション、ウォレット、トークンなど、おなじみのブロックチェーン概念をすべて提供しながら、従来のウェブインフラで動作します。これにより、シードフレーズや秘密鍵の管理の複雑さなしに、誰でもアクセスできます。"
+        "question": "DFS Chainとは何ですか？",
+        "answer": "DFS Chainは、Web3ブロックチェーン技術のWeb2シミュレーションです。ブロック、トランザクション、ウォレット、トークンなど、おなじみのブロックチェーン概念をすべて提供しながら、従来のウェブインフラで動作します。これにより、シードフレーズや秘密鍵の管理の複雑さなしに、誰でもアクセスできます。"
       },
       "howToStart": {
-        "question": "DFS SimuChainを始めるには？",
+        "question": "DFS Chainを始めるには？",
         "answer": "始めるのは簡単です！metaface.dfsscan.comにアクセスし、メールアドレスでサインアップするだけです。ウォレットは自動的に作成され、一意のウォレットアドレス（dfs_0xで始まる）が割り当てられます。そこからエコシステムを探索し、DFSトークンを取得し、様々なdAppと対話できます。"
       },
       "isFree": {
-        "question": "DFS SimuChainは無料で使用できますか？",
+        "question": "DFS Chainは無料で使用できますか？",
         "answer": "アカウントとウォレットの作成は完全に無料です。ただし、ネットワーク上のトランザクションにはDRC20_DFSトークンで支払うガス料金が必要です。これらの料金は最小限であり、ネットワークの持続可能性を維持するのに役立ちます。"
       },
       "createWallet": {
@@ -479,7 +479,7 @@
       },
       "walletAddress": {
         "question": "ウォレットアドレスはどのように見えますか？",
-        "answer": "DFS SimuChainのウォレットアドレスは「dfs_0x」で始まり、その後に一意の英数字文字列が続きます。例：dfs_0x1a2b3c4d5e6f7890... この形式により、DFS SimuChainアドレスを簡単に識別できます。"
+        "answer": "DFS Chainのウォレットアドレスは「dfs_0x」で始まり、その後に一意の英数字文字列が続きます。例：dfs_0x1a2b3c4d5e6f7890... この形式により、DFS Chainアドレスを簡単に識別できます。"
       },
       "multipleWallets": {
         "question": "複数のウォレットを持つことはできますか？",
@@ -491,7 +491,7 @@
       },
       "whatIsDrc20": {
         "question": "DRC20とは何ですか？",
-        "answer": "DRC20は、EthereumのERC20に似たDFS SimuChainのトークン標準です。ネットワーク上でトークンがどのように作成、転送、管理されるかを定義します。DRC20トークンアドレスは「drc20_0x」で始まります。"
+        "answer": "DRC20は、EthereumのERC20に似たDFS Chainのトークン標準です。ネットワーク上でトークンがどのように作成、転送、管理されるかを定義します。DRC20トークンアドレスは「drc20_0x」で始まります。"
       },
       "createToken": {
         "question": "独自のトークンを作成するには？",
@@ -499,7 +499,7 @@
       },
       "whatIsDfsCoin": {
         "question": "DRC20_DFSとは何ですか？",
-        "answer": "DRC20_DFSは、DFS SimuChainのネイティブトークンです。ネットワーク上のすべてのトランザクションのガス料金を支払うために使用されます。EthereumのETHのようなものと考えてください - チェーン上で任意の操作を実行するために必要です。"
+        "answer": "DRC20_DFSは、DFS Chainのネイティブトークンです。ネットワーク上のすべてのトランザクションのガス料金を支払うために使用されます。EthereumのETHのようなものと考えてください - チェーン上で任意の操作を実行するために必要です。"
       },
       "getDfsTokens": {
         "question": "DFSトークンを取得するには？",
@@ -523,19 +523,19 @@
       },
       "blockGeneration": {
         "question": "ブロックはどのくらいの頻度で生成されますか？",
-        "answer": "DFS SimuChainでは、5分ごとに新しいブロックが生成されます。各ブロックには数千のトランザクションを含めることができ、整然とした処理を維持しながら高いスループットを確保します。"
+        "answer": "DFS Chainでは、5分ごとに新しいブロックが生成されます。各ブロックには数千のトランザクションを含めることができ、整然とした処理を維持しながら高いスループットを確保します。"
       },
       "isDecentralized": {
-        "question": "DFS SimuChainは分散化されていますか？",
-        "answer": "DFS SimuChainはブロックチェーン技術のWeb2シミュレーションであり、ブロックチェーンのような機能を提供しながら中央集権的なインフラで動作します。このアプローチにより、透明性とトークン化の利点を提供しながら、オンボーディングとメンテナンスが容易になります。"
+        "question": "DFS Chainは分散化されていますか？",
+        "answer": "DFS Chainはブロックチェーン技術のWeb2シミュレーションであり、ブロックチェーンのような機能を提供しながら中央集権的なインフラで動作します。このアプローチにより、透明性とトークン化の利点を提供しながら、オンボーディングとメンテナンスが容易になります。"
       },
       "buildApps": {
-        "question": "DFS SimuChain上でアプリケーションを構築できますか？",
-        "answer": "はい！DFS SimuChainには成長するdAppエコシステムがあります。APIと統合して、ウォレット、取引所、ソーシャルプラットフォームなどを構築できます。ドキュメントを確認するか、DFS SimuChainでの構築について詳しく知るためにお問い合わせください。"
+        "question": "DFS Chain上でアプリケーションを構築できますか？",
+        "answer": "はい！DFS Chainには成長するdAppエコシステムがあります。APIと統合して、ウォレット、取引所、ソーシャルプラットフォームなどを構築できます。ドキュメントを確認するか、DFS Chainでの構築について詳しく知るためにお問い合わせください。"
       },
       "dataHandling": {
         "question": "私のデータはどうなりますか？",
-        "answer": "トランザクションデータはDFS SimuChainに永続的に保存され、ブロックエクスプローラーで公開されます。個人情報（メールなど）はプライベートで安全に保たれます。データ処理の詳細については、プライバシーポリシーを参照してください。"
+        "answer": "トランザクションデータはDFS Chainに永続的に保存され、ブロックエクスプローラーで公開されます。個人情報（メールなど）はプライベートで安全に保たれます。データ処理の詳細については、プライバシーポリシーを参照してください。"
       }
     }
   },
@@ -543,12 +543,12 @@
     "badge": "私たちについて",
     "title": "架け橋を構築",
     "titleHighlight": "Web2とWeb3の間に",
-    "subtitle": "DFS SimuChainはブロックチェーン技術をすべての人にアクセス可能にするというミッションを持っています。",
+    "subtitle": "DFS Chainはブロックチェーン技術をすべての人にアクセス可能にするというミッションを持っています。",
     "ourStory": {
       "title": "私たちのストーリー",
-      "p1": "DFS SimuChainは単純な観察から生まれました：ブロックチェーン技術は革命的な可能性を持っているにもかかわらず、大多数のインターネットユーザーにはアクセスできないままでした。複雑なウォレット設定、紛らわしいシードフレーズ、技術的な専門用語が、多くの人々がWeb3の恩恵を受けることを妨げる障壁を作っていました。",
-      "p2": "私たちは自問しました：「透明性、トークン化、不変のレコードなど、ブロックチェーンのすべての利点を、複雑さなしに提供できたらどうだろう？」この質問がDFS SimuChainの誕生につながりました。これは、馴染みのある使いやすい技術を使用してブロックチェーンの概念を実現するWeb2シミュレーションです。",
-      "p3": "今日、DFS SimuChainはウォレットやエクスプローラーからソーシャルプラットフォームやDEXまで、成長するアプリケーションエコシステムを支えています。初めてブロックチェーンのような機能を体験している何千人ものユーザーにサービスを提供できることを誇りに思っています。"
+      "p1": "DFS Chainは単純な観察から生まれました：ブロックチェーン技術は革命的な可能性を持っているにもかかわらず、大多数のインターネットユーザーにはアクセスできないままでした。複雑なウォレット設定、紛らわしいシードフレーズ、技術的な専門用語が、多くの人々がWeb3の恩恵を受けることを妨げる障壁を作っていました。",
+      "p2": "私たちは自問しました：「透明性、トークン化、不変のレコードなど、ブロックチェーンのすべての利点を、複雑さなしに提供できたらどうだろう？」この質問がDFS Chainの誕生につながりました。これは、馴染みのある使いやすい技術を使用してブロックチェーンの概念を実現するWeb2シミュレーションです。",
+      "p3": "今日、DFS ChainはウォレットやエクスプローラーからソーシャルプラットフォームやDEXまで、成長するアプリケーションエコシステムを支えています。初めてブロックチェーンのような機能を体験している何千人ものユーザーにサービスを提供できることを誇りに思っています。"
     },
     "stats": {
       "activeUsers": "アクティブユーザー",
@@ -561,7 +561,7 @@
       "subtitle": "私たちが目指すところ",
       "quote": "ブロックチェーン技術がメールと同じくらい簡単に使える世界を作り、誰もがトークンエコノミーに参加でき、分散化の恩恵がすべての人にアクセス可能な世界を実現すること。",
       "futureTitle": "未来へのビジョン",
-      "p1": "私たちは、DFS SimuChainが何百万人ものユーザーがブロックチェーン技術を体験するためのゲートウェイとなる未来を思い描いています。クリエイターが自分の作品をトークン化し、企業がシームレスに暗号通貨支払いを受け入れ、コミュニティが透明に自己統治できる未来です。",
+      "p1": "私たちは、DFS Chainが何百万人ものユーザーがブロックチェーン技術を体験するためのゲートウェイとなる未来を思い描いています。クリエイターが自分の作品をトークン化し、企業がシームレスに暗号通貨支払いを受け入れ、コミュニティが透明に自己統治できる未来です。",
       "p2": "私たちのロードマップには、ステーキング、ガバナンス、クロスチェーンブリッジ、エンタープライズソリューションなどの高度な機能が含まれています。しかし、私たちの核心的なミッションは変わりません：ブロックチェーンをすべての人にアクセス可能にすること。"
     },
     "values": {
@@ -588,7 +588,7 @@
       "title": "私たちの旅"
     },
     "milestones": {
-      "founded": { "title": "プロジェクト設立", "description": "DFS SimuChainのコンセプト開発" },
+      "founded": { "title": "プロジェクト設立", "description": "DFS Chainのコンセプト開発" },
       "coreDev": { "title": "コア開発", "description": "ブロックシステムとウォレットインフラの構築" },
       "launch": { "title": "エコシステム立ち上げ", "description": "Metaface、DFSScan、Whitecreatorをローンチ" },
       "dapps": { "title": "dAppsエコシステム", "description": "複数のコミュニティdAppsをローンチ" },
@@ -596,7 +596,7 @@
     },
     "team": {
       "title": "私たちのチーム",
-      "subtitle": "DFS SimuChainの背後にいる情熱的な人々",
+      "subtitle": "DFS Chainの背後にいる情熱的な人々",
       "roles": {
         "ceo": "創業者 & CEO",
         "cto": "CTO",
@@ -606,7 +606,7 @@
     },
     "cta": {
       "title": "この旅に参加してください",
-      "subtitle": "DFS SimuChainコミュニティの一員となり、アクセス可能なブロックチェーン技術の未来を一緒に構築しましょう。",
+      "subtitle": "DFS Chainコミュニティの一員となり、アクセス可能なブロックチェーン技術の未来を一緒に構築しましょう。",
       "button1": "始める",
       "button2": "チームに参加"
     }
@@ -689,7 +689,7 @@
     "subtitle": "ブロックチェーン技術をすべての人にアクセス可能にする情熱的なチームに参加してください。",
     "viewPositions": "募集中のポジションを見る",
     "whyJoin": {
-      "title": "なぜDFS SimuChainに参加するのか？",
+      "title": "なぜDFS Chainに参加するのか？",
       "subtitle": "単なる仕事以上のもの - 技術の未来を形作るチャンスを提供します。",
       "remoteFirst": {
         "title": "リモートファースト",
@@ -738,7 +738,7 @@
   "partners": {
     "badge": "パートナーシッププログラム",
     "title": "パートナーになる",
-    "titleHighlight": "DFS SimuChainの",
+    "titleHighlight": "DFS Chainの",
     "subtitle": "イノベーターのエコシステムに参加し、アクセス可能なブロックチェーン技術の未来を一緒に構築しましょう。",
     "becomePartner": "パートナーになる",
     "learnMore": "詳しく見る",
@@ -776,7 +776,7 @@
     },
     "benefitsSection": {
       "title": "パートナーシップの特典",
-      "subtitle": "DFS SimuChainとパートナーになると得られるもの"
+      "subtitle": "DFS Chainとパートナーになると得られるもの"
     },
     "benefits": {
       "globalReach": { "title": "グローバルリーチ", "description": "50以上の国で成長するユーザーベースにアクセス" },
@@ -835,7 +835,7 @@
       "badge": "ニュースレター",
       "title": "最新情報を",
       "titleHighlight": "キャッチ",
-      "subtitle": "DFS SimuChainからの最新ニュース、アップデート、インサイトを受信トレイに直接お届けします。"
+      "subtitle": "DFS Chainからの最新ニュース、アップデート、インサイトを受信トレイに直接お届けします。"
     },
     "emailPlaceholder": "メールアドレスを入力",
     "privacyNote": "プライバシーを尊重します。いつでも登録解除できます。",
@@ -845,7 +845,7 @@
     },
     "features": {
       "productUpdates": { "title": "製品アップデート", "description": "新機能、改善、プラットフォームの更新を最初にお知らせします。" },
-      "tipsTutorials": { "title": "ヒントとチュートリアル", "description": "役立つガイドとチュートリアルでDFS SimuChainを最大限に活用する方法を学びましょう。" },
+      "tipsTutorials": { "title": "ヒントとチュートリアル", "description": "役立つガイドとチュートリアルでDFS Chainを最大限に活用する方法を学びましょう。" },
       "eventAnnouncements": { "title": "イベント告知", "description": "独占イベント、AMA、コミュニティミートアップへの招待を受け取りましょう。" },
       "exclusiveOffers": { "title": "限定オファー", "description": "特別プロモーション、エアドロップ、早期アクセスの機会を得ましょう。" }
     },
@@ -867,7 +867,7 @@
         "excerpt": "新しい決済システムが間もなく登場します。DFSトークンでの支払い方法をご紹介..."
       },
       "yearReview": {
-        "title": "DFS SimuChain年間レビュー",
+        "title": "DFS Chain年間レビュー",
         "excerpt": "成長、新機能、コミュニティの成果に満ちた素晴らしい一年を振り返ります..."
       },
       "dappsUpdate": {
@@ -886,7 +886,7 @@
     },
     "success": {
       "title": "登録完了！",
-      "welcome": "DFS SimuChainニュースレターへようこそ！確認メールを送信しました：",
+      "welcome": "DFS Chainニュースレターへようこそ！確認メールを送信しました：",
       "checkInbox": "受信トレイ（とスパムフォルダ）を確認して登録を確認してください。",
       "subscribeAnother": "別のメールを登録"
     },
@@ -937,7 +937,7 @@
     "submit": "フィードバックを送信",
     "success": {
       "title": "ありがとうございます！",
-      "message": "フィードバックが正常に送信されました。DFS SimuChainの改善にご協力いただきありがとうございます。",
+      "message": "フィードバックが正常に送信されました。DFS Chainの改善にご協力いただきありがとうございます。",
       "submitAnother": "別のフィードバックを送信"
     },
     "faq": {
@@ -951,7 +951,7 @@
     "badge": "近日公開",
     "title": "友達を紹介。",
     "titleHighlight": "報酬を獲得。",
-    "subtitle": "DFS SimuChainを友達と共有し、紹介が成功するたびにDFSトークンを獲得しましょう。シェアすればするほど、稼げます。",
+    "subtitle": "DFS Chainを友達と共有し、紹介が成功するたびにDFSトークンを獲得しましょう。シェアすればするほど、稼げます。",
     "getEarlyAccess": "早期アクセスを取得",
     "emailPlaceholder": "メールを入力",
     "benefits": {
@@ -1002,7 +1002,7 @@
   },
   "events": {
     "badge": "近日公開",
-    "title": "DFS SimuChain",
+    "title": "DFS Chain",
     "titleHighlight": "イベント",
     "subtitle": "コミュニティイベント、AMA、ワークショップなどに参加しましょう。つながり続け、最高から学びましょう。",
     "notifyMe": "通知を受け取る",
@@ -1010,7 +1010,7 @@
     "upcoming": {
       "title": "今後の機能",
       "amas": { "title": "ライブAMA", "description": "チームとの直接Q&Aセッション" },
-      "workshops": { "title": "ワークショップ", "description": "DFS SimuChainでの構築を学ぶ" },
+      "workshops": { "title": "ワークショップ", "description": "DFS Chainでの構築を学ぶ" },
       "meetups": { "title": "コミュニティミートアップ", "description": "他のコミュニティメンバーとつながる" },
       "hackathons": { "title": "ハッカソン", "description": "構築して賞を獲得" }
     },
@@ -1020,9 +1020,9 @@
   },
   "governance": {
     "badge": "近日公開",
-    "title": "DFS SimuChain",
+    "title": "DFS Chain",
     "titleHighlight": "ガバナンス",
-    "subtitle": "あなたの声を届けましょう。分散型ガバナンスを通じてDFS SimuChainの未来を形作ることに参加してください。",
+    "subtitle": "あなたの声を届けましょう。分散型ガバナンスを通じてDFS Chainの未来を形作ることに参加してください。",
     "notifyMe": "通知を受け取る",
     "emailPlaceholder": "メールを入力",
     "howItWorks": {
@@ -1042,7 +1042,7 @@
   "payviner": {
     "hero": {
       "tagline": "暗号通貨決済をシンプルに",
-      "subtitle": "DFS SimuChainのPayPal。数行のコードでアプリケーションにDFSトークン決済を導入できます。高速、安全、開発者フレンドリー。"
+      "subtitle": "DFS ChainのPayPal。数行のコードでアプリケーションにDFSトークン決済を導入できます。高速、安全、開発者フレンドリー。"
     },
     "waitlist": {
       "title": "ウェイトリストに参加",
@@ -1068,7 +1068,7 @@
     },
     "whyChoose": {
       "title": "なぜPayvinerを選ぶのか？",
-      "subtitle": "現代のウェブのために構築、DFS SimuChainで動作"
+      "subtitle": "現代のウェブのために構築、DFS Chainで動作"
     },
     "useCasesSection": {
       "title": "ユースケース",
@@ -1085,7 +1085,7 @@
     },
     "features": {
       "instantPayments": { "title": "即時決済", "description": "DFSトークンで数秒で決済処理。銀行振込を待つ必要はありません。" },
-      "secureTransactions": { "title": "安全な取引", "description": "DFS SimuChainに記録された暗号化された取引によるエンタープライズグレードのセキュリティ。" },
+      "secureTransactions": { "title": "安全な取引", "description": "DFS Chainに記録された暗号化された取引によるエンタープライズグレードのセキュリティ。" },
       "easyIntegration": { "title": "簡単な統合", "description": "開発者向けのシンプルなAPIとSDK。数日ではなく数分で統合。" },
       "globalReach": { "title": "グローバルリーチ", "description": "通貨換算手数料なしで世界中から決済を受け付け。" },
       "lowFees": { "title": "低手数料", "description": "従来の決済処理と比較して最小限の取引手数料。" },
@@ -1122,7 +1122,7 @@
     "titleHighlight": "ポリシー",
     "lastUpdated": "最終更新日",
     "noteLabel": "注意",
-    "note": "DFS SimuChainを使用することで、このポリシーに記載されているクッキーの使用に同意したことになります。ブラウザの設定からいつでも設定を管理できます。",
+    "note": "DFS Chainを使用することで、このポリシーに記載されているクッキーの使用に同意したことになります。ブラウザの設定からいつでも設定を管理できます。",
     "sections": {
       "whatAreCookies": {
         "title": "1. クッキーとは？",
@@ -1130,11 +1130,11 @@
       },
       "howWeUse": {
         "title": "2. クッキーの使用方法",
-        "content": "DFS SimuChainは、以下の目的でクッキーおよび類似の技術を使用しています：\n\n**必須クッキー**\nこれらのクッキーはウェブサイトが正常に機能するために必要です。\n\n**パフォーマンスクッキー**\nこれらのクッキーは、訪問者がウェブサイトとどのようにやり取りするかを理解するのに役立ちます。\n\n**機能性クッキー**\nこれらのクッキーにより、ウェブサイトはあなたの選択を記憶することができます。\n\n**分析クッキー**\n当社のサービスをどのように使用しているかを理解するために分析クッキーを使用しています。"
+        "content": "DFS Chainは、以下の目的でクッキーおよび類似の技術を使用しています：\n\n**必須クッキー**\nこれらのクッキーはウェブサイトが正常に機能するために必要です。\n\n**パフォーマンスクッキー**\nこれらのクッキーは、訪問者がウェブサイトとどのようにやり取りするかを理解するのに役立ちます。\n\n**機能性クッキー**\nこれらのクッキーにより、ウェブサイトはあなたの選択を記憶することができます。\n\n**分析クッキー**\n当社のサービスをどのように使用しているかを理解するために分析クッキーを使用しています。"
       },
       "typesOfCookies": {
         "title": "3. 使用するクッキーの種類",
-        "content": "**セッションクッキー**\nブラウザを閉じると期限切れになる一時的なクッキー。\n\n**永続クッキー**\n設定された期間、デバイスに残るクッキー。\n\n**ファーストパーティクッキー**\nDFS SimuChainが直接設定するクッキー。\n\n**サードパーティクッキー**\n当社が使用するサードパーティサービスによって設定されるクッキー。"
+        "content": "**セッションクッキー**\nブラウザを閉じると期限切れになる一時的なクッキー。\n\n**永続クッキー**\n設定された期間、デバイスに残るクッキー。\n\n**ファーストパーティクッキー**\nDFS Chainが直接設定するクッキー。\n\n**サードパーティクッキー**\n当社が使用するサードパーティサービスによって設定されるクッキー。"
       },
       "specificCookies": {
         "title": "4. 使用する特定のクッキー",
@@ -1162,7 +1162,7 @@
     "badge": "つながろう",
     "title": "私たちの",
     "titleHighlight": "コミュニティに参加",
-    "subtitle": "すべてのプラットフォームでDFS SimuChainとつながり続けましょう。アップデートを受け取り、議論に参加し、成長するエコシステムの一部になりましょう。",
+    "subtitle": "すべてのプラットフォームでDFS Chainとつながり続けましょう。アップデートを受け取り、議論に参加し、成長するエコシステムの一部になりましょう。",
     "followers": "フォロワー",
     "follow": "フォロー",
     "socials": {
@@ -1193,7 +1193,7 @@
     },
     "stats": {
       "title": "成長するコミュニティ",
-      "subtitle": "DFS SimuChainで構築している何千人ものユーザーと開発者に参加",
+      "subtitle": "DFS Chainで構築している何千人ものユーザーと開発者に参加",
       "totalCommunity": "総コミュニティ",
       "activeDevelopers": "アクティブ開発者",
       "dappsBuilt": "構築されたdApps",
@@ -1232,7 +1232,7 @@
       "viewPositions": "募集職種を見る"
     },
     "whyJoin": {
-      "title": "DFS SimuChainに参加する理由",
+      "title": "DFS Chainに参加する理由",
       "subtitle": "単なる仕事以上のもの - テクノロジーの未来を形作るチャンスを提供します。"
     },
     "benefits": {

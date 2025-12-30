@@ -104,7 +104,7 @@ const DappsPage = () => {
       name: "MetaFace",
       icon: "👤",
       category: "Social",
-      chains: ["DFS SimuChain"],
+      chains: ["DFS Chain"],
       users: 450000,
       usersChange: 15.23,
       transactions: 1200000,
@@ -118,7 +118,7 @@ const DappsPage = () => {
       name: "DFS Wallet",
       icon: "💳",
       category: "Wallets",
-      chains: ["DFS SimuChain"],
+      chains: ["DFS Chain"],
       users: 380000,
       usersChange: 8.92,
       transactions: 950000,
@@ -132,7 +132,7 @@ const DappsPage = () => {
       name: "DFS Staking",
       icon: "💰",
       category: "DeFi",
-      chains: ["DFS SimuChain"],
+      chains: ["DFS Chain"],
       users: 320000,
       usersChange: 22.15,
       transactions: 650000,
@@ -143,7 +143,7 @@ const DappsPage = () => {
     },
   ];
 
-  const chains = ["All Chains", "BSC", "opBNB", "DFS SimuChain"];
+  const chains = ["All Chains", "BSC", "opBNB", "DFS Chain"];
   const categories = ["All Categories", "Games", "DeFi", "AI", "Social", "Wallets"];
 
   // Generate dynamic chart data based on time filter
@@ -268,7 +268,7 @@ const DappsPage = () => {
             <div className="flex-1 text-start">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 {t('dapps.hero.title')}{" "}
-                <span className="text-[#21f201]">DFS SimuChain</span> {t('dapps.hero.ecosystem')}
+                <span className="text-[#21f201]">DFS Chain</span> {t('dapps.hero.ecosystem')}
               </h1>
               <p className={`text-xl mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
                 {t('dapps.hero.subtitle')}
@@ -282,12 +282,12 @@ const DappsPage = () => {
               </button>
             </div>
             
-            {/* DFS SimuChain Metrics Chart */}
+            {/* DFS Chain Metrics Chart */}
             <div className={`rounded-xl p-6 w-full lg:w-[420px] transition-colors duration-300 ${
               isDark ? "bg-[#181A1E]" : "bg-white border border-gray-200 shadow-sm"
             }`}>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold">DFS SimuChain</h3>
+                <h3 className="text-lg font-semibold">DFS Chain</h3>
                 <FiChevronDown className="text-gray-400" />
               </div>
               <div className="text-2xl font-bold mb-4">

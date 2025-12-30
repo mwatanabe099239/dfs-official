@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { FiSearch, FiPlus, FiMail } from "react-icons/fi";
+import { FiSearch, FiPlus, FiMail, FiSettings, FiCreditCard, FiDollarSign, FiUsers, FiRefreshCw, FiTool } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { Link } from "react-router-dom";
@@ -11,16 +11,16 @@ const ExploreDapps = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
 
-  // Categories with emojis - ToolHub style
+  // Categories with outline icons
   const categories = [
-    { name: "All", nameKey: "exploreDapps.categories.all", emoji: "⚙️" },
-    { name: "Wallet", nameKey: "exploreDapps.categories.wallet", emoji: "👛" },
-    { name: "Explorer", nameKey: "exploreDapps.categories.explorer", emoji: "🔍" },
-    { name: "Token Tools", nameKey: "exploreDapps.categories.tokenTools", emoji: "🪙" },
-    { name: "Social", nameKey: "exploreDapps.categories.social", emoji: "👥" },
-    { name: "DeFi", nameKey: "exploreDapps.categories.defi", emoji: "💰" },
-    { name: "Exchange", nameKey: "exploreDapps.categories.exchange", emoji: "🔄" },
-    { name: "Utility", nameKey: "exploreDapps.categories.utility", emoji: "🛠️" },
+    { name: "All", nameKey: "exploreDapps.categories.all", icon: FiSettings },
+    { name: "Wallet", nameKey: "exploreDapps.categories.wallet", icon: FiCreditCard },
+    { name: "Explorer", nameKey: "exploreDapps.categories.explorer", icon: FiSearch },
+    { name: "Token Tools", nameKey: "exploreDapps.categories.tokenTools", icon: FiDollarSign },
+    { name: "Social", nameKey: "exploreDapps.categories.social", icon: FiUsers },
+    { name: "DeFi", nameKey: "exploreDapps.categories.defi", icon: FiDollarSign },
+    { name: "Exchange", nameKey: "exploreDapps.categories.exchange", icon: FiRefreshCw },
+    { name: "Utility", nameKey: "exploreDapps.categories.utility", icon: FiTool },
   ];
 
   // dApps data
@@ -154,8 +154,8 @@ const ExploreDapps = () => {
   const getTagStyle = (tag) => {
     switch(tag) {
       case "Featured": return "bg-[#21f201] text-black";
-      case "New": return "bg-emerald-500 text-white";
-      case "Popular": return "bg-orange-500 text-white";
+      case "New": return "bg-gray-400 text-white";
+      case "Popular": return "bg-gray-500 text-white";
       default: return "";
     }
   };
@@ -174,11 +174,11 @@ const ExploreDapps = () => {
                   onClick={() => setSelectedCategory(category.name)}
                   className={`w-full flex items-center gap-3 px-5 py-2.5 text-left transition-all ${
                     isActive
-                      ? "text-[#f5a623] bg-gray-100"
+                      ? "text-gray-900 bg-gray-100"
                       : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                   }`}
                 >
-                  <span className="text-lg">{category.emoji}</span>
+                  <category.icon className={`w-5 h-5 ${isActive ? "text-gray-900" : "text-gray-600"}`} />
                   <span className="text-sm font-medium">{t(category.nameKey)}</span>
                 </button>
               );
@@ -191,7 +191,9 @@ const ExploreDapps = () => {
           <div className="px-4 sm:px-6 md:px-12 lg:px-16 pb-12 pt-6 max-w-[2048px] mx-auto w-full">
             {/* Hero Section - ToolHub Style */}
             <section className="py-6 sm:py-8 md:py-12">
-              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">⚙️</div>
+              <div className="mb-3 sm:mb-4">
+                <FiSettings className={`w-12 h-12 sm:w-16 sm:h-16 ${isDark ? "text-gray-400" : "text-gray-600"}`} />
+              </div>
               <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                 {t('exploreDapps.heroTitle')}
               </h1>
@@ -248,11 +250,11 @@ const ExploreDapps = () => {
                     onClick={() => setSelectedCategory(category.name)}
                     className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                       isActive
-                        ? "bg-[#f5a623] text-black"
+                        ? "bg-gray-200 text-gray-900"
                         : "bg-white text-gray-600"
                     }`}
                   >
-                    <span>{category.emoji}</span>
+                    <category.icon className={`w-4 h-4 ${isActive ? "text-gray-900" : "text-gray-600"}`} />
                     <span>{t(category.nameKey)}</span>
                   </button>
                 );
@@ -421,7 +423,9 @@ const ExploreDapps = () => {
               {/* Empty State */}
               {filteredDapps.length === 0 && (
                 <div className={`text-center py-16 rounded-2xl ${isDark ? "bg-[#181818]" : "bg-white"}`}>
-                  <div className="text-5xl mb-4">🔍</div>
+                  <div className="flex justify-center mb-4">
+                    <FiSearch className={`w-16 h-16 ${isDark ? "text-gray-400" : "text-gray-600"}`} />
+                  </div>
                   <h3 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                     {t('exploreDapps.noDappsFound')}
                   </h3>

@@ -45,12 +45,12 @@ const Migrate = () => {
           <h2 className={`text-[2.5rem] sm:text-[3rem] font-space leading-[3.5rem] font-bold mb-4 ${
             isDark ? "text-white" : "text-gray-900"
           }`}>
-            Migration from Web3 to DFS SimuChain
+            Migration from Web3 to DFS Chain
           </h2>
           <p className={`text-[1.125rem] sm:text-[1.25rem] font-space leading-[1.75rem] mb-8 ${
             isDark ? "text-[#C4C5CB]" : "text-gray-600"
           }`}>
-            DFS SimuChain aims to provide support and assistance to projects
+            DFS Chain aims to provide support and assistance to projects
             seeking to migrate from Web3 blockchains.
           </p>
           <div className="flex justify-center">

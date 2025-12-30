@@ -7,7 +7,7 @@ const BuildOnBnb = () => {
   const { t } = useLanguage();
 
   return (
-    <div className={`px-4 md:pb-3 pb-3 sm:px-8 md:px-16 lg:px-24 pt-16 sm:pt-24 md:pt-44 transition-colors duration-300 ${
+    <div className={`px-4 pb-8 sm:pb-12 md:pb-16 sm:px-8 md:px-16 lg:px-24 pt-16 sm:pt-24 md:pt-44 transition-colors duration-300 ${
       isDark ? "bg-landing-color text-white" : "bg-white text-gray-900"
     }`}>
       <div

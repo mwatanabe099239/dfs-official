@@ -28,9 +28,10 @@ const Second = () => {
 
       {/* Stat Section */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-12">
-        {/* Stat 1 */}
-        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid h-full ${
-          isDark ? "border-[#373943]" : "border-gray-200"
+        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 rounded-xl border-l pl-8 md:border-r md:max-lg:border-b border-solid h-full ${
+          isDark 
+            ? "bg-landing-color border-[#A0AEC0]" 
+            : "bg-gray-50 border-gray-400"
         }`}>
           <a
             data-theme={isDark ? "dark" : "light"}
@@ -67,9 +68,10 @@ const Second = () => {
           </div>
         </div>
 
-        {/* Stat 2 */}
-        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid h-full ${
-          isDark ? "border-[#373943]" : "border-gray-200"
+        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 rounded-xl border-l pl-8 md:border-r md:max-lg:border-b border-solid h-full ${
+          isDark 
+            ? "bg-landing-color border-[#A0AEC0]" 
+            : "bg-gray-50 border-gray-400"
         }`}>
           <a
             data-theme={isDark ? "dark" : "light"}
@@ -126,9 +128,10 @@ const Second = () => {
           </div>
         </div>
 
-        {/* Stat 3 */}
-        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 shadow-xl w-full sm:w-1/3 md:max-lg:border-b border-solid h-full ${
-          isDark ? "border-[#373943]" : "border-gray-200"
+        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 rounded-xl border-l pl-8 md:max-lg:border-b border-solid h-full ${
+          isDark 
+            ? "bg-landing-color border-[#A0AEC0]" 
+            : "bg-gray-50 border-gray-400"
         }`}>
           <a
             data-theme={isDark ? "dark" : "light"}
