@@ -29,7 +29,7 @@ const Second = () => {
       {/* Stat Section */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-12">
         {/* Stat 1 */}
-        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row justify-between items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
+        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid h-full ${
           isDark ? "border-[#373943]" : "border-gray-200"
         }`}>
           <a
@@ -37,7 +37,7 @@ const Second = () => {
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] flex-shrink-0 ${
+            className={`flex md:mx-auto md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] flex-shrink-0 mb-0 md:mb-4 ${
               isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
             }`}
           >
@@ -53,8 +53,8 @@ const Second = () => {
               ></path>
             </svg>
           </a>
-          <div className="flex justify-center mb-4 flex-col items-end text-right">
-            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
+          <div className="flex flex-col items-end md:items-center text-right md:text-center">
+            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-2 md:mb-4 ${
               isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
             }`}>
               100K<span className="text-[#21f201]">+</span>
@@ -68,7 +68,7 @@ const Second = () => {
         </div>
 
         {/* Stat 2 */}
-        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row justify-between items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid ${
+        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 shadow-xl w-full sm:w-1/3 md:border-r md:max-lg:border-b border-solid h-full ${
           isDark ? "border-[#373943]" : "border-gray-200"
         }`}>
           <a
@@ -76,7 +76,7 @@ const Second = () => {
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] flex-shrink-0 ${
+            className={`flex md:mx-auto md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] flex-shrink-0 mb-0 md:mb-4 ${
               isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
             }`}
           >
@@ -112,8 +112,8 @@ const Second = () => {
               ></path>
             </svg>
           </a>
-          <div className="flex justify-center mb-4 flex-col items-end text-right">
-            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
+          <div className="flex flex-col items-end md:items-center text-right md:text-center">
+            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-2 md:mb-4 ${
               isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
             }`}>
               100<span className="text-[#21f201]">+</span>
@@ -127,7 +127,7 @@ const Second = () => {
         </div>
 
         {/* Stat 3 */}
-        <div className={`flex md:flex-col gap-4 md:gap-0 flex-row justify-between items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 shadow-xl w-full sm:w-1/3 md:max-lg:border-b border-solid ${
+        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 shadow-xl w-full sm:w-1/3 md:max-lg:border-b border-solid h-full ${
           isDark ? "border-[#373943]" : "border-gray-200"
         }`}>
           <a
@@ -135,7 +135,7 @@ const Second = () => {
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className={`flex md:pl-2 md:h-11 md:w-11 rounded-full md:pt-[8px] h-16 w-16 pl-3 pt-[10px] flex-shrink-0 ${
+            className={`flex md:mx-auto md:pl-2 md:h-11 md:w-11 rounded-full md:pt-[8px] h-16 w-16 pl-3 pt-[10px] flex-shrink-0 mb-0 md:mb-4 ${
               isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
             }`}
           >
@@ -145,13 +145,13 @@ const Second = () => {
               className={`md:w-6 md:h-6 w-10 h-10 ${!isDark ? "opacity-60" : ""}`}
             ></img>
           </a>
-          <div className="flex justify-center mb-4 flex-col items-end text-right">
-            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-4 ${
+          <div className="flex flex-col items-end md:items-center text-right md:text-center">
+            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-2 md:mb-4 ${
               isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
             }`}>
               100K<span className="text-[#21f201]">+</span>
             </div>
-            <span className={`text-[1.25rem] leading-[1.75rem] font-space mb-12 ${
+            <span className={`text-[1.25rem] leading-[1.75rem] font-space ${
               isDark ? "text-[#C4C5CB]" : "text-gray-600"
             }`}>
               {t('home.stats.generatedTokens')}
