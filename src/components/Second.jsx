@@ -27,26 +27,26 @@ const Second = () => {
       <div className={`border-b border-solid w-full mb-6 ${isDark ? "border-[#373943]" : "border-gray-200"}`}></div>
 
       {/* Stat Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-12">
-        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 rounded-xl border-l pl-8 md:border-r md:max-lg:border-b border-solid h-full ${
+      <div className="flex flex-col sm:flex-row justify-between items-stretch gap-2 sm:gap-3">
+        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-6 md:pt-8 pb-6 md:pb-8 rounded-xl border-l-2 border-solid h-full flex-1 ${
           isDark 
-            ? "bg-landing-color border-[#A0AEC0]" 
-            : "bg-gray-50 border-gray-400"
+            ? "bg-landing-color border-gray-600" 
+            : "bg-gray-50 border-gray-300"
         }`}>
           <a
             data-theme={isDark ? "dark" : "light"}
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className={`flex md:mx-auto md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] flex-shrink-0 mb-0 md:mb-4 ${
-              isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
+            className={`flex md:mx-auto md:h-12 md:w-12 rounded-full md:items-center md:justify-center h-16 w-16 items-center justify-center flex-shrink-0 mb-0 md:mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-200 text-gray-500"
             }`}
           >
             <svg
               data-theme={isDark ? "dark" : "light"}
               viewBox="0 0 24 24"
               focusable="false"
-              className="md:w-7 md:h-7 w-10 h-10"
+              className="md:w-6 md:h-6 w-8 h-8"
             >
               <path
                 d="M4.61979 14.0818L6.75054 11.951L4.61979 9.82029L2.48904 11.951L4.61979 14.0818ZM17.9659 13.6722L20.1005 10.2491L22.2447 13.6722H17.9659ZM12.3539 12.8452C11.6337 12.8452 11.0204 12.5928 10.514 12.088C10.0076 11.5832 9.75441 10.9703 9.75441 10.2491C9.75441 9.51355 10.0068 8.89697 10.5116 8.39939C11.0164 7.90181 11.6294 7.65302 12.3505 7.65302C13.0861 7.65302 13.7027 7.90148 14.2003 8.39841C14.6979 8.89535 14.9467 9.51112 14.9467 10.2457C14.9467 10.9659 14.6982 11.5792 14.2013 12.0856C13.7043 12.592 13.0885 12.8452 12.3539 12.8452ZM12.3505 9.15296C12.048 9.15296 11.7896 9.25802 11.5755 9.46812C11.3614 9.67822 11.2544 9.93855 11.2544 10.2491C11.2544 10.5517 11.3614 10.81 11.5755 11.0241C11.7896 11.2382 12.0496 11.3453 12.3553 11.3453C12.6611 11.3453 12.9195 11.2382 13.1304 11.0241C13.3412 10.81 13.4467 10.5501 13.4467 10.2443C13.4467 9.93855 13.3416 9.68021 13.1316 9.46931C12.9215 9.25841 12.6611 9.15296 12.3505 9.15296ZM0.850586 18.1337V16.9145C0.850586 16.2388 1.19915 15.6898 1.89629 15.2673C2.59344 14.8449 3.49815 14.6337 4.61044 14.6337C4.8141 14.6337 5.00953 14.6395 5.19671 14.651C5.38389 14.6625 5.56274 14.685 5.73324 14.7183C5.54479 15.0132 5.40184 15.327 5.30441 15.6597C5.20698 15.9925 5.15826 16.3469 5.15826 16.7231V18.1337H0.850586ZM6.85056 18.1337V16.7587C6.85056 15.8036 7.35879 15.0375 8.37526 14.4606C9.39171 13.8837 10.7177 13.5952 12.3532 13.5952C14.004 13.5952 15.3329 13.8837 16.3399 14.4606C17.347 15.0375 17.8505 15.8036 17.8505 16.7587V18.1337H6.85056ZM20.1005 14.6337C21.2255 14.6337 22.1318 14.8449 22.8193 15.2673C23.5068 15.6898 23.8505 16.2388 23.8505 16.9145V18.1337H19.5428V16.7231C19.5428 16.3469 19.4983 15.9925 19.4092 15.6597C19.3201 15.327 19.1864 15.0132 19.0082 14.7183C19.1787 14.685 19.3556 14.6625 19.5388 14.651C19.7221 14.6395 19.9093 14.6337 20.1005 14.6337ZM12.3494 15.0952C11.3104 15.0952 10.4175 15.233 9.67071 15.5087C8.92393 15.7843 8.50951 16.1241 8.42746 16.5279V16.6337H16.289V16.5279C16.1967 16.1241 15.7813 15.7843 15.0429 15.5087C14.3044 15.233 13.4066 15.0952 12.3494 15.0952Z"
@@ -55,38 +55,38 @@ const Second = () => {
             </svg>
           </a>
           <div className="flex flex-col items-end md:items-center text-right md:text-center">
-            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-2 md:mb-4 ${
-              isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
+            <div className={`md:text-[3.5rem] font-zen font-bold md:leading-[4rem] text-3xl mb-3 md:mb-4 ${
+              isDark ? "text-gray-400" : "text-gray-400"
             }`}>
               100K<span className="text-[#21f201]">+</span>
             </div>
-            <span className={`text-[1.25rem] leading-[1.75rem] font-space ${
-              isDark ? "text-[#C4C5CB]" : "text-gray-600"
+            <span className={`text-base md:text-lg leading-relaxed font-space ${
+              isDark ? "text-gray-300" : "text-gray-600"
             }`}>
               {t('home.stats.activeUsers')}
             </span>
           </div>
         </div>
 
-        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 rounded-xl border-l pl-8 md:border-r md:max-lg:border-b border-solid h-full ${
+        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-6 md:pt-8 pb-6 md:pb-8 rounded-xl border-l-2 border-solid h-full flex-1 ${
           isDark 
-            ? "bg-landing-color border-[#A0AEC0]" 
-            : "bg-gray-50 border-gray-400"
+            ? "bg-landing-color border-gray-600" 
+            : "bg-gray-50 border-gray-300"
         }`}>
           <a
             data-theme={isDark ? "dark" : "light"}
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className={`flex md:mx-auto md:pl-2 md:h-11 md:w-11 rounded-full md:pt-1.5 h-16 w-16 pl-3 pt-[10px] flex-shrink-0 mb-0 md:mb-4 ${
-              isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
+            className={`flex md:mx-auto md:h-12 md:w-12 rounded-full md:items-center md:justify-center h-16 w-16 items-center justify-center flex-shrink-0 mb-0 md:mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-200 text-gray-500"
             }`}
           >
             <svg
               data-theme={isDark ? "dark" : "light"}
               viewBox="0 0 24 24"
               focusable="false"
-              className="md:w-7 md:h-7 w-10 h-10"
+              className="md:w-6 md:h-6 w-8 h-8"
             >
               <path
                 fillRule="evenodd"
@@ -115,31 +115,31 @@ const Second = () => {
             </svg>
           </a>
           <div className="flex flex-col items-end md:items-center text-right md:text-center">
-            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-2 md:mb-4 ${
-              isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
+            <div className={`md:text-[3.5rem] font-zen font-bold md:leading-[4rem] text-3xl mb-3 md:mb-4 ${
+              isDark ? "text-gray-400" : "text-gray-400"
             }`}>
               100<span className="text-[#21f201]">+</span>
             </div>
-            <span className={`text-[1.25rem] leading-[1.75rem] font-space ${
-              isDark ? "text-[#C4C5CB]" : "text-gray-600"
+            <span className={`text-base md:text-lg leading-relaxed font-space ${
+              isDark ? "text-gray-300" : "text-gray-600"
             }`}>
               {t('home.stats.activeDapps')}
             </span>
           </div>
         </div>
 
-        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-8 md:pt-6 pb-6 md:pb-6 rounded-xl border-l pl-8 md:max-lg:border-b border-solid h-full ${
+        <div className={`flex flex-row md:flex-col justify-between items-center md:items-center px-4 md:px-6 pt-6 md:pt-8 pb-6 md:pb-8 rounded-xl border-l-2 border-solid h-full flex-1 ${
           isDark 
-            ? "bg-landing-color border-[#A0AEC0]" 
-            : "bg-gray-50 border-gray-400"
+            ? "bg-landing-color border-gray-600" 
+            : "bg-gray-50 border-gray-300"
         }`}>
           <a
             data-theme={isDark ? "dark" : "light"}
             href="https://bscscan.com/chart/address"
             target="_blank"
             rel="noreferrer noopener"
-            className={`flex md:mx-auto md:pl-2 md:h-11 md:w-11 rounded-full md:pt-[8px] h-16 w-16 pl-3 pt-[10px] flex-shrink-0 mb-0 md:mb-4 ${
-              isDark ? "bg-[#1E2026] text-[#8C8F9B]" : "bg-gray-100 text-gray-500"
+            className={`flex md:mx-auto md:h-12 md:w-12 rounded-full md:items-center md:justify-center h-16 w-16 items-center justify-center flex-shrink-0 mb-0 md:mb-6 ${
+              isDark ? "bg-gray-800 text-gray-400" : "bg-gray-200 text-gray-500"
             }`}
           >
             <img
@@ -149,13 +149,13 @@ const Second = () => {
             ></img>
           </a>
           <div className="flex flex-col items-end md:items-center text-right md:text-center">
-            <div className={`md:text-[4rem] font-zen font-bold md:leading-[4.5rem] text-4xl mb-2 md:mb-4 ${
-              isDark ? "text-[rgba(255,255,255,0.24)]" : "text-gray-300"
+            <div className={`md:text-[3.5rem] font-zen font-bold md:leading-[4rem] text-3xl mb-3 md:mb-4 ${
+              isDark ? "text-gray-400" : "text-gray-400"
             }`}>
               100K<span className="text-[#21f201]">+</span>
             </div>
-            <span className={`text-[1.25rem] leading-[1.75rem] font-space ${
-              isDark ? "text-[#C4C5CB]" : "text-gray-600"
+            <span className={`text-base md:text-lg leading-relaxed font-space ${
+              isDark ? "text-gray-300" : "text-gray-600"
             }`}>
               {t('home.stats.generatedTokens')}
             </span>
