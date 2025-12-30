@@ -71,7 +71,7 @@
         "highlight": "블록체인",
         "suffix": "활성 사용자 업데이트"
       },
-      "description": "2026년 1월 기준, Chain은 CeFi, AI 에이전시, 기업 시스템, 디지털 인증 및 트랜잭션 집약적 서비스를 지원하도록 설계된 블록체인입니다.",
+      "description": "2026년 1월 기준, DFSChain은 CeFi, AI 에이전시, 기업 시스템, 디지털 인증 및 트랜잭션 집약적 서비스를 지원하도록 설계된 블록체인입니다.",
       "activeUsers": "활성 사용자",
       "activeDapps": "활성 DApps",
       "generatedTokens": "생성된 토큰"
