@@ -146,8 +146,8 @@
     "links": {
       "dfsChain": "DFS Chain",
       "makeWallet": "지갑 만들기",
-      "getDfs": "DFS 받기",
-      "stakeDfs": "DFS 스테이킹",
+      "getDfs": "토큰 받기",
+      "stakeDfs": "스테이크 받기",
       "exploreDapps": "dApps 탐색",
       "payByCrypto": "암호화폐로 결제",
       "whitepaper": "백서",

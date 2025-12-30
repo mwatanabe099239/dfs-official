@@ -146,8 +146,8 @@
     "links": {
       "dfsChain": "DFS Chain",
       "makeWallet": "创建钱包",
-      "getDfs": "获取DFS",
-      "stakeDfs": "质押DFS",
+      "getDfs": "获取代币",
+      "stakeDfs": "获取质押",
       "exploreDapps": "探索dApps",
       "payByCrypto": "加密支付",
       "whitepaper": "白皮书",

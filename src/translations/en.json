@@ -146,8 +146,8 @@
     "links": {
       "dfsChain": "DFS Chain",
       "makeWallet": "Make Wallet",
-      "getDfs": "Get DFS",
-      "stakeDfs": "Stake DFS",
+      "getDfs": "Get Token",
+      "stakeDfs": "Get Stake",
       "exploreDapps": "Explore dApps",
       "payByCrypto": "Pay by Crypto",
       "whitepaper": "Whitepaper",

@@ -146,8 +146,8 @@
     "links": {
       "dfsChain": "DFS Chain",
       "makeWallet": "إنشاء محفظة",
-      "getDfs": "احصل على DFS",
-      "stakeDfs": "خزّن DFS",
+      "getDfs": "احصل على Token",
+      "stakeDfs": "احصل على Stake",
       "exploreDapps": "استكشف التطبيقات",
       "payByCrypto": "ادفع بالعملات المشفرة",
       "whitepaper": "الورقة البيضاء",

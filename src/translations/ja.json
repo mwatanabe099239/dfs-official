@@ -146,8 +146,8 @@
     "links": {
       "dfsChain": "DFS Chain",
       "makeWallet": "ウォレット作成",
-      "getDfs": "DFSを取得",
-      "stakeDfs": "DFSをステーク",
+      "getDfs": "トークンを取得",
+      "stakeDfs": "ステークを取得",
       "exploreDapps": "dAppsを探索",
       "payByCrypto": "暗号通貨で支払い",
       "whitepaper": "ホワイトペーパー",
