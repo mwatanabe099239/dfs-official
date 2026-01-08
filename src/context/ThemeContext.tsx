@@ -1,10 +1,51 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+'use client'
 
-// Create the context
-const ThemeContext = createContext();
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+
+interface ThemeColors {
+  bgPrimary: string;
+  bgSecondary: string;
+  bgTertiary: string;
+  bgHover: string;
+  textPrimary: string;
+  textSecondary: string;
+  textMuted: string;
+  borderPrimary: string;
+  borderSecondary: string;
+  accent: string;
+  accentHover: string;
+  accentMuted: string;
+  success: string;
+  error: string;
+  warning: string;
+  cardBg: string;
+  cardBorder: string;
+}
+
+interface ThemeClasses {
+  bgPrimary: string;
+  bgSecondary: string;
+  bgTertiary: string;
+  textPrimary: string;
+  textSecondary: string;
+  textMuted: string;
+  borderPrimary: string;
+  borderSecondary: string;
+}
+
+interface Theme {
+  name: string;
+  colors: ThemeColors;
+  classes: ThemeClasses;
+}
+
+interface Themes {
+  dark: Theme;
+  light: Theme;
+}
 
 // Theme configurations
-export const themes = {
+export const themes: Themes = {
   dark: {
     name: "dark",
     colors: {
@@ -93,14 +134,30 @@ export const themes = {
   }
 };
 
+interface ThemeContextType {
+  theme: string;
+  currentTheme: Theme;
+  toggleTheme: () => void;
+  setTheme: (themeName: string) => void;
+  isDark: boolean;
+  colors: ThemeColors;
+  classes: ThemeClasses;
+}
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
 // Theme Provider Component
-export const ThemeProvider = ({ children }) => {
+interface ThemeProviderProps {
+  children: ReactNode;
+}
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   // Always use light theme
   const theme = "light";
   const [mounted, setMounted] = useState(false);
 
   // Get current theme configuration
-  const currentTheme = themes[theme];
+  const currentTheme = themes[theme as keyof Themes];
 
   // Toggle function (no-op, kept for compatibility)
   const toggleTheme = () => {
@@ -108,7 +165,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   // Set specific theme (no-op, kept for compatibility)
-  const setSpecificTheme = (themeName) => {
+  const setSpecificTheme = (themeName: string) => {
     // No-op: theme is always light
   };
 
@@ -141,7 +198,7 @@ export const ThemeProvider = ({ children }) => {
     return null;
   }
 
-  const value = {
+  const value: ThemeContextType = {
     theme,
     currentTheme,
     toggleTheme,
@@ -159,7 +216,7 @@ export const ThemeProvider = ({ children }) => {
 };
 
 // Custom hook to use theme context
-export const useTheme = () => {
+export const useTheme = (): ThemeContextType => {
   const context = useContext(ThemeContext);
   if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
@@ -168,5 +225,4 @@ export const useTheme = () => {
 };
 
 export default ThemeContext;
-
 

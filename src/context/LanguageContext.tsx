@@ -1,9 +1,16 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+'use client'
+
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { translations } from '../translations';
 
-const LanguageContext = createContext();
+interface Language {
+  code: string;
+  name: string;
+  nativeName: string;
+  dir: 'ltr' | 'rtl';
+}
 
-export const languages = [
+export const languages: Language[] = [
   { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr' },
   { code: 'ja', name: 'Japanese', nativeName: '日本語', dir: 'ltr' },
   { code: 'zh', name: 'Chinese', nativeName: '中文', dir: 'ltr' },
@@ -12,8 +19,23 @@ export const languages = [
   { code: 'ko', name: 'Korean', nativeName: '한국어', dir: 'ltr' },
 ];
 
-export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState(() => {
+interface LanguageContextType {
+  language: string;
+  changeLanguage: (langCode: string) => void;
+  t: (key: string, fallback?: string) => string;
+  currentLanguage: Language;
+  languages: Language[];
+  isRTL: boolean;
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+interface LanguageProviderProps {
+  children: ReactNode;
+}
+
+export const LanguageProvider = ({ children }: LanguageProviderProps) => {
+  const [language, setLanguage] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('language');
       return saved || 'en';
@@ -33,11 +55,11 @@ export const LanguageProvider = ({ children }) => {
     }
   }, [language]);
 
-  const t = (key, fallback = '') => {
+  const t = (key: string, fallback: string = ''): string => {
     const keys = key.split('.');
     
     // Try current language first
-    let value = translations[language];
+    let value: any = translations[language as keyof typeof translations];
     let found = true;
     
     for (const k of keys) {
@@ -75,7 +97,7 @@ export const LanguageProvider = ({ children }) => {
     return fallback || key;
   };
 
-  const changeLanguage = (langCode) => {
+  const changeLanguage = (langCode: string) => {
     if (languages.find(l => l.code === langCode)) {
       setLanguage(langCode);
     }
@@ -97,7 +119,7 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
-export const useLanguage = () => {
+export const useLanguage = (): LanguageContextType => {
   const context = useContext(LanguageContext);
   if (!context) {
     throw new Error('useLanguage must be used within a LanguageProvider');
