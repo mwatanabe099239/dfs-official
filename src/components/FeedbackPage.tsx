@@ -57,12 +57,12 @@ const FeedbackPage: React.FC = () => {
     { id: 'website', name: t('feedback.categories.website'), icon: HiOutlineDesktopComputer },
   ];
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // In a real app, this would send to an API
     console.log('Feedback submitted:', { feedbackType, ...formData });

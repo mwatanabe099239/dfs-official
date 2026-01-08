@@ -26,14 +26,14 @@ const NewsletterPage: React.FC = () => {
     community: false
   });
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email) {
       setSubscribed(true);
     }
   };
 
-  const togglePreference = (key) => {
+  const togglePreference = (key: keyof typeof preferences) => {
     setPreferences(prev => ({
       ...prev,
       [key]: !prev[key]

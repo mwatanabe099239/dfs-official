@@ -69,10 +69,10 @@ export const ThemeSwitch = ({ className = "" }) => {
 };
 
 // Minimal icon-only toggle
-export const ThemeIconToggle = ({ size = "md", className = "" }) => {
+export const ThemeIconToggle = ({ size = "md", className = "" }: { size?: "sm" | "md" | "lg"; className?: string }) => {
   const { isDark, toggleTheme } = useTheme();
 
-  const sizeClasses = {
+  const sizeClasses: Record<"sm" | "md" | "lg", string> = {
     sm: "w-4 h-4",
     md: "w-5 h-5",
     lg: "w-6 h-6",

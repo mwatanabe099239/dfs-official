@@ -153,7 +153,7 @@ const ExploreDapps: React.FC = () => {
   const featuredDapps = dappsData.filter(d => d.tag === "Featured");
 
   // Get tag color
-  const getTagStyle = (tag) => {
+  const getTagStyle = (tag: string): string => {
     switch(tag) {
       case "Featured": return "bg-[#21f201] text-black";
       case "New": return "bg-gray-400 text-white";
@@ -278,9 +278,11 @@ const ExploreDapps: React.FC = () => {
                       }`}
                     >
                       {/* Badge - Top Right */}
-                      <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium z-10 ${getTagStyle(dapp.tag)}`}>
-                        {dapp.tag}
-                      </span>
+                      {dapp.tag && (
+                        <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium z-10 ${getTagStyle(dapp.tag)}`}>
+                          {dapp.tag}
+                        </span>
+                      )}
 
                       {/* Logo */}
                       <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${
@@ -291,8 +293,12 @@ const ExploreDapps: React.FC = () => {
                           alt={dapp.name}
                           className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                           onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.nextSibling.style.display = 'flex';
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const nextSibling = target.nextSibling as HTMLElement;
+                            if (nextSibling) {
+                              nextSibling.style.display = 'flex';
+                            }
                           }}
                         />
                         <div 
@@ -404,8 +410,12 @@ const ExploreDapps: React.FC = () => {
                         alt={dapp.name}
                         className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                         onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'flex';
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const nextSibling = target.nextSibling as HTMLElement;
+                          if (nextSibling) {
+                            nextSibling.style.display = 'flex';
+                          }
                         }}
                       />
                       <div 

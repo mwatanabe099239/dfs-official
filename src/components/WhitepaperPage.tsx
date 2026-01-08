@@ -150,18 +150,20 @@ const renderBlock = (block: NotionBlock, isDark: boolean, isSidebar: boolean = f
           marginBottom: isSidebar ? '0' : '1px',
           color: isDark ? '#e9e9e9' : '#37352f',
           fontSize: '16px', 
-          lineHeight: isSidebar ? '1.5' : '1.5', 
+          lineHeight: '1.5', 
           paddingLeft: isSidebar ? '0' : '1.5em', 
           position: 'relative',
           listStyle: 'none',
           paddingTop: isSidebar ? '1px' : '0',
-          paddingBottom: isSidebar ? '1px' : '0'
+          paddingBottom: isSidebar ? '1px' : '0',
+          marginTop: isSidebar ? '0' : '0'
         }}>
           {!isSidebar && <span style={{ position: 'absolute', left: '0.25em', color: isDark ? '#9b9a97' : '#37352f' }}>•</span>}
           <span style={{
             textDecoration: isSidebar && hasLink ? 'underline' : 'none',
             textDecorationColor: isSidebar && hasLink ? (isDark ? 'rgba(233, 233, 233, 0.4)' : 'rgba(55, 53, 47, 0.4)') : 'transparent',
-            textUnderlineOffset: isSidebar ? '2px' : '0'
+            textUnderlineOffset: isSidebar ? '2px' : '0',
+            display: 'block'
           }}>
             {renderRichText(listItemText, isDark)}
           </span>
@@ -251,8 +253,6 @@ const renderBlock = (block: NotionBlock, isDark: boolean, isSidebar: boolean = f
         </div>
       )
 
-    case 'divider':
-      return <hr key={id} className={`my-8 ${isDark ? "border-gray-700" : "border-gray-300"}`} />
 
     case 'image':
       const imageUrl = block.image?.file?.url || block.image?.external?.url
@@ -562,14 +562,14 @@ export default function WhitepaperPage(): React.JSX.Element {
           const ListTag = currentListType === 'bulleted' ? 'ul' : 'ol'
           elements.push(
             <ListTag key={`list-${index}`} className="mb-4">
-              {currentList.map(b => renderBlock(b, isDark))}
+              {currentList.map(b => renderBlock(b, isDark, false))}
             </ListTag>
           )
           currentList = []
           currentListType = null
         }
         // Render the column_list (which will render its columns and their children)
-        const rendered = renderBlock(block, isDark)
+        const rendered = renderBlock(block, isDark, false)
         if (rendered) {
           elements.push(rendered)
         }
@@ -581,7 +581,7 @@ export default function WhitepaperPage(): React.JSX.Element {
           if (currentList.length > 0) {
             elements.push(
               <ul key={`list-${index}`} className="mb-4">
-                {currentList.map(b => renderBlock(b, isDark))}
+                {currentList.map(b => renderBlock(b, isDark, false))}
               </ul>
             )
           }
@@ -594,7 +594,7 @@ export default function WhitepaperPage(): React.JSX.Element {
           if (currentList.length > 0) {
             elements.push(
               <ol key={`list-${index}`} className="mb-4">
-                {currentList.map(b => renderBlock(b, isDark))}
+                {currentList.map(b => renderBlock(b, isDark, false))}
               </ol>
             )
           }
@@ -608,14 +608,14 @@ export default function WhitepaperPage(): React.JSX.Element {
           const ListTag = currentListType === 'bulleted' ? 'ul' : 'ol'
           elements.push(
             <ListTag key={`list-${index}`} className="mb-4">
-              {currentList.map(b => renderBlock(b, isDark))}
+              {currentList.map(b => renderBlock(b, isDark, false))}
             </ListTag>
           )
           currentList = []
           currentListType = null
         }
         // Render the current block
-        const rendered = renderBlock(block, isDark)
+        const rendered = renderBlock(block, isDark, false)
         if (rendered) {
           elements.push(rendered)
         }
@@ -627,7 +627,7 @@ export default function WhitepaperPage(): React.JSX.Element {
       const ListTag = currentListType === 'bulleted' ? 'ul' : 'ol'
       elements.push(
         <ListTag key="list-final" className="mb-4">
-          {currentList.map(b => renderBlock(b, isDark))}
+          {currentList.map(b => renderBlock(b, isDark, false))}
         </ListTag>
       )
     }

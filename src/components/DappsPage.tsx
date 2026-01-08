@@ -19,8 +19,8 @@ const DappsPage: React.FC = () => {
   const { t } = useLanguage();
 
   // Function to generate realistic mini chart data
-  const generateMiniChartData = (baseValue) => {
-    const data = [];
+  const generateMiniChartData = (baseValue: number): number[] => {
+    const data: number[] = [];
     for (let i = 0; i < 7; i++) {
       const variation = (Math.random() - 0.5) * 0.1; // 10% variation
       const value = Math.max(0, baseValue * (1 + variation + (Math.sin(i * 0.8) * 0.05)));
@@ -149,10 +149,10 @@ const DappsPage: React.FC = () => {
   const categories = ["All Categories", "Games", "DeFi", "AI", "Social", "Wallets"];
 
   // Generate dynamic chart data based on time filter
-  const generateChartData: React.FC = () => {
+  const generateChartData = (): Array<{ date: string; value: number }> => {
     const baseValue = 26.3;
     const days = timeFilter === "24H" ? 1 : timeFilter === "7D" ? 7 : 30;
-    const data = [];
+    const data: Array<{ date: string; value: number }> = [];
     
     for (let i = 0; i < days; i++) {
       const date = new Date();
@@ -211,7 +211,7 @@ const DappsPage: React.FC = () => {
     return filtered;
   }, [searchTerm, selectedChain, selectedCategory, showNewListings, showTradingDapps, sortBy, sortOrder]);
 
-  const formatNumber = (num) => {
+  const formatNumber = (num: number): string => {
     if (num >= 1000000) {
       return (num / 1000000).toFixed(2) + "M";
     } else if (num >= 1000) {
@@ -220,7 +220,7 @@ const DappsPage: React.FC = () => {
     return num.toString();
   };
 
-  const MiniChart = ({ data }) => {
+  const MiniChart = ({ data }: { data: number[] }) => {
     // Convert data to chart format
     const chartData = data.map((value, index) => ({
       day: index + 1,
@@ -248,7 +248,7 @@ const DappsPage: React.FC = () => {
     );
   };
 
-  const handleSort = (column) => {
+  const handleSort = (column: string) => {
     if (sortBy === column) {
       setSortOrder(sortOrder === "desc" ? "asc" : "desc");
     } else {
