@@ -247,130 +247,72 @@
     }
   },
   "staking": {
-    "badge": "ステーキング稼働中",
-    "days": "日",
-    "toast": {
-      "underDevelopment": "この機能は開発中です。"
-    },
+    "badge": "ステーキング",
     "hero": {
-      "title": "DFSをステーク、",
-      "titleHighlight": "報酬を獲得",
-      "subtitle": "DFSトークンを活用しましょう。ステークして最大25% APYを獲得し、DFS Chainネットワークの安全に貢献します。"
+      "title": "トークンステーキング",
+      "titleHighlight": "DFS Chainで",
+      "subtitle": "承認されたトークンのステーキングイベントを作成し、参加します。利率を設定し、ユーザーがトークンをステークして報酬を獲得できるようにします。"
     },
-    "stats": {
-      "tvl": "ロックされた総価値",
-      "activeStakers": "アクティブステーカー",
-      "maxApy": "最大APY",
-      "uptime": "稼働率"
-    },
-    "howToStake": {
-      "title": "ステーキング",
-      "titleHighlight": "方法",
-      "subtitle": "簡単なステップで報酬獲得を開始"
+    "howItWorks": {
+      "title": "トークンステーキングの仕組み",
+      "subtitle": "トークン作成者とステーカーのためのシンプルなプロセス"
     },
     "steps": {
-      "connectWallet": {
-        "title": "ウォレットを接続",
-        "description": "MetafaceウォレットをDFSステーキングプラットフォームに安全に接続します。"
+      "publishToken": {
+        "title": "トークンを公開",
+        "description": "WhiteCreatorプラットフォームでトークンを公開してステーキング機能を有効にします。"
       },
-      "chooseAmount": {
-        "title": "金額を選択",
-        "description": "ステークするDFSトークンの数を選択し、ティアを選びます。"
+      "adminApproval": {
+        "title": "管理者承認",
+        "description": "管理者が承認したトークンのみがステーキングイベントに使用できます。"
       },
-      "selectLockPeriod": {
-        "title": "ロック期間を選択",
-        "description": "お好みのロック期間を選択してください。期間が長いほど報酬が高くなります。"
+      "setStaking": {
+        "title": "ステーキングイベントを設定",
+        "description": "WhiteCreatorで利率を設定し、ステーキングイベントを開始します。"
       },
-      "startEarning": {
-        "title": "収益開始",
-        "description": "ステークを確認し、自動的に報酬を獲得し始めます。"
+      "participate": {
+        "title": "ユーザーが参加",
+        "description": "ユーザーは専用のステーキングプロジェクト（近日公開）でトークンをステークできます。"
       }
     },
-    "tierNames": {
-      "starter": "スターター",
-      "growth": "グロース",
-      "premium": "プレミアム",
-      "elite": "エリート"
-    },
-    "lockPeriods": {
-      "30days": "30日",
-      "90days": "90日",
-      "180days": "180日",
-      "365days": "365日"
-    },
-    "tiers": {
-      "title": "ステーキング",
-      "titleHighlight": "ティア",
-      "subtitle": "投資戦略に最適なティアを選択",
-      "mostPopular": "最も人気",
-      "minStake": "最小ステーク",
-      "lockPeriod": "ロック期間",
-      "autoCompound": "自動複利",
-      "selectTier": "ティアを選択"
-    },
-    "whyStake": {
-      "title": "なぜDFSでステーク",
-      "subtitle": "DFSステーキングは業界トップクラスのセキュリティ、競争力のある報酬、シームレスなユーザー体験を提供します。"
-    },
-    "features": {
-      "secureStaking": {
-        "title": "安全なステーキング",
-        "description": "あなたのトークンはDFS Chainの堅牢なスマートコントラクトインフラストラクチャによって保護されています。"
+    "details": {
+      "title": "トークンステーキングの理解",
+      "step1": {
+        "title": "1. WhiteCreatorでトークンを公開",
+        "description": "トークンのステーキングを有効にするには、まずWhiteCreatorプラットフォームを使用してトークンを公開する必要があります。WhiteCreatorは、承認システムを使用してDRC20トークンを作成および展開できるDFS Chainのトークン公開プラットフォームです。",
+        "description2": "トークンが公開されると、コミュニティ主導の承認プロセスを経ます。これにより、プラットフォーム上のすべてのトークンの品質とセキュリティが確保されます。"
       },
-      "competitiveApy": {
-        "title": "競争力のあるAPY",
-        "description": "階層型報酬システムでステークしたDFSトークンに対して最大25% APYを獲得できます。"
+      "step2": {
+        "title": "2. 管理者承認が必要",
+        "description": "管理者が承認したトークンのみがステーキングに使用できます。この承認プロセスにより、正当で検証されたトークンのみがステーキングイベントを作成でき、ユーザーを潜在的な詐欺や低品質プロジェクトから保護します。",
+        "description2": "管理者は、プロジェクトの正当性、トークンの有用性、DFS Chain標準への準拠など、さまざまな基準に基づいてトークンを審査します。承認されると、トークンはステーキング機能の対象となります。"
       },
-      "flexibleTerms": {
-        "title": "柔軟な条件",
-        "description": "投資戦略に合わせて複数のロック期間から選択できます。"
+      "step3": {
+        "title": "3. 利率を設定してステーキングイベントを開始",
+        "description": "承認されたトークンについて、トークン作成者はWhiteCreatorプラットフォーム内で直接利率を設定し、ステーキングイベントを開始できます。これにより、魅力的な報酬を提供することで、ユーザーにトークンを保持し、ステークするよう促すことができます。",
+        "description2": "ステーキングイベントを設定する際、以下を設定できます：",
+        "list1": "利率（APY）- ステーカーの年間パーセンテージ利回り",
+        "list2": "ステーキング期間 - トークンをロックする必要がある期間",
+        "list3": "最小ステーキング額 - 参加に必要な最小トークン数",
+        "list4": "最大ステーキング容量 - ステークできるトークンの総数",
+        "description3": "設定が完了すると、ステーキングイベントがアクティブになり、プラットフォーム上のすべてのユーザーに表示されます。"
       },
-      "autoCompound": {
-        "title": "自動複利",
-        "description": "報酬は自動的に複利で運用され、収益を最大化します。"
-      }
-    },
-    "calculator": {
-      "title": "ステーキング計算機",
-      "preview": "プレビュー",
-      "amountToStake": "ステーク金額",
-      "estimatedEarnings": "推定収益（180日）",
-      "connectWallet": "ウォレットを接続して開始"
-    },
-    "faq": {
-      "title": "よくある",
-      "titleHighlight": "質問",
-      "subtitle": "DFSステーキングについて知っておくべきすべて",
-      "questions": {
-        "whatIsStaking": {
-          "question": "DFSステーキングとは？",
-          "answer": "DFSステーキングでは、指定された期間DFSトークンをロックして報酬を獲得できます。ステーキングすることで、ネットワークのセキュリティに貢献しながらパッシブ収入を得られます。"
-        },
-        "rewardsCalculated": {
-          "question": "ステーキング報酬はどのように計算されますか？",
-          "answer": "報酬はステーク金額、選択したティア、ロック期間に基づいて計算されます。上位ティアと長いロック期間ではより良いAPYレートが提供されます。報酬は毎日分配され、自動複利で運用されます。"
-        },
-        "unstakeEarly": {
-          "question": "早期にアンステークできますか？",
-          "answer": "早期アンステークは可能ですが、ペナルティ料金が発生します。報酬を最大化するために、投資タイムラインに合ったロック期間を選択することをお勧めします。"
-        },
-        "whatWallet": {
-          "question": "どのウォレットが必要ですか？",
-          "answer": "DFS Chainネットワークに接続されたMetafaceウォレットが必要です。まだお持ちでない場合は、metaface.dfsscan.comで作成できます。"
-        },
-        "receiveRewards": {
-          "question": "報酬はいつ受け取れますか？",
-          "answer": "ステーキング報酬は毎日計算・分配されます。自動複利を通じてステーク残高に自動的に追加され、収益の可能性を最大化します。"
-        }
+      "step4": {
+        "title": "4. ユーザーがステーキングに参加",
+        "description": "ステーキングイベントがアクティブになると、ユーザーは専用のステーキングプロジェクト（将来別途立ち上げ予定）でトークンをステークして参加できます。ユーザーは利用可能なステーキングイベントを閲覧し、利率と条件を確認し、トークンをステークして報酬の獲得を開始できます。",
+        "description2": "ステーキングプロジェクトは、ステーカーが以下を実行できるユーザーフレンドリーなインターフェースを提供します：",
+        "list1": "承認されたトークンのすべての利用可能なステーキングイベントを表示",
+        "list2": "利率、期間、その他の条件を確認",
+        "list3": "トークンをステークして報酬を追跡",
+        "list4": "ロック期間が終了したらトークンのステーキングを解除",
+        "description3": "これにより、双方向の利益が生まれます：トークン作成者は保持を促進し、流通供給量を減らすことができ、ステーカーはトークンから受動的収入を得ることができます。"
       }
     },
     "cta": {
-      "title": "始める準備は",
-      "titleHighlight": "できていますか",
-      "subtitle": "DFS Chainでパッシブ収入を得ている何千人ものステーカーに参加しましょう。今日からステーキングの旅を始めましょう。",
-      "startStaking": "ステーキング開始",
-      "launchApp": "アプリを起動",
-      "readDocs": "ドキュメントを読む"
+      "title": "始める準備はできていますか？",
+      "subtitle": "WhiteCreatorでトークンを公開してステーキングイベントを設定するか、既存のステーキング機会に参加してください。",
+      "visitWhiteCreator": "WhiteCreatorを訪問",
+      "stakingComingSoon": "ステーキングプロジェクト（近日公開）"
     }
   },
   "whitepaper": {
@@ -1259,12 +1201,7 @@
       "available": "件の募集があります"
     },
     "positions": {
-      "seniorBackend": { "title": "シニアバックエンドエンジニア", "department": "エンジニアリング", "description": "スケーラブルなブロックチェーンインフラを構築" },
-      "frontendDev": { "title": "フロントエンドエンジニア", "department": "エンジニアリング", "description": "美しいユーザー体験を創造" },
-      "productDesigner": { "title": "プロダクトデザイナー", "department": "デザイン", "description": "Web3インターフェースの未来をデザイン" },
-      "communityManager": { "title": "コミュニティマネージャー", "department": "マーケティング", "description": "グローバルコミュニティの成長と活性化" },
-      "technicalWriter": { "title": "テクニカルライター", "department": "ドキュメント", "description": "明確で役立つドキュメントを作成" },
-      "devOps": { "title": "DevOpsエンジニア", "department": "インフラ", "description": "インフラの維持とスケーリング" }
+      "moderator": { "title": "モデレーター", "department": "コミュニティ", "description": "前向きで魅力的なコミュニティ環境の維持を支援。ディスカッションのモデレーション、質問への回答、コミュニティガイドラインの遵守を確保します。" }
     },
     "remote": "リモート",
     "fullTime": "フルタイム",

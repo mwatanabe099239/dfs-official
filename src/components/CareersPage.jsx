@@ -52,46 +52,11 @@ const CareersPage = () => {
 
   const openPositions = [
     {
-      title: t('careers.positions.seniorBackend.title'),
-      department: t('careers.positions.seniorBackend.department'),
+      title: t('careers.positions.moderator.title'),
+      department: t('careers.positions.moderator.department'),
       location: t('careers.remote'),
       type: t('careers.fullTime'),
-      description: t('careers.positions.seniorBackend.description')
-    },
-    {
-      title: t('careers.positions.frontendDev.title'),
-      department: t('careers.positions.frontendDev.department'),
-      location: t('careers.remote'),
-      type: t('careers.fullTime'),
-      description: t('careers.positions.frontendDev.description')
-    },
-    {
-      title: t('careers.positions.productDesigner.title'),
-      department: t('careers.positions.productDesigner.department'),
-      location: t('careers.remote'),
-      type: t('careers.fullTime'),
-      description: t('careers.positions.productDesigner.description')
-    },
-    {
-      title: t('careers.positions.communityManager.title'),
-      department: t('careers.positions.communityManager.department'),
-      location: t('careers.remote'),
-      type: t('careers.fullTime'),
-      description: t('careers.positions.communityManager.description')
-    },
-    {
-      title: t('careers.positions.technicalWriter.title'),
-      department: t('careers.positions.technicalWriter.department'),
-      location: t('careers.remote'),
-      type: t('careers.partTime'),
-      description: t('careers.positions.technicalWriter.description')
-    },
-    {
-      title: t('careers.positions.devOps.title'),
-      department: t('careers.positions.devOps.department'),
-      location: t('careers.remote'),
-      type: t('careers.fullTime'),
-      description: t('careers.positions.devOps.description')
+      description: t('careers.positions.moderator.description')
     },
   ];
 
@@ -165,74 +130,31 @@ const CareersPage = () => {
         </div>
       </div>
 
-      {/* Why Join Us */}
-      <div className="px-6 md:px-8 lg:px-12 xl:px-16 py-16">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className={`text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              {t('careers.whyJoin.title')}
-            </h2>
-            <p className={`max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              {t('careers.whyJoin.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map((benefit, idx) => {
-              const Icon = benefit.icon;
-              return (
-                <div 
-                  key={idx}
-                  className={`p-6 rounded-xl border-l-2 pl-8 ${
-                    isDark 
-                      ? "bg-[#181A1E] border-[#A0AEC0]" 
-                      : "bg-white border-gray-400"
-                  }`}
-                >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                    isDark ? "bg-gray-800" : "bg-gray-100"
-                  }`}>
-                    <Icon className={`w-6 h-6 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
-                  </div>
-                  <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
-                    {benefit.title}
-                  </h3>
-                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    {benefit.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* Our Values */}
+      {/* Hiring Process */}
       <div className={`px-6 md:px-8 lg:px-12 xl:px-16 py-16 ${
-        isDark ? "bg-[#181A1E]" : "bg-white"
+        isDark ? "bg-[#181A1E]" : "bg-transparent"
       }`}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className={`text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              {t('careers.values.title')}
+              {t('careers.hiring.title')}
             </h2>
+            <p className={`${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              {t('careers.hiring.subtitle')}
+            </p>
           </div>
 
-          <div className="space-y-4">
-            {values.map((value, idx) => (
-              <div 
-                key={idx}
-                className={`flex items-center gap-4 p-4 rounded-xl ${
-                  isDark ? "bg-[#0B0E11]" : "bg-gray-50"
-                }`}
-              >
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                  isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-500"
-                }`}>
-                  <span className={`font-bold text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{idx + 1}</span>
-                </div>
-                <p className={`font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                  {value}
+          <div className="grid md:grid-cols-4 gap-6">
+            {hiringSteps.map((item, idx) => (
+              <div key={idx} className="text-center">
+                <div className={`text-4xl font-bold mb-2 ${
+                  isDark ? "text-gray-400/60" : "text-gray-400/50"
+                }`}>{item.step}</div>
+                <h3 className={`font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  {t(item.titleKey)}
+                </h3>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                  {t(item.descKey)}
                 </p>
               </div>
             ))}
@@ -240,8 +162,9 @@ const CareersPage = () => {
         </div>
       </div>
 
+
       {/* Open Positions */}
-      <div id="positions" className="px-6 md:px-8 lg:px-12 xl:px-16 py-16 scroll-mt-8">
+      <div id="positions" className="px-6 md:px-8 lg:px-12 xl:px-16 py-16 scroll-mt-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className={`text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -259,18 +182,18 @@ const CareersPage = () => {
                 className={`p-6 rounded-xl border-l-2 pl-8 transition-all ${
                   isDark 
                     ? "bg-[#181A1E] border-[#A0AEC0] hover:bg-[#1a1d23]" 
-                    : "bg-white border-gray-400 hover:bg-gray-50"
+                    : " border-gray-400 bg-gray-50"
                 }`}
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div>
-                    <h3 className={`text-xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  <div className="text-left">
+                    <h3 className={`text-xl font-bold mb-2 text-left ${isDark ? "text-white" : "text-gray-900"}`}>
                       {position.title}
                     </h3>
-                    <p className={`text-sm mb-3 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                    <p className={`text-sm mb-3 text-left ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                       {position.description}
                     </p>
-                    <div className="flex flex-wrap items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3 justify-start">
                       <span className={`inline-flex items-center gap-1 text-xs px-3 py-1 rounded-full ${
                         isDark ? "bg-gray-700 text-gray-300" : "bg-gray-200 text-gray-600"
                       }`}>
@@ -310,38 +233,7 @@ const CareersPage = () => {
         </div>
       </div>
 
-      {/* Hiring Process */}
-      <div className={`px-6 md:px-8 lg:px-12 xl:px-16 py-16 ${
-        isDark ? "bg-[#181A1E]" : "bg-white"
-      }`}>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className={`text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              {t('careers.hiring.title')}
-            </h2>
-            <p className={`${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              {t('careers.hiring.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            {hiringSteps.map((item, idx) => (
-              <div key={idx} className="text-center">
-                <div className={`text-4xl font-bold mb-2 ${
-                  isDark ? "text-gray-400/20" : "text-gray-300/20"
-                }`}>{item.step}</div>
-                <h3 className={`font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
-                  {t(item.titleKey)}
-                </h3>
-                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                  {t(item.descKey)}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
+      
       {/* CTA */}
       <div className="px-6 md:px-8 lg:px-12 xl:px-16 py-16">
         <div className="max-w-4xl mx-auto">

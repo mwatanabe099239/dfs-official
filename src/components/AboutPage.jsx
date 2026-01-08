@@ -310,59 +310,6 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
-
-      {/* CTA */}
-      <div className={`px-6 md:px-8 lg:px-12 xl:px-16 py-16 ${
-        isDark ? "bg-[#181A1E]" : "bg-white"
-      }`}>
-        <div className="max-w-4xl mx-auto">
-          <div 
-            className={`rounded-2xl p-8 md:p-12 text-center border-t border-l border-r ${
-              isDark 
-                ? "bg-gradient-to-r from-[#181A1E] to-[#1a1d23] border-gray-800"
-                : "bg-gradient-to-r from-gray-50 to-white border-gray-200"
-            }`}
-            style={{
-              borderBottomWidth: '4px',
-              borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
-              boxShadow: isDark
-                ? "0px 4px 16px 0px rgba(0, 0, 0, 0.2)"
-                : "0px 2px 8px 0px rgba(0, 0, 0, 0.05)",
-            }}
-          >
-            <h2 className={`text-2xl md:text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              {t('about.cta.title')}
-            </h2>
-            <p className={`mb-6 max-w-xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              {t('about.cta.subtitle')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="https://metaface.dfsscan.com/get-started"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
-                  isDark 
-                    ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
-                    : "bg-gray-900 text-white hover:bg-gray-800"
-                }`}
-              >
-                {t('about.cta.button1')}
-              </a>
-              <a 
-                href="/careers"
-                className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${
-                  isDark 
-                    ? "text-slate-300 border-white hover:bg-white hover:text-black" 
-                    : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"
-                }`}
-              >
-                {t('about.cta.button2')}
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

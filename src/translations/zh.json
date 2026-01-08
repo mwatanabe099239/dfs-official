@@ -251,130 +251,72 @@
     }
   },
   "staking": {
-    "badge": "质押已上线",
-    "days": "天",
-    "toast": {
-      "underDevelopment": "此功能正在开发中。"
-    },
+    "badge": "质押",
     "hero": {
-      "title": "质押DFS，",
-      "titleHighlight": "赚取奖励",
-      "subtitle": "让您的DFS代币发挥作用。质押并赚取高达25%的年化收益，同时帮助保护DFS Chain网络。"
+      "title": "代币质押",
+      "titleHighlight": "在DFS Chain上",
+      "subtitle": "为已批准的代币创建和参与质押活动。设置利率，让用户质押代币以赚取奖励。"
     },
-    "stats": {
-      "tvl": "总锁定价值",
-      "activeStakers": "活跃质押者",
-      "maxApy": "最高年化收益",
-      "uptime": "正常运行时间"
-    },
-    "howToStake": {
-      "title": "如何",
-      "titleHighlight": "质押",
-      "subtitle": "只需几个简单步骤即可开始赚取奖励"
+    "howItWorks": {
+      "title": "代币质押如何运作",
+      "subtitle": "代币创建者和质押者的简单流程"
     },
     "steps": {
-      "connectWallet": {
-        "title": "连接钱包",
-        "description": "安全地将您的Metaface钱包连接到DFS质押平台。"
+      "publishToken": {
+        "title": "发布代币",
+        "description": "在WhiteCreator平台上发布您的代币以启用质押功能。"
       },
-      "chooseAmount": {
-        "title": "选择金额",
-        "description": "选择您要质押的DFS代币数量并选择您的等级。"
+      "adminApproval": {
+        "title": "管理员批准",
+        "description": "只有管理员批准的代币才能用于质押活动。"
       },
-      "selectLockPeriod": {
-        "title": "选择锁定期",
-        "description": "选择您偏好的锁定期。锁定时间越长，奖励越高。"
+      "setStaking": {
+        "title": "设置质押活动",
+        "description": "在WhiteCreator中配置利率并开启质押活动。"
       },
-      "startEarning": {
-        "title": "开始赚取",
-        "description": "确认您的质押并自动开始赚取奖励。"
+      "participate": {
+        "title": "用户参与",
+        "description": "用户可以在专用质押项目（即将推出）中质押代币。"
       }
     },
-    "tierNames": {
-      "starter": "入门级",
-      "growth": "成长级",
-      "premium": "高级",
-      "elite": "精英级"
-    },
-    "lockPeriods": {
-      "30days": "30天",
-      "90days": "90天",
-      "180days": "180天",
-      "365days": "365天"
-    },
-    "tiers": {
-      "title": "质押",
-      "titleHighlight": "等级",
-      "subtitle": "选择最适合您投资策略的等级",
-      "mostPopular": "最受欢迎",
-      "minStake": "最低质押",
-      "lockPeriod": "锁定期",
-      "autoCompound": "自动复投",
-      "selectTier": "选择等级"
-    },
-    "whyStake": {
-      "title": "为什么选择质押",
-      "subtitle": "DFS质押提供行业领先的安全性、有竞争力的奖励和无缝的用户体验。"
-    },
-    "features": {
-      "secureStaking": {
-        "title": "安全质押",
-        "description": "您的代币由DFS Chain强大的智能合约基础设施保护。"
+    "details": {
+      "title": "了解代币质押",
+      "step1": {
+        "title": "1. 在WhiteCreator中发布您的代币",
+        "description": "要为您的代币启用质押，您首先需要使用WhiteCreator平台发布它。WhiteCreator是DFS Chain的代币发布平台，您可以在其中创建和部署具有批准系统的DRC20代币。",
+        "description2": "一旦您的代币发布，它将通过社区驱动的批准流程。这确保了平台上所有代币的质量和安全性。"
       },
-      "competitiveApy": {
-        "title": "有竞争力的年化收益",
-        "description": "通过我们的分级奖励系统，您质押的DFS代币可获得高达25%的年化收益。"
+      "step2": {
+        "title": "2. 需要管理员批准",
+        "description": "只有管理员批准的代币才能用于质押。此批准流程确保只有合法、经过验证的代币才能创建质押活动，保护用户免受潜在诈骗或低质量项目的侵害。",
+        "description2": "管理员根据各种标准审查代币，包括项目合法性、代币实用性和DFS Chain标准的合规性。一旦获得批准，您的代币就有资格使用质押功能。"
       },
-      "flexibleTerms": {
-        "title": "灵活的条款",
-        "description": "从多个锁定期中选择，以匹配您的投资策略。"
+      "step3": {
+        "title": "3. 设置利率并开启质押活动",
+        "description": "对于已批准的代币，代币创建者可以直接在WhiteCreator平台内设置利率并开启质押活动。这允许您通过提供有吸引力的奖励来激励用户持有和质押您的代币。",
+        "description2": "设置质押活动时，您可以配置：",
+        "list1": "利率（APY）- 质押者的年化收益率",
+        "list2": "质押期限 - 代币需要锁定的时间",
+        "list3": "最低质押金额 - 参与所需的最低代币数量",
+        "list4": "最大质押容量 - 可以质押的代币总数",
+        "description3": "配置完成后，您的质押活动将变为活动状态，并对平台上的所有用户可见。"
       },
-      "autoCompound": {
-        "title": "自动复投",
-        "description": "奖励自动复投以最大化您的收益。"
-      }
-    },
-    "calculator": {
-      "title": "质押计算器",
-      "preview": "预览",
-      "amountToStake": "质押金额",
-      "estimatedEarnings": "预计收益（180天）",
-      "connectWallet": "连接钱包开始"
-    },
-    "faq": {
-      "title": "常见",
-      "titleHighlight": "问题",
-      "subtitle": "关于DFS质押您需要了解的一切",
-      "questions": {
-        "whatIsStaking": {
-          "question": "什么是DFS质押？",
-          "answer": "DFS质押允许您锁定DFS代币一段时间以赚取奖励。通过质押，您为网络安全做出贡献，同时获得被动收入。"
-        },
-        "rewardsCalculated": {
-          "question": "质押奖励如何计算？",
-          "answer": "奖励根据您的质押金额、选择的等级和锁定期计算。更高的等级和更长的锁定期提供更好的年化收益率。奖励每天分发并自动复投。"
-        },
-        "unstakeEarly": {
-          "question": "我可以提前取消质押吗？",
-          "answer": "可以提前取消质押，但会产生罚款费用。我们建议选择与您的投资时间线一致的锁定期以最大化奖励。"
-        },
-        "whatWallet": {
-          "question": "我需要什么钱包？",
-          "answer": "您需要连接到DFS Chain网络的Metaface钱包。如果您还没有，可以在metaface.dfsscan.com创建一个。"
-        },
-        "receiveRewards": {
-          "question": "我什么时候能收到奖励？",
-          "answer": "质押奖励每天计算和分发。它们通过自动复投自动添加到您的质押余额中，最大化您的收益潜力。"
-        }
+      "step4": {
+        "title": "4. 用户参与质押",
+        "description": "一旦质押活动激活，用户可以通过在专用质押项目（将在未来单独推出）中质押代币来参与。用户可以浏览可用的质押活动，查看利率和条款，并质押他们的代币以开始赚取奖励。",
+        "description2": "质押项目将提供一个用户友好的界面，质押者可以：",
+        "list1": "查看所有已批准代币的可用质押活动",
+        "list2": "查看利率、期限和其他条款",
+        "list3": "质押他们的代币并跟踪奖励",
+        "list4": "在锁定期结束时取消质押代币",
+        "description3": "这创造了双赢的局面：代币创建者可以激励持有并减少流通供应，而质押者可以从他们的代币中获得被动收入。"
       }
     },
     "cta": {
-      "title": "准备开始",
-      "titleHighlight": "赚取",
-      "subtitle": "加入数千名在DFS Chain上获得被动收入的质押者。今天就开始您的质押之旅。",
-      "startStaking": "开始质押",
-      "launchApp": "启动应用",
-      "readDocs": "阅读文档"
+      "title": "准备开始了吗？",
+      "subtitle": "在WhiteCreator中发布您的代币并设置质押活动，或参与现有的质押机会。",
+      "visitWhiteCreator": "访问WhiteCreator",
+      "stakingComingSoon": "质押项目（即将推出）"
     }
   },
   "whitepaper": {
@@ -718,12 +660,7 @@
       "available": "个空缺职位"
     },
     "positions": {
-      "seniorBackend": { "title": "高级后端开发者", "department": "工程", "description": "构建可扩展的区块链基础设施" },
-      "frontendDev": { "title": "前端开发者", "department": "工程", "description": "创造美好的用户体验" },
-      "productDesigner": { "title": "产品设计师", "department": "设计", "description": "设计Web3界面的未来" },
-      "communityManager": { "title": "社区经理", "department": "市场", "description": "发展和参与我们的全球社区" },
-      "technicalWriter": { "title": "技术作家", "department": "文档", "description": "创建清晰、有帮助的文档" },
-      "devOps": { "title": "DevOps工程师", "department": "基础设施", "description": "维护和扩展我们的基础设施" }
+      "moderator": { "title": "版主", "department": "社区", "description": "帮助维护积极和引人入胜的社区环境。主持讨论、回答问题，并确保遵守我们的社区准则。" }
     },
     "remote": "远程",
     "fullTime": "全职",

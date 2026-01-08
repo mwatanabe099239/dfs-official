@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { FiSearch, FiPlus, FiMail, FiSettings, FiCreditCard, FiDollarSign, FiUsers, FiRefreshCw, FiTool } from "react-icons/fi";
+import { FiSearch, FiPlus, FiMail, FiGrid, FiBriefcase, FiPackage, FiUsers, FiTrendingUp, FiRepeat, FiTool } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { Link } from "react-router-dom";
@@ -13,13 +13,13 @@ const ExploreDapps = () => {
 
   // Categories with outline icons
   const categories = [
-    { name: "All", nameKey: "exploreDapps.categories.all", icon: FiSettings },
-    { name: "Wallet", nameKey: "exploreDapps.categories.wallet", icon: FiCreditCard },
+    { name: "All", nameKey: "exploreDapps.categories.all", icon: FiGrid },
+    { name: "Wallet", nameKey: "exploreDapps.categories.wallet", icon: FiBriefcase },
     { name: "Explorer", nameKey: "exploreDapps.categories.explorer", icon: FiSearch },
-    { name: "Token Tools", nameKey: "exploreDapps.categories.tokenTools", icon: FiDollarSign },
+    { name: "Token Tools", nameKey: "exploreDapps.categories.tokenTools", icon: FiPackage },
     { name: "Social", nameKey: "exploreDapps.categories.social", icon: FiUsers },
-    { name: "DeFi", nameKey: "exploreDapps.categories.defi", icon: FiDollarSign },
-    { name: "Exchange", nameKey: "exploreDapps.categories.exchange", icon: FiRefreshCw },
+    { name: "DeFi", nameKey: "exploreDapps.categories.defi", icon: FiTrendingUp },
+    { name: "Exchange", nameKey: "exploreDapps.categories.exchange", icon: FiRepeat },
     { name: "Utility", nameKey: "exploreDapps.categories.utility", icon: FiTool },
   ];
 
@@ -119,8 +119,8 @@ const ExploreDapps = () => {
       description: "Trading Platform. P2P trading for DRC20 tokens with secure escrow system.",
       category: "Exchange",
       url: "https://heyotc.com",
-      logoWhite: "/dapps/heyotc-white.png",
-      logoBlack: "/dapps/heyotc-black.png",
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1767780398/bte3t9tctjjzy4rbsji0.png",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1767780398/bte3t9tctjjzy4rbsji0.png",
       gradient: "from-violet-500 to-purple-600",
       tag: null,
     },
@@ -191,9 +191,6 @@ const ExploreDapps = () => {
           <div className="px-4 sm:px-6 md:px-12 lg:px-16 pb-12 pt-6 max-w-[2048px] mx-auto w-full">
             {/* Hero Section - ToolHub Style */}
             <section className="py-6 sm:py-8 md:py-12">
-              <div className="mb-3 sm:mb-4">
-                <FiSettings className={`w-12 h-12 sm:w-16 sm:h-16 ${isDark ? "text-gray-400" : "text-gray-600"}`} />
-              </div>
               <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                 {t('exploreDapps.heroTitle')}
               </h1>
@@ -267,7 +264,7 @@ const ExploreDapps = () => {
                 <h2 className={`text-base sm:text-lg font-bold mb-3 sm:mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                   {t('exploreDapps.featuredDapps')}
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 w-full max-w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-3 sm:gap-4 w-full max-w-full">
                   {featuredDapps.map((dapp) => (
                     <Link
                       key={dapp.id}
@@ -284,31 +281,31 @@ const ExploreDapps = () => {
                       </span>
 
                       {/* Logo */}
-                      <div className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden flex items-center justify-center ${
+                      <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${
                         isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
                       }`}>
                         <img 
                           src={isDark ? dapp.logoWhite : dapp.logoBlack} 
                           alt={dapp.name}
-                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+                          className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                           onError={(e) => {
                             e.target.style.display = 'none';
                             e.target.nextSibling.style.display = 'flex';
                           }}
                         />
                         <div 
-                          className={`w-full h-full hidden items-center justify-center text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                          className={`w-full h-full hidden items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
                         >
                           {dapp.name.charAt(0)}
                         </div>
                       </div>
 
                       {/* Content */}
-                      <div className="flex-1 min-w-0 max-w-full pr-6 sm:pr-10 md:pr-14 text-left overflow-hidden">
-                        <h3 className={`text-sm sm:text-base font-semibold truncate mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`}>
+                      <div className="flex-1 min-w-0 max-w-full pr-2 sm:pr-4 md:pr-6 text-left overflow-hidden">
+                        <h3 className={`text-sm sm:text-base md:text-lg font-semibold truncate mb-1 sm:mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`}>
                           {dapp.name}
                         </h3>
-                        <p className={`text-xs sm:text-sm line-clamp-2 break-words ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                        <p className={`text-xs sm:text-sm md:text-base line-clamp-2 break-words ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                           {dapp.description}
                         </p>
                       </div>
@@ -378,7 +375,7 @@ const ExploreDapps = () => {
               <h2 className={`text-base sm:text-lg font-bold mb-3 sm:mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                 {selectedCategory === "All" ? t('exploreDapps.allDapps') : `${t(`exploreDapps.categories.${selectedCategory.toLowerCase().replace(' ', '')}`)}:`}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-3 sm:gap-4 w-full">
                 {filteredDapps.map((dapp) => (
                   <Link
                     key={dapp.id}
@@ -397,31 +394,31 @@ const ExploreDapps = () => {
                     )}
 
                     {/* Logo */}
-                    <div className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden flex items-center justify-center ${
+                    <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${
                       isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
                     }`}>
                       <img 
                         src={isDark ? dapp.logoWhite : dapp.logoBlack} 
                         alt={dapp.name}
-                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+                        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                         onError={(e) => {
                           e.target.style.display = 'none';
                           e.target.nextSibling.style.display = 'flex';
                         }}
                       />
                       <div 
-                        className={`w-full h-full hidden items-center justify-center text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                        className={`w-full h-full hidden items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
                       >
                         {dapp.name.charAt(0)}
                       </div>
                     </div>
 
                     {/* Content */}
-                    <div className="flex-1 min-w-0 max-w-full pr-6 sm:pr-10 md:pr-14 text-left overflow-hidden">
-                      <h3 className={`text-sm sm:text-base font-semibold truncate mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`}>
+                    <div className="flex-1 min-w-0 max-w-full pr-2 sm:pr-4 md:pr-6 text-left overflow-hidden">
+                      <h3 className={`text-sm sm:text-base md:text-lg font-semibold truncate mb-1 sm:mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`}>
                         {dapp.name}
                       </h3>
-                      <p className={`text-xs sm:text-sm line-clamp-2 break-words ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                      <p className={`text-xs sm:text-sm md:text-base line-clamp-2 break-words ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                         {dapp.description}
                       </p>
                     </div>

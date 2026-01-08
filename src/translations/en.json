@@ -251,130 +251,72 @@
     }
   },
   "staking": {
-    "badge": "Staking is Live",
-    "days": "days",
-    "toast": {
-      "underDevelopment": "This feature is under development."
-    },
+    "badge": "Staking",
     "hero": {
-      "title": "Stake DFS,",
-      "titleHighlight": "Earn Rewards",
-      "subtitle": "Put your DFS tokens to work. Stake and earn up to 25% APY while helping secure the DFS Chain network."
+      "title": "Token Staking",
+      "titleHighlight": "on DFS Chain",
+      "subtitle": "Create and participate in staking events for approved tokens. Set interest rates and let users stake their tokens to earn rewards."
     },
-    "stats": {
-      "tvl": "Total Value Locked",
-      "activeStakers": "Active Stakers",
-      "maxApy": "Max APY",
-      "uptime": "Uptime"
-    },
-    "howToStake": {
-      "title": "How to",
-      "titleHighlight": "Stake",
-      "subtitle": "Start earning rewards in just a few simple steps"
+    "howItWorks": {
+      "title": "How Token Staking Works",
+      "subtitle": "A simple process for token creators and stakers"
     },
     "steps": {
-      "connectWallet": {
-        "title": "Connect Wallet",
-        "description": "Connect your Metaface wallet to the DFS Staking platform securely."
+      "publishToken": {
+        "title": "Publish Token",
+        "description": "Publish your token in WhiteCreator platform to enable staking functionality."
       },
-      "chooseAmount": {
-        "title": "Choose Amount",
-        "description": "Select how many DFS tokens you want to stake and pick your tier."
+      "adminApproval": {
+        "title": "Admin Approval",
+        "description": "Only admin-approved tokens can be used for staking events."
       },
-      "selectLockPeriod": {
-        "title": "Select Lock Period",
-        "description": "Choose your preferred lock period. Longer periods earn higher rewards."
+      "setStaking": {
+        "title": "Set Staking Event",
+        "description": "Configure interest rate and open staking event in WhiteCreator."
       },
-      "startEarning": {
-        "title": "Start Earning",
-        "description": "Confirm your stake and start earning rewards automatically."
+      "participate": {
+        "title": "Users Participate",
+        "description": "Users can stake tokens in the dedicated staking project (coming soon)."
       }
     },
-    "tierNames": {
-      "starter": "Starter",
-      "growth": "Growth",
-      "premium": "Premium",
-      "elite": "Elite"
-    },
-    "lockPeriods": {
-      "30days": "30 days",
-      "90days": "90 days",
-      "180days": "180 days",
-      "365days": "365 days"
-    },
-    "tiers": {
-      "title": "Staking",
-      "titleHighlight": "Tiers",
-      "subtitle": "Choose the tier that best fits your investment strategy",
-      "mostPopular": "MOST POPULAR",
-      "minStake": "Min. Stake",
-      "lockPeriod": "Lock Period",
-      "autoCompound": "Auto-Compound",
-      "selectTier": "Select Tier"
-    },
-    "whyStake": {
-      "title": "Why Stake with",
-      "subtitle": "DFS Staking offers industry-leading security, competitive rewards, and a seamless user experience."
-    },
-    "features": {
-      "secureStaking": {
-        "title": "Secure Staking",
-        "description": "Your tokens are secured by DFS Chain's robust smart contract infrastructure."
+    "details": {
+      "title": "Understanding Token Staking",
+      "step1": {
+        "title": "1. Publish Your Token in WhiteCreator",
+        "description": "To enable staking for your token, you first need to publish it using the WhiteCreator platform. WhiteCreator is DFS Chain's token publishing platform where you can create and deploy your DRC20 tokens with an approval system.",
+        "description2": "Once your token is published, it will go through the community-driven approval process. This ensures quality and security for all tokens on the platform."
       },
-      "competitiveApy": {
-        "title": "Competitive APY",
-        "description": "Earn up to 25% APY on your staked DFS tokens with our tiered reward system."
+      "step2": {
+        "title": "2. Admin Approval Required",
+        "description": "Only tokens that have been approved by the admin can be used for staking. This approval process ensures that only legitimate, verified tokens can create staking events, protecting users from potential scams or low-quality projects.",
+        "description2": "The admin reviews tokens based on various criteria including project legitimacy, token utility, and compliance with DFS Chain standards. Once approved, your token becomes eligible for staking functionality."
       },
-      "flexibleTerms": {
-        "title": "Flexible Terms",
-        "description": "Choose from multiple lock periods to match your investment strategy."
+      "step3": {
+        "title": "3. Set Interest Rate and Open Staking Event",
+        "description": "For approved tokens, token creators can set an interest rate and open a staking event directly within the WhiteCreator platform. This allows you to incentivize users to hold and stake your token by offering attractive rewards.",
+        "description2": "When setting up a staking event, you can configure:",
+        "list1": "Interest rate (APY) - The annual percentage yield for stakers",
+        "list2": "Staking duration - How long tokens need to be locked",
+        "list3": "Minimum staking amount - The minimum tokens required to participate",
+        "list4": "Maximum staking capacity - Total tokens that can be staked",
+        "description3": "Once configured, your staking event becomes active and visible to all users on the platform."
       },
-      "autoCompound": {
-        "title": "Auto-Compound",
-        "description": "Rewards are automatically compounded to maximize your earnings."
-      }
-    },
-    "calculator": {
-      "title": "Staking Calculator",
-      "preview": "Preview",
-      "amountToStake": "Amount to Stake",
-      "estimatedEarnings": "Estimated Earnings (180 days)",
-      "connectWallet": "Connect Wallet to Start"
-    },
-    "faq": {
-      "title": "Frequently Asked",
-      "titleHighlight": "Questions",
-      "subtitle": "Everything you need to know about DFS Staking",
-      "questions": {
-        "whatIsStaking": {
-          "question": "What is DFS Staking?",
-          "answer": "DFS Staking allows you to lock your DFS tokens for a specified period to earn rewards. By staking, you contribute to the network's security while earning passive income."
-        },
-        "rewardsCalculated": {
-          "question": "How are staking rewards calculated?",
-          "answer": "Rewards are calculated based on your staked amount, chosen tier, and lock period. Higher tiers and longer lock periods offer better APY rates. Rewards are distributed daily and auto-compounded."
-        },
-        "unstakeEarly": {
-          "question": "Can I unstake early?",
-          "answer": "Early unstaking is possible but will incur a penalty fee. We recommend choosing a lock period that aligns with your investment timeline to maximize rewards."
-        },
-        "whatWallet": {
-          "question": "What wallet do I need?",
-          "answer": "You need a Metaface wallet connected to the DFS Chain network. You can create one at metaface.dfsscan.com if you don't have one already."
-        },
-        "receiveRewards": {
-          "question": "When do I receive rewards?",
-          "answer": "Staking rewards are calculated and distributed daily. They are automatically added to your staked balance through auto-compounding, maximizing your earning potential."
-        }
+      "step4": {
+        "title": "4. Users Participate in Staking",
+        "description": "Once a staking event is active, users can participate by staking their tokens in the dedicated staking project (which will be launched separately in the future). Users can browse available staking events, review the interest rates and terms, and stake their tokens to start earning rewards.",
+        "description2": "The staking project will provide a user-friendly interface where stakers can:",
+        "list1": "View all available staking events for approved tokens",
+        "list2": "See interest rates, duration, and other terms",
+        "list3": "Stake their tokens and track rewards",
+        "list4": "Unstake tokens when the lock period ends",
+        "description3": "This creates a win-win situation: token creators can incentivize holding and reduce circulating supply, while stakers earn passive income on their tokens."
       }
     },
     "cta": {
-      "title": "Ready to Start",
-      "titleHighlight": "Earning",
-      "subtitle": "Join thousands of stakers earning passive income on DFS Chain. Start your staking journey today.",
-      "startStaking": "Start Staking",
-      "launchApp": "Launch App",
-      "readDocs": "Read Documentation"
+      "title": "Ready to Get Started?",
+      "subtitle": "Publish your token in WhiteCreator and set up staking events, or participate in existing staking opportunities.",
+      "visitWhiteCreator": "Visit WhiteCreator",
+      "stakingComingSoon": "Staking Project (Coming Soon)"
     }
   },
   "whitepaper": {
@@ -1178,12 +1120,7 @@
       "teamEvents": { "title": "Team Events", "description": "Regular virtual and in-person team gatherings and retreats." }
     },
     "positions": {
-      "seniorBackend": { "title": "Senior Backend Developer", "department": "Engineering", "description": "Build and scale our core blockchain simulation infrastructure." },
-      "frontendDev": { "title": "Frontend Developer (React)", "department": "Engineering", "description": "Create beautiful, responsive interfaces for our ecosystem applications." },
-      "productDesigner": { "title": "Product Designer", "department": "Design", "description": "Design intuitive user experiences for blockchain technology." },
-      "communityManager": { "title": "Community Manager", "department": "Marketing", "description": "Build and nurture our global community of users and developers." },
-      "technicalWriter": { "title": "Technical Writer", "department": "Documentation", "description": "Create clear, comprehensive documentation for our platform." },
-      "devOps": { "title": "DevOps Engineer", "department": "Engineering", "description": "Maintain and improve our infrastructure and deployment pipelines." }
+      "moderator": { "title": "Moderator", "department": "Community", "description": "Help maintain a positive and engaging community environment. Moderate discussions, answer questions, and ensure our community guidelines are followed." }
     }
   },
   "community": {
@@ -1284,12 +1221,7 @@
       "available": "open positions available"
     },
     "positions": {
-      "seniorBackend": { "title": "Senior Backend Developer", "department": "Engineering", "description": "Build scalable blockchain infrastructure" },
-      "frontendDev": { "title": "Frontend Developer", "department": "Engineering", "description": "Create beautiful user experiences" },
-      "productDesigner": { "title": "Product Designer", "department": "Design", "description": "Design the future of Web3 interfaces" },
-      "communityManager": { "title": "Community Manager", "department": "Marketing", "description": "Grow and engage our global community" },
-      "technicalWriter": { "title": "Technical Writer", "department": "Documentation", "description": "Create clear, helpful documentation" },
-      "devOps": { "title": "DevOps Engineer", "department": "Infrastructure", "description": "Maintain and scale our infrastructure" }
+      "moderator": { "title": "Moderator", "department": "Community", "description": "Help maintain a positive and engaging community environment. Moderate discussions, answer questions, and ensure our community guidelines are followed." }
     },
     "remote": "Remote",
     "fullTime": "Full-time",
