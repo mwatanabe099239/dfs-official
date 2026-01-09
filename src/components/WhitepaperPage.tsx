@@ -1,542 +1,91 @@
 'use client'
 
-import React, { useState, useEffect } from "react"
-import { useTheme } from "../context/ThemeContext"
-import { useLanguage } from "../context/LanguageContext"
+import React, { useState, useEffect, useMemo } from 'react'
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
+import { HiChevronRight, HiChevronDown, HiChevronLeft, HiX } from 'react-icons/hi'
+import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
+import { FiMenu } from 'react-icons/fi'
 
-interface NotionBlock {
+interface WhitepaperMenu {
   id: string
-  type: string
-  [key: string]: any
+  title: string
+  order: number
+  submenus: WhitepaperSubmenu[]
 }
 
-interface NotionRichText {
-  type: string
-  text?: { content: string; link?: any }
-  annotations: {
-    bold?: boolean
-    italic?: boolean
-    strikethrough?: boolean
-    underline?: boolean
-    code?: boolean
-    color?: string
-  }
-  plain_text: string
-  href?: string
+interface WhitepaperSubmenu {
+  id: string
+  title: string
+  order: number
+  content: string // HTML content
+  menuId: string
 }
 
-const renderRichText = (richText: NotionRichText[], isDark: boolean): React.ReactNode => {
-  if (!richText || richText.length === 0) return null
-
-  return richText.map((text, index) => {
-    let content: React.ReactNode = text.plain_text
-
-    if (text.annotations.bold) {
-      content = <strong key={index}>{content}</strong>
-    }
-    if (text.annotations.italic) {
-      content = <em key={index}>{content}</em>
-    }
-    if (text.annotations.code) {
-      content = <code key={index} className="bg-gray-100 px-1 py-0.5 rounded text-sm">{content}</code>
-    }
-    if (text.annotations.strikethrough) {
-      content = <del key={index}>{content}</del>
-    }
-    if (text.href) {
-      content = (
-        <a 
-          key={index} 
-          href={text.href} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{ 
-            color: '#0b70e0',
-            textDecoration: 'underline',
-            textDecorationColor: 'rgba(11, 112, 224, 0.3)',
-            textDecorationThickness: '1px',
-            textUnderlineOffset: '2px',
-            cursor: 'pointer'
-          }}
-        >
-          {content}
-        </a>
-      )
-    }
-
-    return <span key={index}>{content}</span>
-  })
+interface WhitepaperData {
+  menus: WhitepaperMenu[]
+  updatedAt: string
+  updatedBy: string
 }
 
-const renderBlock = (block: NotionBlock, isDark: boolean, isSidebar: boolean = false): React.ReactNode => {
-  const { type, id } = block
-
-  switch (type) {
-    case 'paragraph':
-      const paragraphText = block.paragraph?.rich_text || []
-      if (paragraphText.length === 0) return <div key={id} style={{ height: '1px', marginBottom: '1px' }}></div>
-      return (
-        <p key={id} style={{ 
-          marginBottom: '1px', 
-          color: isDark ? '#e9e9e9' : '#37352f',
-          fontSize: '16px', 
-          lineHeight: '1.5',
-          fontWeight: 400
-        }}>
-          {renderRichText(paragraphText, isDark)}
-        </p>
-      )
-
-    case 'heading_1':
-      return (
-        <h1 key={id} style={{ 
-          marginTop: '2em', 
-          marginBottom: '4px',
-          color: isDark ? '#e9e9e9' : '#37352f',
-          fontSize: '32px', 
-          lineHeight: '1.2', 
-          fontWeight: 700,
-          fontFamily: 'inherit'
-        }}>
-          {renderRichText(block.heading_1?.rich_text || [], isDark)}
-        </h1>
-      )
-
-    case 'heading_2':
-      return (
-        <h2 key={id} style={{ 
-          marginTop: isSidebar ? '0' : '1.4em', 
-          marginBottom: isSidebar ? '4px' : '1px',
-          color: isDark ? '#e9e9e9' : '#37352f',
-          fontSize: isSidebar ? '14px' : '24px', 
-          lineHeight: isSidebar ? '1.3' : '1.3', 
-          fontWeight: isSidebar ? 500 : 600,
-          fontFamily: 'inherit',
-          textTransform: isSidebar ? 'uppercase' : 'none',
-          letterSpacing: isSidebar ? '0.03em' : 'normal',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '6px'
-        }}>
-          {renderRichText(block.heading_2?.rich_text || [], isDark)}
-        </h2>
-      )
-
-    case 'heading_3':
-      return (
-        <h3 key={id} style={{ 
-          marginTop: isSidebar ? '0' : '1em', 
-          marginBottom: isSidebar ? '4px' : '1px',
-          color: isDark ? '#e9e9e9' : '#37352f',
-          fontSize: isSidebar ? '14px' : '18px', 
-          lineHeight: isSidebar ? '1.3' : '1.3', 
-          fontWeight: isSidebar ? 500 : 600,
-          fontFamily: 'inherit',
-          textTransform: isSidebar ? 'uppercase' : 'none',
-          letterSpacing: isSidebar ? '0.03em' : 'normal',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '6px'
-        }}>
-          {renderRichText(block.heading_3?.rich_text || [], isDark)}
-        </h3>
-      )
-
-    case 'bulleted_list_item':
-      const listItemText = block.bulleted_list_item?.rich_text || []
-      const hasLink = listItemText.some((text: NotionRichText) => text.href)
-      return (
-        <li key={id} style={{ 
-          marginBottom: isSidebar ? '0' : '1px',
-          color: isDark ? '#e9e9e9' : '#37352f',
-          fontSize: '16px', 
-          lineHeight: '1.5', 
-          paddingLeft: isSidebar ? '0' : '1.5em', 
-          position: 'relative',
-          listStyle: 'none',
-          paddingTop: isSidebar ? '1px' : '0',
-          paddingBottom: isSidebar ? '1px' : '0',
-          marginTop: isSidebar ? '0' : '0'
-        }}>
-          {!isSidebar && <span style={{ position: 'absolute', left: '0.25em', color: isDark ? '#9b9a97' : '#37352f' }}>•</span>}
-          <span style={{
-            textDecoration: isSidebar && hasLink ? 'underline' : 'none',
-            textDecorationColor: isSidebar && hasLink ? (isDark ? 'rgba(233, 233, 233, 0.4)' : 'rgba(55, 53, 47, 0.4)') : 'transparent',
-            textUnderlineOffset: isSidebar ? '2px' : '0',
-            display: 'block'
-          }}>
-            {renderRichText(listItemText, isDark)}
-          </span>
-        </li>
-      )
-
-    case 'numbered_list_item':
-      return (
-        <li key={id} style={{ 
-          marginBottom: '1px',
-          color: isDark ? '#e9e9e9' : '#37352f',
-          fontSize: '16px', 
-          lineHeight: '1.5', 
-          paddingLeft: '1.5em', 
-          listStyleType: 'decimal', 
-          listStylePosition: 'outside'
-        }}>
-          {renderRichText(block.numbered_list_item?.rich_text || [], isDark)}
-        </li>
-      )
-
-    case 'code':
-      const codeText = block.code?.rich_text?.[0]?.plain_text || ''
-      const language = block.code?.language || 'plain text'
-      return (
-        <pre key={id} style={{ 
-          padding: '12px 14px',
-          borderRadius: '3px',
-          overflowX: 'auto',
-          marginBottom: '1px',
-          backgroundColor: isDark ? '#2e2e2e' : '#F7F6F3',
-          color: isDark ? '#e9e9e9' : '#37352f',
-          fontSize: '14px', 
-          lineHeight: '1.5', 
-          fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace'
-        }}>
-          <code>{codeText}</code>
-        </pre>
-      )
-
-    case 'quote':
-      return (
-        <blockquote key={id} style={{ 
-          borderLeft: `3px solid ${isDark ? 'rgba(233, 233, 233, 0.3)' : 'rgba(55, 53, 47, 0.2)'}`,
-          paddingLeft: '14px',
-          marginTop: '1px',
-          marginBottom: '1px',
-          color: isDark ? 'rgba(233, 233, 233, 0.8)' : 'rgba(55, 53, 47, 0.8)',
-          fontSize: '16px', 
-          lineHeight: '1.5', 
-          fontStyle: 'normal'
-        }}>
-          {renderRichText(block.quote?.rich_text || [], isDark)}
-        </blockquote>
-      )
-
-    case 'callout':
-      const calloutColor = block.callout?.color || 'gray'
-      const calloutBgColors: Record<string, string> = {
-        gray: isDark ? 'rgba(255, 255, 255, 0.03)' : '#F7F6F3',
-        blue: isDark ? 'rgba(46, 170, 220, 0.15)' : 'rgba(46, 170, 220, 0.15)',
-        yellow: isDark ? 'rgba(251, 243, 219, 0.3)' : '#FBF3DB',
-        green: isDark ? 'rgba(68, 131, 97, 0.15)' : 'rgba(68, 131, 97, 0.15)',
-      }
-      return (
-        <div key={id} style={{ 
-          padding: '12px 14px',
-          borderRadius: '3px',
-          marginBottom: '2px',
-          display: 'flex',
-          gap: '12px',
-          alignItems: 'flex-start',
-          backgroundColor: calloutBgColors[calloutColor] || calloutBgColors.gray,
-          border: 'none'
-        }}>
-          {block.callout?.icon && (
-            <span style={{ fontSize: '1.5em', lineHeight: '1', flexShrink: 0 }}>{block.callout.icon.emoji || '💡'}</span>
-          )}
-          <div style={{ 
-            flex: 1,
-            color: isDark ? '#e9e9e9' : '#37352f',
-            fontSize: '16px', 
-            lineHeight: '1.5'
-          }}>
-            {renderRichText(block.callout?.rich_text || [], isDark)}
-          </div>
-        </div>
-      )
-
-
-    case 'image':
-      const imageUrl = block.image?.file?.url || block.image?.external?.url
-      const imageCaption = block.image?.caption?.[0]?.plain_text || ''
-      return (
-        <div key={id} className="my-6">
-          <img 
-            src={imageUrl} 
-            alt={imageCaption} 
-            className="w-full rounded-lg"
-          />
-          {imageCaption && (
-            <p className={`text-sm mt-2 text-center ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-              {imageCaption}
-            </p>
-          )}
-        </div>
-      )
-
-    case 'toggle':
-      const toggleChildren = (block as any).children || []
-      return (
-        <details key={id} className={`mb-4 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-          <summary className="cursor-pointer font-semibold">
-            {renderRichText(block.toggle?.rich_text || [], isDark)}
-          </summary>
-          <div className="mt-2 ml-4">
-            {toggleChildren.map((child: NotionBlock) => renderBlock(child, isDark, isSidebar))}
-          </div>
-        </details>
-      )
-
-    case 'divider':
-      return (
-        <hr key={id} style={{ 
-          marginTop: isSidebar ? '6px' : '2em',
-          marginBottom: isSidebar ? '6px' : '2em',
-          border: 'none',
-          borderTop: `1px solid ${isDark ? 'rgba(233, 233, 233, 0.09)' : 'rgba(55, 53, 47, 0.09)'}`
-        }} />
-      )
-
-    case 'column_list':
-      // Column lists create multi-column layouts
-      const columns = (block as any).children || []
-      const columnCount = columns.length
-      return (
-        <div key={id} className="flex flex-col md:flex-row" style={{ 
-          gap: '46px',
-          marginTop: '2px',
-          marginBottom: '1px',
-          alignItems: 'flex-start',
-          width: '100%'
-        }}>
-          {columns.map((col: NotionBlock, colIndex: number) => {
-            // Determine if this is a sidebar column (typically first or last)
-            const isSidebarCol = columnCount === 2 ? colIndex === 0 : (colIndex === 0 || colIndex === columnCount - 1)
-            const colChildren = (col as any).children || []
-            const hasHeading = colChildren.some((child: NotionBlock) => 
-              child.type === 'heading_2' || child.type === 'heading_3'
-            )
-            
-            return (
-              <div 
-                key={col.id || colIndex} 
-                className="w-full md:w-auto" 
-                style={{
-                  flex: isSidebarCol && hasHeading ? '0 0 272px' : '1 1 auto',
-                  minWidth: 0,
-                  maxWidth: isSidebarCol && hasHeading ? '272px' : 'none',
-                  position: isSidebarCol && hasHeading ? 'sticky' : 'relative',
-                  top: isSidebarCol && hasHeading ? '96px' : 'auto',
-                  alignSelf: isSidebarCol && hasHeading ? 'flex-start' : 'auto',
-                  maxHeight: isSidebarCol && hasHeading ? 'calc(100vh - 96px)' : 'none',
-                  overflowY: isSidebarCol && hasHeading ? 'auto' : 'visible',
-                  paddingRight: isSidebarCol && hasHeading ? '0' : '0'
-                }}
-              >
-                {renderBlock(col, isDark, isSidebarCol && hasHeading)}
-              </div>
-            )
-          })}
-        </div>
-      )
-
-    case 'column':
-      const columnChildren = (block as any).children || []
-      return (
-        <div key={id} style={{ 
-          width: '100%',
-          minWidth: 0
-        }}>
-          {columnChildren.map((child: NotionBlock) => renderBlock(child, isDark, isSidebar))}
-        </div>
-      )
-
-    case 'to_do':
-      const checked = block.to_do?.checked || false
-      return (
-        <div key={id} style={{ 
-          display: 'flex',
-          alignItems: 'flex-start',
-          gap: '6px',
-          marginBottom: '1px',
-          color: isDark ? '#e9e9e9' : '#37352f',
-          fontSize: '16px', 
-          lineHeight: '1.5'
-        }}>
-          <input 
-            type="checkbox" 
-            checked={checked} 
-            readOnly 
-            style={{ 
-              width: '16px', 
-              height: '16px', 
-              cursor: 'default',
-              marginTop: '2px',
-              accentColor: isDark ? '#9b9a97' : '#37352f',
-              flexShrink: 0
-            }}
-          />
-          <span style={{ 
-            opacity: checked ? 0.5 : 1,
-            textDecoration: checked ? 'line-through' : 'none'
-          }}>
-            {renderRichText(block.to_do?.rich_text || [], isDark)}
-          </span>
-        </div>
-      )
-
-    case 'table':
-      const tableRows = block.table?.table_width || 0
-      return (
-        <div key={id} className="overflow-x-auto my-4">
-          <table className={`min-w-full border-collapse ${isDark ? "border-gray-700" : "border-gray-300"}`}>
-            <tbody>
-              {/* Table rows will be rendered separately */}
-            </tbody>
-          </table>
-        </div>
-      )
-
-    case 'table_row':
-      const cells = block.table_row?.cells || []
-      return (
-        <tr key={id} className={isDark ? "border-gray-700" : "border-gray-300"}>
-          {cells.map((cell: NotionRichText[], cellIndex: number) => (
-            <td key={cellIndex} className={`p-2 border ${isDark ? "border-gray-700 text-gray-300" : "border-gray-300 text-gray-700"}`}>
-              {renderRichText(cell, isDark)}
-            </td>
-          ))}
-        </tr>
-      )
-
-    case 'bookmark':
-      const bookmarkUrl = block.bookmark?.url || block.bookmark?.caption?.[0]?.plain_text || ''
-      const bookmarkCaption = block.bookmark?.caption?.[0]?.plain_text || bookmarkUrl
-      return (
-        <a key={id} href={bookmarkUrl} target="_blank" rel="noopener noreferrer" className={`block p-4 rounded-lg border mb-4 hover:bg-gray-50 ${isDark ? "border-gray-700 bg-gray-800" : "border-gray-300 bg-gray-50"}`}>
-          <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{bookmarkUrl}</div>
-          <div className={`mt-1 ${isDark ? "text-gray-300" : "text-gray-700"}`}>{bookmarkCaption}</div>
-        </a>
-      )
-
-    case 'link_preview':
-      const linkUrl = block.link_preview?.url || ''
-      return (
-        <a key={id} href={linkUrl} target="_blank" rel="noopener noreferrer" className={`block p-4 rounded-lg border mb-4 hover:bg-gray-50 ${isDark ? "border-gray-700 bg-gray-800 text-gray-300" : "border-gray-300 bg-gray-50 text-gray-700"}`}>
-          {linkUrl}
-        </a>
-      )
-
-    case 'embed':
-      const embedUrl = block.embed?.url || ''
-      return (
-        <div key={id} className="my-4">
-          <iframe src={embedUrl} className="w-full" style={{ minHeight: '400px' }} />
-        </div>
-      )
-
-    case 'video':
-      const videoUrl = block.video?.file?.url || block.video?.external?.url || ''
-      return (
-        <div key={id} className="my-4">
-          <video src={videoUrl} controls className="w-full rounded-lg" />
-        </div>
-      )
-
-    case 'file':
-      const fileUrl = block.file?.file?.url || block.file?.external?.url || ''
-      const fileName = block.file?.caption?.[0]?.plain_text || 'Download file'
-      return (
-        <a key={id} href={fileUrl} download className={`inline-flex items-center gap-2 p-3 rounded-lg border mb-4 ${isDark ? "border-gray-700 bg-gray-800 text-gray-300" : "border-gray-300 bg-gray-50 text-gray-700"}`}>
-          📎 {fileName}
-        </a>
-      )
-
-    case 'pdf':
-      const pdfUrl = block.pdf?.file?.url || block.pdf?.external?.url || ''
-      return (
-        <div key={id} className="my-4">
-          <iframe src={pdfUrl} className="w-full" style={{ minHeight: '600px' }} />
-        </div>
-      )
-
-    default:
-      // For unsupported block types, try to render any rich_text if available
-      const richText = (block as any)[type]?.rich_text
-      if (richText) {
-        return (
-          <div key={id} className={`mb-4 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-            {renderRichText(richText, isDark)}
-          </div>
-        )
-      }
-      // Log unsupported block types for debugging
-      console.warn('Unsupported block type:', type, block)
-      return null
-  }
-}
-
-export default function WhitepaperPage(): React.JSX.Element {
-  const { isDark } = useTheme()
-  const { t } = useLanguage()
-  const [blocks, setBlocks] = useState<NotionBlock[]>([])
+const WhitepaperPage: React.FC = () => {
+  const searchParams = useSearchParams()
+  const [menus, setMenus] = useState<WhitepaperMenu[]>([])
+  const [selectedSubmenuId, setSelectedSubmenuId] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
-  const [debugInfo, setDebugInfo] = useState<string>('')
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true)
 
+  // Fetch whitepaper data
   useEffect(() => {
     const fetchWhitepaper = async () => {
       try {
         setLoading(true)
         setError(null)
-        
-        // First, test the API configuration
-        try {
-          const testResponse = await fetch('/api/whitepaper/test')
-          const testData = await testResponse.json()
-          console.log('Notion API Test:', testData)
-          
-          if (!testData.environment.hasApiKey || !testData.environment.hasPageId) {
-            throw new Error('Missing environment variables. Please check your .env.local file and restart the dev server.')
-          }
-          
-          if (!testData.testResult?.success) {
-            const errorMsg = testData.testResult?.error || 'Failed to connect to Notion API'
-            throw new Error(`${errorMsg}. Make sure: 1) The page is shared with your Notion integration, 2) Your API key is correct, 3) The page ID is correct.`)
-          }
-          
-          setDebugInfo(`Test passed: ${testData.testResult.blockCount} blocks found`)
-        } catch (testErr: any) {
-          console.error('Test failed:', testErr)
-          throw testErr
-        }
-        
-        // Now fetch the full content
+
         const response = await fetch('/api/whitepaper')
         
         if (!response.ok) {
-          const errorData = await response.json().catch(() => ({ error: 'Unknown error' }))
-          console.error('API Error:', errorData)
-          throw new Error(errorData.error || `Failed to fetch whitepaper: ${response.status}`)
+          // Try to get error message from response
+          let errorMessage = `Failed to fetch: ${response.status}`
+          try {
+            const errorData = await response.json()
+            errorMessage = errorData.message || errorData.error || errorMessage
+          } catch {
+            // If response is not JSON, use status text
+            errorMessage = response.statusText || errorMessage
+          }
+          throw new Error(errorMessage)
         }
 
-        const data = await response.json()
-        console.log('Received data:', { 
-          blockCount: data.blocks?.length || 0,
-          blockTypes: data.blocks?.map((b: any) => b.type) || []
+        const data: WhitepaperData = await response.json()
+        const sortedMenus = (data.menus || []).sort((a, b) => a.order - b.order)
+        
+        // Sort submenus within each menu
+        sortedMenus.forEach(menu => {
+          menu.submenus.sort((a, b) => a.order - b.order)
         })
-        
-        // Log first few blocks for debugging
-        if (data.blocks && data.blocks.length > 0) {
-          console.log('First 5 blocks:', data.blocks.slice(0, 5))
+
+        setMenus(sortedMenus)
+
+        // Check for submenu ID in URL hash or query params
+        const hashSubmenuId = typeof window !== 'undefined' ? window.location.hash.slice(1) : null
+        const querySubmenuId = searchParams?.get('submenu')
+        const targetSubmenuId = hashSubmenuId || querySubmenuId
+
+        if (targetSubmenuId) {
+          // Verify the submenu exists
+          const submenuExists = sortedMenus.some(menu =>
+            menu.submenus.some(sub => sub.id === targetSubmenuId)
+          )
+          if (submenuExists) {
+            setSelectedSubmenuId(targetSubmenuId)
+          }
+        } else if (sortedMenus.length > 0 && sortedMenus[0].submenus?.length > 0) {
+          // Auto-select first submenu
+          const firstSubmenu = sortedMenus[0].submenus[0]
+          setSelectedSubmenuId(firstSubmenu.id)
         }
-        
-        setDebugInfo(`Fetched ${data.blocks?.length || 0} blocks`)
-        
-        if (!data.blocks || data.blocks.length === 0) {
-          throw new Error('No content found in the Notion page. Make sure the page has content and is shared with your Notion integration.')
-        }
-        
-        setBlocks(data.blocks)
-        setError(null)
       } catch (err: any) {
         console.error('Error fetching whitepaper:', err)
         setError(err.message || 'Failed to load whitepaper content')
@@ -546,151 +95,312 @@ export default function WhitepaperPage(): React.JSX.Element {
     }
 
     fetchWhitepaper()
-  }, [])
+  }, [searchParams])
 
-  // Group list items together and handle nested blocks
-  const renderBlocks = (blocks: NotionBlock[]): React.ReactNode => {
-    const elements: React.ReactNode[] = []
-    let currentList: NotionBlock[] = []
-    let currentListType: 'bulleted' | 'numbered' | null = null
+  // Get current submenu
+  const currentSubmenu = useMemo(() => {
+    if (!selectedSubmenuId) return null
+    for (const menu of menus) {
+      const submenu = menu.submenus.find(sub => sub.id === selectedSubmenuId)
+      if (submenu) return submenu
+    }
+    return null
+  }, [menus, selectedSubmenuId])
 
-    blocks.forEach((block, index) => {
-      // Handle column_list specially - it contains columns
-      if (block.type === 'column_list') {
-        // Render any pending list first
-        if (currentList.length > 0) {
-          const ListTag = currentListType === 'bulleted' ? 'ul' : 'ol'
-          elements.push(
-            <ListTag key={`list-${index}`} className="mb-4">
-              {currentList.map(b => renderBlock(b, isDark, false))}
-            </ListTag>
-          )
-          currentList = []
-          currentListType = null
-        }
-        // Render the column_list (which will render its columns and their children)
-        const rendered = renderBlock(block, isDark, false)
-        if (rendered) {
-          elements.push(rendered)
-        }
-        return
-      }
-
-      if (block.type === 'bulleted_list_item') {
-        if (currentListType !== 'bulleted') {
-          if (currentList.length > 0) {
-            elements.push(
-              <ul key={`list-${index}`} className="mb-4">
-                {currentList.map(b => renderBlock(b, isDark, false))}
-              </ul>
-            )
-          }
-          currentList = []
-          currentListType = 'bulleted'
-        }
-        currentList.push(block)
-      } else if (block.type === 'numbered_list_item') {
-        if (currentListType !== 'numbered') {
-          if (currentList.length > 0) {
-            elements.push(
-              <ol key={`list-${index}`} className="mb-4">
-                {currentList.map(b => renderBlock(b, isDark, false))}
-              </ol>
-            )
-          }
-          currentList = []
-          currentListType = 'numbered'
-        }
-        currentList.push(block)
-      } else {
-        // Render any pending list
-        if (currentList.length > 0) {
-          const ListTag = currentListType === 'bulleted' ? 'ul' : 'ol'
-          elements.push(
-            <ListTag key={`list-${index}`} className="mb-4">
-              {currentList.map(b => renderBlock(b, isDark, false))}
-            </ListTag>
-          )
-          currentList = []
-          currentListType = null
-        }
-        // Render the current block
-        const rendered = renderBlock(block, isDark, false)
-        if (rendered) {
-          elements.push(rendered)
-        }
-      }
-    })
-
-    // Render any remaining list items
-    if (currentList.length > 0) {
-      const ListTag = currentListType === 'bulleted' ? 'ul' : 'ol'
-      elements.push(
-        <ListTag key="list-final" className="mb-4">
-          {currentList.map(b => renderBlock(b, isDark, false))}
-        </ListTag>
-      )
+  // Get previous and next submenus
+  const { previousSubmenu, nextSubmenu } = useMemo(() => {
+    if (!selectedSubmenuId || menus.length === 0) {
+      return { previousSubmenu: null, nextSubmenu: null }
     }
 
-    return elements
+    // Flatten all submenus in order
+    const allSubmenus: Array<{ submenu: WhitepaperSubmenu; menuId: string }> = []
+    menus.forEach(menu => {
+      menu.submenus.forEach(submenu => {
+        allSubmenus.push({ submenu, menuId: menu.id })
+      })
+    })
+
+    const currentIndex = allSubmenus.findIndex(item => item.submenu.id === selectedSubmenuId)
+    
+    return {
+      previousSubmenu: currentIndex > 0 ? allSubmenus[currentIndex - 1].submenu : null,
+      nextSubmenu: currentIndex < allSubmenus.length - 1 ? allSubmenus[currentIndex + 1].submenu : null,
+    }
+  }, [menus, selectedSubmenuId])
+
+
+  // Handle submenu selection
+  const handleSubmenuSelect = (submenuId: string) => {
+    setSelectedSubmenuId(submenuId)
+    // Update URL hash for deep linking
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', `${window.location.pathname}#${submenuId}`)
+      // Scroll to top of content
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  // Handle hash changes from browser navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (typeof window !== 'undefined') {
+        const hash = window.location.hash.slice(1)
+        if (hash && hash !== selectedSubmenuId) {
+          // Verify the submenu exists
+          const submenuExists = menus.some(menu =>
+            menu.submenus.some(sub => sub.id === hash)
+          )
+          if (submenuExists) {
+            setSelectedSubmenuId(hash)
+          }
+        }
+      }
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [menus, selectedSubmenuId])
+
+  // Check if menu contains selected submenu
+  const isMenuActive = (menu: WhitepaperMenu): boolean => {
+    return menu.submenus.some(sub => sub.id === selectedSubmenuId)
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+          <p className="mt-4 text-gray-600">Loading documentation...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    const isPermissionError = error.includes('permission') || error.includes('403')
+    
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className={`max-w-2xl mx-auto p-6 rounded-lg border ${
+          isPermissionError 
+            ? 'border-orange-200 bg-orange-50 text-orange-900' 
+            : 'border-red-200 bg-red-50 text-red-800'
+        }`}>
+          <h2 className="text-xl font-semibold mb-2">
+            {isPermissionError ? 'Firebase Permission Error' : 'Error Loading Content'}
+          </h2>
+          <p className="mb-4">{error}</p>
+          
+          {isPermissionError && (
+            <div className="mt-4 p-4 rounded bg-white border border-orange-200">
+              <p className="text-sm font-semibold mb-2">To fix this:</p>
+              <ol className="list-decimal list-inside space-y-1 text-sm">
+                <li>Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Firebase Console</a></li>
+                <li>Select your project</li>
+                <li>Navigate to <strong>Firestore Database</strong> &gt; <strong>Rules</strong></li>
+                <li>Copy the rules from <code className="px-1 py-0.5 rounded bg-gray-100 text-xs">firestore.rules</code> file</li>
+                <li>Paste and click <strong>Publish</strong></li>
+              </ol>
+              <p className="mt-3 text-xs text-gray-600">
+                See <code className="px-1 py-0.5 rounded bg-gray-100 text-xs">FIREBASE_STRUCTURE.md</code> for detailed instructions.
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  if (menus.length === 0) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="text-center">
+          <p className="text-gray-600">No documentation content available.</p>
+        </div>
+      </div>
+    )
   }
 
   return (
-    <main className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-[#191919] text-[#e9e9e9]" : "bg-white text-[#37352f]"}`} style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"', fontSize: '16px', lineHeight: '1.5' }}>
-      <div className="w-full" style={{ maxWidth: '100%', padding: '0' }}>
-        {loading && (
-          <div className="text-center py-16">
-            <div className={`inline-block animate-spin rounded-full h-12 w-12 border-b-2 ${isDark ? "border-white" : "border-gray-900"}`}></div>
-            <p className={`mt-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Loading whitepaper...
-            </p>
+    <div className="min-h-screen bg-white flex">
+      {/* Left Sidebar */}
+      <aside className={`${sidebarOpen ? 'block' : 'hidden'} lg:block w-80 bg-white border-r border-gray-200 shadow-sm transition-transform duration-300`} style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden' }}>
+        {/* Sticky Header */}
+        <div className="bg-white border-b border-gray-200 px-4 py-3 z-10 flex-shrink-0">
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <h2 className="text-lg font-semibold text-gray-900">Documentation</h2>
+              <p className="text-xs text-gray-500 mt-0.5">Navigate through sections</p>
+            </div>
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="lg:hidden p-1 hover:bg-gray-100 rounded transition-colors"
+              aria-label="Close sidebar"
+            >
+              <HiX className="w-5 h-5 text-gray-600" />
+            </button>
           </div>
-        )}
+        </div>
 
-        {error && (
-          <div className={`p-6 rounded-lg border ${isDark ? "bg-red-900/20 border-red-800 text-red-300" : "bg-red-50 border-red-200 text-red-800"}`}>
-            <h2 className="text-xl font-semibold mb-2">Error Loading Whitepaper</h2>
-            <p className="font-medium">{error}</p>
-            <p className="mt-4 text-sm">
-              Please make sure:
-            </p>
-            <ul className="mt-2 ml-6 list-disc text-sm">
-              <li>NOTION_API_KEY and NOTION_PAGE_ID are configured in your .env.local file</li>
-              <li>The Notion page is shared with your Notion integration</li>
-              <li>You've restarted your dev server after adding environment variables</li>
-            </ul>
-            {debugInfo && (
-              <p className="mt-4 text-xs opacity-75">Debug: {debugInfo}</p>
-            )}
+        {/* Navigation Menu - Scrollable */}
+        <nav className="flex-1 overflow-y-auto" style={{ height: 'calc(100vh - 100px)' }}>
+          <div className="py-2">
+            {menus.map(menu => {
+              const isActive = isMenuActive(menu)
+              const submenuCount = menu.submenus.length
+
+              return (
+                <div key={menu.id} className="mb-0.5">
+                  {/* Menu Header */}
+                  <div
+                    className={`w-full flex items-center px-4 py-2.5 rounded-md transition-colors ${
+                      isActive
+                        ? 'bg-blue-50'
+                        : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 flex-1 min-w-0">
+                      <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                        isActive ? 'bg-blue-600' : 'bg-gray-400'
+                      }`}></div>
+                      <span className={`text-sm font-medium truncate ${
+                        isActive ? 'text-blue-700' : 'text-gray-900'
+                      }`}>
+                        {menu.title}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Submenus - Always visible */}
+                  {submenuCount > 0 && (
+                    <div className="ml-5 mt-0.5 pl-3 relative border-l-2 border-gray-200">
+                      <div className="space-y-0.5 py-1">
+                        {menu.submenus.map((submenu) => {
+                          const isSelected = submenu.id === selectedSubmenuId
+                          return (
+                            <button
+                              key={submenu.id}
+                              onClick={() => handleSubmenuSelect(submenu.id)}
+                              className={`w-full text-left px-3 py-2 rounded-md transition-all duration-150 relative ${
+                                isSelected
+                                  ? 'bg-blue-50 text-blue-700 font-medium'
+                                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                              }`}
+                            >
+                              {isSelected && (
+                                <div className="absolute -left-[11px] top-0 bottom-0 w-[2px] bg-blue-600 z-10"></div>
+                              )}
+                              <span className="text-sm">{submenu.title}</span>
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
-        )}
+        </nav>
+      </aside>
 
-        {!loading && !error && blocks.length > 0 && (
-          <article className="notion-page" style={{ 
-            maxWidth: '100%', 
-            margin: '0 auto',
-            padding: 'clamp(24px, 6vw, 96px) clamp(24px, 6vw, 96px) 0 clamp(24px, 6vw, 96px)',
-            fontSize: '16px', 
-            lineHeight: '1.5',
-            color: isDark ? '#e9e9e9' : '#37352f'
-          }}>
-            {renderBlocks(blocks)}
-            {debugInfo && (
-              <div className={`mt-8 p-4 rounded text-xs ${isDark ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-600"}`}>
-                Debug: {debugInfo} | Block types: {[...new Set(blocks.map(b => b.type))].join(', ')}
+      {/* Main Content Area */}
+      <main className="flex-1 min-w-0 bg-white">
+        <div className="max-w-4xl mx-auto px-10 py-10">
+          {/* Mobile sidebar toggle */}
+          {!sidebarOpen && (
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white border border-gray-200 rounded-md shadow-md hover:bg-gray-50"
+              aria-label="Open sidebar"
+            >
+              <FiMenu className="w-5 h-5 text-gray-600" />
+            </button>
+          )}
+          
+          {currentSubmenu ? (
+            <>
+              {/* Content */}
+              <div
+                className="prose prose-slate max-w-none"
+                dangerouslySetInnerHTML={{ __html: currentSubmenu.content }}
+                style={{
+                  color: '#334155',
+                }}
+              />
+
+              {/* Feedback Section */}
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <p className="text-sm font-medium text-gray-900 mb-4">Is this page helpful?</p>
+                <div className="flex gap-2">
+                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:border-blue-500 hover:bg-blue-50 transition-colors group">
+                    <FaThumbsUp className="w-4 h-4 text-gray-600 group-hover:text-blue-600" />
+                    <span className="text-sm text-gray-700 group-hover:text-blue-700">Yes</span>
+                  </button>
+                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:border-blue-500 hover:bg-blue-50 transition-colors group">
+                    <FaThumbsDown className="w-4 h-4 text-gray-600 group-hover:text-blue-600" />
+                    <span className="text-sm text-gray-700 group-hover:text-blue-700">No</span>
+                  </button>
+                </div>
               </div>
-            )}
-          </article>
-        )}
 
-        {!loading && !error && blocks.length === 0 && (
-          <div className="text-center py-16">
-            <p className={isDark ? "text-gray-400" : "text-gray-600"}>
-              No content available.
-            </p>
-          </div>
-        )}
-      </div>
-    </main>
+              {/* Previous/Next Navigation */}
+              {(previousSubmenu || nextSubmenu) && (
+                <div className="mt-8 grid grid-cols-2 gap-4">
+                  {/* Previous */}
+                  {previousSubmenu ? (
+                    <button
+                      onClick={() => handleSubmenuSelect(previousSubmenu.id)}
+                      className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all min-h-[80px] group w-full"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                        <HiChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-blue-700 group-hover:translate-x-[-2px] transition-transform" />
+                      </div>
+                      <div className="flex-1 min-w-0 text-left">
+                        <p className="text-xs text-gray-500 mb-1">Previous</p>
+                        <p className="text-sm font-semibold text-gray-900 truncate">
+                          {previousSubmenu.title}
+                        </p>
+                      </div>
+                    </button>
+                  ) : (
+                    <div className="w-full"></div>
+                  )}
+
+                  {/* Next */}
+                  {nextSubmenu ? (
+                    <button
+                      onClick={() => handleSubmenuSelect(nextSubmenu.id)}
+                      className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all min-h-[80px] group w-full"
+                    >
+                      <div className="flex-1 min-w-0 text-right">
+                        <p className="text-xs text-gray-500 mb-1">Next</p>
+                        <p className="text-sm font-semibold text-gray-900 truncate">
+                          {nextSubmenu.title}
+                        </p>
+                      </div>
+                      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                        <HiChevronRight className="w-5 h-5 text-gray-600 group-hover:text-blue-700 group-hover:translate-x-[2px] transition-transform" />
+                      </div>
+                    </button>
+                  ) : (
+                    <div className="w-full"></div>
+                  )}
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="text-center py-16">
+              <p className="text-gray-600">Select a section from the sidebar to view content.</p>
+            </div>
+          )}
+        </div>
+      </main>
+
+    </div>
   )
 }
+
+export default WhitepaperPage

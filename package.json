@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@notionhq/client": "^5.6.0",
+    "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.4.21",
+    "firebase": "^12.7.0",
     "jspdf": "^3.0.4",
     "next": "16.0.10",
     "postcss": "^8.5.3",

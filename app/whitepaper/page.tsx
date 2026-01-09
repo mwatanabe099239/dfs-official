@@ -1,3 +1,4 @@
+import React from 'react'
 import WhitepaperPage from '../../src/components/WhitepaperPage'
 
 export default function WhitepaperPageRoute(): React.JSX.Element {
