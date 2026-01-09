@@ -7,7 +7,7 @@
     position: relative;
     overflow: hidden;
     background-color: rgb(20, 21, 26);
-    background-image: url(/public/hero.jpg);
+    background-image: url(/hero.jpg);
     background-size: auto 100%;
     background-position: right center;
     background-repeat: no-repeat;
@@ -15,7 +15,7 @@
 
 .first-section-light {
     background-color: #f1f5f9;
-    background-image: url(/public/hero-light.png);
+    background-image: url(/hero-light.png);
     background-size: auto 100%;
     background-position: right center;
     background-repeat: no-repeat;

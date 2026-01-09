@@ -197,7 +197,7 @@ const WhitepaperPage: React.FC = () => {
             <div className="mt-4 p-4 rounded bg-white border border-orange-200">
               <p className="text-sm font-semibold mb-2">To fix this:</p>
               <ol className="list-decimal list-inside space-y-1 text-sm">
-                <li>Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Firebase Console</a></li>
+                <li>Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener noreferrer" className="text-[#21f201] underline">Firebase Console</a></li>
                 <li>Select your project</li>
                 <li>Navigate to <strong>Firestore Database</strong> &gt; <strong>Rules</strong></li>
                 <li>Copy the rules from <code className="px-1 py-0.5 rounded bg-gray-100 text-xs">firestore.rules</code> file</li>
@@ -257,16 +257,16 @@ const WhitepaperPage: React.FC = () => {
                   <div
                     className={`w-full flex items-center px-4 py-2.5 rounded-md transition-colors ${
                       isActive
-                        ? 'bg-blue-50'
+                        ? 'bg-[#21f201]/10'
                         : 'hover:bg-gray-50'
                     }`}
                   >
                     <div className="flex items-center gap-3 flex-1 min-w-0">
                       <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                        isActive ? 'bg-blue-600' : 'bg-gray-400'
+                        isActive ? 'bg-[#21f201]' : 'bg-gray-400'
                       }`}></div>
                       <span className={`text-sm font-medium truncate ${
-                        isActive ? 'text-blue-700' : 'text-gray-900'
+                        isActive ? 'text-gray-900' : 'text-gray-900'
                       }`}>
                         {menu.title}
                       </span>
@@ -285,12 +285,12 @@ const WhitepaperPage: React.FC = () => {
                               onClick={() => handleSubmenuSelect(submenu.id)}
                               className={`w-full text-left px-3 py-2 rounded-md transition-all duration-150 relative ${
                                 isSelected
-                                  ? 'bg-blue-50 text-blue-700 font-medium'
+                                  ? 'bg-[#21f201]/10 text-gray-900 font-medium'
                                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                               }`}
                             >
                               {isSelected && (
-                                <div className="absolute -left-[11px] top-0 bottom-0 w-[2px] bg-blue-600 z-10"></div>
+                                <div className="absolute -left-[11px] top-0 bottom-0 w-[2px] bg-[#21f201] z-10"></div>
                               )}
                               <span className="text-sm">{submenu.title}</span>
                             </button>
@@ -322,6 +322,11 @@ const WhitepaperPage: React.FC = () => {
           
           {currentSubmenu ? (
             <>
+              {/* Title */}
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">
+                {currentSubmenu.title}
+              </h1>
+
               {/* Content */}
               <div
                 className="prose prose-slate max-w-none"
@@ -335,13 +340,13 @@ const WhitepaperPage: React.FC = () => {
               <div className="mt-12 pt-8 border-t border-gray-200">
                 <p className="text-sm font-medium text-gray-900 mb-4">Is this page helpful?</p>
                 <div className="flex gap-2">
-                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:border-blue-500 hover:bg-blue-50 transition-colors group">
-                    <FaThumbsUp className="w-4 h-4 text-gray-600 group-hover:text-blue-600" />
-                    <span className="text-sm text-gray-700 group-hover:text-blue-700">Yes</span>
+                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:border-[#21f201] hover:bg-[#21f201]/10 transition-colors group">
+                    <FaThumbsUp className="w-4 h-4 text-gray-600 group-hover:text-[#21f201]" />
+                    <span className="text-sm text-gray-700 group-hover:text-[#21f201]">Yes</span>
                   </button>
-                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:border-blue-500 hover:bg-blue-50 transition-colors group">
-                    <FaThumbsDown className="w-4 h-4 text-gray-600 group-hover:text-blue-600" />
-                    <span className="text-sm text-gray-700 group-hover:text-blue-700">No</span>
+                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:border-[#21f201] hover:bg-[#21f201]/10 transition-colors group">
+                    <FaThumbsDown className="w-4 h-4 text-gray-600 group-hover:text-[#21f201]" />
+                    <span className="text-sm text-gray-700 group-hover:text-[#21f201]">No</span>
                   </button>
                 </div>
               </div>
@@ -353,10 +358,10 @@ const WhitepaperPage: React.FC = () => {
                   {previousSubmenu ? (
                     <button
                       onClick={() => handleSubmenuSelect(previousSubmenu.id)}
-                      className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all min-h-[80px] group w-full"
+                      className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-[#21f201] hover:bg-[#21f201]/10 transition-all min-h-[80px] group w-full"
                     >
-                      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-blue-100 transition-colors flex-shrink-0">
-                        <HiChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-blue-700 group-hover:translate-x-[-2px] transition-transform" />
+                      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#21f201]/20 transition-colors flex-shrink-0">
+                        <HiChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-[#21f201] group-hover:translate-x-[-2px] transition-transform" />
                       </div>
                       <div className="flex-1 min-w-0 text-left">
                         <p className="text-xs text-gray-500 mb-1">Previous</p>
@@ -373,7 +378,7 @@ const WhitepaperPage: React.FC = () => {
                   {nextSubmenu ? (
                     <button
                       onClick={() => handleSubmenuSelect(nextSubmenu.id)}
-                      className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all min-h-[80px] group w-full"
+                      className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-[#21f201] hover:bg-[#21f201]/10 transition-all min-h-[80px] group w-full"
                     >
                       <div className="flex-1 min-w-0 text-right">
                         <p className="text-xs text-gray-500 mb-1">Next</p>
@@ -381,8 +386,8 @@ const WhitepaperPage: React.FC = () => {
                           {nextSubmenu.title}
                         </p>
                       </div>
-                      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-blue-100 transition-colors flex-shrink-0">
-                        <HiChevronRight className="w-5 h-5 text-gray-600 group-hover:text-blue-700 group-hover:translate-x-[2px] transition-transform" />
+                      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#21f201]/20 transition-colors flex-shrink-0">
+                        <HiChevronRight className="w-5 h-5 text-gray-600 group-hover:text-[#21f201] group-hover:translate-x-[2px] transition-transform" />
                       </div>
                     </button>
                   ) : (

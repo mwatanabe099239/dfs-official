@@ -10,8 +10,17 @@ const ExploreDapps: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [email, setEmail] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const { isDark } = useTheme();
   const { t } = useLanguage();
+
+  // Show toast notification
+  const showComingSoonToast = () => {
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+  };
 
   // Categories with outline icons
   const categories = [
@@ -137,13 +146,123 @@ const ExploreDapps: React.FC = () => {
       gradient: "from-blue-600 to-indigo-600",
       tag: "Popular",
     },
+    {
+      id: 11,
+      name: "Burn To Earn",
+      description: "Earn rewards by burning tokens. Participate in token burning campaigns and get rewarded.",
+      category: "DeFi",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-red-500 to-orange-500",
+      tag: "Coming Soon",
+    },
+    {
+      id: 12,
+      name: "Dosi Jeonseol",
+      description: "Platform for token staking and earning rewards on DFS Chain.",
+      category: "DeFi",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-purple-500 to-pink-500",
+      tag: "Coming Soon",
+    },
+    {
+      id: 13,
+      name: "Dubai Kaitori",
+      description: "Trading and exchange platform for DFS Chain tokens.",
+      category: "Exchange",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-amber-500 to-yellow-500",
+      tag: "Coming Soon",
+    },
+    {
+      id: 14,
+      name: "FUATILIA",
+      description: "Innovative platform for token management and trading on DFS Chain.",
+      category: "Utility",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-cyan-500 to-blue-500",
+      tag: "Coming Soon",
+    },
+    {
+      id: 15,
+      name: "Kakuseru",
+      description: "Privacy-focused platform for secure transactions on DFS Chain.",
+      category: "Utility",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-indigo-500 to-purple-500",
+      tag: "Coming Soon",
+    },
+    {
+      id: 16,
+      name: "PayViner",
+      description: "PayPal, Stripe like platform for DFS Chain. Easy payment processing with DRC20 tokens.",
+      category: "Utility",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-green-500 to-emerald-500",
+      tag: "Coming Soon",
+    },
+    {
+      id: 17,
+      name: "Utaou",
+      description: "Music and entertainment platform on DFS Chain.",
+      category: "Social",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-pink-500 to-rose-500",
+      tag: "Coming Soon",
+    },
+    {
+      id: 18,
+      name: "Vazreel",
+      description: "Content Reward Platform. Earn tokens by creating and sharing content.",
+      category: "Social",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-violet-500 to-purple-500",
+      tag: "Coming Soon",
+    },
+    {
+      id: 19,
+      name: "UBTC",
+      description: "Bitcoin-like token platform on DFS Chain.",
+      category: "DeFi",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-orange-500 to-red-500",
+      tag: "Coming Soon",
+    },
+    {
+      id: 20,
+      name: "Quick IDO",
+      description: "Quick Initial DEX Offering platform for launching new tokens on DFS Chain.",
+      category: "DeFi",
+      url: null,
+      logoWhite: null,
+      logoBlack: null,
+      gradient: "from-teal-500 to-cyan-500",
+      tag: "Coming Soon",
+    },
   ];
 
   // Filter DApps
   const filteredDapps = useMemo(() => {
     return dappsData.filter((dapp) => {
       const matchesSearch = dapp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           dapp.description.toLowerCase().includes(searchTerm.toLowerCase());
+        dapp.description.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory === "All" || dapp.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
@@ -154,10 +273,11 @@ const ExploreDapps: React.FC = () => {
 
   // Get tag color
   const getTagStyle = (tag: string): string => {
-    switch(tag) {
+    switch (tag) {
       case "Featured": return "bg-[#21f201] text-black";
       case "New": return "bg-gray-400 text-white";
       case "Popular": return "bg-gray-500 text-white";
+      case "Coming Soon": return "bg-gray-600 text-white";
       default: return "";
     }
   };
@@ -174,11 +294,10 @@ const ExploreDapps: React.FC = () => {
                 <button
                   key={category.name}
                   onClick={() => setSelectedCategory(category.name)}
-                  className={`w-full flex items-center gap-3 px-5 py-2.5 text-left transition-all ${
-                    isActive
+                  className={`w-full flex items-center gap-3 px-5 py-2.5 text-left transition-all ${isActive
                       ? "text-gray-900 bg-gray-100"
                       : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                  }`}
+                    }`}
                 >
                   <category.icon className={`w-5 h-5 ${isActive ? "text-gray-900" : "text-gray-600"}`} />
                   <span className="text-sm font-medium">{t(category.nameKey)}</span>
@@ -200,20 +319,34 @@ const ExploreDapps: React.FC = () => {
                 {t('exploreDapps.heroSubtitle')}
               </p>
               <div className="flex flex-wrap gap-2 sm:gap-3">
-                <Link 
+                {/* Search Bar - ToolHub Style */}
+                <div className={`relative w-full flex-1 md:w-64 ${isDark ? "bg-[#1c1c1c]" : "bg-white"} rounded-lg sm:rounded-xl`}>
+                  <input
+                    type="text"
+                    placeholder={t('exploreDapps.searchPlaceholder')}
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className={`w-full px-4 sm:px-5 py-3 sm:py-4 pr-10 sm:pr-12 rounded-lg sm:rounded-xl text-sm outline-none ${isDark
+                        ? "bg-[#1c1c1c] text-white placeholder-gray-500 border border-gray-800 focus:border-gray-700"
+                        : "bg-white text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-gray-300"
+                      }`}
+                  />
+                  <FiSearch className={`absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 ${isDark ? "text-gray-500" : "text-gray-400"
+                    }`} />
+                </div>
+                <Link
                   href="/feedback"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
                 >
                   <FiPlus className="w-4 h-4" />
                   {t('exploreDapps.submitDapp')}
                 </Link>
-                <Link 
+                <Link
                   href="/community"
-                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border transition-colors ${
-                    isDark 
-                      ? "border-gray-600 text-gray-300 hover:bg-white/5" 
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border transition-colors ${isDark
+                      ? "border-gray-600 text-gray-300 hover:bg-white/5"
                       : "border-gray-300 text-gray-700 hover:bg-gray-100"
-                  }`}
+                    }`}
                 >
                   <FiMail className="w-4 h-4" />
                   {t('exploreDapps.joinCommunity')}
@@ -221,23 +354,7 @@ const ExploreDapps: React.FC = () => {
               </div>
             </section>
 
-            {/* Search Bar - ToolHub Style */}
-            <div className={`relative mb-6 sm:mb-8 ${isDark ? "bg-[#1c1c1c]" : "bg-white"} rounded-lg sm:rounded-xl`}>
-              <input
-                type="text"
-                placeholder={t('exploreDapps.searchPlaceholder')}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className={`w-full px-4 sm:px-5 py-3 sm:py-4 pr-10 sm:pr-12 rounded-lg sm:rounded-xl text-sm outline-none ${
-                  isDark 
-                    ? "bg-[#1c1c1c] text-white placeholder-gray-500 border border-gray-800 focus:border-gray-700" 
-                    : "bg-white text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-gray-300"
-                }`}
-              />
-              <FiSearch className={`absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 ${
-                isDark ? "text-gray-500" : "text-gray-400"
-              }`} />
-            </div>
+
 
             {/* Mobile Category Pills */}
             <div className="lg:hidden flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
@@ -247,11 +364,10 @@ const ExploreDapps: React.FC = () => {
                   <button
                     key={category.name}
                     onClick={() => setSelectedCategory(category.name)}
-                    className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                      isActive
+                    className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${isActive
                         ? "bg-gray-200 text-gray-900"
                         : "bg-white text-gray-600"
-                    }`}
+                      }`}
                   >
                     <category.icon className={`w-4 h-4 ${isActive ? "text-gray-900" : "text-gray-600"}`} />
                     <span>{t(category.nameKey)}</span>
@@ -267,16 +383,19 @@ const ExploreDapps: React.FC = () => {
                   {t('exploreDapps.featuredDapps')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-3 sm:gap-4 w-full max-w-full">
-                  {featuredDapps.map((dapp) => (
-                    <Link
-                      key={dapp.id}
-                      href={`/explore-dapps/${dapp.id}`}
-                      className={`group relative flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 rounded-xl transition-all hover:bg-opacity-90 overflow-hidden w-full max-w-full ${
-                        isDark 
-                          ? "bg-[#181818] hover:bg-[#2a2a2a]" 
-                          : "bg-white hover:shadow-md"
-                      }`}
-                    >
+                  {featuredDapps.map((dapp) => {
+                    const cardClassName = `group relative flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 rounded-xl transition-all hover:bg-opacity-90 overflow-hidden w-full max-w-full ${isDark
+                      ? "bg-[#181818] hover:bg-[#2a2a2a]"
+                      : "bg-white hover:shadow-md"
+                    }`;
+                    
+                    if (dapp.url) {
+                      return (
+                        <Link
+                          key={dapp.id}
+                          href={`/explore-dapps/${dapp.id}`}
+                          className={cardClassName}
+                        >
                       {/* Badge - Top Right */}
                       {dapp.tag && (
                         <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium z-10 ${getTagStyle(dapp.tag)}`}>
@@ -285,27 +404,36 @@ const ExploreDapps: React.FC = () => {
                       )}
 
                       {/* Logo */}
-                      <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${
-                        isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
-                      }`}>
-                        <img 
-                          src={isDark ? dapp.logoWhite : dapp.logoBlack} 
-                          alt={dapp.name}
-                          className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            const nextSibling = target.nextSibling as HTMLElement;
-                            if (nextSibling) {
-                              nextSibling.style.display = 'flex';
-                            }
-                          }}
-                        />
-                        <div 
-                          className={`w-full h-full hidden items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
-                        >
-                          {dapp.name.charAt(0)}
-                        </div>
+                      <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
+                        }`}>
+                        {dapp.logoWhite && dapp.logoBlack ? (
+                          <>
+                            <img
+                              src={isDark ? dapp.logoWhite : dapp.logoBlack}
+                              alt={dapp.name}
+                              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                const nextSibling = target.nextSibling as HTMLElement;
+                                if (nextSibling) {
+                                  nextSibling.style.display = 'flex';
+                                }
+                              }}
+                            />
+                            <div
+                              className={`w-full h-full hidden items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                            >
+                              {dapp.name.charAt(0)}
+                            </div>
+                          </>
+                        ) : (
+                          <div
+                            className={`w-full h-full flex items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                          >
+                            {dapp.name.charAt(0)}
+                          </div>
+                        )}
                       </div>
 
                       {/* Content */}
@@ -317,18 +445,54 @@ const ExploreDapps: React.FC = () => {
                           {dapp.description}
                         </p>
                       </div>
-                    </Link>
-                  ))}
+                        </Link>
+                      );
+                    } else {
+                      return (
+                        <div
+                          key={dapp.id}
+                          onClick={showComingSoonToast}
+                          className={`${cardClassName} cursor-pointer`}
+                        >
+                          {/* Badge - Top Right */}
+                          {dapp.tag && (
+                            <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium z-10 ${getTagStyle(dapp.tag)}`}>
+                              {dapp.tag}
+                            </span>
+                          )}
+
+                          {/* Logo */}
+                          <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
+                            }`}>
+                            <div
+                              className={`w-full h-full flex items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                            >
+                              {dapp.name.charAt(0)}
+                            </div>
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex-1 min-w-0 max-w-full pr-2 sm:pr-4 md:pr-6 text-left overflow-hidden">
+                            <h3 className={`text-sm sm:text-base md:text-lg font-semibold truncate mb-1 sm:mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`}>
+                              {dapp.name}
+                            </h3>
+                            <p className={`text-xs sm:text-sm md:text-base line-clamp-2 break-words ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                              {dapp.description}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    }
+                  })}
                 </div>
               </section>
             )}
 
             {/* Join Community Banner - ToolHub Style */}
             {selectedCategory === "All" && (
-              <section 
-                className={`mb-8 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden border-t border-l border-r ${
-                  isDark ? "bg-[#181818] border-gray-300" : "bg-white border-gray-300"
-                }`}
+              <section
+                className={`mb-8 sm:mb-10 rounded-xl sm:rounded-2xl overflow-hidden border-t border-l border-r ${isDark ? "bg-[#181818] border-gray-300" : "bg-white border-gray-300"
+                  }`}
                 style={{
                   borderBottomWidth: '4px',
                   borderBottomColor: isDark ? '#6b7280' : '#9ca3af',
@@ -339,9 +503,9 @@ const ExploreDapps: React.FC = () => {
               >
                 <div className="flex flex-col md:flex-row">
                   <div className="w-full md:w-3/5 h-48 sm:h-56 md:h-64 relative overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop" 
-                      alt="Blockchain DApps" 
+                    <img
+                      src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop"
+                      alt="Blockchain DApps"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
@@ -359,17 +523,15 @@ const ExploreDapps: React.FC = () => {
                         placeholder={t('exploreDapps.emailPlaceholder')}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className={`flex-1 px-4 py-2.5 rounded-lg text-xs sm:text-sm outline-none ${
-                          isDark 
-                            ? "bg-[#2a2a2a] text-white placeholder-gray-500 border border-gray-700" 
+                        className={`flex-1 px-4 py-2.5 rounded-lg text-xs sm:text-sm outline-none ${isDark
+                            ? "bg-[#2a2a2a] text-white placeholder-gray-500 border border-gray-700"
                             : "bg-gray-100 text-gray-900 placeholder-gray-400 border border-gray-200"
-                        }`}
+                          }`}
                       />
-                      <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 whitespace-nowrap ${
-                        isDark 
-                          ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" 
+                      <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 whitespace-nowrap ${isDark
+                          ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]"
                           : "bg-gray-900 text-white hover:bg-gray-800"
-                      }`}>
+                        }`}>
                         {t('exploreDapps.subscribe')}
                       </button>
                     </div>
@@ -384,16 +546,19 @@ const ExploreDapps: React.FC = () => {
                 {selectedCategory === "All" ? t('exploreDapps.allDapps') : `${t(`exploreDapps.categories.${selectedCategory.toLowerCase().replace(' ', '')}`)}:`}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-3 sm:gap-4 w-full">
-                {filteredDapps.map((dapp) => (
-                  <Link
-                    key={dapp.id}
-                    href={`/explore-dapps/${dapp.id}`}
-                    className={`group relative flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 rounded-xl transition-all hover:bg-opacity-90 overflow-hidden w-full max-w-full ${
-                      isDark 
-                        ? "bg-[#181818] hover:bg-[#2a2a2a]" 
-                        : "bg-white hover:shadow-md"
-                    }`}
-                  >
+                {filteredDapps.map((dapp) => {
+                  const cardClassName = `group relative flex items-start gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 rounded-xl transition-all hover:bg-opacity-90 overflow-hidden w-full max-w-full ${isDark
+                    ? "bg-[#181818] hover:bg-[#2a2a2a]"
+                    : "bg-white hover:shadow-md"
+                  }`;
+                  
+                  if (dapp.url) {
+                    return (
+                      <Link
+                        key={dapp.id}
+                        href={`/explore-dapps/${dapp.id}`}
+                        className={cardClassName}
+                      >
                     {/* Badge - Top Right */}
                     {dapp.tag && (
                       <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium z-10 ${getTagStyle(dapp.tag)}`}>
@@ -402,27 +567,36 @@ const ExploreDapps: React.FC = () => {
                     )}
 
                     {/* Logo */}
-                    <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${
-                      isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
-                    }`}>
-                      <img 
-                        src={isDark ? dapp.logoWhite : dapp.logoBlack} 
-                        alt={dapp.name}
-                        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const nextSibling = target.nextSibling as HTMLElement;
-                          if (nextSibling) {
-                            nextSibling.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      <div 
-                        className={`w-full h-full hidden items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
-                      >
-                        {dapp.name.charAt(0)}
-                      </div>
+                    <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
+                      }`}>
+                      {dapp.logoWhite && dapp.logoBlack ? (
+                        <>
+                          <img
+                            src={isDark ? dapp.logoWhite : dapp.logoBlack}
+                            alt={dapp.name}
+                            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              const nextSibling = target.nextSibling as HTMLElement;
+                              if (nextSibling) {
+                                nextSibling.style.display = 'flex';
+                              }
+                            }}
+                          />
+                          <div
+                            className={`w-full h-full hidden items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                          >
+                            {dapp.name.charAt(0)}
+                          </div>
+                        </>
+                      ) : (
+                        <div
+                          className={`w-full h-full flex items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                        >
+                          {dapp.name.charAt(0)}
+                        </div>
+                      )}
                     </div>
 
                     {/* Content */}
@@ -434,8 +608,45 @@ const ExploreDapps: React.FC = () => {
                         {dapp.description}
                       </p>
                     </div>
-                  </Link>
-                ))}
+                      </Link>
+                    );
+                  } else {
+                    return (
+                      <div
+                        key={dapp.id}
+                        onClick={showComingSoonToast}
+                        className={`${cardClassName} cursor-pointer`}
+                      >
+                        {/* Badge - Top Right */}
+                        {dapp.tag && (
+                          <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium z-10 ${getTagStyle(dapp.tag)}`}>
+                            {dapp.tag}
+                          </span>
+                        )}
+
+                        {/* Logo */}
+                        <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
+                          }`}>
+                          <div
+                            className={`w-full h-full flex items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                          >
+                            {dapp.name.charAt(0)}
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-1 min-w-0 max-w-full pr-2 sm:pr-4 md:pr-6 text-left overflow-hidden">
+                          <h3 className={`text-sm sm:text-base md:text-lg font-semibold truncate mb-1 sm:mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`}>
+                            {dapp.name}
+                          </h3>
+                          <p className={`text-xs sm:text-sm md:text-base line-clamp-2 break-words ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                            {dapp.description}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  }
+                })}
               </div>
 
               {/* Empty State */}
@@ -458,9 +669,33 @@ const ExploreDapps: React.FC = () => {
         </main>
       </div>
 
+      {/* Toast Notification */}
+      {showToast && (
+        <div className="fixed bottom-4 right-4 z-50 animate-slide-up">
+          <div className={`px-6 py-4 rounded-lg shadow-lg ${isDark ? "bg-[#181818] border border-gray-700" : "bg-white border border-gray-200"}`}>
+            <p className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
+              Coming Soon
+            </p>
+          </div>
+        </div>
+      )}
+
       <style>{`
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes slide-up {
+          from {
+            transform: translateY(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        .animate-slide-up {
+          animation: slide-up 0.3s ease-out;
+        }
       `}</style>
     </div>
   );

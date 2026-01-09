@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { useTheme } from '../context/ThemeContext';
@@ -16,368 +16,100 @@ import {
 } from 'react-icons/hi';
 import { FaTwitter, FaTelegram, FaLinkedin } from 'react-icons/fa';
 
+interface BlogPost {
+  id: string
+  title: string
+  excerpt: string
+  category: string
+  author: string
+  authorAvatar?: string
+  date: string
+  readTime: string
+  image: string
+  featured: boolean
+  content: string
+  tags: string[]
+}
+
 const BlogDetailPage: React.FC = () => {
   const params = useParams<{ id: string }>();
   const { isDark } = useTheme();
   const { t } = useLanguage();
   const id = typeof params?.id === 'string' ? params.id : Array.isArray(params?.id) ? params.id[0] : params?.id;
-
-  // Blog posts data (in a real app, this would come from an API)
-  const blogPosts = [
-    {
-      id: 1,
-      title: 'Introducing DFS Chain: The Future of Web2-Web3 Integration',
-      excerpt: 'Learn how DFS Chain bridges the gap between traditional web applications and blockchain technology, making decentralized concepts accessible to everyone.',
-      category: 'Announcements',
-      author: 'DFS Team',
-      authorAvatar: '👤',
-      date: 'Dec 20, 2025',
-      readTime: '5 min read',
-      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80',
-      content: `
-## The Dawn of a New Era
-
-DFS Chain represents a groundbreaking approach to blockchain technology. By creating a Web2 simulation of Web3 concepts, we've made it possible for anyone to experience the benefits of decentralized systems without the traditional barriers to entry.
-
-### What Makes DFS Chain Different?
-
-Unlike traditional blockchains that require complex wallet setups, seed phrases, and technical knowledge, DFS Chain offers:
-
-- **Email-based authentication**: Simply sign up with your email to get started
-- **Automatic wallet generation**: Your wallet address (dfs_0x...) is created instantly
-- **Familiar user experience**: If you can use Gmail, you can use DFS Chain
-
-### The Technology Behind It
-
-Our platform simulates blockchain behavior using robust Web2 infrastructure:
-
-1. **Block Generation**: New blocks are created every 5 minutes
-2. **Transaction Processing**: Each block can contain thousands of transactions
-3. **Gas Mechanism**: Fair resource allocation using DRC20_DFS tokens
-4. **Immutable Records**: All transactions are permanently recorded
-
-### Building the Ecosystem
-
-We've already launched several applications on DFS Chain:
-
-- **Metaface**: The official wallet for managing your assets
-- **DFSScan**: Block explorer for tracking transactions
-- **Whitecreator**: Platform for creating DRC20 tokens
-- **WEXSWAP**: Decentralized exchange for token trading
-
-### What's Next?
-
-Our roadmap includes exciting features like staking, governance, and cross-chain bridges. Stay tuned for more updates!
-
-### Join the Revolution
-
-Ready to experience the future of Web2-Web3 integration? Create your wallet today at [metaface.dfsscan.com](https://metaface.dfsscan.com) and start exploring the DFS Chain ecosystem.
-      `,
-      tags: ['Blockchain', 'Web3', 'DFS Chain', 'Innovation'],
-    },
-    {
-      id: 2,
-      title: 'How to Create Your First DRC20 Token',
-      excerpt: 'A step-by-step guide to publishing your own token on DFS Chain using the Whitecreator platform. No coding experience required!',
-      category: 'Tutorials',
-      author: 'Dev Team',
-      authorAvatar: '👨‍💻',
-      date: 'Dec 18, 2025',
-      readTime: '8 min read',
-      image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=1200&q=80',
-      content: `
-## Create Your Own Token in Minutes
-
-Have you ever wanted to create your own cryptocurrency? With DFS Chain's Whitecreator platform, you can launch your DRC20 token in just a few clicks!
-
-### Prerequisites
-
-Before you begin, make sure you have:
-
-- A Metaface wallet with some DRC20_DFS for gas fees
-- An idea for your token (name, symbol, purpose)
-- A logo image (optional but recommended)
-
-### Step 1: Access Whitecreator
-
-Navigate to [drc20.dfsscan.com](https://drc20.dfsscan.com) and connect your Metaface wallet.
-
-### Step 2: Fill in Token Details
-
-Enter the following information:
-
-- **Token Name**: The full name of your token (e.g., "My Awesome Token")
-- **Symbol**: A short identifier (e.g., "MAT")
-- **Total Supply**: How many tokens to create
-- **Decimals**: Usually 18 for compatibility
-- **Description**: What your token is for
-
-### Step 3: Upload Your Logo
-
-A good logo helps users identify your token. Upload a square PNG or SVG file.
-
-### Step 4: Review and Submit
-
-Double-check all information and click "Create Token". Pay the gas fee to complete the process.
-
-### Step 5: Wait for Approval
-
-Your token will be reviewed by our team. Once approved, it can be used in transactions across the network.
-
-### Tips for Success
-
-- Choose a unique and memorable name
-- Write a clear description
-- Create a professional-looking logo
-- Be transparent about your token's purpose
-
-### Conclusion
-
-Creating a DRC20 token is simple and accessible to everyone. Start building your project on DFS Chain today!
-      `,
-      tags: ['Tutorial', 'DRC20', 'Token', 'Whitecreator'],
-    },
-    {
-      id: 3,
-      title: 'WEXSWAP DEX Now Live on DFS Chain',
-      excerpt: 'Our decentralized exchange is officially launched! Trade DRC20 tokens with instant swaps and competitive rates.',
-      category: 'Updates',
-      author: 'DFS Team',
-      authorAvatar: '👤',
-      date: 'Dec 15, 2025',
-      readTime: '3 min read',
-      image: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1200&q=80',
-      content: `
-## WEXSWAP is Live!
-
-We're thrilled to announce that WEXSWAP, the decentralized exchange for DFS Chain, is now officially live!
-
-### What is WEXSWAP?
-
-WEXSWAP is a DEX (Decentralized Exchange) that allows you to:
-
-- Swap DRC20 tokens instantly
-- Provide liquidity and earn rewards
-- Trade without intermediaries
-
-### Key Features
-
-**Instant Swaps**
-Exchange tokens in seconds with our optimized trading engine.
-
-**Low Fees**
-Competitive gas fees make trading accessible to everyone.
-
-**Liquidity Pools**
-Add liquidity to earn a share of trading fees.
-
-**User-Friendly Interface**
-Simple, intuitive design for traders of all experience levels.
-
-### How to Get Started
-
-1. Visit [wexswap.com](https://wexswap.com)
-2. Connect your Metaface wallet
-3. Select tokens to swap
-4. Confirm and execute your trade
-
-### Supported Tokens
-
-All approved DRC20 tokens are available for trading on WEXSWAP. More tokens are being added regularly.
-
-### What's Coming Next
-
-- Advanced trading features
-- Mobile app
-- Yield farming opportunities
-
-Start trading on WEXSWAP today!
-      `,
-      tags: ['DEX', 'WEXSWAP', 'Trading', 'Launch'],
-    },
-    {
-      id: 4,
-      title: 'Understanding Gas Fees on DFS Chain',
-      excerpt: 'A comprehensive guide to how gas works on our platform, why it matters, and tips for optimizing your transaction costs.',
-      category: 'Technical',
-      author: 'Tech Team',
-      authorAvatar: '🔧',
-      date: 'Dec 12, 2025',
-      readTime: '6 min read',
-      image: 'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?w=1200&q=80',
-      content: `
-## What Are Gas Fees?
-
-Gas fees are payments made to process transactions on DFS Chain. They serve important purposes in maintaining network health and fairness.
-
-### Why Do Gas Fees Exist?
-
-1. **Prevent Spam**: Fees discourage malicious actors from flooding the network
-2. **Resource Allocation**: Fair distribution of computational resources
-3. **Network Sustainability**: Support ongoing development and maintenance
-
-### How Gas is Calculated
-
-Gas fees depend on:
-
-- **Operation Complexity**: More complex operations require more gas
-- **Network Congestion**: Higher demand may increase fees
-- **Transaction Size**: Larger data payloads cost more
-
-### Paying Gas Fees
-
-All gas fees are paid in **DRC20_DFS**, the native token of DFS Chain. Make sure you have enough DFS in your wallet before initiating transactions.
-
-### Tips for Saving on Gas
-
-**Batch Transactions**
-Combine multiple operations when possible to reduce overall fees.
-
-**Choose Optimal Times**
-Transaction costs may vary based on network activity.
-
-**Estimate Before Confirming**
-Always review the estimated gas cost before confirming a transaction.
-
-### Common Gas Costs
-
-| Operation | Estimated Gas |
-|-----------|---------------|
-| Token Transfer | Low |
-| Token Swap | Medium |
-| Token Creation | High |
-
-### Conclusion
-
-Understanding gas fees helps you use DFS Chain more efficiently. Plan your transactions wisely to minimize costs!
-      `,
-      tags: ['Gas', 'Technical', 'Fees', 'Guide'],
-    },
-    {
-      id: 5,
-      title: 'Community Spotlight: Building on DFS Chain',
-      excerpt: 'Meet the developers and creators who are building innovative applications on our platform. Their stories and insights.',
-      category: 'Community',
-      author: 'Community Team',
-      authorAvatar: '🌟',
-      date: 'Dec 10, 2025',
-      readTime: '7 min read',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80',
-      content: `
-## Meet Our Amazing Community
-
-The DFS Chain ecosystem is powered by passionate developers and creators. Today, we spotlight some incredible projects and the people behind them.
-
-### Featured Projects
-
-**Uhalisi - Social Media Reimagined**
-
-Uhalisi brings social media to DFS Chain with tokenized engagement. Every post is certified and recorded on-chain, giving creators true ownership of their content.
-
-**POIPI - Rewards Platform**
-
-POIPI revolutionizes point systems with Web3 features. Earn points, participate in airdrops, and swap for tokens—all in one platform.
-
-**Gyakusen - Donation Platform**
-
-Supporting creators has never been easier. Gyakusen enables DRC20 donations for live streamers and content creators.
-
-### Developer Insights
-
-We asked our community builders: "Why DFS Chain?"
-
-> "The email-based wallet system removes all barriers for users. My app's adoption increased 10x." — Uhalisi Developer
-
-> "Building here feels like the early days of the web—full of possibilities." — POIPI Team
-
-### Join Our Developer Community
-
-Want to build on DFS Chain? Here's how to get started:
-
-1. Read our documentation
-2. Join our Discord community
-3. Start building!
-
-### Upcoming Community Events
-
-- Weekly developer calls
-- Monthly hackathons
-- Community AMAs
-
-We can't wait to see what you'll build!
-      `,
-      tags: ['Community', 'Developers', 'Projects', 'Spotlight'],
-    },
-    {
-      id: 6,
-      title: 'Staking Coming Soon: What You Need to Know',
-      excerpt: 'Get ready for DFS staking! Learn about the upcoming feature, expected APY, and how to prepare your tokens.',
-      category: 'Announcements',
-      author: 'DFS Team',
-      authorAvatar: '👤',
-      date: 'Dec 8, 2025',
-      readTime: '4 min read',
-      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80',
-      content: `
-## DFS Staking is Coming!
-
-We're excited to announce that staking will soon be available on DFS Chain. Here's everything you need to know to prepare.
-
-### What is Staking?
-
-Staking allows you to lock your DRC20_DFS tokens to earn rewards over time. It's a way to grow your holdings while supporting the network.
-
-### Expected Features
-
-**Multiple Tiers**
-Choose from Bronze, Silver, and Gold tiers with varying lock periods and rewards.
-
-**Competitive APY**
-Earn attractive returns on your staked DFS tokens.
-
-**Flexible Options**
-Options for both short-term and long-term staking.
-
-### How to Prepare
-
-1. **Acquire DFS Tokens**: Make sure you have DRC20_DFS in your wallet
-2. **Stay Updated**: Follow our announcements for the launch date
-3. **Plan Your Strategy**: Decide how much and how long you want to stake
-
-### Tier Overview
-
-| Tier | Lock Period | Expected APY |
-|------|-------------|--------------|
-| Bronze | 30 days | 5% |
-| Silver | 90 days | 12% |
-| Gold | 180 days | 20% |
-
-### Security
-
-Your staked tokens are secured by our robust smart contract system. Withdraw anytime after the lock period ends.
-
-### Stay Tuned
-
-Staking launch date will be announced soon. Follow us on social media for real-time updates!
-      `,
-      tags: ['Staking', 'DFS', 'Announcement', 'Rewards'],
-    },
-  ];
-
-  // Loading state while router query is being populated
-  if (!id) {
+  
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      if (!id) return;
+      
+      try {
+        setLoading(true);
+        setError(null);
+        
+        // Fetch the specific blog post
+        const response = await fetch(`/api/blogs/${id}`);
+        if (!response.ok) {
+          let errorMessage = 'Failed to fetch blog';
+          try {
+            const errorData = await response.json();
+            errorMessage = errorData.message || errorData.error || errorMessage;
+          } catch {
+            // If response is not JSON, use status text
+            errorMessage = response.statusText || errorMessage;
+          }
+          
+          if (response.status === 404) {
+            setError('notFound');
+          } else {
+            console.error('Blog fetch error:', errorMessage);
+            setError('error');
+          }
+          return;
+        }
+        
+        const data = await response.json();
+        if (!data.blog) {
+          setError('notFound');
+          return;
+        }
+        setPost(data.blog);
+        
+        // Fetch related posts (same category)
+        const allBlogsResponse = await fetch('/api/blogs');
+        if (allBlogsResponse.ok) {
+          const allBlogsData = await allBlogsResponse.json();
+          const related = (allBlogsData.blogs || [])
+            .filter((p: BlogPost) => p.category === data.blog.category && p.id !== data.blog.id)
+            .slice(0, 2);
+          setRelatedPosts(related);
+        }
+      } catch (err) {
+        console.error('Error fetching blog:', err);
+        setError('error');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlog();
+  }, [id]);
+
+  if (loading) {
     return (
       <div className={`min-h-screen flex items-center justify-center ${isDark ? "bg-[#141414]" : "bg-gray-100"}`}>
         <div className="text-center">
-          <div className="text-lg text-gray-500">Loading...</div>
+          <div className={`inline-block animate-spin rounded-full h-12 w-12 border-b-2 ${isDark ? "border-white" : "border-gray-900"}`}></div>
+          <div className={`text-lg mt-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Loading...</div>
         </div>
       </div>
     );
   }
 
-  const post = blogPosts.find(p => p.id === parseInt(id));
-
-  if (!post) {
+  if (error === 'notFound' || !post) {
     return (
       <div className={`min-h-screen flex items-center justify-center ${
         isDark ? "bg-[#0B0E11] text-white" : "bg-gray-50 text-gray-900"
@@ -399,10 +131,29 @@ Staking launch date will be announced soon. Follow us on social media for real-t
     );
   }
 
-  // Get related posts (same category, excluding current)
-  const relatedPosts = blogPosts
-    .filter(p => p.category === post.category && p.id !== post.id)
-    .slice(0, 2);
+  if (error === 'error') {
+    return (
+      <div className={`min-h-screen flex items-center justify-center ${
+        isDark ? "bg-[#0B0E11] text-white" : "bg-gray-50 text-gray-900"
+      }`}>
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Error</h1>
+          <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+            Failed to load blog post. Please try again later.
+          </p>
+          <Link 
+            href="/blog"
+            className="inline-flex items-center gap-2 text-[#21f201] font-semibold hover:underline"
+          >
+            <HiOutlineArrowLeft className="w-4 h-4" />
+            {t('blog.backToBlog')}
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Blog post and related posts are now fetched from API in useEffect above
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
 
