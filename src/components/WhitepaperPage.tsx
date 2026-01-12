@@ -347,6 +347,9 @@ const WhitepaperPage: React.FC = () => {
                 dangerouslySetInnerHTML={{ __html: currentSubmenu.content }}
                 style={{
                   color: '#334155',
+                  overflowWrap: 'break-word',
+                  wordWrap: 'break-word',
+                  wordBreak: 'break-word',
                 }}
               />
 
@@ -403,6 +406,19 @@ const WhitepaperPage: React.FC = () => {
         </div>
       </main>
 
+      <style>{`
+        .prose * {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-word;
+        }
+        .prose pre,
+        .prose code {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-word;
+        }
+      `}</style>
     </div>
   )
 }

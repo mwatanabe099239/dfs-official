@@ -8,28 +8,106 @@
     overflow: hidden;
     background-color: rgb(20, 21, 26);
     background-image: url(/hero.jpg);
-    background-size: auto 100%;
+    background-size: 50% auto;
     background-position: right center;
     background-repeat: no-repeat;
+    min-height: 600px;
 }
 
 .first-section-light {
     background-color: #f1f5f9;
     background-image: url(/hero-light.png);
-    background-size: auto 100%;
+    background-size: 50% auto;
     background-position: right center;
     background-repeat: no-repeat;
+    min-height: 600px;
+}
+
+/* Ensure content doesn't overlap with background image */
+.first-section > div {
+    max-width: 50%;
+    z-index: 10;
+}
+
+/* Large screens - keep image size controlled */
+@media (min-width: 1536px) {
+    .first-section {
+        background-size: 45% auto;
+    }
+    
+    .first-section-light {
+        background-size: 45% auto;
+    }
+    
+    .first-section > div {
+        max-width: 50%;
+    }
+}
+
+/* Desktop adjustments */
+@media (max-width: 1535px) and (min-width: 1025px) {
+    .first-section {
+        background-size: 50% auto;
+    }
+    
+    .first-section-light {
+        background-size: 50% auto;
+    }
+    
+    .first-section > div {
+        max-width: 50%;
+    }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .first-section {
+        background-size: 45% auto;
+    }
+    
+    .first-section-light {
+        background-size: 45% auto;
+    }
+    
+    .first-section > div {
+        max-width: 55%;
+    }
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .first-section {
-        background-size: auto 50%;
+        background-size: 40% auto;
         background-position: right top;
+        min-height: 500px;
     }
     
     .first-section-light {
-        background-size: auto 50%;
+        background-size: 40% auto;
         background-position: right top;
+        min-height: 500px;
+    }
+    
+    .first-section > div {
+        max-width: 60%;
+    }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 640px) {
+    .first-section {
+        background-size: 35% auto;
+        background-position: right top;
+        min-height: 450px;
+    }
+    
+    .first-section-light {
+        background-size: 35% auto;
+        background-position: right top;
+        min-height: 450px;
+    }
+    
+    .first-section > div {
+        max-width: 65%;
     }
 }

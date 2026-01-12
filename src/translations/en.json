@@ -141,7 +141,9 @@
       "build": "Build",
       "participate": "Participate",
       "about": "About",
-      "legal": "Legal"
+      "legal": "Legal",
+      "dfsChain": "DFS Chain",
+      "getConnected": "Get connected"
     },
     "links": {
       "dfsChain": "DFS Chain",

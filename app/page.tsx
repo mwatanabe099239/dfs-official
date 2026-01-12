@@ -24,7 +24,7 @@ export default function HomePage(): React.JSX.Element {
         <p className={`text-2xl sm:text-5xl font-space text-start max-w-3xl ${isDark ? "text-white" : "text-gray-900"}`}>
           {t('landing.hero.subtitle')}
         </p>
-        <div className="flex flex-row gap-2 justify-center">
+        <div className="flex flex-row gap-2 justify-center sm:justify-start">
           <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${isDark ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" : "bg-gray-900 text-white hover:bg-gray-800"}`}>
             {t('landing.hero.issueCoin')}
           </button>

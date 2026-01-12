@@ -349,6 +349,14 @@ const BlogDetailPage: React.FC = () => {
       <style>{`
         .blog-content {
           line-height: 1.75;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-word;
+        }
+        .blog-content * {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-word;
         }
         .blog-content h1,
         .blog-content h2,
@@ -410,11 +418,17 @@ const BlogDetailPage: React.FC = () => {
           padding: 0.125rem 0.375rem;
           border-radius: 0.25rem;
           font-size: 0.875em;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-word;
         }
         .blog-content pre {
           padding: 1rem;
           border-radius: 0.5rem;
           overflow-x: auto;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-word;
           margin: 1.5rem 0;
         }
         .blog-content pre code {

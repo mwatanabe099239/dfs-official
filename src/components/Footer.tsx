@@ -19,51 +19,31 @@ const Footer: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: SiX, link: "#", name: "X" },
-    { icon: FaTelegram, link: "#", name: "Telegram" },
+    { icon: SiX, link: "https://x.com/difines_ofc", name: "X" },
+    { icon: FaTelegram, link: "https://t.me/DFSChain", name: "Telegram" },
     { icon: FaDiscord, link: "#", name: "Discord" },
     { icon: FaYoutube, link: "#", name: "YouTube" },
   ];
 
-  const sections = [
+  // Two columns of links following Solana's layout
+  const linkColumns = [
     {
-      titleKey: "footer.sections.chains",
-      items: [
-        { nameKey: "footer.links.dfsChain", link: "https://dfsscan.com" },
-      ],
-    },
-    {
-      titleKey: "footer.sections.useDfs",
+      titleKey: "footer.sections.dfsChain",
       items: [
         { nameKey: "footer.links.makeWallet", link: "https://metaface.dfsscan.com/get-started" },
         { nameKey: "footer.links.getDfs", link: "https://wexswap.com" },
         { nameKey: "footer.links.stakeDfs", link: "/staking" },
         { nameKey: "footer.links.exploreDapps", link: "/explore-dapps" },
         { nameKey: "footer.links.payByCrypto", link: "/payviner" },
-      ],
-    },
-    {
-      titleKey: "footer.sections.build",
-      items: [
         { nameKey: "footer.links.whitepaper", link: "/whitepaper" },
         { nameKey: "footer.links.faq", link: "/whitepaper#faq" },
       ],
     },
     {
-      titleKey: "footer.sections.participate",
-      items: [
-        { nameKey: "footer.links.referralProgram", link: "/referral" },
-      ],
-    },
-    {
-      titleKey: "footer.sections.about",
+      titleKey: "footer.sections.getConnected",
       items: [
         { nameKey: "footer.links.blog", link: "/blog" },
-      ],
-    },
-    {
-      titleKey: "footer.sections.legal",
-      items: [
+        { nameKey: "footer.links.referralProgram", link: "/referral" },
         { nameKey: "footer.links.privacyPolicy", link: "/whitepaper#privacy-policy" },
         { nameKey: "footer.links.termsOfUse", link: "/whitepaper#terms-of-use" },
         { nameKey: "footer.links.cookies", link: "/whitepaper#cookies" },
@@ -73,116 +53,11 @@ const Footer: React.FC = () => {
 
   return (
     <>
-      {/* Logo Section */}
-      <div className={`md:px-24 px-6 py-4 transition-colors duration-300 ${
-        isDark ? "bg-[#181A1E]" : "bg-white border-t border-gray-200"
-      }`}>
-        <div className="flex justify-start">
-          <img 
-            src="/logo.png" 
-            alt="DFS Chain Logo" 
-            className={`md:w-32 w-24 brightness-0`}
-          />
-        </div>
-      </div>
-
-      <footer className={`md:px-24 px-6 pt-10 pb-6 text-sm font-space transition-colors duration-300 ${
+      <footer className={`md:px-24 px-6 pt-10 pb-6 text-sm font-space transition-colors duration-300 relative ${
         isDark ? "bg-[#181A1E] text-white" : "bg-gray-100 text-gray-900 border-t border-gray-200"
       }`}>
-        {/* Large Screen Layout */}
-      <div className="hidden md:flex justify-between flex-wrap gap-6 text-start">
-        {sections.map((section, idx) => (
-          <div key={idx} className="min-w-[160px]">
-            <h4 className="font-bold mb-3">{t(section.titleKey)}</h4>
-            <ul className={`space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
-              {section.items.map((item, i) => (
-                <li key={i} className="hover:underline cursor-pointer text-xs">
-                  {item.link.startsWith('/') ? (
-                    <Link href={item.link} className="block">{t(item.nameKey)}</Link>
-                  ) : (
-                    <a href={item.link} className="block" target="_blank" rel="noopener noreferrer">{t(item.nameKey)}</a>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      {/* Mobile Layout */}
-      <div className="md:hidden space-y-4 text-start">
-        {sections.map((section, idx) => (
-          <div key={idx}>
-            <button
-              onClick={() => toggle(idx)}
-              className={`w-full flex justify-between items-center font-bold py-2 border-b ${
-                isDark ? "border-gray-700" : "border-gray-300"
-              }`}
-            >
-              {t(section.titleKey)}
-              <span className="text-[10px]">{open === idx ? "▲" : "▼"}</span>
-            </button>
-            <ul
-              className={`pt-2 space-y-2 overflow-hidden transition-all duration-500 ease-in-out ${
-                isDark ? "text-gray-300" : "text-gray-600"
-              } ${open === idx ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-            >
-              {section.items.map((item, i) => (
-                <li key={i} className="hover:underline cursor-pointer text-xs">
-                  {item.link.startsWith('/') ? (
-                    <Link href={item.link} className="block">{t(item.nameKey)}</Link>
-                  ) : (
-                    <a href={item.link} className="block" target="_blank" rel="noopener noreferrer">{t(item.nameKey)}</a>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      {/* Social Media Links */}
-      <div className={`border-t mt-8 pt-6 ${
-        isDark ? "border-gray-800" : "border-gray-300"
-      }`}>
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-              {t("footer.followUs")}
-            </span>
-            <div className="flex items-center gap-3">
-              {socialLinks.map((social, idx) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={idx}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={social.name}
-                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                      isDark 
-                        ? "bg-gray-800 text-gray-400 hover:bg-[#21f201] hover:text-black"
-                        : "bg-gray-200 text-gray-500 hover:bg-[#21f201] hover:text-black"
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Section */}
-      <div className={`border-t mt-6 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs ${
-        isDark ? "border-gray-800 text-gray-400" : "border-gray-300 text-gray-500"
-      }`}>
-        <p>{t("footer.copyright")}</p>
-
-        <div className="flex items-center gap-4">
-          {/* Language Switcher */}
+        {/* Language Switcher - Top Right */}
+        <div className="absolute top-6 right-6 md:right-24">
           <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
@@ -236,7 +111,116 @@ const Footer: React.FC = () => {
             )}
           </div>
         </div>
-      </div>
+
+        {/* Main Footer Content - Three Column Layout */}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 pb-8">
+          {/* Left Section - Logo, Copyright, Social */}
+          <div className="flex flex-col gap-4">
+            <div>
+              <p className={`text-xs mb-2 ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                Managed by
+              </p>
+              <img 
+                src="/logo.png" 
+                alt="DFS Chain Logo" 
+                className={`md:w-32 w-24 ${isDark ? "brightness-0 invert" : "brightness-0"}`}
+              />
+            </div>
+            <div className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+              <p>{t("footer.copyright")}</p>
+              <p className="mt-1">All rights reserved.</p>
+            </div>
+            <div className="flex items-center gap-3 mt-2">
+              {socialLinks.map((social, idx) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={idx}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={social.name}
+                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                      isDark 
+                        ? "text-gray-400 hover:text-white"
+                        : "text-gray-500 hover:text-gray-900"
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Middle Section - First Column of Links */}
+          <div className="min-w-[160px]">
+            <h4 className={`font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+              {t(linkColumns[0].titleKey)}
+            </h4>
+            <ul className={`space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              {linkColumns[0].items.map((item, i) => (
+                <li key={i} className="hover:underline cursor-pointer text-xs">
+                  {item.link.startsWith('/') ? (
+                    <Link href={item.link} className="block">{t(item.nameKey)}</Link>
+                  ) : (
+                    <a href={item.link} className="block" target="_blank" rel="noopener noreferrer">{t(item.nameKey)}</a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right Section - Second Column of Links */}
+          <div className="min-w-[160px]">
+            <h4 className={`font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+              {t(linkColumns[1].titleKey)}
+            </h4>
+            <ul className={`space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+              {linkColumns[1].items.map((item, i) => (
+                <li key={i} className="hover:underline cursor-pointer text-xs">
+                  {item.link.startsWith('/') ? (
+                    <Link href={item.link} className="block">{t(item.nameKey)}</Link>
+                  ) : (
+                    <a href={item.link} className="block" target="_blank" rel="noopener noreferrer">{t(item.nameKey)}</a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden space-y-4 text-start">
+          {linkColumns.map((column, colIdx) => (
+            <div key={colIdx}>
+              <button
+                onClick={() => toggle(colIdx)}
+                className={`w-full flex justify-between items-center font-bold py-2 border-b ${
+                  isDark ? "border-gray-700" : "border-gray-300"
+                }`}
+              >
+                {t(column.titleKey)}
+                <span className="text-[10px]">{open === colIdx ? "▲" : "▼"}</span>
+              </button>
+              <ul
+                className={`pt-2 space-y-2 overflow-hidden transition-all duration-500 ease-in-out ${
+                  isDark ? "text-gray-300" : "text-gray-600"
+                } ${open === colIdx ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+              >
+                {column.items.map((item, i) => (
+                  <li key={i} className="hover:underline cursor-pointer text-xs">
+                    {item.link.startsWith('/') ? (
+                      <Link href={item.link} className="block">{t(item.nameKey)}</Link>
+                    ) : (
+                      <a href={item.link} className="block" target="_blank" rel="noopener noreferrer">{t(item.nameKey)}</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
     </footer>
     </>
   );
