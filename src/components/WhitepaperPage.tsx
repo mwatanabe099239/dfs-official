@@ -4,7 +4,6 @@ import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { HiChevronRight, HiChevronDown, HiChevronLeft, HiX } from 'react-icons/hi'
-import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
 import { FiMenu } from 'react-icons/fi'
 
 interface WhitepaperMenu {
@@ -335,21 +334,6 @@ const WhitepaperPage: React.FC = () => {
                   color: '#334155',
                 }}
               />
-
-              {/* Feedback Section */}
-              <div className="mt-12 pt-8 border-t border-gray-200">
-                <p className="text-sm font-medium text-gray-900 mb-4">Is this page helpful?</p>
-                <div className="flex gap-2">
-                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:border-[#21f201] hover:bg-[#21f201]/10 transition-colors group">
-                    <FaThumbsUp className="w-4 h-4 text-gray-600 group-hover:text-[#21f201]" />
-                    <span className="text-sm text-gray-700 group-hover:text-[#21f201]">Yes</span>
-                  </button>
-                  <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:border-[#21f201] hover:bg-[#21f201]/10 transition-colors group">
-                    <FaThumbsDown className="w-4 h-4 text-gray-600 group-hover:text-[#21f201]" />
-                    <span className="text-sm text-gray-700 group-hover:text-[#21f201]">No</span>
-                  </button>
-                </div>
-              </div>
 
               {/* Previous/Next Navigation */}
               {(previousSubmenu || nextSubmenu) && (
