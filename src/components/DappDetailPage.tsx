@@ -167,8 +167,8 @@ const dappsData = [
     description: "Trading Platform. P2P trading for DRC20 tokens with secure escrow system.",
     category: "Exchange",
     url: "https://heyotc.com",
-    logoWhite: "/dapps/heyotc-white.png",
-    logoBlack: "/dapps/heyotc-black.png",
+    logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1767780398/bte3t9tctjjzy4rbsji0.png",
+    logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1767780398/bte3t9tctjjzy4rbsji0.png",
     gradient: "from-violet-500 to-purple-600",
     tag: null,
     features: [
