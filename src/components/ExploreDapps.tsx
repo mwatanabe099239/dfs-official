@@ -10,17 +10,8 @@ const ExploreDapps: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [email, setEmail] = useState("");
-  const [showToast, setShowToast] = useState(false);
   const { isDark } = useTheme();
   const { t } = useLanguage();
-
-  // Show toast notification
-  const showComingSoonToast = () => {
-    setShowToast(true);
-    setTimeout(() => {
-      setShowToast(false);
-    }, 3000);
-  };
 
   // Categories with outline icons
   const categories = [
@@ -152,8 +143,8 @@ const ExploreDapps: React.FC = () => {
       description: "Earn rewards by burning tokens. Participate in token burning campaigns and get rewarded.",
       category: "DeFi",
       url: null,
-      logoWhite: null,
-      logoBlack: null,
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/eifjrmndtaf7biuuknxb.jpg",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/eifjrmndtaf7biuuknxb.jpg",
       gradient: "from-red-500 to-orange-500",
       tag: "Coming Soon",
     },
@@ -174,8 +165,8 @@ const ExploreDapps: React.FC = () => {
       description: "Trading and exchange platform for DFS Chain tokens.",
       category: "Exchange",
       url: null,
-      logoWhite: null,
-      logoBlack: null,
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/bw2zmwvbt0y5ifxgtzcj.jpg",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/bw2zmwvbt0y5ifxgtzcj.jpg",
       gradient: "from-amber-500 to-yellow-500",
       tag: "Coming Soon",
     },
@@ -185,8 +176,8 @@ const ExploreDapps: React.FC = () => {
       description: "Innovative platform for token management and trading on DFS Chain.",
       category: "Utility",
       url: null,
-      logoWhite: null,
-      logoBlack: null,
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/dxxm62dl4rikantsmmzl.jpg",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/dxxm62dl4rikantsmmzl.jpg",
       gradient: "from-cyan-500 to-blue-500",
       tag: "Coming Soon",
     },
@@ -196,8 +187,8 @@ const ExploreDapps: React.FC = () => {
       description: "Privacy-focused platform for secure transactions on DFS Chain.",
       category: "Utility",
       url: null,
-      logoWhite: null,
-      logoBlack: null,
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/pxti5cn1dwkmwufb7stz.jpg",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/pxti5cn1dwkmwufb7stz.jpg",
       gradient: "from-indigo-500 to-purple-500",
       tag: "Coming Soon",
     },
@@ -229,8 +220,8 @@ const ExploreDapps: React.FC = () => {
       description: "Content Reward Platform. Earn tokens by creating and sharing content.",
       category: "Social",
       url: null,
-      logoWhite: null,
-      logoBlack: null,
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216304/itysjdokhhavl7kjmmcy.jpg",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216304/itysjdokhhavl7kjmmcy.jpg",
       gradient: "from-violet-500 to-purple-500",
       tag: "Coming Soon",
     },
@@ -240,8 +231,8 @@ const ExploreDapps: React.FC = () => {
       description: "Bitcoin-like token platform on DFS Chain.",
       category: "DeFi",
       url: null,
-      logoWhite: null,
-      logoBlack: null,
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/vbyqwnwhfsynvaeakocg.jpg",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/vbyqwnwhfsynvaeakocg.jpg",
       gradient: "from-orange-500 to-red-500",
       tag: "Coming Soon",
     },
@@ -251,8 +242,8 @@ const ExploreDapps: React.FC = () => {
       description: "Quick Initial DEX Offering platform for launching new tokens on DFS Chain.",
       category: "DeFi",
       url: null,
-      logoWhite: null,
-      logoBlack: null,
+      logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/nayh5jgv445whs0dx4fx.jpg",
+      logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/nayh5jgv445whs0dx4fx.jpg",
       gradient: "from-teal-500 to-cyan-500",
       tag: "Coming Soon",
     },
@@ -406,10 +397,10 @@ const ExploreDapps: React.FC = () => {
                       {/* Logo */}
                       <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
                         }`}>
-                        {dapp.logoWhite && dapp.logoBlack ? (
+                        {(dapp.logoWhite || dapp.logoBlack) ? (
                           <>
                             <img
-                              src={isDark ? dapp.logoWhite : dapp.logoBlack}
+                              src={isDark ? (dapp.logoWhite || dapp.logoBlack) : (dapp.logoBlack || dapp.logoWhite)}
                               alt={dapp.name}
                               className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                               onError={(e) => {
@@ -449,10 +440,10 @@ const ExploreDapps: React.FC = () => {
                       );
                     } else {
                       return (
-                        <div
+                        <Link
                           key={dapp.id}
-                          onClick={showComingSoonToast}
-                          className={`${cardClassName} cursor-pointer`}
+                          href={`/explore-dapps/${dapp.id}`}
+                          className={cardClassName}
                         >
                           {/* Badge - Top Right */}
                           {dapp.tag && (
@@ -480,7 +471,7 @@ const ExploreDapps: React.FC = () => {
                               {dapp.description}
                             </p>
                           </div>
-                        </div>
+                        </Link>
                       );
                     }
                   })}
@@ -552,7 +543,6 @@ const ExploreDapps: React.FC = () => {
                     : "bg-white hover:shadow-md"
                   }`;
                   
-                  if (dapp.url) {
                     return (
                       <Link
                         key={dapp.id}
@@ -569,10 +559,10 @@ const ExploreDapps: React.FC = () => {
                     {/* Logo */}
                     <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
                       }`}>
-                      {dapp.logoWhite && dapp.logoBlack ? (
+                      {(dapp.logoWhite || dapp.logoBlack) ? (
                         <>
                           <img
-                            src={isDark ? dapp.logoWhite : dapp.logoBlack}
+                            src={isDark ? (dapp.logoWhite || dapp.logoBlack) : (dapp.logoBlack || dapp.logoWhite)}
                             alt={dapp.name}
                             className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                             onError={(e) => {
@@ -610,42 +600,6 @@ const ExploreDapps: React.FC = () => {
                     </div>
                       </Link>
                     );
-                  } else {
-                    return (
-                      <div
-                        key={dapp.id}
-                        onClick={showComingSoonToast}
-                        className={`${cardClassName} cursor-pointer`}
-                      >
-                        {/* Badge - Top Right */}
-                        {dapp.tag && (
-                          <span className={`absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium z-10 ${getTagStyle(dapp.tag)}`}>
-                            {dapp.tag}
-                          </span>
-                        )}
-
-                        {/* Logo */}
-                        <div className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl overflow-hidden flex items-center justify-center ${isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
-                          }`}>
-                          <div
-                            className={`w-full h-full flex items-center justify-center text-base sm:text-lg md:text-xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
-                          >
-                            {dapp.name.charAt(0)}
-                          </div>
-                        </div>
-
-                        {/* Content */}
-                        <div className="flex-1 min-w-0 max-w-full pr-2 sm:pr-4 md:pr-6 text-left overflow-hidden">
-                          <h3 className={`text-sm sm:text-base md:text-lg font-semibold truncate mb-1 sm:mb-1.5 ${isDark ? "text-white" : "text-gray-900"}`}>
-                            {dapp.name}
-                          </h3>
-                          <p className={`text-xs sm:text-sm md:text-base line-clamp-2 break-words ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                            {dapp.description}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  }
                 })}
               </div>
 
@@ -669,33 +623,9 @@ const ExploreDapps: React.FC = () => {
         </main>
       </div>
 
-      {/* Toast Notification */}
-      {showToast && (
-        <div className="fixed bottom-4 right-4 z-50 animate-slide-up">
-          <div className={`px-6 py-4 rounded-lg shadow-lg ${isDark ? "bg-[#181818] border border-gray-700" : "bg-white border border-gray-200"}`}>
-            <p className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
-              Coming Soon
-            </p>
-          </div>
-        </div>
-      )}
-
       <style>{`
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        @keyframes slide-up {
-          from {
-            transform: translateY(100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-        .animate-slide-up {
-          animation: slide-up 0.3s ease-out;
-        }
       `}</style>
     </div>
   );

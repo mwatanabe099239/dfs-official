@@ -199,6 +199,126 @@ const dappsData = [
       "Analytics - Real-time market data"
     ]
   },
+  {
+    id: 11,
+    name: "Burn To Earn",
+    description: "Earn rewards by burning tokens. Participate in token burning campaigns and get rewarded.",
+    category: "DeFi",
+    url: null,
+    logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/eifjrmndtaf7biuuknxb.jpg",
+    logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/eifjrmndtaf7biuuknxb.jpg",
+    gradient: "from-red-500 to-orange-500",
+    tag: "Coming Soon",
+    features: []
+  },
+  {
+    id: 12,
+    name: "Dosi Jeonseol",
+    description: "Platform for token staking and earning rewards on DFS Chain.",
+    category: "DeFi",
+    url: null,
+    logoWhite: null,
+    logoBlack: null,
+    gradient: "from-purple-500 to-pink-500",
+    tag: "Coming Soon",
+    features: []
+  },
+  {
+    id: 13,
+    name: "Dubai Kaitori",
+    description: "Trading and exchange platform for DFS Chain tokens.",
+    category: "Exchange",
+    url: null,
+    logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/bw2zmwvbt0y5ifxgtzcj.jpg",
+    logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/bw2zmwvbt0y5ifxgtzcj.jpg",
+    gradient: "from-amber-500 to-yellow-500",
+    tag: "Coming Soon",
+    features: []
+  },
+  {
+    id: 14,
+    name: "FUATILIA",
+    description: "Innovative platform for token management and trading on DFS Chain.",
+    category: "Utility",
+    url: null,
+    logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/dxxm62dl4rikantsmmzl.jpg",
+    logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/dxxm62dl4rikantsmmzl.jpg",
+    gradient: "from-cyan-500 to-blue-500",
+    tag: "Coming Soon",
+    features: []
+  },
+  {
+    id: 15,
+    name: "Kakuseru",
+    description: "Privacy-focused platform for secure transactions on DFS Chain.",
+    category: "Utility",
+    url: null,
+    logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/pxti5cn1dwkmwufb7stz.jpg",
+    logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/pxti5cn1dwkmwufb7stz.jpg",
+    gradient: "from-indigo-500 to-purple-500",
+    tag: "Coming Soon",
+    features: []
+  },
+  {
+    id: 16,
+    name: "PayViner",
+    description: "PayPal, Stripe like platform for DFS Chain. Easy payment processing with DRC20 tokens.",
+    category: "Utility",
+    url: null,
+    logoWhite: null,
+    logoBlack: null,
+    gradient: "from-green-500 to-emerald-500",
+    tag: "Coming Soon",
+    features: []
+  },
+  {
+    id: 17,
+    name: "Utaou",
+    description: "Music and entertainment platform on DFS Chain.",
+    category: "Social",
+    url: null,
+    logoWhite: null,
+    logoBlack: null,
+    gradient: "from-pink-500 to-rose-500",
+    tag: "Coming Soon",
+    features: []
+  },
+  {
+    id: 18,
+    name: "Vazreel",
+    description: "Content Reward Platform. Earn tokens by creating and sharing content.",
+    category: "Social",
+    url: null,
+    logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216304/itysjdokhhavl7kjmmcy.jpg",
+    logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216304/itysjdokhhavl7kjmmcy.jpg",
+    gradient: "from-violet-500 to-purple-500",
+    tag: "Coming Soon",
+    features: []
+  },
+  {
+    id: 19,
+    name: "UBTC",
+    description: "Bitcoin-like token platform on DFS Chain.",
+    category: "DeFi",
+    url: null,
+    logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/vbyqwnwhfsynvaeakocg.jpg",
+    logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/vbyqwnwhfsynvaeakocg.jpg",
+    gradient: "from-orange-500 to-red-500",
+    tag: "Coming Soon",
+    features: []
+  },
+  {
+    id: 20,
+    name: "Quick IDO",
+    description: "Quick Initial DEX Offering platform for launching new tokens on DFS Chain.",
+    category: "DeFi",
+    url: null,
+    logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/nayh5jgv445whs0dx4fx.jpg",
+    logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1768216303/nayh5jgv445whs0dx4fx.jpg",
+    gradient: "from-teal-500 to-cyan-500",
+    tag: "Coming Soon",
+    features: []
+  },
 ];
 
 const DappDetailPage: React.FC = () => {
@@ -267,6 +387,7 @@ const DappDetailPage: React.FC = () => {
       case "Featured": return "bg-[#21f201] text-black";
       case "New": return "bg-gray-400 text-white";
       case "Popular": return "bg-gray-500 text-white";
+      case "Coming Soon": return "bg-gray-600 text-white";
       default: return "";
     }
   };
@@ -323,24 +444,34 @@ const DappDetailPage: React.FC = () => {
                 <div className={`flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden flex items-center justify-center ${
                   isDark ? "bg-[#2a2a2a]" : "bg-gray-100"
                 }`}>
-                  <img 
-                    src={isDark ? dapp.logoWhite : dapp.logoBlack} 
-                    alt={dapp.name}
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      if (target) {
-                        target.style.display = 'none';
-                        const nextSibling = target.nextSibling as HTMLElement;
-                        if (nextSibling) nextSibling.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div 
-                    className={`w-full h-full hidden items-center justify-center text-2xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
-                  >
-                    {dapp.name.charAt(0)}
-                  </div>
+                  {(dapp.logoWhite || dapp.logoBlack) ? (
+                    <>
+                      <img 
+                        src={isDark ? (dapp.logoWhite || dapp.logoBlack) : (dapp.logoBlack || dapp.logoWhite)} 
+                        alt={dapp.name}
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          if (target) {
+                            target.style.display = 'none';
+                            const nextSibling = target.nextSibling as HTMLElement;
+                            if (nextSibling) nextSibling.style.display = 'flex';
+                          }
+                        }}
+                      />
+                      <div 
+                        className={`w-full h-full hidden items-center justify-center text-2xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                      >
+                        {dapp.name.charAt(0)}
+                      </div>
+                    </>
+                  ) : (
+                    <div 
+                      className={`w-full h-full flex items-center justify-center text-2xl font-bold bg-gradient-to-br ${dapp.gradient} text-white`}
+                    >
+                      {dapp.name.charAt(0)}
+                    </div>
+                  )}
                 </div>
 
                 {/* Title */}
@@ -358,21 +489,31 @@ const DappDetailPage: React.FC = () => {
                   {dapp.description}
                 </p>
                 
-                {/* Visit Website Button */}
+                {/* Visit Website Button or Coming Soon */}
                 <div className="mb-4 text-left">
-                  <a
-                    href={dapp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  {dapp.url ? (
+                    <a
+                      href={dapp.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        isDark 
+                          ? "bg-gray-700 text-white border border-gray-600 hover:bg-gray-600" 
+                          : "bg-gray-200 text-gray-900 border border-gray-300 hover:bg-gray-300"
+                      }`}
+                    >
+                      {t('exploreDapps.visitWebsite') || 'Visit Website'}
+                      <FiArrowRight className="w-4 h-4" />
+                    </a>
+                  ) : (
+                    <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${
                       isDark 
-                        ? "bg-gray-700 text-white border border-gray-600 hover:bg-gray-600" 
-                        : "bg-gray-200 text-gray-900 border border-gray-300 hover:bg-gray-300"
-                    }`}
-                  >
-                    {t('exploreDapps.visitWebsite') || 'Visit Website'}
-                    <FiArrowRight className="w-4 h-4" />
-                  </a>
+                        ? "bg-gray-700 text-gray-400 border border-gray-600" 
+                        : "bg-gray-200 text-gray-500 border border-gray-300"
+                    }`}>
+                      Coming Soon
+                    </div>
+                  )}
                 </div>
 
                 {/* Metadata - Same Line */}
@@ -404,8 +545,21 @@ const DappDetailPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Key Features */}
-            {dapp.features && dapp.features.length > 0 && (
+            {/* Key Features or Coming Soon Message */}
+            {!dapp.url ? (
+              <div className={`mb-8 p-8 rounded-xl text-center ${isDark ? "bg-[#181818] border border-gray-700" : "bg-gray-50 border border-gray-200"}`}>
+                <div className={`text-6xl mb-4 ${isDark ? "text-gray-600" : "text-gray-400"}`}>🚧</div>
+                <h2 className={`text-2xl font-bold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  Coming Soon
+                </h2>
+                <p className={`text-base ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                  We're working hard to bring you {dapp.name}. Stay tuned for updates!
+                </p>
+                <p className={`text-sm mt-4 ${isDark ? "text-gray-500" : "text-gray-500"}`}>
+                  {dapp.description}
+                </p>
+              </div>
+            ) : dapp.features && dapp.features.length > 0 && (
               <div className="mb-8 text-left">
                 <h2 className={`text-xl font-bold mb-4 text-left ${isDark ? "text-white" : "text-gray-900"}`}>
                   {t('exploreDapps.keyFeatures') || 'Key Features:'}

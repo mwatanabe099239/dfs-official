@@ -22,7 +22,6 @@ const Footer: React.FC = () => {
     { icon: SiX, link: "#", name: "X" },
     { icon: FaTelegram, link: "#", name: "Telegram" },
     { icon: FaDiscord, link: "#", name: "Discord" },
-    { icon: FaGithub, link: "#", name: "GitHub" },
     { icon: FaYoutube, link: "#", name: "YouTube" },
   ];
 
@@ -48,23 +47,18 @@ const Footer: React.FC = () => {
       items: [
         { nameKey: "footer.links.whitepaper", link: "/whitepaper" },
         { nameKey: "footer.links.faq", link: "/whitepaper#faq" },
-        { nameKey: "footer.links.feedback", link: "/feedback" },
       ],
     },
     {
       titleKey: "footer.sections.participate",
       items: [
         { nameKey: "footer.links.referralProgram", link: "/referral" },
-        { nameKey: "footer.links.newsletter", link: "/newsletter" },
       ],
     },
     {
       titleKey: "footer.sections.about",
       items: [
-        { nameKey: "footer.links.aboutUs", link: "/about" },
-        { nameKey: "footer.links.careers", link: "/careers" },
         { nameKey: "footer.links.blog", link: "/blog" },
-        { nameKey: "footer.links.contactUs", link: "/contact" },
       ],
     },
     {
