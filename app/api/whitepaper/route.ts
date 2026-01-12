@@ -6,6 +6,7 @@ import { collection, getDocs } from 'firebase/firestore'
 interface WhitepaperMenu {
   id: string
   title: string
+  slug?: string
   order: number
   submenus: WhitepaperSubmenu[]
 }
@@ -13,6 +14,7 @@ interface WhitepaperMenu {
 interface WhitepaperSubmenu {
   id: string
   title: string
+  slug?: string
   order: number
   content: string // HTML content
   menuId: string
@@ -106,11 +108,13 @@ export async function GET() {
         return {
           id: menu.id || '',
           title: menu.title || '',
+          slug: menu.slug || '',
           order: typeof menu.order === 'number' ? menu.order : 0,
           submenus: submenus
             .map((submenu: any) => ({
               id: submenu.id || '',
               title: submenu.title || '',
+              slug: submenu.slug || '',
               order: typeof submenu.order === 'number' ? submenu.order : 0,
               content: submenu.content || `<h1>${submenu.title || 'Untitled'}</h1><p>Content not available.</p>`,
               menuId: submenu.menuId || menu.id || '',

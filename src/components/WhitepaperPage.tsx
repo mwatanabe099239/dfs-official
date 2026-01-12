@@ -9,6 +9,7 @@ import { FiMenu } from 'react-icons/fi'
 interface WhitepaperMenu {
   id: string
   title: string
+  slug?: string
   order: number
   submenus: WhitepaperSubmenu[]
 }
@@ -16,6 +17,7 @@ interface WhitepaperMenu {
 interface WhitepaperSubmenu {
   id: string
   title: string
+  slug?: string
   order: number
   content: string // HTML content
   menuId: string
@@ -30,7 +32,7 @@ interface WhitepaperData {
 const WhitepaperPage: React.FC = () => {
   const searchParams = useSearchParams()
   const [menus, setMenus] = useState<WhitepaperMenu[]>([])
-  const [selectedSubmenuId, setSelectedSubmenuId] = useState<string | null>(null)
+  const [selectedSubmenuSlug, setSelectedSubmenuSlug] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true)
@@ -67,23 +69,25 @@ const WhitepaperPage: React.FC = () => {
 
         setMenus(sortedMenus)
 
-        // Check for submenu ID in URL hash or query params
-        const hashSubmenuId = typeof window !== 'undefined' ? window.location.hash.slice(1) : null
-        const querySubmenuId = searchParams?.get('submenu')
-        const targetSubmenuId = hashSubmenuId || querySubmenuId
+        // Check for submenu slug in URL hash or query params
+        const hashSubmenuSlug = typeof window !== 'undefined' ? window.location.hash.slice(1) : null
+        const querySubmenuSlug = searchParams?.get('submenu')
+        const targetSubmenuSlug = hashSubmenuSlug || querySubmenuSlug
 
-        if (targetSubmenuId) {
-          // Verify the submenu exists
-          const submenuExists = sortedMenus.some(menu =>
-            menu.submenus.some(sub => sub.id === targetSubmenuId)
-          )
-          if (submenuExists) {
-            setSelectedSubmenuId(targetSubmenuId)
+        if (targetSubmenuSlug) {
+          // Find submenu by slug
+          let foundSubmenu = null
+          for (const menu of sortedMenus) {
+            foundSubmenu = menu.submenus.find(sub => sub.slug === targetSubmenuSlug)
+            if (foundSubmenu) break
+          }
+          if (foundSubmenu) {
+            setSelectedSubmenuSlug(foundSubmenu.slug || foundSubmenu.id)
           }
         } else if (sortedMenus.length > 0 && sortedMenus[0].submenus?.length > 0) {
           // Auto-select first submenu
           const firstSubmenu = sortedMenus[0].submenus[0]
-          setSelectedSubmenuId(firstSubmenu.id)
+          setSelectedSubmenuSlug(firstSubmenu.slug || firstSubmenu.id)
         }
       } catch (err: any) {
         console.error('Error fetching whitepaper:', err)
@@ -98,17 +102,17 @@ const WhitepaperPage: React.FC = () => {
 
   // Get current submenu
   const currentSubmenu = useMemo(() => {
-    if (!selectedSubmenuId) return null
+    if (!selectedSubmenuSlug) return null
     for (const menu of menus) {
-      const submenu = menu.submenus.find(sub => sub.id === selectedSubmenuId)
+      const submenu = menu.submenus.find(sub => (sub.slug && sub.slug === selectedSubmenuSlug) || (!sub.slug && sub.id === selectedSubmenuSlug))
       if (submenu) return submenu
     }
     return null
-  }, [menus, selectedSubmenuId])
+  }, [menus, selectedSubmenuSlug])
 
   // Get previous and next submenus
   const { previousSubmenu, nextSubmenu } = useMemo(() => {
-    if (!selectedSubmenuId || menus.length === 0) {
+    if (!selectedSubmenuSlug || menus.length === 0) {
       return { previousSubmenu: null, nextSubmenu: null }
     }
 
@@ -120,21 +124,25 @@ const WhitepaperPage: React.FC = () => {
       })
     })
 
-    const currentIndex = allSubmenus.findIndex(item => item.submenu.id === selectedSubmenuId)
+    const currentIndex = allSubmenus.findIndex(item => 
+      (item.submenu.slug && item.submenu.slug === selectedSubmenuSlug) || 
+      (!item.submenu.slug && item.submenu.id === selectedSubmenuSlug)
+    )
     
     return {
       previousSubmenu: currentIndex > 0 ? allSubmenus[currentIndex - 1].submenu : null,
       nextSubmenu: currentIndex < allSubmenus.length - 1 ? allSubmenus[currentIndex + 1].submenu : null,
     }
-  }, [menus, selectedSubmenuId])
+  }, [menus, selectedSubmenuSlug])
 
 
   // Handle submenu selection
-  const handleSubmenuSelect = (submenuId: string) => {
-    setSelectedSubmenuId(submenuId)
-    // Update URL hash for deep linking
+  const handleSubmenuSelect = (submenu: WhitepaperSubmenu) => {
+    const slug = submenu.slug || submenu.id
+    setSelectedSubmenuSlug(slug)
+    // Update URL hash for deep linking using slug
     if (typeof window !== 'undefined') {
-      window.history.replaceState(null, '', `${window.location.pathname}#${submenuId}`)
+      window.history.replaceState(null, '', `${window.location.pathname}#${slug}`)
       // Scroll to top of content
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
@@ -145,13 +153,15 @@ const WhitepaperPage: React.FC = () => {
     const handleHashChange = () => {
       if (typeof window !== 'undefined') {
         const hash = window.location.hash.slice(1)
-        if (hash && hash !== selectedSubmenuId) {
-          // Verify the submenu exists
-          const submenuExists = menus.some(menu =>
-            menu.submenus.some(sub => sub.id === hash)
-          )
-          if (submenuExists) {
-            setSelectedSubmenuId(hash)
+        if (hash && hash !== selectedSubmenuSlug) {
+          // Find submenu by slug or id
+          let foundSubmenu = null
+          for (const menu of menus) {
+            foundSubmenu = menu.submenus.find(sub => (sub.slug && sub.slug === hash) || (!sub.slug && sub.id === hash))
+            if (foundSubmenu) break
+          }
+          if (foundSubmenu) {
+            setSelectedSubmenuSlug(foundSubmenu.slug || foundSubmenu.id)
           }
         }
       }
@@ -159,11 +169,15 @@ const WhitepaperPage: React.FC = () => {
 
     window.addEventListener('hashchange', handleHashChange)
     return () => window.removeEventListener('hashchange', handleHashChange)
-  }, [menus, selectedSubmenuId])
+  }, [menus, selectedSubmenuSlug])
 
   // Check if menu contains selected submenu
   const isMenuActive = (menu: WhitepaperMenu): boolean => {
-    return menu.submenus.some(sub => sub.id === selectedSubmenuId)
+    if (!selectedSubmenuSlug) return false
+    return menu.submenus.some(sub => 
+      (sub.slug && sub.slug === selectedSubmenuSlug) || 
+      (!sub.slug && sub.id === selectedSubmenuSlug)
+    )
   }
 
   if (loading) {
@@ -277,11 +291,12 @@ const WhitepaperPage: React.FC = () => {
                     <div className="ml-5 mt-0.5 pl-3 relative border-l-2 border-gray-200">
                       <div className="space-y-0.5 py-1">
                         {menu.submenus.map((submenu) => {
-                          const isSelected = submenu.id === selectedSubmenuId
+                          const submenuSlug = submenu.slug || submenu.id
+                          const isSelected = (submenu.slug && submenu.slug === selectedSubmenuSlug) || (!submenu.slug && submenu.id === selectedSubmenuSlug)
                           return (
                             <button
                               key={submenu.id}
-                              onClick={() => handleSubmenuSelect(submenu.id)}
+                              onClick={() => handleSubmenuSelect(submenu)}
                               className={`w-full text-left px-3 py-2 rounded-md transition-all duration-150 relative ${
                                 isSelected
                                   ? 'bg-[#21f201]/10 text-gray-900 font-medium'
@@ -341,7 +356,7 @@ const WhitepaperPage: React.FC = () => {
                   {/* Previous */}
                   {previousSubmenu ? (
                     <button
-                      onClick={() => handleSubmenuSelect(previousSubmenu.id)}
+                      onClick={() => handleSubmenuSelect(previousSubmenu)}
                       className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-[#21f201] hover:bg-[#21f201]/10 transition-all min-h-[80px] group w-full"
                     >
                       <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#21f201]/20 transition-colors flex-shrink-0">
@@ -361,7 +376,7 @@ const WhitepaperPage: React.FC = () => {
                   {/* Next */}
                   {nextSubmenu ? (
                     <button
-                      onClick={() => handleSubmenuSelect(nextSubmenu.id)}
+                      onClick={() => handleSubmenuSelect(nextSubmenu)}
                       className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-[#21f201] hover:bg-[#21f201]/10 transition-all min-h-[80px] group w-full"
                     >
                       <div className="flex-1 min-w-0 text-right">
