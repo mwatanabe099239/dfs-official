@@ -311,13 +311,13 @@ const ExploreDapps: React.FC = () => {
               </p>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 {/* Search Bar - ToolHub Style */}
-                <div className={`relative w-full flex-1 md:w-64 ${isDark ? "bg-[#1c1c1c]" : "bg-white"} rounded-lg sm:rounded-xl`}>
+                <div className={`relative w-full flex-1 md:w-64 ${isDark ? "bg-[#1c1c1c]" : "bg-white"} rounded-full`}>
                   <input
                     type="text"
                     placeholder={t('exploreDapps.searchPlaceholder')}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className={`w-full px-4 sm:px-5 py-3 sm:py-4 pr-10 sm:pr-12 rounded-lg sm:rounded-xl text-sm outline-none ${isDark
+                    className={`w-full px-4 sm:px-5 py-3 sm:py-4 pr-10 sm:pr-12 rounded-full text-sm outline-none ${isDark
                         ? "bg-[#1c1c1c] text-white placeholder-gray-500 border border-gray-800 focus:border-gray-700"
                         : "bg-white text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-gray-300"
                       }`}
