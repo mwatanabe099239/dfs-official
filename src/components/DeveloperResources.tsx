@@ -28,13 +28,13 @@ const DeveloperResources: React.FC = () => {
       icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766674347/yw14nsguzbvwonwpfgyx.png",
       useBrightness: false,
     },
-    {
-      title: "White Creator",
-      description: "DRC20 Token Generator",
-      icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/lfbyfr2uevv1l0qhswkd.png",
-      useBrightness: false,
-      iconSize: "w-16 h-16",
-    },
+    // {
+    //   title: "White Creator",
+    //   description: "DRC20 Token Generator",
+    //   icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/lfbyfr2uevv1l0qhswkd.png",
+    //   useBrightness: false,
+    //   iconSize: "w-16 h-16",
+    // },
     {
       title: "Quick ido",
       description: "Instant Exchanges in Web3 and Web2",
