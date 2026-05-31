@@ -9,7 +9,13 @@ const DeveloperResources: React.FC = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
 
-  const resources = [
+  const resources: Array<{
+    title: string;
+    description: string;
+    icon: string;
+    useBrightness: boolean;
+    iconSize?: string;
+  }> = [
     {
       title: "DFS Scan",
       description: "Searching and Analyzing DFS Chain Data",

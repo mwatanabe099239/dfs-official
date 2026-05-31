@@ -183,7 +183,13 @@ export default function HomePage(): React.JSX.Element {
 
   // Developer Resources
   const DeveloperResources = () => {
-    const resources = [
+    const resources: Array<{
+      title: string
+      description: string
+      icon: string
+      useBrightness: boolean
+      iconSize?: string
+    }> = [
       { title: "DFS Scan", description: "Searching and Analyzing DFS Chain Data", icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673517/guwymkq7msbhbxfwmsly.png", useBrightness: false },
       { title: "Metaface", description: "DFS Chain's main wallet. Secure, fast, and easy to use.", icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/o2cerargskdqluetq0vs.png", useBrightness: false },
       { title: "WEXSWAP", description: "An exchange similar to a DEX ", icon: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766674347/yw14nsguzbvwonwpfgyx.png", useBrightness: false },
