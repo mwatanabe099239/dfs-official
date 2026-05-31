@@ -47,25 +47,25 @@ const dappsData = [
       "API Access - Developer-friendly API endpoints"
     ]
   },
-  {
-    id: 3,
-    name: "DFS Whitecreator",
-    description: "DFS Chain's token publishing platform. Publish your DRC20 tokens with approval system.",
-    category: "Token Tools",
-    url: "https://drc20.dfsscan.com",
-    logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673521/ees9tjh8fd6z2rzklgjq.png",
-    logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/lfbyfr2uevv1l0qhswkd.png",
-    gradient: "from-yellow-400 to-orange-500",
-    tag: "New",
-    features: [
-      "Token Creation - Easy token deployment interface",
-      "Approval System - Community-driven token approval",
-      "Token Management - Update metadata and settings",
-      "Distribution Tools - Airdrop and distribution features",
-      "Analytics Dashboard - Track token performance",
-      "Documentation - Comprehensive guides and tutorials"
-    ]
-  },
+  // {
+  //   id: 3,
+  //   name: "DFS Whitecreator",
+  //   description: "DFS Chain's token publishing platform. Publish your DRC20 tokens with approval system.",
+  //   category: "Token Tools",
+  //   url: "https://drc20.dfsscan.com",
+  //   logoWhite: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673521/ees9tjh8fd6z2rzklgjq.png",
+  //   logoBlack: "https://res.cloudinary.com/dvrlivsxx/image/upload/v1766673516/lfbyfr2uevv1l0qhswkd.png",
+  //   gradient: "from-yellow-400 to-orange-500",
+  //   tag: "New",
+  //   features: [
+  //     "Token Creation - Easy token deployment interface",
+  //     "Approval System - Community-driven token approval",
+  //     "Token Management - Update metadata and settings",
+  //     "Distribution Tools - Airdrop and distribution features",
+  //     "Analytics Dashboard - Track token performance",
+  //     "Documentation - Comprehensive guides and tutorials"
+  //   ]
+  // },
   {
     id: 4,
     name: "Uhalisi",

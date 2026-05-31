@@ -237,7 +237,7 @@ const StakingPage: React.FC = () => {
               <p className={`text-xl mb-10 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                 {t('staking.cta.subtitle') || 'Publish your token in WhiteCreator and set up staking events, or participate in existing staking opportunities.'}
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="https://drc20.dfsscan.com"
                   target="_blank"
@@ -261,7 +261,7 @@ const StakingPage: React.FC = () => {
                 >
                   {t('staking.cta.stakingComingSoon') || 'Staking Project (Coming Soon)'}
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
