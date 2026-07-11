@@ -2,6 +2,7 @@
 
 import React from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useLanguage } from '../src/context/LanguageContext'
 import { useTheme } from '../src/context/ThemeContext'
 import { useState } from "react"
@@ -383,6 +384,13 @@ interface LayoutWrapperProps {
 }
 
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
+  const pathname = usePathname()
+  const isDifinesAi = pathname?.startsWith('/difinesai') ?? false
+
+  if (isDifinesAi) {
+    return <>{children}</>
+  }
+
   return (
     <>
       <Navbar />

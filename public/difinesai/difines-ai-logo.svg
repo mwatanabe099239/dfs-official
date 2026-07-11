@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" fill="none" role="img" aria-label="DIFINES AI">
+  <g>
+    <path d="M8 6h18c12.15 0 22 9.85 22 22s-9.85 22-22 22H8V6z" fill="#FF6B1A"/>
+    <path d="M20 14h6c7.18 0 13 5.82 13 13s-5.82 13-13 13h-6V14z" fill="#0f1729"/>
+    <circle cx="22" cy="20" r="2.2" fill="#FF6B1A"/>
+    <circle cx="22" cy="36" r="2.2" fill="#FF6B1A"/>
+    <circle cx="34" cy="28" r="2.2" fill="#FF6B1A"/>
+    <line x1="22" y1="20" x2="34" y2="28" stroke="#334155" stroke-width="1.4"/>
+    <line x1="22" y1="36" x2="34" y2="28" stroke="#334155" stroke-width="1.4"/>
+  </g>
+  <text x="62" y="30" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="900" fill="#0f1729" letter-spacing="-0.5">DIFINES </text>
+  <text x="178" y="30" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="900" fill="#FF6B1A" letter-spacing="-0.5">AI</text>
+  <line x1="62" y1="40" x2="92" y2="40" stroke="#FF6B1A" stroke-width="1.2"/>
+  <line x1="188" y1="40" x2="218" y2="40" stroke="#FF6B1A" stroke-width="1.2"/>
+  <text x="140" y="40" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="7.5" font-weight="600" fill="#64748b" letter-spacing="2.2">AI CONSULTANT</text>
+</svg>

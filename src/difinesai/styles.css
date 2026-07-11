@@ -1,0 +1,286 @@
+/*
+ * DIFINES AI — scoped stylesheet for the /difinesai section.
+ * All variables and utilities are prefixed with `--difinesai-` or scoped under
+ * `.difinesai-scope` so they do not collide with the DFS-official main site.
+ */
+
+/* Import Poppins font for DIFINES scope */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+.difinesai-scope {
+  --difinesai-radius: 0.875rem;
+  --difinesai-brand-green: #35955e;
+
+  /* Light mode defaults */
+  --difinesai-background: oklch(0.99 0.005 150);
+  --difinesai-foreground: oklch(0.18 0.02 160);
+  --difinesai-card: oklch(1 0 0);
+  --difinesai-card-foreground: oklch(0.18 0.02 160);
+  --difinesai-popover: oklch(1 0 0);
+  --difinesai-popover-foreground: oklch(0.18 0.02 160);
+  --difinesai-primary: var(--difinesai-brand-green);
+  --difinesai-primary-foreground: oklch(1 0 0);
+  --difinesai-brand: var(--difinesai-brand-green);
+  --difinesai-brand-soft: color-mix(in srgb, var(--difinesai-brand-green) 10%, var(--difinesai-background));
+  --difinesai-secondary: oklch(0.96 0.01 150);
+  --difinesai-secondary-foreground: oklch(0.2 0.02 160);
+  --difinesai-muted: oklch(0.96 0.01 150);
+  --difinesai-muted-foreground: oklch(0.5 0.02 160);
+  --difinesai-accent: oklch(0.95 0.03 150);
+  --difinesai-accent-foreground: oklch(0.2 0.05 150);
+  --difinesai-destructive: oklch(0.6 0.22 25);
+  --difinesai-destructive-foreground: oklch(1 0 0);
+  --difinesai-border: color-mix(in srgb, var(--difinesai-primary) 18%, var(--difinesai-background));
+  --difinesai-input: color-mix(in srgb, var(--difinesai-primary) 18%, var(--difinesai-background));
+  --difinesai-ring: var(--difinesai-brand-green);
+  --difinesai-surface: oklch(1 0 0);
+  --difinesai-surface-2: oklch(0.97 0.008 150);
+
+  --difinesai-glow: 0 0 40px -8px rgb(53 149 94 / 0.45);
+  --difinesai-border-gradient: conic-gradient(
+    from 0deg at 50% 50%,
+    color-mix(in srgb, var(--difinesai-primary) 14%, var(--difinesai-background)) 0deg,
+    color-mix(in srgb, var(--difinesai-primary) 26%, var(--difinesai-background)) 90deg,
+    color-mix(in srgb, var(--difinesai-primary) 14%, var(--difinesai-background)) 180deg,
+    color-mix(in srgb, var(--difinesai-primary) 26%, var(--difinesai-background)) 270deg,
+    color-mix(in srgb, var(--difinesai-primary) 14%, var(--difinesai-background)) 360deg
+  );
+  --difinesai-border-gradient-hover: conic-gradient(
+    from 0deg at 50% 50%,
+    color-mix(in srgb, var(--difinesai-primary) 20%, var(--difinesai-background)) 0deg,
+    color-mix(in srgb, var(--difinesai-primary) 36%, var(--difinesai-background)) 90deg,
+    color-mix(in srgb, var(--difinesai-primary) 20%, var(--difinesai-background)) 180deg,
+    color-mix(in srgb, var(--difinesai-primary) 36%, var(--difinesai-background)) 270deg,
+    color-mix(in srgb, var(--difinesai-primary) 20%, var(--difinesai-background)) 360deg
+  );
+  --difinesai-border-gradient-line: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--difinesai-primary) 22%, var(--difinesai-background)),
+    color-mix(in srgb, var(--difinesai-primary) 12%, var(--difinesai-background)) 50%,
+    color-mix(in srgb, var(--difinesai-primary) 22%, var(--difinesai-background))
+  );
+  --difinesai-border-gradient-line-vertical: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--difinesai-primary) 22%, var(--difinesai-background)),
+    color-mix(in srgb, var(--difinesai-primary) 12%, var(--difinesai-background)) 50%,
+    color-mix(in srgb, var(--difinesai-primary) 22%, var(--difinesai-background))
+  );
+}
+
+.difinesai-scope.difinesai-dark,
+.difinesai-scope .difinesai-dark {
+  --difinesai-background: #010a09;
+  --difinesai-foreground: oklch(0.97 0.005 150);
+  --difinesai-card: #010a09;
+  --difinesai-card-foreground: oklch(0.97 0.005 150);
+  --difinesai-popover: #010a09;
+  --difinesai-popover-foreground: oklch(0.97 0.005 150);
+  --difinesai-primary: var(--difinesai-brand-green);
+  --difinesai-primary-foreground: oklch(1 0 0);
+  --difinesai-brand: var(--difinesai-brand-green);
+  --difinesai-brand-soft: color-mix(in srgb, var(--difinesai-brand-green) 14%, #010a09);
+  --difinesai-secondary: color-mix(in srgb, white 6%, #010a09);
+  --difinesai-secondary-foreground: oklch(0.97 0.005 150);
+  --difinesai-muted: color-mix(in srgb, white 5%, #010a09);
+  --difinesai-muted-foreground: oklch(0.68 0.02 155);
+  --difinesai-accent: color-mix(in srgb, var(--difinesai-primary) 12%, #010a09);
+  --difinesai-accent-foreground: oklch(0.95 0.05 150);
+  --difinesai-destructive: oklch(0.65 0.2 25);
+  --difinesai-destructive-foreground: oklch(0.98 0 0);
+  --difinesai-border: color-mix(in srgb, var(--difinesai-primary) 20%, var(--difinesai-background));
+  --difinesai-input: color-mix(in srgb, var(--difinesai-primary) 20%, var(--difinesai-background));
+  --difinesai-ring: var(--difinesai-brand-green);
+  --difinesai-surface: #010a09;
+  --difinesai-surface-2: color-mix(in srgb, white 5%, #010a09);
+
+  --difinesai-glow: 0 0 50px -6px rgb(53 149 94 / 0.5);
+  --difinesai-border-gradient: conic-gradient(
+    from 0deg at 50% 50%,
+    color-mix(in srgb, var(--difinesai-primary) 12%, #010a09) 0deg,
+    color-mix(in srgb, var(--difinesai-primary) 24%, #010a09) 90deg,
+    color-mix(in srgb, var(--difinesai-primary) 12%, #010a09) 180deg,
+    color-mix(in srgb, var(--difinesai-primary) 24%, #010a09) 270deg,
+    color-mix(in srgb, var(--difinesai-primary) 12%, #010a09) 360deg
+  );
+  --difinesai-border-gradient-hover: conic-gradient(
+    from 0deg at 50% 50%,
+    color-mix(in srgb, var(--difinesai-primary) 18%, #010a09) 0deg,
+    color-mix(in srgb, var(--difinesai-primary) 34%, #010a09) 90deg,
+    color-mix(in srgb, var(--difinesai-primary) 18%, #010a09) 180deg,
+    color-mix(in srgb, var(--difinesai-primary) 34%, #010a09) 270deg,
+    color-mix(in srgb, var(--difinesai-primary) 18%, #010a09) 360deg
+  );
+  --difinesai-border-gradient-line: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--difinesai-primary) 20%, #010a09),
+    color-mix(in srgb, var(--difinesai-primary) 10%, #010a09) 50%,
+    color-mix(in srgb, var(--difinesai-primary) 20%, #010a09)
+  );
+  --difinesai-border-gradient-line-vertical: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--difinesai-primary) 20%, #010a09),
+    color-mix(in srgb, var(--difinesai-primary) 10%, #010a09) 50%,
+    color-mix(in srgb, var(--difinesai-primary) 20%, #010a09)
+  );
+}
+
+.difinesai-scope {
+  background-color: var(--difinesai-background);
+  color: var(--difinesai-foreground);
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.difinesai-scope * {
+  border-color: var(--difinesai-border);
+}
+
+/* Custom utility classes ported from Tailwind v4 @utility / @layer utilities blocks.
+ * Not wrapped in @layer utilities because this file is imported alongside the main
+ * globals.css which already provides the tailwind base/components/utilities directives. */
+  .difinesai-scope .glow-primary {
+    box-shadow: var(--difinesai-glow);
+  }
+
+  .difinesai-scope .text-glow {
+    text-shadow: 0 0 24px color-mix(in srgb, var(--difinesai-primary) 55%, transparent);
+  }
+
+  .difinesai-scope .border-gradient {
+    position: relative;
+    border-width: 0;
+  }
+
+  .difinesai-scope .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--difinesai-border-gradient);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: background 0.2s ease;
+  }
+
+  .difinesai-scope .border-gradient-hover:hover::before {
+    background: var(--difinesai-border-gradient-hover);
+  }
+
+  .difinesai-scope .border-b-gradient {
+    position: relative;
+    border-bottom-width: 0;
+  }
+
+  .difinesai-scope .border-b-gradient::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--difinesai-border-gradient-line);
+    pointer-events: none;
+  }
+
+  .difinesai-scope .border-t-gradient {
+    position: relative;
+    border-top-width: 0;
+  }
+
+  .difinesai-scope .border-t-gradient::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--difinesai-border-gradient-line);
+    pointer-events: none;
+  }
+
+  .difinesai-scope .border-l-gradient {
+    position: relative;
+    border-left-width: 0;
+  }
+
+  .difinesai-scope .border-l-gradient::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background: var(--difinesai-border-gradient-line-vertical);
+    pointer-events: none;
+  }
+
+  .difinesai-scope .border-r-gradient {
+    position: relative;
+    border-right-width: 0;
+  }
+
+  .difinesai-scope .border-r-gradient::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    background: var(--difinesai-border-gradient-line-vertical);
+    pointer-events: none;
+  }
+
+  .difinesai-scope .card-surface {
+    position: relative;
+    background-color: var(--difinesai-card);
+    border-radius: var(--difinesai-radius);
+  }
+
+  .difinesai-scope .card-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--difinesai-border-gradient);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .difinesai-scope .scrollbar-pro {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(53 149 94 / 0.55) transparent;
+  }
+  .difinesai-scope .scrollbar-pro::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .difinesai-scope .scrollbar-pro::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .difinesai-scope .scrollbar-pro::-webkit-scrollbar-thumb {
+    background: rgb(53 149 94 / 0.55);
+    border-radius: 9999px;
+  }
+
+  /* Minimal tw-animate-css replacements for Radix data-state animations. */
+  .difinesai-scope [data-state="open"].animate-in,
+  .difinesai-scope [data-state="closed"].animate-out {
+    animation-duration: 150ms;
+    animation-timing-function: ease;
+  }
