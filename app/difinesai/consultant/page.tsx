@@ -312,6 +312,7 @@ function Sidebar({
       <Sheet open={open && !isLg} onOpenChange={onOpenChange}>
         <SheetContent
           side="left"
+          hideCloseButton
           className="z-[60] flex h-full w-[280px] max-w-[85vw] flex-col !fixed border-0 bg-card p-0 sm:max-w-[280px]"
         >
           <SheetTitle className="sr-only">{t("Navigation sidebar")}</SheetTitle>
@@ -454,9 +455,6 @@ function ChatColumn({
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 sm:gap-3">
-              <PanelToggle onClick={onToggleLeft} label={t("Open sidebar")} className="lg:hidden">
-                <PanelLeft className="h-4 w-4" />
-              </PanelToggle>
               {!leftOpen && (
                 <PanelToggle
                   onClick={onToggleLeft}
@@ -466,16 +464,22 @@ function ChatColumn({
                   <PanelLeft className="h-4 w-4" />
                 </PanelToggle>
               )}
-              <img
-                src="/difinesai/title-logo-white.png"
-                alt={t("DFS AI Consultant")}
-                className="h-5 max-w-[210px] truncate object-contain dark:hidden"
-              />
-              <img
-                src="/difinesai/title-logo.png"
-                alt={t("DFS AI Consultant")}
-                className="hidden h-6 max-w-[210px] truncate object-contain dark:inline-block"
-              />
+              <Link
+                href="/difinesai"
+                aria-label={t("DFS AI Consultant")}
+                className="inline-flex shrink-0 items-center rounded-sm outline-none transition-opacity hover:opacity-80 focus-visible:ring-2 focus-visible:ring-primary/60"
+              >
+                <img
+                  src="/difinesai/title-logo-white.png"
+                  alt={t("DFS AI Consultant")}
+                  className="h-5 max-w-[210px] truncate object-contain dark:hidden"
+                />
+                <img
+                  src="/difinesai/title-logo.png"
+                  alt={t("DFS AI Consultant")}
+                  className="hidden h-6 max-w-[210px] truncate object-contain dark:inline-block"
+                />
+              </Link>
               <span className="hidden shrink-0 items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[10.5px] font-bold text-primary sm:inline-flex">
                 <Sparkles className="h-3 w-3" /> {t("Powered by DIFINES RAG")}
               </span>
@@ -812,6 +816,7 @@ function RightPanel({
       <Sheet open={open && !isLg} onOpenChange={onOpenChange}>
         <SheetContent
           side="right"
+          hideCloseButton
           className="z-[60] flex h-full w-[min(100vw-2rem,340px)] flex-col fixed! border-0 bg-surface p-0 sm:max-w-[340px]"
         >
           <SheetTitle className="sr-only">{t("Consultant tools panel")}</SheetTitle>
