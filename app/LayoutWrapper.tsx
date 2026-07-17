@@ -88,6 +88,7 @@ function Footer() {
     {
       titleKey: "footer.sections.about",
       items: [
+        { nameKey: "footer.links.aiConsultant", link: "/ai" },
         { nameKey: "footer.links.blog", link: "/blog" },
         { nameKey: "footer.links.whitepaper", link: "/whitepaper" },
         { nameKey: "footer.links.faq", link: "/whitepaper#faq" },
@@ -385,7 +386,7 @@ interface LayoutWrapperProps {
 
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   const pathname = usePathname()
-  const isDifinesAi = pathname?.startsWith('/difinesai') ?? false
+  const isDifinesAi = pathname === '/ai' || pathname?.startsWith('/ai/') || false
 
   if (isDifinesAi) {
     return <>{children}</>

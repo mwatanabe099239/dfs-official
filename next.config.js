@@ -9,6 +9,13 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Legacy /difinesai/* routes moved to /ai/*
+      { source: '/difinesai', destination: '/ai', permanent: true },
+      { source: '/difinesai/:path*', destination: '/ai/:path*', permanent: true },
+    ]
+  },
 }
 
 module.exports = nextConfig

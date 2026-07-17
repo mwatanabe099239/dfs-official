@@ -27,14 +27,14 @@ export function Logo({ className = "" }: { className?: string }) {
   return (
     <>
       <img
-        src="/difinesai/logo_white.png"
+        src="/ai/logo_white.png"
         alt="DIFINES AI"
         className={`h-9 w-auto object-contain dark:hidden ${className}`}
         width={180}
         height={36}
       />
       <img
-        src="/difinesai/logo.png"
+        src="/ai/logo.png"
         alt="DIFINES AI"
         className={`hidden h-9 w-auto object-contain dark:block ${className}`}
         width={180}

@@ -25,7 +25,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b-gradient bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
-        <Link href="/difinesai" className="shrink-0">
+        <Link href="/ai" className="shrink-0">
           <Logo />
         </Link>
 
@@ -45,7 +45,7 @@ export function Navbar() {
           <ThemeToggle />
 
           <Link
-            href="/difinesai/consultant"
+            href="/ai/consultant"
             className="glow-primary hidden items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03] sm:inline-flex sm:px-5 lg:inline-flex"
           >
             AI Consultant
@@ -90,7 +90,7 @@ export function Navbar() {
               <div className="border-t-gradient p-4">
                 <SheetClose asChild>
                   <Link
-                    href="/difinesai/consultant"
+                    href="/ai/consultant"
                     className="glow-primary inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]"
                   >
                     AI Consultant

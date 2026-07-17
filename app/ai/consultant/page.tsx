@@ -157,7 +157,7 @@ function SidebarBody({
   };
 
   const nav: NavItem[] = [
-    { icon: Sparkles, l: "AI Consultant", active: true, to: "/difinesai/consultant" },
+    { icon: Sparkles, l: "AI Consultant", active: true, to: "/ai/consultant" },
     { icon: Compass, l: "DFS Chain Explorer", comingSoon: true },
     { icon: Coins, l: "Token Tools", comingSoon: true },
     { icon: Bot, l: "AI Agents", comingSoon: true },
@@ -171,7 +171,7 @@ function SidebarBody({
       <div className="flex items-center justify-between gap-2 px-5 py-5">
         <div
           className="flex min-w-0 cursor-pointer items-center gap-2"
-          onClick={() => router.push("/difinesai")}
+          onClick={() => router.push("/ai")}
         >
           <Logo className="h-9" />
         </div>
@@ -273,17 +273,6 @@ function SidebarBody({
           ))
         )}
       </nav>
-
-      <div className="flex items-center justify-between border-t-gradient px-4 py-3">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-lime-400" />
-          <div className="leading-tight">
-            <div className="text-[12px] font-bold">Alex Chen</div>
-            <div className="text-[10px] text-muted-foreground">alex@difines.org</div>
-          </div>
-        </div>
-        <MoreVertical className="h-4 w-4 text-muted-foreground" />
-      </div>
     </div>
   );
 }
@@ -359,7 +348,7 @@ function ChatColumn({
   const transport = useMemo(
     () =>
       new DefaultChatTransport({
-        api: "/api/difinesai/consultant-chat",
+        api: "/api/ai/consultant-chat",
       }),
     [],
   );
@@ -465,19 +454,19 @@ function ChatColumn({
                 </PanelToggle>
               )}
               <Link
-                href="/difinesai"
+                href="/ai"
                 aria-label={t("DFS AI Consultant")}
                 className="inline-flex shrink-0 items-center rounded-sm outline-none transition-opacity hover:opacity-80 focus-visible:ring-2 focus-visible:ring-primary/60"
               >
                 <img
-                  src="/difinesai/title-logo-white.png"
+                  src="/ai/logo_white.png"
                   alt={t("DFS AI Consultant")}
-                  className="h-5 max-w-[210px] truncate object-contain dark:hidden"
+                  className="h-7 w-auto max-w-[210px] object-contain sm:h-8 dark:hidden"
                 />
                 <img
-                  src="/difinesai/title-logo.png"
+                  src="/ai/logo.png"
                   alt={t("DFS AI Consultant")}
-                  className="hidden h-6 max-w-[210px] truncate object-contain dark:inline-block"
+                  className="hidden h-7 w-auto max-w-[210px] object-contain sm:h-8 dark:inline-block"
                 />
               </Link>
               <span className="hidden shrink-0 items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[10.5px] font-bold text-primary sm:inline-flex">

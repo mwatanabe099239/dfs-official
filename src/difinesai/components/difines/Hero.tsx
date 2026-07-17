@@ -26,7 +26,7 @@ export function Hero() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/difinesai/consultant"
+                href="/ai/consultant"
                 className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
               >
                 Try AI Consultant
@@ -43,14 +43,14 @@ export function Hero() {
           </div>
 
           <img
-            src="/difinesai/hero-infinity_white.png"
+            src="/ai/hero-infinity_white.png"
             alt="Launch Your Business with DFS Chain + AI"
             width={960}
             height={960}
             className="pointer-events-none absolute -right-10 top-0 hidden h-full w-auto max-w-[58%] object-contain object-right lg:block dark:hidden"
           />
           <img
-            src="/difinesai/hero-infinity.png"
+            src="/ai/hero-infinity.png"
             alt="Launch Your Business with DFS Chain + AI"
             width={960}
             height={960}
@@ -60,14 +60,14 @@ export function Hero() {
 
         <div className="lg:hidden">
           <img
-            src="/difinesai/hero-infinity_white.png"
+            src="/ai/hero-infinity_white.png"
             alt="Launch Your Business with DFS Chain + AI"
             width={960}
             height={960}
             className="mx-auto mt-10 w-full max-w-sm object-contain sm:max-w-md dark:hidden"
           />
           <img
-            src="/difinesai/hero-infinity.png"
+            src="/ai/hero-infinity.png"
             alt="Launch Your Business with DFS Chain + AI"
             width={960}
             height={960}

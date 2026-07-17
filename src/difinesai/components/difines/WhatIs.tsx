@@ -14,12 +14,12 @@ export function WhatIs() {
 
         <div className="flex w-full items-center justify-center lg:w-6/9">
           <img
-            src="/difinesai/dfschain_question_white.png"
+            src="/ai/dfschain_question_white.png"
             alt="DFS Chain ecosystem layers — AI, blockchain, and business"
             className="w-full object-contain dark:hidden"
           />
           <img
-            src="/difinesai/dfschain_question.png"
+            src="/ai/dfschain_question.png"
             alt="DFS Chain ecosystem layers — AI, blockchain, and business"
             className="hidden w-full object-contain dark:block"
           />
