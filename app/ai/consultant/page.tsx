@@ -273,17 +273,6 @@ function SidebarBody({
           ))
         )}
       </nav>
-
-      <div className="flex items-center justify-between border-t-gradient px-4 py-3">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-lime-400" />
-          <div className="leading-tight">
-            <div className="text-[12px] font-bold">Alex Chen</div>
-            <div className="text-[10px] text-muted-foreground">alex@difines.org</div>
-          </div>
-        </div>
-        <MoreVertical className="h-4 w-4 text-muted-foreground" />
-      </div>
     </div>
   );
 }
