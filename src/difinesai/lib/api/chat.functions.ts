@@ -26,23 +26,23 @@ async function jsonPost<TBody, TResult>(url: string, body: TBody): Promise<TResu
 export async function fetchChatGroups(args: {
   data: { sessionId: string };
 }): Promise<ChatGroupRow[]> {
-  return jsonPost("/api/difinesai/chat/groups/list", args.data);
+  return jsonPost("/api/ai/chat/groups/list", args.data);
 }
 
 export async function createNewChatGroup(args: {
   data: { sessionId: string; locale?: Locale };
 }): Promise<ChatGroupRow> {
-  return jsonPost("/api/difinesai/chat/groups/create", args.data);
+  return jsonPost("/api/ai/chat/groups/create", args.data);
 }
 
 export async function fetchChatMessages(args: {
   data: { sessionId: string; groupId: string };
 }): Promise<ChatMessageRow[]> {
-  return jsonPost("/api/difinesai/chat/messages/list", args.data);
+  return jsonPost("/api/ai/chat/messages/list", args.data);
 }
 
 export async function removeChatGroup(args: {
   data: { sessionId: string; groupId: string };
 }): Promise<void> {
-  await jsonPost("/api/difinesai/chat/groups/delete", args.data);
+  await jsonPost("/api/ai/chat/groups/delete", args.data);
 }

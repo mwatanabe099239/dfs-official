@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
  *
  * Portalled Radix components (Sheet, Dialog, Popover, DropdownMenu, Toast...)
  * render into `<body>`, i.e. *outside* the `.difinesai-scope` wrapper set in
- * `app/difinesai/layout.tsx`. That means their subtree loses access to our
+ * `app/ai/layout.tsx`. That means their subtree loses access to our
  * scoped CSS variables and utilities (border-gradient, card-surface,
  * scrollbar-pro, dark-mode overrides, etc.).
  *

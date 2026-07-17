@@ -7,21 +7,21 @@ export function CTASection() {
       <div className="relative overflow-hidden rounded-2xl border-gradient bg-background">
         <div className="pointer-events-none absolute inset-0 z-0 hidden lg:block">
           <img
-            src="/difinesai/cta_1.png"
+            src="/ai/cta_1.png"
             alt=""
             aria-hidden="true"
             loading="lazy"
             className="absolute left-15 top-1/2 h-[85%] w-auto max-w-[42%] -translate-y-1/2 object-contain object-left sm:h-[90%] sm:max-w-[18%]"
           />
           <img
-            src="/difinesai/cta_2_white.png"
+            src="/ai/cta_2_white.png"
             alt=""
             aria-hidden="true"
             loading="lazy"
             className="absolute right-0 top-1/2 h-full w-auto max-w-[50%] -translate-y-1/2 object-contain object-right dark:hidden"
           />
           <img
-            src="/difinesai/cta_2.png"
+            src="/ai/cta_2.png"
             alt=""
             aria-hidden="true"
             loading="lazy"
@@ -36,7 +36,7 @@ export function CTASection() {
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-4">
             <Link
-              href="/difinesai/consultant"
+              href="/ai/consultant"
               className="glow-primary inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
             >
               AI Consultant
