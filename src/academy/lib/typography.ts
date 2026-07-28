@@ -1,0 +1,22 @@
+/** Typography scale aligned with the landing page (index.tsx). */
+export const typography = {
+  pageTitle: "text-[32px] sm:text-[40px] lg:text-[52px] leading-[1.2] font-bold",
+  featuredTitle: "text-[28px] sm:text-[36px] lg:text-[44px] leading-[1.2] font-bold",
+  pageLead: "text-[16px] sm:text-[18px] text-muted-foreground",
+  sectionTitle: "text-[26px] sm:text-[28px] lg:text-[30px] font-bold",
+  subsectionTitle: "text-[24px] sm:text-[26px] font-bold",
+  cardTitleLg: "text-[26px] sm:text-[28px] leading-snug",
+  cardTitleMd: "text-[22px] sm:text-[24px] leading-snug",
+  cardTitleSm: "text-[20px] sm:text-[22px]",
+  categoryLabel: "text-[18px] sm:text-[20px] lg:text-[22px] font-medium",
+  heroAsideTitle: "text-[20px] sm:text-[22px]",
+  body: "text-[15px] leading-relaxed",
+  bodyLg: "text-[16px] sm:text-[17px] leading-relaxed",
+  meta: "text-[13px] sm:text-[14px] text-muted-foreground",
+  metaSm: "text-[12px] sm:text-[13px] text-muted-foreground",
+  link: "text-[13px] sm:text-[14px] font-medium text-primary",
+  button: "text-[15px] font-semibold",
+  buttonLg: "text-[18px] font-semibold",
+  input: "text-[15px]",
+  badge: "text-[12px] sm:text-[13px]",
+} as const;

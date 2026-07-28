@@ -1,0 +1,149 @@
+/*
+ * Scoped design tokens for the /academy route.
+ *
+ * Each token is defined in TWO forms:
+ *   - `--difinesai-X-rgb: R G B`  (raw channels, consumed by Tailwind via
+ *     `rgb(var(--difinesai-X-rgb) / <alpha-value>)` so `bg-primary/50`,
+ *     `hover:bg-primary/90`, `border-primary-soft/60`, etc. all work)
+ *   - `--difinesai-X: rgb(R G B)` (full color, for direct CSS use like the
+ *     `.rich-html` block below and any inline `color: var(--difinesai-X)`)
+ *
+ * Values match the original DFS Academy oklch palette, converted to sRGB
+ * for maximum compatibility with Tailwind v3's opacity computation. The
+ * variables keep the `--difinesai-*` prefix because that's what the shared
+ * Tailwind config looks up; think of them as "design-system tokens", not
+ * DIFINES-specific values.
+ */
+
+.academy-scope {
+  /* Radius */
+  --difinesai-radius: 0.625rem;
+
+  /* Surfaces */
+  --difinesai-background-rgb: 255 255 255;
+  --difinesai-foreground-rgb: 14 18 22;
+  --difinesai-card-rgb: 255 255 255;
+  --difinesai-card-foreground-rgb: 14 18 22;
+  --difinesai-popover-rgb: 255 255 255;
+  --difinesai-popover-foreground-rgb: 14 18 22;
+
+  /* Brand */
+  --difinesai-primary-rgb: 35 161 54;
+  --difinesai-primary-foreground-rgb: 255 255 255;
+  --difinesai-primary-soft-rgb: 204 245 204;
+  --difinesai-primary-softer-rgb: 237 252 237;
+
+  /* Secondary / muted / accent */
+  --difinesai-secondary-rgb: 243 245 248;
+  --difinesai-secondary-foreground-rgb: 14 18 22;
+  --difinesai-muted-rgb: 243 245 248;
+  --difinesai-muted-foreground-rgb: 95 100 105;
+  --difinesai-accent-rgb: 234 246 234;
+  --difinesai-accent-foreground-rgb: 0 73 12;
+
+  /* Feedback */
+  --difinesai-destructive-rgb: 230 44 44;
+  --difinesai-destructive-foreground-rgb: 255 255 255;
+
+  /* Structure */
+  --difinesai-border-rgb: 226 229 232;
+  --difinesai-input-rgb: 226 229 232;
+  --difinesai-ring-rgb: 35 161 54;
+
+  /* Custom */
+  --difinesai-promo-rgb: 229 253 229;
+
+  /* Full-color aliases (for direct `var()` usage in rich-html and inline CSS) */
+  --difinesai-background: rgb(var(--difinesai-background-rgb));
+  --difinesai-foreground: rgb(var(--difinesai-foreground-rgb));
+  --difinesai-card: rgb(var(--difinesai-card-rgb));
+  --difinesai-card-foreground: rgb(var(--difinesai-card-foreground-rgb));
+  --difinesai-popover: rgb(var(--difinesai-popover-rgb));
+  --difinesai-popover-foreground: rgb(var(--difinesai-popover-foreground-rgb));
+  --difinesai-primary: rgb(var(--difinesai-primary-rgb));
+  --difinesai-primary-foreground: rgb(var(--difinesai-primary-foreground-rgb));
+  --difinesai-primary-soft: rgb(var(--difinesai-primary-soft-rgb));
+  --difinesai-primary-softer: rgb(var(--difinesai-primary-softer-rgb));
+  --difinesai-secondary: rgb(var(--difinesai-secondary-rgb));
+  --difinesai-secondary-foreground: rgb(var(--difinesai-secondary-foreground-rgb));
+  --difinesai-muted: rgb(var(--difinesai-muted-rgb));
+  --difinesai-muted-foreground: rgb(var(--difinesai-muted-foreground-rgb));
+  --difinesai-accent: rgb(var(--difinesai-accent-rgb));
+  --difinesai-accent-foreground: rgb(var(--difinesai-accent-foreground-rgb));
+  --difinesai-destructive: rgb(var(--difinesai-destructive-rgb));
+  --difinesai-destructive-foreground: rgb(var(--difinesai-destructive-foreground-rgb));
+  --difinesai-border: rgb(var(--difinesai-border-rgb));
+  --difinesai-input: rgb(var(--difinesai-input-rgb));
+  --difinesai-ring: rgb(var(--difinesai-ring-rgb));
+  --difinesai-promo: rgb(var(--difinesai-promo-rgb));
+
+  /* Typography (Inter + Noto Sans JP loaded via <link> in layout) */
+  font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
+  color: var(--difinesai-foreground);
+  background-color: var(--difinesai-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* TipTap / Firestore HTML bodies (QA, courses) — ported verbatim from the
+   original dfs-academy globals.css. */
+.academy-scope .rich-html {
+  font-size: 15px;
+  line-height: 1.625;
+}
+.academy-scope .rich-html h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid var(--difinesai-primary);
+  padding-left: 0.75rem;
+  font-size: 22px;
+  font-weight: 700;
+}
+.academy-scope .rich-html h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+  font-weight: 600;
+}
+.academy-scope .rich-html p {
+  color: rgb(var(--difinesai-foreground-rgb) / 0.9);
+}
+.academy-scope .rich-html a {
+  color: var(--difinesai-primary);
+  text-decoration: underline;
+}
+.academy-scope .rich-html strong {
+  font-weight: 600;
+}
+.academy-scope .rich-html ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.academy-scope .rich-html ul > li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+.academy-scope .rich-html ul > li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-top: 0.3rem;
+  border-radius: 9999px;
+  background-color: var(--difinesai-primary);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.5rem;
+}
+.academy-scope .rich-html ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

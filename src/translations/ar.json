@@ -141,7 +141,8 @@
       "build": "البناء",
       "participate": "المشاركة",
       "about": "من نحن",
-      "legal": "قانوني"
+      "legal": "قانوني",
+      "academy": "الأكاديمية"
     },
     "links": {
       "dfsChain": "DFS Chain",
@@ -166,7 +167,9 @@
       "contactUs": "اتصل بنا",
       "privacyPolicy": "سياسة الخصوصية",
       "termsOfUse": "شروط الاستخدام",
-      "cookies": "ملفات تعريف الارتباط"
+      "cookies": "ملفات تعريف الارتباط",
+      "dfsAcademy": "أكاديمية DFS",
+      "difinesAi": "DIFINES AI"
     },
     "followUs": "تابعنا:",
     "copyright": "© 2026 DIFINES. جميع الحقوق محفوظة."

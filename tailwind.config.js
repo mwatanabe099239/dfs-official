@@ -12,46 +12,56 @@ module.exports = {
         'regal-white': '#373943',
         'landing-color': 'rgb(20, 21, 26)',
 
-        // DIFINES / shadcn CSS-variable palette (scoped under .difinesai-scope)
-        background: 'var(--difinesai-background, #010a09)',
-        foreground: 'var(--difinesai-foreground, oklch(0.97 0.005 150))',
+        // Scoped design-system palette. Values use the RGB-channel + `<alpha-value>`
+        // pattern so Tailwind v3 can compose opacity modifiers (e.g. `bg-promo/50`,
+        // `hover:bg-primary/90`, `border-primary-soft/60`). The channels live in
+        // `--difinesai-*-rgb` variables defined by the scoped stylesheets:
+        //   - `.difinesai-scope` (light + dark) → src/difinesai/styles.css
+        //   - `.academy-scope` → src/academy/styles.css
+        // Fallbacks match the DIFINES dark theme so shadcn-style utilities keep
+        // working even outside a scope.
+        background: 'rgb(var(--difinesai-background-rgb, 1 10 9) / <alpha-value>)',
+        foreground: 'rgb(var(--difinesai-foreground-rgb, 244 246 244) / <alpha-value>)',
         card: {
-          DEFAULT: 'var(--difinesai-card, #010a09)',
-          foreground: 'var(--difinesai-card-foreground, oklch(0.97 0.005 150))',
+          DEFAULT: 'rgb(var(--difinesai-card-rgb, 1 10 9) / <alpha-value>)',
+          foreground: 'rgb(var(--difinesai-card-foreground-rgb, 244 246 244) / <alpha-value>)',
         },
         popover: {
-          DEFAULT: 'var(--difinesai-popover, #010a09)',
-          foreground: 'var(--difinesai-popover-foreground, oklch(0.97 0.005 150))',
+          DEFAULT: 'rgb(var(--difinesai-popover-rgb, 1 10 9) / <alpha-value>)',
+          foreground: 'rgb(var(--difinesai-popover-foreground-rgb, 244 246 244) / <alpha-value>)',
         },
         primary: {
-          DEFAULT: 'var(--difinesai-primary, #35955e)',
-          foreground: 'var(--difinesai-primary-foreground, oklch(1 0 0))',
+          DEFAULT: 'rgb(var(--difinesai-primary-rgb, 53 149 94) / <alpha-value>)',
+          foreground: 'rgb(var(--difinesai-primary-foreground-rgb, 255 255 255) / <alpha-value>)',
+          soft: 'rgb(var(--difinesai-primary-soft-rgb, 204 245 204) / <alpha-value>)',
+          softer: 'rgb(var(--difinesai-primary-softer-rgb, 237 252 237) / <alpha-value>)',
         },
         secondary: {
-          DEFAULT: 'var(--difinesai-secondary, oklch(0.96 0.01 150))',
-          foreground: 'var(--difinesai-secondary-foreground, oklch(0.2 0.02 160))',
+          DEFAULT: 'rgb(var(--difinesai-secondary-rgb, 240 242 240) / <alpha-value>)',
+          foreground: 'rgb(var(--difinesai-secondary-foreground-rgb, 31 37 34) / <alpha-value>)',
         },
         muted: {
-          DEFAULT: 'var(--difinesai-muted, oklch(0.96 0.01 150))',
-          foreground: 'var(--difinesai-muted-foreground, oklch(0.68 0.02 155))',
+          DEFAULT: 'rgb(var(--difinesai-muted-rgb, 240 242 240) / <alpha-value>)',
+          foreground: 'rgb(var(--difinesai-muted-foreground-rgb, 108 121 116) / <alpha-value>)',
         },
         accent: {
-          DEFAULT: 'var(--difinesai-accent, oklch(0.95 0.03 150))',
-          foreground: 'var(--difinesai-accent-foreground, oklch(0.95 0.05 150))',
+          DEFAULT: 'rgb(var(--difinesai-accent-rgb, 232 240 232) / <alpha-value>)',
+          foreground: 'rgb(var(--difinesai-accent-foreground-rgb, 0 73 12) / <alpha-value>)',
         },
         destructive: {
-          DEFAULT: 'var(--difinesai-destructive, oklch(0.65 0.2 25))',
-          foreground: 'var(--difinesai-destructive-foreground, oklch(0.98 0 0))',
+          DEFAULT: 'rgb(var(--difinesai-destructive-rgb, 230 44 44) / <alpha-value>)',
+          foreground: 'rgb(var(--difinesai-destructive-foreground-rgb, 255 255 255) / <alpha-value>)',
         },
-        border: 'var(--difinesai-border, color-mix(in srgb, #35955e 20%, #010a09))',
-        input: 'var(--difinesai-input, color-mix(in srgb, #35955e 20%, #010a09))',
-        ring: 'var(--difinesai-ring, #35955e)',
-        surface: 'var(--difinesai-surface, #010a09)',
-        'surface-2': 'var(--difinesai-surface-2, color-mix(in srgb, white 5%, #010a09))',
+        border: 'rgb(var(--difinesai-border-rgb, 30 46 40) / <alpha-value>)',
+        input: 'rgb(var(--difinesai-input-rgb, 30 46 40) / <alpha-value>)',
+        ring: 'rgb(var(--difinesai-ring-rgb, 53 149 94) / <alpha-value>)',
+        surface: 'rgb(var(--difinesai-surface-rgb, 1 10 9) / <alpha-value>)',
+        'surface-2': 'rgb(var(--difinesai-surface-2-rgb, 20 20 20) / <alpha-value>)',
         brand: {
-          DEFAULT: 'var(--difinesai-brand, #35955e)',
-          soft: 'var(--difinesai-brand-soft, color-mix(in srgb, #35955e 14%, #010a09))',
+          DEFAULT: 'rgb(var(--difinesai-brand-rgb, 53 149 94) / <alpha-value>)',
+          soft: 'rgb(var(--difinesai-brand-soft-rgb, 20 40 30) / <alpha-value>)',
         },
+        promo: 'rgb(var(--difinesai-promo-rgb, 229 253 229) / <alpha-value>)',
       },
       borderRadius: {
         lg: 'var(--difinesai-radius, 0.875rem)',

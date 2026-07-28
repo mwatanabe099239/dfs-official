@@ -141,7 +141,8 @@
       "build": "빌드",
       "participate": "참여",
       "about": "소개",
-      "legal": "법적 정보"
+      "legal": "법적 정보",
+      "academy": "아카데미"
     },
     "links": {
       "dfsChain": "DFS Chain",
@@ -166,7 +167,9 @@
       "contactUs": "문의하기",
       "privacyPolicy": "개인정보 처리방침",
       "termsOfUse": "이용약관",
-      "cookies": "쿠키"
+      "cookies": "쿠키",
+      "dfsAcademy": "DFS 아카데미",
+      "difinesAi": "DIFINES AI"
     },
     "followUs": "팔로우:",
     "copyright": "© 2026 DIFINES. All rights reserved."

@@ -141,7 +141,8 @@
       "build": "构建",
       "participate": "参与",
       "about": "关于",
-      "legal": "法律"
+      "legal": "法律",
+      "academy": "学院"
     },
     "links": {
       "dfsChain": "DFS Chain",
@@ -166,7 +167,9 @@
       "contactUs": "联系我们",
       "privacyPolicy": "隐私政策",
       "termsOfUse": "使用条款",
-      "cookies": "Cookie"
+      "cookies": "Cookie",
+      "dfsAcademy": "DFS 学院",
+      "difinesAi": "DIFINES AI"
     },
     "followUs": "关注我们：",
     "copyright": "© 2026 DIFINES. 版权所有。"

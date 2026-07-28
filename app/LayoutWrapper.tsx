@@ -73,28 +73,31 @@ function Footer() {
     { icon: FaYoutube, link: "#", name: "YouTube" },
   ]
 
-  // Three columns of links following Solana's layout
+  // Columns of links following Solana's layout
   const linkColumns = [
     {
       titleKey: "footer.sections.dfsChain",
       items: [
         { nameKey: "footer.links.makeWallet", link: "https://metaface.dfsscan.com/get-started" },
         { nameKey: "footer.links.getDfs", link: "https://wexswap.com" },
-        { nameKey: "footer.links.stakeDfs", link: "/staking" },
         { nameKey: "footer.links.exploreDapps", link: "/explore-dapps" },
-        { nameKey: "footer.links.payByCrypto", link: "/payviner" },
       ],
     },
     {
       titleKey: "footer.sections.about",
       items: [
-        { nameKey: "footer.links.aiConsultant", link: "/ai" },
         { nameKey: "footer.links.blog", link: "/blog" },
         { nameKey: "footer.links.whitepaper", link: "/whitepaper" },
         { nameKey: "footer.links.faq", link: "/whitepaper#faq" },
         { nameKey: "footer.links.privacyPolicy", link: "/whitepaper#privacy-policy" },
         { nameKey: "footer.links.termsOfUse", link: "/whitepaper#terms-of-use" },
-        { nameKey: "footer.links.cookies", link: "/whitepaper#cookies" },
+      ],
+    },
+    {
+      titleKey: "footer.sections.academy",
+      items: [
+        { nameKey: "footer.links.dfsAcademy", link: "/academy" },
+        { nameKey: "footer.links.difinesAi", link: "/ai" },
       ],
     },
   ]
@@ -144,43 +147,31 @@ function Footer() {
           </div>
         </div>
 
-        {/* Middle Section - First Column of Links */}
-        <div className="min-w-[160px] ml-12">
-          <h4 className={`font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-            {t(linkColumns[0].titleKey)}
-          </h4>
-          <ul className={`space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
-            {linkColumns[0].items.map((item, i) => (
-              <li key={i} className="hover:underline cursor-pointer text-xs">
-                {item.link.startsWith('/') ? (
-                  <Link href={item.link} className="block">{t(item.nameKey)}</Link>
-                ) : (
-                  <a href={item.link} className="block" target="_blank" rel="noopener noreferrer">{t(item.nameKey)}</a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Link Columns — rendered dynamically. Academy is intentionally
+            excluded here on desktop; it renders under the language switcher
+            below. Mobile keeps mapping the full linkColumns array. */}
+        {linkColumns
+          .filter((column) => column.titleKey !== "footer.sections.academy")
+          .map((column, colIdx) => (
+            <div key={column.titleKey} className={`min-w-[160px] ${colIdx === 0 ? "ml-12" : "ml-6"}`}>
+              <h4 className={`font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+                {t(column.titleKey)}
+              </h4>
+              <ul className={`space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+                {column.items.map((item, i) => (
+                  <li key={i} className="hover:underline cursor-pointer text-xs">
+                    {item.link.startsWith('/') ? (
+                      <Link href={item.link} className="block">{t(item.nameKey)}</Link>
+                    ) : (
+                      <a href={item.link} className="block" target="_blank" rel="noopener noreferrer">{t(item.nameKey)}</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
-        {/* Right Section - Second Column of Links */}
-        <div className="min-w-[160px] ml-6">
-          <h4 className={`font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-            {t(linkColumns[1].titleKey)}
-          </h4>
-          <ul className={`space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
-            {linkColumns[1].items.map((item, i) => (
-              <li key={i} className="hover:underline cursor-pointer text-xs">
-                {item.link.startsWith('/') ? (
-                  <Link href={item.link} className="block">{t(item.nameKey)}</Link>
-                ) : (
-                  <a href={item.link} className="block" target="_blank" rel="noopener noreferrer">{t(item.nameKey)}</a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Language Switcher - Third Column */}
+        {/* Language Switcher + Academy stacked below */}
         <div className="min-w-[160px] ml-6">
           <h4 className={`font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
             {t("common.language")}
@@ -239,6 +230,30 @@ function Footer() {
               </div>
             )}
           </div>
+
+          {/* Academy — stacked directly below the language switcher */}
+          {(() => {
+            const academyColumn = linkColumns.find((c) => c.titleKey === "footer.sections.academy")
+            if (!academyColumn) return null
+            return (
+              <div className="mt-6">
+                <h4 className={`font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  {t(academyColumn.titleKey)}
+                </h4>
+                <ul className={`space-y-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+                  {academyColumn.items.map((item, i) => (
+                    <li key={i} className="hover:underline cursor-pointer text-xs">
+                      {item.link.startsWith('/') ? (
+                        <Link href={item.link} className="block">{t(item.nameKey)}</Link>
+                      ) : (
+                        <a href={item.link} className="block" target={item.link.startsWith('http') ? "_blank" : undefined} rel={item.link.startsWith('http') ? "noopener noreferrer" : undefined}>{t(item.nameKey)}</a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          })()}
         </div>
       </div>
 
@@ -386,9 +401,12 @@ interface LayoutWrapperProps {
 
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   const pathname = usePathname()
-  const isDifinesAi = pathname === '/ai' || pathname?.startsWith('/ai/') || false
+  const isScopedApp =
+    pathname === '/ai' || pathname?.startsWith('/ai/') ||
+    pathname === '/academy' || pathname?.startsWith('/academy/') ||
+    false
 
-  if (isDifinesAi) {
+  if (isScopedApp) {
     return <>{children}</>
   }
 

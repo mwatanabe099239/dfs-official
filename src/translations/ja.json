@@ -141,7 +141,8 @@
       "build": "構築",
       "participate": "参加",
       "about": "概要",
-      "legal": "法的情報"
+      "legal": "法的情報",
+      "academy": "アカデミー"
     },
     "links": {
       "dfsChain": "DFS Chain",
@@ -166,7 +167,9 @@
       "contactUs": "お問い合わせ",
       "privacyPolicy": "プライバシーポリシー",
       "termsOfUse": "利用規約",
-      "cookies": "クッキー"
+      "cookies": "クッキー",
+      "dfsAcademy": "DFS Academy",
+      "difinesAi": "DIFINES AI"
     },
     "followUs": "フォロー：",
     "copyright": "© 2026 DIFINES. All rights reserved."

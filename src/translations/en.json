@@ -143,7 +143,8 @@
       "about": "About",
       "legal": "Legal",
       "dfsChain": "DFS Chain",
-      "getConnected": "Get connected"
+      "getConnected": "Get connected",
+      "academy": "Academy"
     },
     "links": {
       "dfsChain": "DFS Chain",
@@ -168,7 +169,9 @@
       "contactUs": "Contact Us",
       "privacyPolicy": "Privacy Policy",
       "termsOfUse": "Terms of Use",
-      "cookies": "Cookies"
+      "cookies": "Cookies",
+      "dfsAcademy": "DFS Academy",
+      "difinesAi": "DIFINES AI"
     },
     "followUs": "Follow us:",
     "copyright": "© 2026 DIFINES. All rights reserved."
