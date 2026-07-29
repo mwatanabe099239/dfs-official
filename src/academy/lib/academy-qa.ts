@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from "next/cache";
 import { collection, getDocs, limit, query, where } from "firebase/firestore";
 import type { FaqEntry, FaqListItem, FaqSection } from "@academy/data/qa-faqs";
 import { FAQ_ENTRIES } from "@academy/data/qa-faqs";
@@ -110,6 +111,7 @@ export function serializeFaqDoc(data: Record<string, unknown>): FaqEntry | null 
 
 /** Fetch published QA questions from Firestore (same collection as admin). */
 export async function fetchPublishedFaqs(): Promise<FaqEntry[]> {
+  noStore();
   const snap = await getDocs(
     query(
       collection(getDb(), ACADEMY_QA_COLLECTION),

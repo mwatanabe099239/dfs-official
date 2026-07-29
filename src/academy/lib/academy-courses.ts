@@ -13,6 +13,7 @@ import {
   Wallet,
   type LucideIcon,
 } from "lucide-react";
+import { unstable_noStore as noStore } from "next/cache";
 import { collection, getDocs, limit, query, where } from "firebase/firestore";
 import { getDb } from "@academy/lib/firebase";
 import { formatApproxMinutes, parseMinutesValue } from "@academy/lib/academy-qa";
@@ -331,6 +332,7 @@ export const FALLBACK_LESSONS: AcademyLesson[] = [
 ];
 
 export async function fetchPublishedCourses(): Promise<AcademyCourse[]> {
+  noStore();
   const snap = await getDocs(
     query(
       collection(getDb(), ACADEMY_COURSES_COLLECTION),

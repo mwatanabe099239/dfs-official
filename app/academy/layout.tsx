@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     "DFSChainの基礎から応用まで、初心者にもわかりやすく学べるWeb3学習プラットフォーム。",
 };
 
+// Academy pages read live Firestore content (Q&A, articles, courses).
+// Without this, Next.js statically prerenders them at build time and new
+// admin-created docs never appear until the next redeploy.
+export const dynamic = "force-dynamic";
+
 export default function AcademyLayout({ children }: { children: ReactNode }) {
   return (
     <div className="academy-scope min-h-screen">
