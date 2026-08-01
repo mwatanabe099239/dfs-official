@@ -22,6 +22,7 @@ import { StatsSection } from "@academy/components/site/StatsSection";
 import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
 import { courseIcon, formatApproxMinutes, getPublishedCourses } from "@academy/lib/academy-courses";
+import { coursePath } from "@academy/lib/academy-slug";
 
 const HeroImg = "/academy/course-hero.png";
 
@@ -121,7 +122,7 @@ export default async function CoursesPage() {
                   return (
                     <li key={c.id}>
                       <a
-                        href={`/academy/courses/${c.id}`}
+                        href={coursePath(c.title, c.id, c.slug)}
                         className="flex flex-col gap-4 lg:grid lg:grid-cols-[120px_1fr_160px] lg:items-center bg-card border border-border rounded-xl p-4 hover:border-primary/40"
                       >
                         <div className="w-full lg:w-[120px] h-[100px] lg:h-full rounded-lg bg-primary-softer text-primary flex items-center justify-center shrink-0">

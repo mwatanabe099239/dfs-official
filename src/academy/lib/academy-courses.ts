@@ -17,6 +17,7 @@ import { unstable_noStore as noStore } from "next/cache";
 import { collection, getDocs, limit, query, where } from "firebase/firestore";
 import { getDb } from "@academy/lib/firebase";
 import { formatApproxMinutes, parseMinutesValue } from "@academy/lib/academy-qa";
+import { assignUniqueSlugs, matchesSlugOrId } from "@academy/lib/academy-slug";
 
 export const ACADEMY_COURSES_COLLECTION = "academy_courses";
 export const ACADEMY_LESSONS_COLLECTION = "academy_lessons";
@@ -26,6 +27,8 @@ export { formatApproxMinutes };
 export type AcademyCourse = {
   id: number;
   title: string;
+  /** Title-based URL segment (assigned when loading published lists). */
+  slug?: string;
   description: string;
   tags: string[];
   level: string;
@@ -42,6 +45,8 @@ export type AcademyLesson = {
   id: number;
   courseId: number;
   title: string;
+  /** Title-based URL segment (assigned when loading published lists). */
+  slug?: string;
   description: string;
   durationMinutes: number;
   iconKey: string;
@@ -421,62 +426,82 @@ export async function fetchPublishedLesson(
   return serializeLessonDoc(snap.docs[0]!.data() as Record<string, unknown>);
 }
 
+function withCourseSlugs(courses: AcademyCourse[]): AcademyCourse[] {
+  const slugs = assignUniqueSlugs(courses, (item) => item.title);
+  return courses.map((course) => ({ ...course, slug: slugs.get(course.id) }));
+}
+
+function withLessonSlugs(lessons: AcademyLesson[]): AcademyLesson[] {
+  const slugs = assignUniqueSlugs(lessons, (item) => item.title);
+  return lessons.map((lesson) => ({ ...lesson, slug: slugs.get(lesson.id) }));
+}
+
 export async function getPublishedCourses(): Promise<AcademyCourse[]> {
   try {
     const courses = await fetchPublishedCourses();
-    if (courses.length > 0) return courses;
+    if (courses.length > 0) return withCourseSlugs(courses);
     console.warn(
       "[academy-courses] Firestore returned no published courses; using static fallback.",
     );
-    return FALLBACK_COURSES;
+    return withCourseSlugs(FALLBACK_COURSES);
   } catch (error) {
     console.error("[academy-courses] Failed to load courses:", error);
-    return FALLBACK_COURSES;
+    return withCourseSlugs(FALLBACK_COURSES);
   }
 }
 
+/** Resolve by title slug or legacy numeric id. */
+export async function getPublishedCourseBySlug(
+  slug: string | number,
+): Promise<AcademyCourse | null> {
+  const param = String(slug);
+  const courses = await getPublishedCourses();
+  return (
+    courses.find((course) =>
+      matchesSlugOrId(param, course.title, course.id, course.slug),
+    ) ?? null
+  );
+}
+
+/** @deprecated Prefer getPublishedCourseBySlug. */
 export async function getPublishedCourseById(
   id: string | number,
 ): Promise<AcademyCourse | null> {
-  try {
-    const course = await fetchPublishedCourseById(id);
-    if (course) return course;
-  } catch (error) {
-    console.error("[academy-courses] Failed to load course:", error);
-  }
-  const numericId = typeof id === "string" ? Number.parseInt(id, 10) : id;
-  return FALLBACK_COURSES.find((item) => item.id === numericId) ?? null;
+  return getPublishedCourseBySlug(id);
 }
 
+/**
+ * Resolve course slug/id → numeric course id, then load lessons.
+ * Accepts title slug or legacy numeric id.
+ */
 export async function getPublishedLessonsForCourse(
-  courseId: string | number,
+  courseSlugOrId: string | number,
 ): Promise<AcademyLesson[]> {
-  const numericId =
-    typeof courseId === "string" ? Number.parseInt(courseId, 10) : courseId;
+  const course = await getPublishedCourseBySlug(courseSlugOrId);
+  if (!course) return [];
+
   try {
-    const lessons = await fetchPublishedLessonsForCourse(courseId);
-    if (lessons.length > 0) return lessons;
+    const lessons = await fetchPublishedLessonsForCourse(course.id);
+    if (lessons.length > 0) return withLessonSlugs(lessons);
   } catch (error) {
     console.error("[academy-courses] Failed to load lessons:", error);
   }
-  return FALLBACK_LESSONS.filter((item) => item.courseId === numericId);
+  return withLessonSlugs(
+    FALLBACK_LESSONS.filter((item) => item.courseId === course.id),
+  );
 }
 
+/** Resolve lesson by course slug + lesson slug (or legacy numeric ids). */
 export async function getPublishedLesson(
-  courseId: string | number,
-  lessonId: string | number,
+  courseSlugOrId: string | number,
+  lessonSlugOrId: string | number,
 ): Promise<AcademyLesson | null> {
-  try {
-    const lesson = await fetchPublishedLesson(courseId, lessonId);
-    if (lesson) return lesson;
-  } catch (error) {
-    console.error("[academy-courses] Failed to load lesson:", error);
-  }
-  const cId = typeof courseId === "string" ? Number.parseInt(courseId, 10) : courseId;
-  const lId = typeof lessonId === "string" ? Number.parseInt(lessonId, 10) : lessonId;
+  const lessons = await getPublishedLessonsForCourse(courseSlugOrId);
+  const param = String(lessonSlugOrId);
   return (
-    FALLBACK_LESSONS.find((item) => item.courseId === cId && item.id === lId) ??
-    null
+    lessons.find((lesson) =>
+      matchesSlugOrId(param, lesson.title, lesson.id, lesson.slug),
+    ) ?? null
   );
 }
 

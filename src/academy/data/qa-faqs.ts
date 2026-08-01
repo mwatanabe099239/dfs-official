@@ -9,6 +9,8 @@ export type FaqSection =
 export type FaqEntry = {
   id: number;
   question: string;
+  /** Title-based URL segment (assigned when loading published lists). */
+  slug?: string;
   tag: string;
   tags: string[];
   /** Rich HTML body from admin TipTap editor. */

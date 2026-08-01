@@ -16,6 +16,7 @@ import {
 import { QCard } from "@academy/components/site/cards";
 import type { FaqEntry } from "@academy/data/qa-faqs";
 import { cn } from "@academy/lib/utils";
+import { qaPath } from "@academy/lib/academy-slug";
 
 type FilterDef = {
   label: string;
@@ -123,7 +124,7 @@ export function QaBrowse({ faqs }: { faqs: FaqEntry[] }) {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {visible.map((q) => (
-            <QCard key={q.id} title={q.question} tag={q.tag} to={`/academy/qa/${q.id}`} />
+            <QCard key={q.id} title={q.question} tag={q.tag} to={qaPath(q.question, q.id, q.slug)} />
           ))}
         </div>
       )}

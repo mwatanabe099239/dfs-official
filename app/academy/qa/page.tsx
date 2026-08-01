@@ -13,6 +13,7 @@ import { getPublishedFaqs } from "@academy/lib/academy-qa";
 import { buildFAQPageSchema } from "@academy/lib/faq-schema";
 import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
+import { qaPath } from "@academy/lib/academy-slug";
 
 export const metadata: Metadata = {
   title: "DFSChain Q&A — DFS Academy",
@@ -95,7 +96,7 @@ export default async function QAPage() {
               {popular.map((q) => (
                 <a
                   key={q.id}
-                  href={`/academy/qa/${q.id}`}
+                  href={qaPath(q.question, q.id, q.slug)}
                   className="block bg-card border border-border rounded-xl py-5 px-6 hover:border-primary/40 group relative"
                 >
                   <div className="flex items-start gap-3 mb-5">

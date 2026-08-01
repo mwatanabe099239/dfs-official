@@ -3,13 +3,14 @@
 import { useMemo, useState } from "react";
 import { Clock, Play, Search, ChevronDown } from "lucide-react";
 import { courseIcon, formatApproxMinutes, type AcademyLesson } from "@academy/lib/academy-courses";
+import { contentSlug } from "@academy/lib/academy-slug";
 
 type LessonsBrowseProps = {
-  courseId: string;
+  courseSlug: string;
   lessons: AcademyLesson[];
 };
 
-export function LessonsBrowse({ courseId, lessons }: LessonsBrowseProps) {
+export function LessonsBrowse({ courseSlug, lessons }: LessonsBrowseProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filtered = useMemo(() => {
@@ -46,10 +47,11 @@ export function LessonsBrowse({ courseId, lessons }: LessonsBrowseProps) {
       <ul className="mt-5 space-y-3">
         {filtered.map((l) => {
           const Icon = courseIcon(l.iconKey);
+          const lessonSlug = l.slug || contentSlug(l.title, l.id);
           return (
             <li key={l.id}>
               <a
-                href={`/academy/courses/${courseId}/lessons/${l.id}`}
+                href={`/academy/courses/${courseSlug}/lessons/${lessonSlug}`}
                 className={`relative flex flex-col gap-3 p-4 sm:grid sm:grid-cols-[50px_70px_1fr_auto] sm:items-center lg:gap-4 bg-card border rounded-xl hover:border-primary/40 ${l.featured ? "border-primary bg-primary-softer/40" : "border-border"}`}
               >
                 {l.featured && (

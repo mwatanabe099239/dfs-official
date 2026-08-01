@@ -7,20 +7,21 @@ import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
 import {
   RICH_HTML_CLASS,
-  getPublishedCourseById,
+  getPublishedCourseBySlug,
   getPublishedLesson,
   getPublishedLessonsForCourse,
 } from "@academy/lib/academy-courses";
+import { coursePath, courseLessonsPath, lessonPath, studyPath } from "@academy/lib/academy-slug";
 
 const StudyVideoImg = "/academy/study-video.png";
 
 type PageProps = {
-  params: Promise<{ courseId: string; lessonId: string }>;
+  params: Promise<{ courseSlug: string; lessonSlug: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { courseId, lessonId } = await params;
-  const lesson = await getPublishedLesson(courseId, lessonId);
+  const { courseSlug, lessonSlug } = await params;
+  const lesson = await getPublishedLesson(courseSlug, lessonSlug);
   if (!lesson) return { title: "学習を開始 — DFS Academy" };
   return {
     title: `${lesson.studyTitle || lesson.title} — 学習を開始`,
@@ -29,11 +30,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function StudyPage({ params }: PageProps) {
-  const { courseId, lessonId } = await params;
+  const { courseSlug, lessonSlug } = await params;
   const [course, lesson, lessons] = await Promise.all([
-    getPublishedCourseById(courseId),
-    getPublishedLesson(courseId, lessonId),
-    getPublishedLessonsForCourse(courseId),
+    getPublishedCourseBySlug(courseSlug),
+    getPublishedLesson(courseSlug, lessonSlug),
+    getPublishedLessonsForCourse(courseSlug),
   ]);
   if (!course || !lesson) notFound();
 
@@ -49,10 +50,10 @@ export default async function StudyPage({ params }: PageProps) {
             items={[
               { label: "ホーム", to: "/" },
               { label: "コース", to: "/academy/courses" },
-              { label: course.title, to: `/academy/courses/${courseId}` },
+              { label: course.title, to: coursePath(course.title, course.id, course.slug) },
               {
                 label: `レッスン${lesson.id}`,
-                to: `/academy/courses/${courseId}/lessons/${lesson.id}`,
+                to: lessonPath(course.title, course.id, lesson.title, lesson.id, course.slug, lesson.slug),
               },
               { label: "学習を開始" },
             ]}
@@ -66,7 +67,7 @@ export default async function StudyPage({ params }: PageProps) {
             <div className="grid grid-cols-2 gap-2 w-full sm:flex sm:w-auto sm:items-center">
               {prev ? (
                 <a
-                  href={`/academy/courses/${courseId}/lessons/${prev.id}/study`}
+                  href={studyPath(course.title, course.id, prev.title, prev.id, course.slug, prev.slug)}
                   className="inline-flex items-center justify-center gap-1.5 px-4 h-10 rounded-md border border-border text-[15px] w-full sm:w-auto"
                 >
                   <ChevronLeft className="w-4 h-4" /> 前のレッスン
@@ -78,14 +79,14 @@ export default async function StudyPage({ params }: PageProps) {
               )}
               {next ? (
                 <a
-                  href={`/academy/courses/${courseId}/lessons/${next.id}/study`}
+                  href={studyPath(course.title, course.id, next.title, next.id, course.slug, next.slug)}
                   className="inline-flex items-center justify-center gap-1.5 px-4 h-10 rounded-md border border-primary text-primary text-[15px] font-semibold w-full sm:w-auto"
                 >
                   次のレッスン <ChevronRight className="w-4 h-4" />
                 </a>
               ) : (
                 <a
-                  href={`/academy/courses/${courseId}/lessons`}
+                  href={courseLessonsPath(course.title, course.id, course.slug)}
                   className="inline-flex items-center justify-center gap-1.5 px-4 h-10 rounded-md border border-primary text-primary text-[15px] font-semibold w-full sm:w-auto"
                 >
                   レッスン一覧 <ChevronRight className="w-4 h-4" />
@@ -155,7 +156,7 @@ export default async function StudyPage({ params }: PageProps) {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               {prev ? (
                 <a
-                  href={`/academy/courses/${courseId}/lessons/${prev.id}/study`}
+                  href={studyPath(course.title, course.id, prev.title, prev.id, course.slug, prev.slug)}
                   className="inline-flex items-center justify-center gap-2 px-4 h-10 rounded-md border border-border text-[15px]"
                 >
                   <ChevronLeft className="w-4 h-4" /> 前のレッスン
@@ -167,14 +168,14 @@ export default async function StudyPage({ params }: PageProps) {
               )}
               {next ? (
                 <a
-                  href={`/academy/courses/${courseId}/lessons/${next.id}/study`}
+                  href={studyPath(course.title, course.id, next.title, next.id, course.slug, next.slug)}
                   className="inline-flex items-center justify-center gap-2 px-5 h-10 rounded-md bg-primary text-primary-foreground text-[15px] font-semibold"
                 >
                   次のレッスン <ChevronRight className="w-4 h-4" />
                 </a>
               ) : (
                 <a
-                  href={`/academy/courses/${courseId}`}
+                  href={coursePath(course.title, course.id, course.slug)}
                   className="inline-flex items-center justify-center gap-2 px-5 h-10 rounded-md bg-primary text-primary-foreground text-[15px] font-semibold"
                 >
                   コースに戻る <ChevronRight className="w-4 h-4" />

@@ -13,12 +13,15 @@ import { unstable_noStore as noStore } from "next/cache";
 import { collection, getDocs, limit, query, where } from "firebase/firestore";
 import { getDb } from "@academy/lib/firebase";
 import { parseMinutesValue } from "@academy/lib/academy-qa";
+import { assignUniqueSlugs, matchesSlugOrId } from "@academy/lib/academy-slug";
 
 export const ACADEMY_ARTICLES_COLLECTION = "academy_articles";
 
 export type AcademyArticle = {
   id: number;
   title: string;
+  /** Title-based URL segment (assigned when loading published lists). */
+  slug?: string;
   intro: string;
   tag: string;
   tags: string[];
@@ -276,31 +279,43 @@ export async function fetchPublishedArticleById(
   return serializeArticleDoc(snap.docs[0]!.data() as Record<string, unknown>);
 }
 
+function withArticleSlugs(articles: AcademyArticle[]): AcademyArticle[] {
+  const slugs = assignUniqueSlugs(articles, (item) => item.title);
+  return articles.map((article) => ({ ...article, slug: slugs.get(article.id) }));
+}
+
 export async function getPublishedArticles(): Promise<AcademyArticle[]> {
   try {
     const articles = await fetchPublishedArticles();
-    if (articles.length > 0) return articles;
+    if (articles.length > 0) return withArticleSlugs(articles);
     console.warn(
       "[academy-articles] Firestore returned no published articles; using static fallback.",
     );
-    return FALLBACK_ARTICLES;
+    return withArticleSlugs(FALLBACK_ARTICLES);
   } catch (error) {
     console.error("[academy-articles] Failed to load articles:", error);
-    return FALLBACK_ARTICLES;
+    return withArticleSlugs(FALLBACK_ARTICLES);
   }
 }
 
+/** Resolve by title slug or legacy numeric id. */
+export async function getPublishedArticleBySlug(
+  slug: string | number,
+): Promise<AcademyArticle | null> {
+  const param = String(slug);
+  const articles = await getPublishedArticles();
+  return (
+    articles.find((article) =>
+      matchesSlugOrId(param, article.title, article.id, article.slug),
+    ) ?? null
+  );
+}
+
+/** @deprecated Prefer getPublishedArticleBySlug. */
 export async function getPublishedArticleById(
   id: string | number,
 ): Promise<AcademyArticle | null> {
-  try {
-    const article = await fetchPublishedArticleById(id);
-    if (article) return article;
-  } catch (error) {
-    console.error("[academy-articles] Failed to load article:", error);
-  }
-  const numericId = typeof id === "string" ? Number.parseInt(id, 10) : id;
-  return FALLBACK_ARTICLES.find((item) => item.id === numericId) ?? null;
+  return getPublishedArticleBySlug(id);
 }
 
 export async function getBeginnerArticles(limitCount = 4): Promise<AcademyArticle[]> {

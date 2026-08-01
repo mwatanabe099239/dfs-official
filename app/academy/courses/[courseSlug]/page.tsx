@@ -23,20 +23,21 @@ import {
   RICH_HTML_CLASS,
   courseIcon,
   formatApproxMinutes,
-  getPublishedCourseById,
+  getPublishedCourseBySlug,
   getPublishedCourses,
   getPublishedLessonsForCourse,
 } from "@academy/lib/academy-courses";
+import { courseLessonsPath, lessonPath } from "@academy/lib/academy-slug";
 
 const CuurseDetailHeroImg = "/academy/courses-detail-hero.png";
 
 type PageProps = {
-  params: Promise<{ courseId: string }>;
+  params: Promise<{ courseSlug: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { courseId } = await params;
-  const course = await getPublishedCourseById(courseId);
+  const { courseSlug } = await params;
+  const course = await getPublishedCourseBySlug(courseSlug);
   if (!course) {
     return { title: "コース — DFS Academy" };
   }
@@ -47,8 +48,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function CourseDetail({ params }: PageProps) {
-  const { courseId } = await params;
-  const course = await getPublishedCourseById(courseId);
+  const { courseSlug } = await params;
+  const course = await getPublishedCourseBySlug(courseSlug);
   if (!course) notFound();
 
   const [lessons, allCourses] = await Promise.all([
@@ -95,7 +96,7 @@ export default async function CourseDetail({ params }: PageProps) {
               </div>
               <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
                 <a
-                  href={`/academy/courses/${courseId}/lessons`}
+                  href={courseLessonsPath(course.title, course.id, course.slug)}
                   className="inline-flex items-center justify-center gap-2 px-6 h-10 rounded-md bg-primary text-primary-foreground font-semibold text-[15px] w-full"
                 >
                   <Play className="w-4 h-4 fill-current" /> 学習を始める
@@ -138,7 +139,7 @@ export default async function CourseDetail({ params }: PageProps) {
                   return (
                     <li key={l.id}>
                       <a
-                        href={`/academy/courses/${courseId}/lessons/${l.id}`}
+                        href={lessonPath(course.title, course.id, l.title, l.id, course.slug, l.slug)}
                         className="flex flex-col gap-3 p-4 sm:grid sm:grid-cols-[auto_auto_1fr] sm:items-center lg:grid-cols-[48px_56px_1fr_80px_24px] lg:gap-4 bg-card border border-border rounded-xl hover:border-primary/40"
                       >
                         <div className="flex items-center gap-3 sm:contents">

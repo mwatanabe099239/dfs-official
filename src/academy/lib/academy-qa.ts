@@ -3,6 +3,7 @@ import { collection, getDocs, limit, query, where } from "firebase/firestore";
 import type { FaqEntry, FaqListItem, FaqSection } from "@academy/data/qa-faqs";
 import { FAQ_ENTRIES } from "@academy/data/qa-faqs";
 import { getDb } from "@academy/lib/firebase";
+import { assignUniqueSlugs, matchesSlugOrId } from "@academy/lib/academy-slug";
 
 export const ACADEMY_QA_COLLECTION = "academy_qa_questions";
 
@@ -158,29 +159,39 @@ export async function fetchFaqByNumericId(
   return serializeFaqDoc(snap.docs[0]!.data() as Record<string, unknown>);
 }
 
+function withFaqSlugs(faqs: FaqEntry[]): FaqEntry[] {
+  const slugs = assignUniqueSlugs(faqs, (item) => item.question);
+  return faqs.map((faq) => ({ ...faq, slug: slugs.get(faq.id) }));
+}
+
 /** Prefer Firestore; fall back to static seed data if Firebase is unavailable. */
 export async function getPublishedFaqs(): Promise<FaqEntry[]> {
   try {
     const faqs = await fetchPublishedFaqs();
-    if (faqs.length > 0) return faqs;
+    if (faqs.length > 0) return withFaqSlugs(faqs);
     console.warn("[academy-qa] Firestore returned no published FAQs; using static fallback.");
-    return FAQ_ENTRIES;
+    return withFaqSlugs(FAQ_ENTRIES);
   } catch (error) {
     console.error("[academy-qa] Failed to load FAQs from Firestore:", error);
-    return FAQ_ENTRIES;
+    return withFaqSlugs(FAQ_ENTRIES);
   }
 }
 
+/** Resolve by title slug or legacy numeric id. */
+export async function getPublishedFaqBySlug(
+  slug: string | number,
+): Promise<FaqEntry | null> {
+  const param = String(slug);
+  const faqs = await getPublishedFaqs();
+  return (
+    faqs.find((faq) => matchesSlugOrId(param, faq.question, faq.id, faq.slug)) ??
+    null
+  );
+}
+
+/** @deprecated Prefer getPublishedFaqBySlug — kept for call-site migration. */
 export async function getPublishedFaqById(
   id: string | number,
 ): Promise<FaqEntry | null> {
-  try {
-    const faq = await fetchFaqByNumericId(id);
-    if (faq) return faq;
-  } catch (error) {
-    console.error("[academy-qa] Failed to load FAQ from Firestore:", error);
-  }
-
-  const numericId = typeof id === "string" ? Number.parseInt(id, 10) : id;
-  return FAQ_ENTRIES.find((item) => item.id === numericId) ?? null;
+  return getPublishedFaqBySlug(id);
 }

@@ -28,7 +28,7 @@ export function Tag({ children, tone = "soft" }: { children: ReactNode; tone?: "
   );
 }
 
-export function QCard({ title, tag, to = "/academy/qa/1" }: { title: string; tag: string; to?: string }) {
+export function QCard({ title, tag, to = "/academy/qa" }: { title: string; tag: string; to?: string }) {
   return (
     <a
       href={to}
@@ -60,7 +60,7 @@ export function ArticleCard({
   tag,
   title,
   readTime,
-  to = "/academy/articles/1",
+  to = "/academy/articles",
   isLanding = false,
 }: {
   icon: ReactNode;

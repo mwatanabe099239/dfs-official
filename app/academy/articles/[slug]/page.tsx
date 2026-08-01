@@ -16,17 +16,18 @@ import {
   articleIcon,
   formatArticleDuration,
   formatArticleReadTime,
-  getPublishedArticleById,
+  getPublishedArticleBySlug,
   getPublishedArticles,
 } from "@academy/lib/academy-articles";
+import { articlePath } from "@academy/lib/academy-slug";
 
 type PageProps = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { id } = await params;
-  const article = await getPublishedArticleById(id);
+  const { slug } = await params;
+  const article = await getPublishedArticleBySlug(slug);
   if (!article) return { title: "記事 — DFS Academy" };
   return {
     title: `${article.title} — DFS Academy`,
@@ -35,8 +36,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function ArticleDetail({ params }: PageProps) {
-  const { id } = await params;
-  const article = await getPublishedArticleById(id);
+  const { slug } = await params;
+  const article = await getPublishedArticleBySlug(slug);
   if (!article) notFound();
 
   const all = await getPublishedArticles();
@@ -141,7 +142,7 @@ export default async function ArticleDetail({ params }: PageProps) {
                   return (
                     <a
                       key={a.id}
-                      href={`/academy/articles/${a.id}`}
+                      href={articlePath(a.title, a.id, a.slug)}
                       className="block bg-card border border-border rounded-xl px-4 pt-3 pb-2 hover:border-primary/40"
                     >
                       <div className="flex items-center gap-2 text-primary mb-2">

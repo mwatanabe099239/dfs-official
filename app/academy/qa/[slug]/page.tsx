@@ -15,18 +15,19 @@ import { Tag } from "@academy/components/site/cards";
 import { JsonLd } from "@academy/components/site/JsonLd";
 import { FaqSections } from "@academy/components/site/FaqSections";
 import { getFaqDetailSchemaAnswer } from "@academy/data/qa-faqs";
-import { formatApproxMinutes, getPublishedFaqById, getPublishedFaqs } from "@academy/lib/academy-qa";
+import { formatApproxMinutes, getPublishedFaqBySlug, getPublishedFaqs } from "@academy/lib/academy-qa";
 import { buildFAQPageSchema } from "@academy/lib/faq-schema";
 import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
+import { qaPath } from "@academy/lib/academy-slug";
 
 type PageProps = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { id } = await params;
-  const faq = await getPublishedFaqById(id);
+  const { slug } = await params;
+  const faq = await getPublishedFaqBySlug(slug);
   return {
     title: faq ? `${faq.question} — DFS Academy` : "Q&A — DFS Academy",
     description: faq?.answer ?? "DFSChainのよくある質問への回答です。",
@@ -34,9 +35,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function QADetailPage({ params }: PageProps) {
-  const { id } = await params;
+  const { slug } = await params;
   const [faq, faqs] = await Promise.all([
-    getPublishedFaqById(id),
+    getPublishedFaqBySlug(slug),
     getPublishedFaqs(),
   ]);
 
@@ -156,7 +157,7 @@ export default async function QADetailPage({ params }: PageProps) {
               {related.map((q) => (
                 <a
                   key={q.id}
-                  href={`/academy/qa/${q.id}`}
+                  href={qaPath(q.question, q.id, q.slug)}
                   className="block bg-card border border-border rounded-xl p-5 hover:border-primary/40"
                 >
                   <div className="flex items-start gap-2.5 mb-4">

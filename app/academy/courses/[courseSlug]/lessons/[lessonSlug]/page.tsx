@@ -23,18 +23,19 @@ import {
   RICH_HTML_CLASS,
   courseIcon,
   formatApproxMinutes,
-  getPublishedCourseById,
+  getPublishedCourseBySlug,
   getPublishedLesson,
   getPublishedLessonsForCourse,
 } from "@academy/lib/academy-courses";
+import { coursePath, lessonPath, studyPath } from "@academy/lib/academy-slug";
 
 type PageProps = {
-  params: Promise<{ courseId: string; lessonId: string }>;
+  params: Promise<{ courseSlug: string; lessonSlug: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { courseId, lessonId } = await params;
-  const lesson = await getPublishedLesson(courseId, lessonId);
+  const { courseSlug, lessonSlug } = await params;
+  const lesson = await getPublishedLesson(courseSlug, lessonSlug);
   if (!lesson) return { title: "レッスン — DFS Academy" };
   return {
     title: `${lesson.title} — レッスン${lesson.id}`,
@@ -43,11 +44,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function LessonPage({ params }: PageProps) {
-  const { courseId, lessonId } = await params;
+  const { courseSlug, lessonSlug } = await params;
   const [course, lesson, lessons] = await Promise.all([
-    getPublishedCourseById(courseId),
-    getPublishedLesson(courseId, lessonId),
-    getPublishedLessonsForCourse(courseId),
+    getPublishedCourseBySlug(courseSlug),
+    getPublishedLesson(courseSlug, lessonSlug),
+    getPublishedLessonsForCourse(courseSlug),
   ]);
   if (!course || !lesson) notFound();
 
@@ -64,7 +65,7 @@ export default async function LessonPage({ params }: PageProps) {
             items={[
               { label: "ホーム", to: "/" },
               { label: "コース", to: "/academy/courses" },
-              { label: course.title, to: `/academy/courses/${courseId}` },
+              { label: course.title, to: coursePath(course.title, course.id, course.slug) },
               { label: `レッスン${lesson.id}` },
             ]}
           />
@@ -114,7 +115,7 @@ export default async function LessonPage({ params }: PageProps) {
                   <div className="mt-8 flex gap-3 items-center justify-between">
                     {prev ? (
                       <a
-                        href={`/academy/courses/${courseId}/lessons/${prev.id}`}
+                        href={lessonPath(course.title, course.id, prev.title, prev.id, course.slug, prev.slug)}
                         className="inline-flex items-center gap-2 px-4 h-10 rounded-md border border-border md:text-[15px] text-[13px]"
                       >
                         <ChevronLeft className="w-4 h-4" /> 前のレッスン
@@ -128,14 +129,14 @@ export default async function LessonPage({ params }: PageProps) {
                       </button>
                     )}
                     <a
-                      href={`/academy/courses/${courseId}/lessons/${lesson.id}/study`}
+                      href={studyPath(course.title, course.id, lesson.title, lesson.id, course.slug, lesson.slug)}
                       className="inline-flex items-center gap-2 px-5 h-10 rounded-md border border-primary md:text-[15px] text-[13px] text-primary font-semibold"
                     >
                       学習を開始 <ChevronRight className="w-4 h-4" />
                     </a>
                     {next ? (
                       <a
-                        href={`/academy/courses/${courseId}/lessons/${next.id}`}
+                        href={lessonPath(course.title, course.id, next.title, next.id, course.slug, next.slug)}
                         className="inline-flex items-center gap-2 px-4 h-10 rounded-md border border-border md:text-[15px] text-[13px]"
                       >
                         次のレッスン <ChevronRight className="w-4 h-4" />
@@ -167,7 +168,7 @@ export default async function LessonPage({ params }: PageProps) {
                     {index + 1} / {lessons.length} レッスン
                   </div>
                   <a
-                    href={`/academy/courses/${courseId}`}
+                    href={coursePath(course.title, course.id, course.slug)}
                     className="mt-3 text-[13px] text-primary inline-flex items-center gap-1"
                   >
                     コース全体を見る →
@@ -181,7 +182,7 @@ export default async function LessonPage({ params }: PageProps) {
                   {lessons.map((l) => (
                     <li key={l.id}>
                       <a
-                        href={`/academy/courses/${courseId}/lessons/${l.id}`}
+                        href={lessonPath(course.title, course.id, l.title, l.id, course.slug, l.slug)}
                         className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-[15px] ${l.id === lesson.id ? "bg-primary-softer text-primary border border-primary/30" : "hover:bg-secondary"}`}
                       >
                         <span className="w-5 text-center font-semibold">{l.id}</span>

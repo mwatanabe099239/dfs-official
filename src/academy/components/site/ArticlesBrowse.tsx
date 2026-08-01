@@ -11,6 +11,7 @@ import {
   formatArticleReadTime,
   type AcademyArticle,
 } from "@academy/lib/academy-articles";
+import { articlePath } from "@academy/lib/academy-slug";
 
 type ArticlesBrowseProps = {
   articles: AcademyArticle[];
@@ -78,7 +79,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
 
       {featured ? (
         <a
-          href={`/academy/articles/${featured.id}`}
+          href={articlePath(featured.title, featured.id, featured.slug)}
           className="mt-8 block bg-card border border-border rounded-2xl p-6 hover:border-primary/40 relative"
         >
           <div className="grid grid-cols-1 md:grid-cols-[180px_1fr_auto] gap-6 items-center">
@@ -121,7 +122,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
                 tag={a.tag}
                 title={a.title}
                 readTime={formatArticleReadTime(a.readTime)}
-                to={`/academy/articles/${a.id}`}
+                to={articlePath(a.title, a.id, a.slug)}
               />
             );
           })}
@@ -141,7 +142,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
             return (
               <a
                 key={a.id}
-                href={`/academy/articles/${a.id}`}
+                href={articlePath(a.title, a.id, a.slug)}
                 className="block bg-card border border-border rounded-xl p-5 hover:border-primary/40 relative"
               >
                 <div className="flex items-center gap-4 sm:gap-5 w-full">

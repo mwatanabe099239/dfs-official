@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight } from "lucide-react";
+import { coursePath } from "@academy/lib/academy-slug";
 import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
 import {
@@ -23,7 +24,7 @@ export function RelatedCourses({ courses = [] }: RelatedCoursesProps) {
           return (
             <a
               key={course.id}
-              href={`/academy/courses/${course.id}`}
+              href={coursePath(course.title, course.id, course.slug)}
               className="flex flex-col sm:flex-row bg-card border border-border rounded-xl p-3 sm:pr-2 hover:border-primary/40 items-start sm:items-center gap-3 sm:gap-2"
             >
               <div className="text-primary shrink-0">

@@ -19,6 +19,7 @@ import {
 import { assetSrc } from "@academy/lib/asset";
 import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
+import { articlePath, qaPath } from "@academy/lib/academy-slug";
 const HomeHeroIcon = "/academy/home-hero-icon.png";
 
 export const metadata: Metadata = {
@@ -95,7 +96,7 @@ export default async function HomePage() {
                   {featuredTeaser(featuredFaq?.intro || featuredFaq?.answer)}
                 </p>
                 <a
-                  href={featuredFaq ? `/academy/qa/${featuredFaq.id}` : "/academy/qa"}
+                  href={featuredFaq ? qaPath(featuredFaq.question, featuredFaq.id, featuredFaq.slug) : "/academy/qa"}
                   className="mt-8 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary hover:underline"
                 >
                   回答を見る <ArrowRight className="w-3.5 h-3.5" />
@@ -133,7 +134,7 @@ export default async function HomePage() {
           <SectionHeader title="DFSChain Q&A" action={<ViewAll to="/academy/qa" />} />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {homeFaqs.map((q) => (
-              <QCard key={q.id} title={q.question} tag={q.tag} to={`/academy/qa/${q.id}`} />
+              <QCard key={q.id} title={q.question} tag={q.tag} to={qaPath(q.question, q.id, q.slug)} />
             ))}
           </div>
           <div className="flex justify-center mt-8">
@@ -160,7 +161,7 @@ export default async function HomePage() {
                   tag={a.tag}
                   title={a.title}
                   readTime={formatArticleReadTime(a.readTime)}
-                  to={`/academy/articles/${a.id}`}
+                  to={articlePath(a.title, a.id, a.slug)}
                   isLanding={true}
                 />
               );

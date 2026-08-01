@@ -19,19 +19,20 @@ import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
 import {
   formatApproxMinutes,
-  getPublishedCourseById,
+  getPublishedCourseBySlug,
   getPublishedCourses,
   getPublishedLessonsForCourse,
 } from "@academy/lib/academy-courses";
+import { coursePath, lessonPath } from "@academy/lib/academy-slug";
 import { LessonsBrowse } from "@academy/components/site/LessonsBrowse";
 
 type PageProps = {
-  params: Promise<{ courseId: string }>;
+  params: Promise<{ courseSlug: string }>;
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { courseId } = await params;
-  const course = await getPublishedCourseById(courseId);
+  const { courseSlug } = await params;
+  const course = await getPublishedCourseBySlug(courseSlug);
   if (!course) return { title: "レッスン一覧 — DFS Academy" };
   return {
     title: `レッスン一覧 — ${course.title}`,
@@ -40,8 +41,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function LessonList({ params }: PageProps) {
-  const { courseId } = await params;
-  const course = await getPublishedCourseById(courseId);
+  const { courseSlug } = await params;
+  const course = await getPublishedCourseBySlug(courseSlug);
   if (!course) notFound();
 
   const [lessons, allCourses] = await Promise.all([
@@ -61,7 +62,7 @@ export default async function LessonList({ params }: PageProps) {
             items={[
               { label: "ホーム", to: "/" },
               { label: "コース", to: "/academy/courses" },
-              { label: course.title, to: `/academy/courses/${courseId}` },
+              { label: course.title, to: coursePath(course.title, course.id, course.slug) },
               { label: "レッスン一覧" },
             ]}
           />
@@ -89,21 +90,21 @@ export default async function LessonList({ params }: PageProps) {
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
                 {firstLessonId ? (
                   <a
-                    href={`/academy/courses/${courseId}/lessons/${firstLessonId}`}
+                    href={lessonPath(course.title, course.id, lessons[0].title, lessons[0].id, course.slug, lessons[0].slug)}
                     className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 h-10 rounded-md bg-primary text-primary-foreground font-semibold text-[15px] w-full"
                   >
                     <Play className="w-4 h-4 fill-current" /> 最初のレッスンを始める
                   </a>
                 ) : null}
                 <a
-                  href={`/academy/courses/${courseId}`}
+                  href={coursePath(course.title, course.id, course.slug)}
                   className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 h-10 rounded-md border-2 border-primary text-primary font-semibold text-[15px] w-full"
                 >
                   コーストップに戻る
                 </a>
               </div>
 
-              <LessonsBrowse courseId={courseId} lessons={lessons} />
+              <LessonsBrowse courseSlug={course.slug || courseSlug} lessons={lessons} />
 
               <RelatedCourses courses={related} />
             </div>
