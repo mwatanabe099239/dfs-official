@@ -1,9 +1,15 @@
 import { unstable_noStore as noStore } from "next/cache";
 import { collection, getDocs, limit, query, where } from "firebase/firestore";
-import type { FaqEntry, FaqListItem, FaqSection } from "@academy/data/qa-faqs";
+import type {
+  FaqEntry,
+  FaqListItem,
+  FaqSection,
+  FaqTranslation,
+} from "@academy/data/qa-faqs";
 import { FAQ_ENTRIES } from "@academy/data/qa-faqs";
 import { getDb } from "@academy/lib/firebase";
 import { assignUniqueSlugs, matchesSlugOrId } from "@academy/lib/academy-slug";
+import { DEFAULT_ACADEMY_LOCALE, type AcademyLocale } from "@academy/i18n/locales";
 
 export const ACADEMY_QA_COLLECTION = "academy_qa_questions";
 
@@ -21,6 +27,17 @@ export function parseMinutesValue(value: unknown, fallback = 3): number {
 /** Front-office display for minute values (`約3分`). */
 export function formatApproxMinutes(minutes: number | string): string {
   const value = parseMinutesValue(minutes, 1);
+  return `約${value}分`;
+}
+
+/** Locale-aware read-time label. */
+export function formatReadTime(
+  minutes: number | string,
+  locale: AcademyLocale = DEFAULT_ACADEMY_LOCALE,
+): string {
+  const value = parseMinutesValue(minutes, 1);
+  if (locale === "en") return `About ${value} min`;
+  if (locale === "ko") return `약 ${value}분`;
   return `約${value}分`;
 }
 
@@ -84,6 +101,66 @@ export function normalizeFaqSections(value: unknown): FaqSection[] {
   return sections;
 }
 
+/**
+ * Read the translations written by the admin AI pipeline. A translation missing
+ * a title or body is dropped so the page falls back to Japanese rather than
+ * rendering blanks.
+ */
+function parseFaqTranslations(value: unknown): Record<string, FaqTranslation> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  const raw = value as Record<string, unknown>;
+  const result: Record<string, FaqTranslation> = {};
+
+  for (const [locale, entry] of Object.entries(raw)) {
+    if (!entry || typeof entry !== "object") continue;
+    const row = entry as Record<string, unknown>;
+    const question = String(row.question || "").trim();
+    const content = String(row.content || "").trim();
+    if (!question || !content) continue;
+
+    result[locale] = {
+      question,
+      answer: String(row.answer || "").trim(),
+      content,
+      seoTitle: String(row.seoTitle || "").trim(),
+      metaDescription: String(row.metaDescription || "").trim(),
+    };
+  }
+
+  return result;
+}
+
+/**
+ * Swap an entry to its translated view for the given locale.
+ *
+ * `tag`/`tags` deliberately stay Japanese: they are the canonical filter keys
+ * shared across all three languages, and the UI localises them for display.
+ * Anything without a translation is returned untouched, so a partially
+ * translated library still renders — just in Japanese.
+ */
+export function localizeFaq(faq: FaqEntry, locale: AcademyLocale): FaqEntry {
+  if (locale === "ja") return { ...faq, translated: true };
+
+  const translation = faq.translations?.[locale];
+  if (!translation) return { ...faq, translated: false };
+
+  return {
+    ...faq,
+    question: translation.question,
+    answer: translation.answer || faq.answer,
+    content: translation.content,
+    // Legacy section-based bodies are Japanese-only; the translated HTML in
+    // `content` replaces them entirely.
+    intro: "",
+    sections: undefined,
+    translated: true,
+  };
+}
+
+export function localizeFaqs(faqs: FaqEntry[], locale: AcademyLocale): FaqEntry[] {
+  return faqs.map((faq) => localizeFaq(faq, locale));
+}
+
 export function serializeFaqDoc(data: Record<string, unknown>): FaqEntry | null {
   const numericId = Number(data.numericId);
   if (!Number.isInteger(numericId) || numericId < 1) return null;
@@ -99,6 +176,8 @@ export function serializeFaqDoc(data: Record<string, unknown>): FaqEntry | null 
   return {
     id: numericId,
     question,
+    translations: parseFaqTranslations(data.translations),
+    slug: String(data.slug || "").trim() || undefined,
     tag,
     tags: tags.length ? tags : tag ? [tag] : [],
     content: content || undefined,
@@ -159,34 +238,63 @@ export async function fetchFaqByNumericId(
   return serializeFaqDoc(snap.docs[0]!.data() as Record<string, unknown>);
 }
 
+/**
+ * Entries published through the admin carry a slug frozen at publish time, so
+ * renaming a question never moves its URL. Only legacy entries without one fall
+ * back to deriving a slug from the current title.
+ */
 function withFaqSlugs(faqs: FaqEntry[]): FaqEntry[] {
-  const slugs = assignUniqueSlugs(faqs, (item) => item.question);
-  return faqs.map((faq) => ({ ...faq, slug: slugs.get(faq.id) }));
+  const frozen = new Set(
+    faqs.map((faq) => faq.slug).filter((slug): slug is string => Boolean(slug)),
+  );
+  const derived = assignUniqueSlugs(
+    faqs.filter((faq) => !faq.slug),
+    (item) => item.question,
+  );
+
+  return faqs.map((faq) => {
+    if (faq.slug) return faq;
+    const candidate = derived.get(faq.id) || String(faq.id);
+    return {
+      ...faq,
+      slug: frozen.has(candidate) ? `${candidate}-${faq.id}` : candidate,
+    };
+  });
 }
 
-/** Prefer Firestore; fall back to static seed data if Firebase is unavailable. */
-export async function getPublishedFaqs(): Promise<FaqEntry[]> {
+/**
+ * Prefer Firestore; fall back to static seed data if Firebase is unavailable.
+ *
+ * Slugs are always assigned from the Japanese master before localisation, so a
+ * translated page keeps the exact same URL as its Japanese original.
+ */
+export async function getPublishedFaqs(
+  locale: AcademyLocale = DEFAULT_ACADEMY_LOCALE,
+): Promise<FaqEntry[]> {
   try {
     const faqs = await fetchPublishedFaqs();
-    if (faqs.length > 0) return withFaqSlugs(faqs);
+    if (faqs.length > 0) return localizeFaqs(withFaqSlugs(faqs), locale);
     console.warn("[academy-qa] Firestore returned no published FAQs; using static fallback.");
-    return withFaqSlugs(FAQ_ENTRIES);
+    return localizeFaqs(withFaqSlugs(FAQ_ENTRIES), locale);
   } catch (error) {
     console.error("[academy-qa] Failed to load FAQs from Firestore:", error);
-    return withFaqSlugs(FAQ_ENTRIES);
+    return localizeFaqs(withFaqSlugs(FAQ_ENTRIES), locale);
   }
 }
 
 /** Resolve by title slug or legacy numeric id. */
 export async function getPublishedFaqBySlug(
   slug: string | number,
+  locale: AcademyLocale = DEFAULT_ACADEMY_LOCALE,
 ): Promise<FaqEntry | null> {
   const param = String(slug);
-  const faqs = await getPublishedFaqs();
-  return (
-    faqs.find((faq) => matchesSlugOrId(param, faq.question, faq.id, faq.slug)) ??
-    null
+  // Match against the Japanese master so a translated URL resolves even though
+  // the visible title is in another language.
+  const faqs = await getPublishedFaqs(DEFAULT_ACADEMY_LOCALE);
+  const match = faqs.find((faq) =>
+    matchesSlugOrId(param, faq.question, faq.id, faq.slug),
   );
+  return match ? localizeFaq(match, locale) : null;
 }
 
 /** @deprecated Prefer getPublishedFaqBySlug — kept for call-site migration. */

@@ -20,13 +20,18 @@ import { assetSrc } from "@academy/lib/asset";
 import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
 import { articlePath, qaPath } from "@academy/lib/academy-slug";
+import { getAcademyI18n } from "@academy/i18n/server";
 const HomeHeroIcon = "/academy/home-hero-icon.png";
 
-export const metadata: Metadata = {
-  title: "DFS Academy — DFSChainを学び、Web3の未来を切り拓こう",
-  description:
-    "初心者から上級者まで、Web3とDFSChainの知識をわかりやすく学べる学習プラットフォーム。",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getAcademyI18n();
+  return {
+    title: t("DFS Academy — DFSChainを学び、Web3の未来を切り拓こう"),
+    description: t(
+      "初心者から上級者まで、Web3とDFSChainの知識をわかりやすく学べる学習プラットフォーム。",
+    ),
+  };
+}
 
 function featuredTeaser(text?: string, maxLength = 48): string {
   const cleaned = String(text || "")
@@ -50,8 +55,9 @@ const categories = [
 ];
 
 export default async function HomePage() {
+  const { t, locale, path } = await getAcademyI18n();
   const [faqs, beginnerArticles] = await Promise.all([
-    getPublishedFaqs(),
+    getPublishedFaqs(locale),
     getBeginnerArticles(4),
   ]);
   const featuredFaq = faqs[0];
@@ -64,31 +70,32 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 lg:gap-10">
             <div>
               <h1 className={cn(typography.pageTitle, "text-foreground")}>
-                <span className="text-primary">DFSChain</span>を理解し、
+                <span className="text-primary">DFSChain</span>
+                {t("を理解し、")}
                 <br />
-                AIと共に新しい経済圏へ
+                {t("AIと共に新しい経済圏へ")}
               </h1>
               <p className={cn("mt-5", typography.pageLead)}>
-                DFSChainとAIの基礎から、アプリ活用まで段階的に学べます。
+                {t("DFSChainとAIの基礎から、アプリ活用まで段階的に学べます。")}
               </p>
               <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
                 <a
                   href="#"
                   className="inline-flex items-center justify-center px-6 h-12 rounded-md bg-primary text-primary-foreground text-[15px] font-semibold hover:bg-primary/90"
                 >
-                  今すぐ学ぶ
+                  {t("今すぐ学ぶ")}
                 </a>
                 <a
-                  href="/academy/qa"
+                  href={path("/academy/qa")}
                   className="inline-flex items-center justify-center px-6 h-12 rounded-md border-2 border-primary text-primary text-[15px] font-semibold hover:bg-primary-softer"
                 >
-                  Q&Aを見る
+                  {t("Q&Aを見る")}
                 </a>
               </div>
             </div>
             <aside className="bg-card border border-border rounded-2xl p-5 lg:p-6 relative overflow-hidden flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
               <div className="w-full">
-                <Tag>注目のQ&A</Tag>
+                <Tag>{t("注目のQ&A")}</Tag>
                 <h3 className={cn("mt-3 text-foreground", typography.heroAsideTitle)}>
                   {featuredFaq?.question ?? "DFSChainとは？"}
                 </h3>
@@ -96,10 +103,14 @@ export default async function HomePage() {
                   {featuredTeaser(featuredFaq?.intro || featuredFaq?.answer)}
                 </p>
                 <a
-                  href={featuredFaq ? qaPath(featuredFaq.question, featuredFaq.id, featuredFaq.slug) : "/academy/qa"}
+                  href={path(
+                    featuredFaq
+                      ? qaPath(featuredFaq.question, featuredFaq.id, featuredFaq.slug)
+                      : "/academy/qa",
+                  )}
                   className="mt-8 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary hover:underline"
                 >
-                  回答を見る <ArrowRight className="w-3.5 h-3.5" />
+                  {t("回答を見る")} <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
               <img
@@ -121,7 +132,7 @@ export default async function HomePage() {
                   {c.icon}
                 </span>
                 <span className={cn(typography.categoryLabel, "text-foreground text-center")}>
-                  {c.label}
+                  {t(c.label)}
                 </span>
               </a>
             ))}
@@ -131,18 +142,26 @@ export default async function HomePage() {
 
       <section className="py-8 lg:py-10 bg-secondary/40">
         <Container>
-          <SectionHeader title="DFSChain Q&A" action={<ViewAll to="/academy/qa" />} />
+          <SectionHeader
+            title="DFSChain Q&A"
+            action={<ViewAll to={path("/academy/qa")} label={t("すべて見る")} />}
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {homeFaqs.map((q) => (
-              <QCard key={q.id} title={q.question} tag={q.tag} to={qaPath(q.question, q.id, q.slug)} />
+              <QCard
+                key={q.id}
+                title={q.question}
+                tag={t(q.tag)}
+                to={path(qaPath(q.question, q.id, q.slug))}
+              />
             ))}
           </div>
           <div className="flex justify-center mt-8">
             <a
-              href="/academy/qa"
+              href={path("/academy/qa")}
               className="inline-flex items-center gap-2 px-6 h-11 rounded-md border border-primary text-primary text-[18px] hover:bg-primary-softer"
             >
-              すべてのQ&Aを見る <ArrowRight className="w-4 h-4" />
+              {t("すべてのQ&Aを見る")} <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </Container>
@@ -150,7 +169,10 @@ export default async function HomePage() {
 
       <section className="pb-10 bg-secondary/40">
         <Container>
-          <SectionHeader title="初心者におすすめの記事" action={<ViewAll to="/academy/articles" />} />
+          <SectionHeader
+            title={t("初心者におすすめの記事")}
+            action={<ViewAll to={path("/academy/articles")} label={t("すべて見る")} />}
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {beginnerArticles.map((a) => {
               const Icon = articleIcon(a.iconKey);
@@ -158,10 +180,10 @@ export default async function HomePage() {
                 <ArticleCard
                   key={a.id}
                   icon={<Icon className="w-14 h-14" strokeWidth={1.5} />}
-                  tag={a.tag}
+                  tag={t(a.tag)}
                   title={a.title}
                   readTime={formatArticleReadTime(a.readTime)}
-                  to={articlePath(a.title, a.id, a.slug)}
+                  to={path(articlePath(a.title, a.id, a.slug))}
                   isLanding={true}
                 />
               );

@@ -14,14 +14,19 @@ import { buildFAQPageSchema } from "@academy/lib/faq-schema";
 import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
 import { qaPath } from "@academy/lib/academy-slug";
+import { getAcademyI18n } from "@academy/i18n/server";
 
-export const metadata: Metadata = {
-  title: "DFSChain Q&A — DFS Academy",
-  description: "DFSChainのよくある質問を初心者向けにわかりやすくまとめました。",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getAcademyI18n();
+  return {
+    title: t("DFSChain Q&A — DFS Academy"),
+    description: t("DFSChainのよくある質問を初心者向けにわかりやすくまとめました。"),
+  };
+}
 
 export default async function QAPage() {
-  const faqs = await getPublishedFaqs();
+  const { t, locale, path } = await getAcademyI18n();
+  const faqs = await getPublishedFaqs(locale);
   const faqSchema = buildFAQPageSchema(
     faqs.map((faq) => ({ question: faq.question, answer: faq.answer })),
   );
@@ -40,25 +45,25 @@ export default async function QAPage() {
                 <span className="text-primary">DFSChain</span> Q&A
               </h1>
               <p className={cn("mt-5", typography.pageLead)}>
-                初心者向けによくある質問をわかりやすくまとめました
+                {t("初心者向けによくある質問をわかりやすくまとめました")}
               </p>
             </div>
             <aside className="bg-card border border-border rounded-2xl p-6 space-y-5 shadow-md">
               {[
                 {
                   icon: <MessageCircle className="w-5 h-5" />,
-                  t: "公開Q&A数",
+                  t: t("公開Q&A数"),
                   v: String(faqs.length),
                 },
                 {
                   icon: <GraduationCap className="w-5 h-5" />,
-                  t: "初心者向け",
-                  v: "はじめての方でも安心",
+                  t: t("初心者向け"),
+                  v: t("はじめての方でも安心"),
                 },
                 {
                   icon: <RefreshCw className="w-5 h-5" />,
-                  t: "更新中",
-                  v: "定期的に最新情報を追加",
+                  t: t("更新中"),
+                  v: t("定期的に最新情報を追加"),
                 },
               ].map((it, i) => (
                 <div
@@ -86,17 +91,20 @@ export default async function QAPage() {
           <Container>
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between mb-6">
               <h2 className="text-[26px] sm:text-[28px] lg:text-[30px] font-bold flex items-center gap-2">
-                <span className="text-primary">★</span> 人気のQ&A
+                <span className="text-primary">★</span> {t("人気のQ&A")}
               </h2>
-              <a href="/academy/qa" className="text-[13px] text-primary inline-flex items-center gap-1.5">
-                すべて見る <ArrowRight className="w-3.5 h-3.5" />
+              <a
+                href={path("/academy/qa")}
+                className="text-[13px] text-primary inline-flex items-center gap-1.5"
+              >
+                {t("すべて見る")} <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {popular.map((q) => (
                 <a
                   key={q.id}
-                  href={qaPath(q.question, q.id, q.slug)}
+                  href={path(qaPath(q.question, q.id, q.slug))}
                   className="block bg-card border border-border rounded-xl py-5 px-6 hover:border-primary/40 group relative"
                 >
                   <div className="flex items-start gap-3 mb-5">
@@ -106,7 +114,7 @@ export default async function QAPage() {
                     <h3 className={cn(typography.cardTitleMd, "")}>{q.question}</h3>
                   </div>
                   <div className="flex items-center justify-between">
-                    <Tag>{q.tag}</Tag>
+                    <Tag>{t(q.tag)}</Tag>
                     <ArrowRight className="w-4 h-4 text-primary" />
                   </div>
                 </a>

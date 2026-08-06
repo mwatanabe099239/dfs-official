@@ -9,17 +9,19 @@ import {
   MessageCircle,
   ArrowRight,
   CalendarDays,
+  Languages,
 } from "lucide-react";
 import { PageShell, Container, Breadcrumb } from "@academy/components/site/PageShell";
 import { Tag } from "@academy/components/site/cards";
 import { JsonLd } from "@academy/components/site/JsonLd";
 import { FaqSections } from "@academy/components/site/FaqSections";
 import { getFaqDetailSchemaAnswer } from "@academy/data/qa-faqs";
-import { formatApproxMinutes, getPublishedFaqBySlug, getPublishedFaqs } from "@academy/lib/academy-qa";
+import { formatReadTime, getPublishedFaqBySlug, getPublishedFaqs } from "@academy/lib/academy-qa";
 import { buildFAQPageSchema } from "@academy/lib/faq-schema";
 import { typography } from "@academy/lib/typography";
 import { cn } from "@academy/lib/utils";
 import { qaPath } from "@academy/lib/academy-slug";
+import { getAcademyI18n } from "@academy/i18n/server";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -27,18 +29,20 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const faq = await getPublishedFaqBySlug(slug);
+  const { t, locale } = await getAcademyI18n();
+  const faq = await getPublishedFaqBySlug(slug, locale);
   return {
     title: faq ? `${faq.question} — DFS Academy` : "Q&A — DFS Academy",
-    description: faq?.answer ?? "DFSChainのよくある質問への回答です。",
+    description: faq?.answer ?? t("DFSChainのよくある質問への回答です。"),
   };
 }
 
 export default async function QADetailPage({ params }: PageProps) {
   const { slug } = await params;
+  const { t, locale, path } = await getAcademyI18n();
   const [faq, faqs] = await Promise.all([
-    getPublishedFaqBySlug(slug),
-    getPublishedFaqs(),
+    getPublishedFaqBySlug(slug, locale),
+    getPublishedFaqs(locale),
   ]);
 
   if (!faq) {
@@ -48,20 +52,22 @@ export default async function QADetailPage({ params }: PageProps) {
           <Container>
             <Breadcrumb
               items={[
-                { label: "ホーム", to: "/" },
-                { label: "Q&A", to: "/academy/qa" },
-                { label: "見つかりません" },
+                { label: t("ホーム"), to: "/" },
+                { label: "Q&A", to: path("/academy/qa") },
+                { label: t("見つかりません") },
               ]}
             />
-            <h1 className={cn(typography.pageTitle, "text-foreground")}>Q&Aが見つかりません</h1>
+            <h1 className={cn(typography.pageTitle, "text-foreground")}>
+              {t("Q&Aが見つかりません")}
+            </h1>
             <p className="mt-4 text-muted-foreground">
-              お探しの質問は存在しないか、移動した可能性があります。
+              {t("お探しの質問は存在しないか、移動した可能性があります。")}
             </p>
             <Link
-              href="/academy/qa"
+              href={path("/academy/qa")}
               className="mt-6 inline-flex items-center gap-2 text-primary font-medium hover:underline"
             >
-              Q&A一覧に戻る <ArrowRight className="w-4 h-4" />
+              {t("Q&A一覧に戻る")} <ArrowRight className="w-4 h-4" />
             </Link>
           </Container>
         </section>
@@ -73,13 +79,20 @@ export default async function QADetailPage({ params }: PageProps) {
     { question: faq.question, answer: getFaqDetailSchemaAnswer(faq) },
   ]);
   const related = faqs.filter((item) => item.id !== faq.id).slice(0, 4);
+  // The reader asked for a language we don't have this article in yet, so the
+  // Japanese master is being shown instead — say so rather than looking broken.
+  const showFallbackNotice = locale !== "ja" && faq.translated === false;
 
   return (
     <PageShell>
       <section className="py-10">
         <Container>
           <Breadcrumb
-            items={[{ label: "ホーム", to: "/" }, { label: "Q&A", to: "/academy/qa" }, { label: faq.tag }]}
+            items={[
+              { label: t("ホーム"), to: "/" },
+              { label: "Q&A", to: path("/academy/qa") },
+              { label: t(faq.tag) },
+            ]}
           />
           <div className="">
             <article itemScope itemType="https://schema.org/Question">
@@ -92,13 +105,22 @@ export default async function QADetailPage({ params }: PageProps) {
                     {faq.question}
                   </h1>
                   <div className="mt-5 flex flex-wrap items-center gap-3">
-                    {(faq.tags.length ? faq.tags : faq.tag ? [faq.tag] : []).map((t) => (
-                      <Tag key={t}>{t}</Tag>
+                    {(faq.tags.length ? faq.tags : faq.tag ? [faq.tag] : []).map((tag) => (
+                      <Tag key={tag}>{t(tag)}</Tag>
                     ))}
                     <span className="inline-flex items-center gap-2 text-[15px] text-muted-foreground">
-                      <CalendarDays className="w-4 h-4 text-primary" /> 最終更新：{faq.updatedAt}
+                      <CalendarDays className="w-4 h-4 text-primary" /> {t("最終更新")}：
+                      {faq.updatedAt}
                     </span>
                   </div>
+
+                  {showFallbackNotice ? (
+                    <p className="mt-6 flex items-start gap-2.5 rounded-lg border border-border bg-secondary/50 px-4 py-3 text-[14px] text-muted-foreground">
+                      <Languages className="mt-0.5 w-4 h-4 shrink-0 text-primary" />
+                      {t("この記事はまだ翻訳されていないため、日本語で表示しています。")}
+                    </p>
+                  ) : null}
+
                   <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
                     {faq.content?.trim() ? (
                       <div
@@ -121,26 +143,30 @@ export default async function QADetailPage({ params }: PageProps) {
                 <aside className="bg-card border border-border rounded-2xl p-6 space-y-5 h-fit">
                   <div className="flex items-center gap-5">
                     <LayoutGrid className="w-5 h-5 text-primary" />
-                    <span className="text-[15px] font-medium">{faq.tag}</span>
+                    <span className="text-[15px] font-medium">{t(faq.tag)}</span>
                   </div>
                   <div className="flex items-center gap-5">
                     <GraduationCap className="w-5 h-5 text-primary" />
-                    <span className="text-[15px] font-medium">初心者向け</span>
+                    <span className="text-[15px] font-medium">{t("初心者向け")}</span>
                   </div>
                   <div className="flex items-center gap-5">
                     <Clock className="w-5 h-5 text-primary" />
-                    <span className="text-[15px] font-medium">読了目安：{formatApproxMinutes(faq.readTime)}</span>
+                    <span className="text-[15px] font-medium">
+                      {t("読了目安")}：{formatReadTime(faq.readTime, locale)}
+                    </span>
                   </div>
                 </aside>
               </div>
 
               <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 border-b-2 border-border pb-10">
-                <span className="text-[15px] text-foreground/80">この記事は役に立ちましたか？</span>
+                <span className="text-[15px] text-foreground/80">
+                  {t("この記事は役に立ちましたか？")}
+                </span>
                 <button className="inline-flex items-center gap-2 px-4 h-9 rounded-md border border-border text-[15px] text-primary hover:bg-primary-softer">
-                  <ThumbsUp className="w-4 h-4" /> 役に立った
+                  <ThumbsUp className="w-4 h-4" /> {t("役に立った")}
                 </button>
                 <button className="inline-flex items-center gap-2 px-4 h-9 rounded-md border border-border text-[15px] text-muted-foreground hover:bg-secondary">
-                  <ThumbsDown className="w-4 h-4" /> 役に立たなかった
+                  <ThumbsDown className="w-4 h-4" /> {t("役に立たなかった")}
                 </button>
               </div>
             </article>
@@ -148,16 +174,21 @@ export default async function QADetailPage({ params }: PageProps) {
 
           <div className="mt-10">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between mb-6">
-              <h2 className="text-[26px] sm:text-[28px] lg:text-[30px] font-bold">関連Q&A</h2>
-              <a href="/academy/qa" className="text-[15px] text-primary inline-flex items-center gap-1.5">
-                すべて見る <ArrowRight className="w-3.5 h-3.5" />
+              <h2 className="text-[26px] sm:text-[28px] lg:text-[30px] font-bold">
+                {t("関連Q&A")}
+              </h2>
+              <a
+                href={path("/academy/qa")}
+                className="text-[15px] text-primary inline-flex items-center gap-1.5"
+              >
+                {t("すべて見る")} <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {related.map((q) => (
                 <a
                   key={q.id}
-                  href={qaPath(q.question, q.id, q.slug)}
+                  href={path(qaPath(q.question, q.id, q.slug))}
                   className="block bg-card border border-border rounded-xl p-5 hover:border-primary/40"
                 >
                   <div className="flex items-start gap-2.5 mb-4">
@@ -167,7 +198,7 @@ export default async function QADetailPage({ params }: PageProps) {
                     <h3 className={cn(typography.cardTitleMd, "")}>{q.question}</h3>
                   </div>
                   <div className="flex items-center justify-between">
-                    <Tag>{q.tag}</Tag>
+                    <Tag>{t(q.tag)}</Tag>
                     <ArrowRight className="w-4 h-4 text-primary" />
                   </div>
                 </a>
@@ -179,17 +210,19 @@ export default async function QADetailPage({ params }: PageProps) {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
               <MessageCircle className="w-10 h-10 sm:w-12 sm:h-12 text-primary shrink-0" />
               <div>
-                <div className="font-bold text-[26px] sm:text-[28px] lg:text-[30px]">他のQ&Aも見る</div>
+                <div className="font-bold text-[26px] sm:text-[28px] lg:text-[30px]">
+                  {t("他のQ&Aも見る")}
+                </div>
                 <p className="text-[15px]">
-                  初心者から上級者まで、よくある質問をわかりやすく解説！
+                  {t("初心者から上級者まで、よくある質問をわかりやすく解説！")}
                 </p>
               </div>
             </div>
             <a
-              href="/academy/qa"
+              href={path("/academy/qa")}
               className="inline-flex items-center justify-center gap-2 px-5 h-11 rounded-md bg-primary text-primary-foreground text-[15px] font-semibold w-full md:w-auto"
             >
-              すべてのQ&Aを見る <ArrowRight className="w-4 h-4" />
+              {t("すべてのQ&Aを見る")} <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </Container>

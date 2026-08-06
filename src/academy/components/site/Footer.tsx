@@ -1,5 +1,8 @@
+"use client";
+
 import { Logo } from "./Logo";
-import { Globe, ChevronDown } from "lucide-react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useAcademyI18n } from "@academy/i18n/AcademyLocaleProvider";
 
 const columns = [
   {
@@ -27,6 +30,8 @@ const columns = [
 ];
 
 export function Footer() {
+  const { t, path } = useAcademyI18n();
+
   return (
     <footer className="bg-background border-t border-border">
       <div className="max-w-[1200px] mx-auto px-4 lg:px-6 py-8 md:py-10">
@@ -34,7 +39,7 @@ export function Footer() {
           <div className="col-span-2 sm:col-span-3 md:col-span-2">
             <Logo />
             <p className="mt-4 text-[15px] text-muted-foreground leading-relaxed max-w-sm">
-              DFSChainを学び、Web3の未来を一緒に創る学習プラットフォーム。
+              {t("DFSChainを学び、Web3の未来を一緒に創る学習プラットフォーム。")}
             </p>
             <div className="flex items-center gap-4 mt-5 text-foreground/70">
               <a
@@ -77,16 +82,16 @@ export function Footer() {
           {columns.map((c) => (
             <div key={c.title} className="min-w-0">
               <h4 className="text-[15px] md:text-[16px] font-semibold text-foreground mb-3 md:mb-4">
-                {c.title}
+                {t(c.title)}
               </h4>
               <ul className="space-y-2 md:space-y-1">
                 {c.links.map((l) => (
                   <li key={l.label}>
                     <a
-                      href={l.to}
+                      href={path(l.to)}
                       className="text-[13px] md:text-[15px] text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      {l.label}
+                      {t(l.label)}
                     </a>
                   </li>
                 ))}
@@ -99,23 +104,18 @@ export function Footer() {
             © 2026 DFS Academy. All rights reserved.
           </span>
           <div className="grid grid-cols-2 gap-x-4 gap-y-3 sm:flex sm:flex-wrap sm:items-center sm:gap-6">
-            <button
-              type="button"
-              className="col-span-2 sm:col-span-1 inline-flex items-center justify-center sm:justify-start gap-2 px-3 h-9 rounded-md border border-border text-[15px] text-foreground w-full sm:w-auto"
-            >
-              <Globe className="w-4 h-4" /> 日本語 <ChevronDown className="w-3.5 h-3.5" />
-            </button>
+            <LanguageSwitcher className="col-span-2 sm:col-span-1" />
             <a
-              href="/academy/privacy"
+              href={path("/academy/privacy")}
               className="md:text-[13px] text-[12px] text-muted-foreground hover:text-foreground border-r border-muted-foreground pr-5 text-center"
             >
-              プライバシー・ポリシー
+              {t("プライバシー・ポリシー")}
             </a>
             <a
-              href="/academy/terms"
+              href={path("/academy/terms")}
               className="md:text-[13px] text-[12px] text-muted-foreground hover:text-foreground text-center"
             >
-              利用規約
+              {t("利用規約")}
             </a>
           </div>
         </div>

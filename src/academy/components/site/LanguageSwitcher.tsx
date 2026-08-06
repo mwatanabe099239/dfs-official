@@ -1,0 +1,100 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { Check, ChevronDown, Globe } from "lucide-react";
+
+import { useAcademyLocale } from "@academy/i18n/AcademyLocaleProvider";
+import {
+  ACADEMY_LOCALES,
+  ACADEMY_LOCALE_LABELS,
+  localePath,
+  stripLocaleFromPath,
+  type AcademyLocale,
+} from "@academy/i18n/locales";
+import { cn } from "@academy/lib/utils";
+
+/**
+ * Switches between the Japanese master site and its translations.
+ *
+ * The current path is reduced to its canonical Japanese form and then
+ * re-prefixed, so switching language keeps you on the same page rather than
+ * dumping you back at the Academy home.
+ */
+export function LanguageSwitcher({ className }: { className?: string }) {
+  const locale = useAcademyLocale();
+  const router = useRouter();
+  const pathname = usePathname() || "/academy";
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onPointerDown = (event: MouseEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  const select = (next: AcademyLocale) => {
+    setOpen(false);
+    if (next === locale) return;
+    const { path } = stripLocaleFromPath(pathname);
+    router.push(localePath(next, path));
+  };
+
+  return (
+    <div ref={containerRef} className={cn("relative", className)}>
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-border px-3 h-9 text-[15px] text-foreground transition-colors hover:bg-secondary sm:w-auto sm:justify-start"
+      >
+        <Globe className="w-4 h-4" />
+        {ACADEMY_LOCALE_LABELS[locale]}
+        <ChevronDown
+          className={cn("w-3.5 h-3.5 transition-transform", open && "rotate-180")}
+        />
+      </button>
+
+      {open ? (
+        <ul
+          role="listbox"
+          className="absolute bottom-full left-0 z-50 mb-2 w-44 overflow-hidden rounded-lg border border-border bg-card py-1 shadow-lg"
+        >
+          {ACADEMY_LOCALES.map((item) => (
+            <li key={item}>
+              <button
+                type="button"
+                role="option"
+                aria-selected={item === locale}
+                onClick={() => select(item)}
+                className={cn(
+                  "flex w-full items-center justify-between gap-2 px-3 py-2 text-left text-[14px] transition-colors",
+                  item === locale
+                    ? "bg-primary-softer text-primary"
+                    : "text-foreground hover:bg-muted",
+                )}
+              >
+                {ACADEMY_LOCALE_LABELS[item]}
+                {item === locale ? <Check className="w-4 h-4" /> : null}
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </div>
+  );
+}

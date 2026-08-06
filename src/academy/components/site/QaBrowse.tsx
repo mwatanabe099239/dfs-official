@@ -17,7 +17,13 @@ import { QCard } from "@academy/components/site/cards";
 import type { FaqEntry } from "@academy/data/qa-faqs";
 import { cn } from "@academy/lib/utils";
 import { qaPath } from "@academy/lib/academy-slug";
+import { useAcademyI18n } from "@academy/i18n/AcademyLocaleProvider";
 
+/**
+ * `label` doubles as the canonical filter key. Tags are stored in Japanese on
+ * every document regardless of the reader's language, so matching stays on
+ * these keys and only the rendered text is translated.
+ */
 type FilterDef = {
   label: string;
   icon: LucideIcon | null;
@@ -57,6 +63,7 @@ function matchesSearch(faq: FaqEntry, query: string): boolean {
 }
 
 export function QaBrowse({ faqs }: { faqs: FaqEntry[] }) {
+  const { t, path } = useAcademyI18n();
   const [activeTag, setActiveTag] = useState("すべて");
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -82,7 +89,7 @@ export function QaBrowse({ faqs }: { faqs: FaqEntry[] }) {
             setSearch(e.target.value);
             setVisibleCount(PAGE_SIZE);
           }}
-          placeholder="Q&Aを検索する（例：ウォレット、送金、ガス代）"
+          placeholder={t("Q&Aを検索する（例：ウォレット、送金、ガス代）")}
           className="w-full lg:w-2/3 h-12 pl-11 pr-4 rounded-lg border border-border bg-card text-[15px] focus:outline-none focus:border-primary"
         />
       </div>
@@ -111,7 +118,7 @@ export function QaBrowse({ faqs }: { faqs: FaqEntry[] }) {
                   <Icon className="w-5 h-5" />
                 </span>
               ) : null}
-              <span>{f.label}</span>
+              <span>{t(f.label)}</span>
             </button>
           );
         })}
@@ -119,12 +126,17 @@ export function QaBrowse({ faqs }: { faqs: FaqEntry[] }) {
 
       {visible.length === 0 ? (
         <p className="py-12 text-center text-[15px] text-muted-foreground">
-          条件に一致するQ&Aが見つかりませんでした。
+          {t("条件に一致するQ&Aが見つかりませんでした。")}
         </p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {visible.map((q) => (
-            <QCard key={q.id} title={q.question} tag={q.tag} to={qaPath(q.question, q.id, q.slug)} />
+            <QCard
+              key={q.id}
+              title={q.question}
+              tag={t(q.tag)}
+              to={path(qaPath(q.question, q.id, q.slug))}
+            />
           ))}
         </div>
       )}
@@ -136,7 +148,7 @@ export function QaBrowse({ faqs }: { faqs: FaqEntry[] }) {
             onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
             className="inline-flex items-center gap-2 px-6 h-11 rounded-md text-primary border border-primary text-[18px] font-medium hover:bg-secondary"
           >
-            さらに表示する <ChevronDown className="w-4 h-4" />
+            {t("さらに表示する")} <ChevronDown className="w-4 h-4" />
           </button>
         </div>
       ) : null}

@@ -23,6 +23,25 @@ export type FaqEntry = {
   sections?: FaqSection[];
   readTime: number;
   updatedAt: string;
+  /**
+   * English / Korean versions generated from the Japanese master by the admin
+   * AI pipeline, keyed by locale. Absent means "not translated yet".
+   */
+  translations?: Record<string, FaqTranslation>;
+  /**
+   * True once a locale-specific view has been applied. When false on a
+   * non-Japanese locale the reader is seeing the Japanese fallback.
+   */
+  translated?: boolean;
+};
+
+/** A translated view of an entry. Tags stay canonical Japanese for filtering. */
+export type FaqTranslation = {
+  question: string;
+  answer: string;
+  content: string;
+  seoTitle: string;
+  metaDescription: string;
 };
 
 export const FAQ_ENTRIES: FaqEntry[] = [

@@ -12,12 +12,14 @@ import {
   type AcademyArticle,
 } from "@academy/lib/academy-articles";
 import { articlePath } from "@academy/lib/academy-slug";
+import { useAcademyI18n } from "@academy/i18n/AcademyLocaleProvider";
 
 type ArticlesBrowseProps = {
   articles: AcademyArticle[];
 };
 
 export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
+  const { t, path } = useAcademyI18n();
   const [activeTab, setActiveTab] = useState<string>(ARTICLE_FILTER_TABS[0]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -79,7 +81,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
 
       {featured ? (
         <a
-          href={articlePath(featured.title, featured.id, featured.slug)}
+          href={path(articlePath(featured.title, featured.id, featured.slug))}
           className="mt-8 block bg-card border border-border rounded-2xl p-6 hover:border-primary/40 relative"
         >
           <div className="grid grid-cols-1 md:grid-cols-[180px_1fr_auto] gap-6 items-center">
@@ -122,7 +124,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
                 tag={a.tag}
                 title={a.title}
                 readTime={formatArticleReadTime(a.readTime)}
-                to={articlePath(a.title, a.id, a.slug)}
+                to={path(articlePath(a.title, a.id, a.slug))}
               />
             );
           })}
@@ -134,7 +136,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
           <h2 className="text-[26px] sm:text-[28px] lg:text-[30px] font-bold flex items-center gap-2">
             <span className="text-primary">★</span> 初心者におすすめ
           </h2>
-          <ViewAll to="/academy/articles" />
+          <ViewAll to={path("/academy/articles")} label={t("すべて見る")} />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {beginner.map((a) => {
@@ -142,7 +144,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
             return (
               <a
                 key={a.id}
-                href={articlePath(a.title, a.id, a.slug)}
+                href={path(articlePath(a.title, a.id, a.slug))}
                 className="block bg-card border border-border rounded-xl p-5 hover:border-primary/40 relative"
               >
                 <div className="flex items-center gap-4 sm:gap-5 w-full">

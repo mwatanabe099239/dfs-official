@@ -113,13 +113,20 @@ export function SectionHeader({ title, action }: { title: string; action?: React
   );
 }
 
-export function ViewAll({ to = "/academy/qa" }: { to?: string }) {
+export function ViewAll({
+  to = "/academy/qa",
+  label = "すべて見る",
+}: {
+  to?: string;
+  /** Caller-supplied so this stays usable from both server and client trees. */
+  label?: string;
+}) {
   return (
     <a
       href={to}
       className={cn("inline-flex items-center gap-1.5 hover:underline", typography.link)}
     >
-      すべて見る <ArrowRight className="w-3.5 h-3.5" />
+      {label} <ArrowRight className="w-3.5 h-3.5" />
     </a>
   );
 }
