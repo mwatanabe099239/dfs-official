@@ -1,27 +1,36 @@
 "use client";
 
 import { createContext, useContext, useMemo, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 
 import { createTranslator, type Translator } from "./dictionary";
 import {
   DEFAULT_ACADEMY_LOCALE,
   localePath,
+  stripLocaleFromPath,
   type AcademyLocale,
 } from "./locales";
 
 const AcademyLocaleContext = createContext<AcademyLocale>(DEFAULT_ACADEMY_LOCALE);
 
 /**
- * Client components can't read the locale header, so the server layout resolves
- * it once and hands it down through context.
+ * Locale for client chrome.
+ *
+ * The server layout seeds the initial value from the middleware header. After
+ * that, the URL prefix is the source of truth so a language switch (or a
+ * shared link to `/academy/en/...`) updates the UI even when a soft navigation
+ * reuses a cached server tree.
  */
 export function AcademyLocaleProvider({
-  locale,
+  locale: serverLocale,
   children,
 }: {
   locale: AcademyLocale;
   children: ReactNode;
 }) {
+  const pathname = usePathname() || "/academy";
+  const locale = stripLocaleFromPath(pathname).locale || serverLocale;
+
   return (
     <AcademyLocaleContext.Provider value={locale}>
       {children}

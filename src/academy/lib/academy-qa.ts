@@ -102,6 +102,40 @@ export function normalizeFaqSections(value: unknown): FaqSection[] {
 }
 
 /**
+ * Older admin publishes baked Japanese section headings into EN/KO HTML.
+ * Rewrite those labels for the active locale so the public page is fully
+ * translated even before Firestore is repaired.
+ */
+const TRANSLATED_HEADINGS: Record<string, Record<string, string>> = {
+  en: {
+    短い答え: "Short answer",
+    詳しい説明: "Detailed explanation",
+    具体例: "Example",
+    注意点: "Important notes",
+    もっとやさしく言うと: "Even simpler",
+    "関連Q&A": "Related Q&A",
+  },
+  ko: {
+    短い答え: "짧은 답변",
+    詳しい説明: "자세한 설명",
+    具体例: "예시",
+    注意点: "주의사항",
+    もっとやさしく言うと: "더 쉽게 말하면",
+    "関連Q&A": "관련 Q&A",
+  },
+};
+
+function localizeTranslationHtml(content: string, locale: string): string {
+  const map = TRANSLATED_HEADINGS[locale];
+  if (!map) return content;
+  let next = content;
+  for (const [ja, localized] of Object.entries(map)) {
+    next = next.split(`<h2>${ja}</h2>`).join(`<h2>${localized}</h2>`);
+  }
+  return next;
+}
+
+/**
  * Read the translations written by the admin AI pipeline. A translation missing
  * a title or body is dropped so the page falls back to Japanese rather than
  * rendering blanks.
@@ -121,7 +155,7 @@ function parseFaqTranslations(value: unknown): Record<string, FaqTranslation> {
     result[locale] = {
       question,
       answer: String(row.answer || "").trim(),
-      content,
+      content: localizeTranslationHtml(content, locale),
       seoTitle: String(row.seoTitle || "").trim(),
       metaDescription: String(row.metaDescription || "").trim(),
     };

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Check, ChevronDown, Globe } from "lucide-react";
 
 import { useAcademyLocale } from "@academy/i18n/AcademyLocaleProvider";
@@ -20,10 +20,13 @@ import { cn } from "@academy/lib/utils";
  * The current path is reduced to its canonical Japanese form and then
  * re-prefixed, so switching language keeps you on the same page rather than
  * dumping you back at the Academy home.
+ *
+ * Locale is carried by a middleware rewrite header. Soft client navigations
+ * often reuse the cached Japanese server tree, so language changes use a full
+ * navigation to force middleware + Server Components to re-run.
  */
 export function LanguageSwitcher({ className }: { className?: string }) {
   const locale = useAcademyLocale();
-  const router = useRouter();
   const pathname = usePathname() || "/academy";
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -48,9 +51,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 
   const select = (next: AcademyLocale) => {
     setOpen(false);
-    if (next === locale) return;
     const { path } = stripLocaleFromPath(pathname);
-    router.push(localePath(next, path));
+    const href = localePath(next, path);
+    if (href === pathname) return;
+    window.location.assign(href);
   };
 
   return (
