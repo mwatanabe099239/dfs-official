@@ -195,6 +195,25 @@ export function localizeFaqs(faqs: FaqEntry[], locale: AcademyLocale): FaqEntry[
   return faqs.map((faq) => localizeFaq(faq, locale));
 }
 
+/** Older seed / admin tags → current Q&A taxonomy. */
+const LEGACY_QA_TAG_MAP: Record<string, string> = {
+  ガス代: "アプリケーション",
+  セキュリティ: "収入を得る",
+  ブリッジ: "導入する",
+  収入を得る: "Web3",
+  "Learn & Earn": "Web3",
+  "Learn and Earn": "Web3",
+};
+
+export function normalizeFaqTag(tag: string): string {
+  const trimmed = String(tag || "").trim();
+  return LEGACY_QA_TAG_MAP[trimmed] || trimmed;
+}
+
+export function normalizeFaqTags(tags: string[]): string[] {
+  return Array.from(new Set(tags.map(normalizeFaqTag).filter(Boolean)));
+}
+
 export function serializeFaqDoc(data: Record<string, unknown>): FaqEntry | null {
   const numericId = Number(data.numericId);
   if (!Number.isInteger(numericId) || numericId < 1) return null;
@@ -202,8 +221,8 @@ export function serializeFaqDoc(data: Record<string, unknown>): FaqEntry | null 
   const question = String(data.question || "").trim();
   if (!question) return null;
 
-  const tag = String(data.tag || "").trim();
-  const tags = asStringArray(data.tags);
+  const tag = normalizeFaqTag(String(data.tag || "").trim());
+  const tags = normalizeFaqTags(asStringArray(data.tags));
   const sections = normalizeFaqSections(data.sections);
   const content = String(data.content || "").trim();
 

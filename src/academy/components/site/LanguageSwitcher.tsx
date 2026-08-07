@@ -25,7 +25,17 @@ import { cn } from "@academy/lib/utils";
  * often reuse the cached Japanese server tree, so language changes use a full
  * navigation to force middleware + Server Components to re-run.
  */
-export function LanguageSwitcher({ className }: { className?: string }) {
+export function LanguageSwitcher({
+  className,
+  compact = false,
+  menuPlacement = "above",
+}: {
+  className?: string;
+  /** Tighter control for the top nav (icon + short label). */
+  compact?: boolean;
+  /** Footer opens upward; header opens downward. */
+  menuPlacement?: "above" | "below";
+}) {
   const locale = useAcademyLocale();
   const pathname = usePathname() || "/academy";
   const [open, setOpen] = useState(false);
@@ -64,10 +74,18 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         onClick={() => setOpen((value) => !value)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-border px-3 h-9 text-[15px] text-foreground transition-colors hover:bg-secondary sm:w-auto sm:justify-start"
+        aria-label={ACADEMY_LOCALE_LABELS[locale]}
+        className={cn(
+          "inline-flex items-center justify-center gap-1.5 text-foreground transition-colors",
+          compact
+            ? "h-9 rounded-md px-2 text-[13px] font-medium text-foreground/80 hover:bg-muted hover:text-foreground sm:gap-2 sm:px-2.5"
+            : "h-9 w-full justify-center gap-2 rounded-md border border-border px-3 text-[15px] hover:bg-secondary sm:w-auto sm:justify-start",
+        )}
       >
         <Globe className="w-4 h-4" />
-        {ACADEMY_LOCALE_LABELS[locale]}
+        <span className={cn(compact && "hidden sm:inline")}>
+          {ACADEMY_LOCALE_LABELS[locale]}
+        </span>
         <ChevronDown
           className={cn("w-3.5 h-3.5 transition-transform", open && "rotate-180")}
         />
@@ -76,7 +94,12 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       {open ? (
         <ul
           role="listbox"
-          className="absolute bottom-full left-0 z-50 mb-2 w-44 overflow-hidden rounded-lg border border-border bg-card py-1 shadow-lg"
+          className={cn(
+            "absolute z-50 w-44 overflow-hidden rounded-lg border border-border bg-card py-1 shadow-lg",
+            menuPlacement === "below"
+              ? "left-auto right-0 top-full mt-2"
+              : "bottom-full left-0 mb-2",
+          )}
         >
           {ACADEMY_LOCALES.map((item) => (
             <li key={item}>

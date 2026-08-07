@@ -20,6 +20,11 @@ const en: Dictionary = {
   メニュー: "Menu",
   メニューを開く: "Open menu",
   検索: "Search",
+  閉じる: "Close",
+  "記事、コース、Q&Aを検索": "Search articles, courses, and Q&A",
+  キーワードを入力して検索してください: "Type a keyword to search",
+  "検索中…": "Searching…",
+  "条件に一致する結果が見つかりませんでした。": "No results matched your search.",
 
   // Footer
   学ぶ: "Learn",
@@ -47,6 +52,8 @@ const en: Dictionary = {
   すべて: "All",
   "Q&Aを検索する（例：ウォレット、送金、ガス代）":
     "Search Q&A (e.g. wallet, transfers, gas fees)",
+  "Q&Aを検索する（例：ウォレット、アプリケーション、Web3）":
+    "Search Q&A (e.g. wallet, applications, Web3)",
   "条件に一致するQ&Aが見つかりませんでした。": "No Q&A matched your search.",
   さらに表示する: "Show more",
 
@@ -60,6 +67,7 @@ const en: Dictionary = {
   アプリケーション: "Applications",
   収入を得る: "Earn",
   導入する: "Get started",
+  Web3: "Web3",
   "記事を検索する（例：ウォレット、アプリケーション、収入を得る）":
     "Search articles (e.g. wallet, applications, earn)",
 
@@ -121,6 +129,11 @@ const ko: Dictionary = {
   メニュー: "메뉴",
   メニューを開く: "메뉴 열기",
   検索: "검색",
+  閉じる: "닫기",
+  "記事、コース、Q&Aを検索": "아티클, 코스, Q&A 검색",
+  キーワードを入力して検索してください: "키워드를 입력해 검색하세요",
+  "検索中…": "검색 중…",
+  "条件に一致する結果が見つかりませんでした。": "검색 조건에 맞는 결과가 없습니다.",
 
   // Footer
   学ぶ: "학습",
@@ -148,6 +161,8 @@ const ko: Dictionary = {
   すべて: "전체",
   "Q&Aを検索する（例：ウォレット、送金、ガス代）":
     "Q&A 검색 (예: 지갑, 송금, 가스비)",
+  "Q&Aを検索する（例：ウォレット、アプリケーション、Web3）":
+    "Q&A 검색 (예: 지갑, 애플리케이션, Web3)",
   "条件に一致するQ&Aが見つかりませんでした。": "조건에 맞는 Q&A를 찾을 수 없습니다.",
   さらに表示する: "더 보기",
 
@@ -161,6 +176,7 @@ const ko: Dictionary = {
   アプリケーション: "애플리케이션",
   収入を得る: "수익 창출",
   導入する: "시작하기",
+  Web3: "Web3",
   "記事を検索する（例：ウォレット、アプリケーション、収入を得る）":
     "아티클 검색 (예: 지갑, 애플리케이션, 수익 창출)",
 

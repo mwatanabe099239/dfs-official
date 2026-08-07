@@ -7,9 +7,9 @@ import {
   Monitor,
   Wallet,
   Fuel,
-  Shield,
-  ArrowLeftRight,
   Gift,
+  ArrowLeftRight,
+  Globe,
   ChevronDown,
   type LucideIcon,
 } from "lucide-react";
@@ -34,10 +34,10 @@ const FILTERS: FilterDef[] = [
   { icon: BookOpen, label: "基礎知識" },
   { icon: Monitor, label: "使い方" },
   { icon: Wallet, label: "ウォレット" },
-  { icon: Fuel, label: "ガス代" },
-  { icon: Shield, label: "セキュリティ" },
-  { icon: ArrowLeftRight, label: "ブリッジ" },
+  { icon: Fuel, label: "アプリケーション" },
   { icon: Gift, label: "収入を得る" },
+  { icon: ArrowLeftRight, label: "導入する" },
+  { icon: Globe, label: "Web3" },
 ];
 
 const PAGE_SIZE = 9;
@@ -89,7 +89,7 @@ export function QaBrowse({ faqs }: { faqs: FaqEntry[] }) {
             setSearch(e.target.value);
             setVisibleCount(PAGE_SIZE);
           }}
-          placeholder={t("Q&Aを検索する（例：ウォレット、送金、ガス代）")}
+          placeholder={t("Q&Aを検索する（例：ウォレット、アプリケーション、Web3）")}
           className="w-full lg:w-2/3 h-12 pl-11 pr-4 rounded-lg border border-border bg-card text-[15px] focus:outline-none focus:border-primary"
         />
       </div>

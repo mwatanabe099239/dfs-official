@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, Search } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { Logo } from "./Logo";
+import { HeaderSearch } from "./HeaderSearch";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Sheet, SheetContent, SheetTitle } from "../ui/sheet";
 import { useAcademyI18n } from "@academy/i18n/AcademyLocaleProvider";
 import { stripLocaleFromPath } from "@academy/i18n/locales";
@@ -46,13 +48,9 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-2 sm:gap-4">
-          <button
-            aria-label={t("検索")}
-            className="p-2 text-foreground/80 hover:text-foreground"
-          >
-            <Search className="w-5 h-5" />
-          </button>
+        <div className="flex items-center gap-1 sm:gap-2">
+          <LanguageSwitcher compact menuPlacement="below" />
+          <HeaderSearch />
           <button
             type="button"
             className="lg:hidden p-2 text-foreground/80 hover:text-foreground"

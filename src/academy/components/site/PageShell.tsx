@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
+import Footer from "@/src/components/Footer";
 import { Header } from "./Header";
 import { PromoBar } from "./PromoBar";
-import { Footer } from "./Footer";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
