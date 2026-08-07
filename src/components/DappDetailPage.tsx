@@ -354,7 +354,7 @@ const DappDetailPage: React.FC = () => {
         <div className="flex min-w-0">
           <aside className="hidden lg:block w-56 h-screen sticky top-0 overflow-y-auto border-r bg-white border-gray-200">
             <div className="py-4">
-              <Link href="/explore-dapps" className="px-5 py-2.5 text-gray-600 hover:text-gray-900">
+              <Link href="/apps" className="px-5 py-2.5 text-gray-600 hover:text-gray-900">
                 ← Back to DApps
               </Link>
             </div>
@@ -399,7 +399,7 @@ const DappDetailPage: React.FC = () => {
         <aside className="hidden lg:block w-56 h-screen sticky top-0 overflow-y-auto border-r bg-white border-gray-200">
           <div className="py-4">
               <Link 
-              href="/explore-dapps"
+              href="/apps"
               className="px-5 py-2.5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 flex items-center gap-2 text-sm font-medium"
             >
               ← {t('exploreDapps.backToDapps') || 'Back to DApps'}
@@ -409,7 +409,7 @@ const DappDetailPage: React.FC = () => {
               return (
                 <Link
                   key={category.name}
-                  href="/explore-dapps"
+                  href="/apps"
                   className={`w-full flex items-center gap-3 px-5 py-2.5 text-left transition-all ${
                     isActive
                       ? "text-gray-900 bg-gray-100"
@@ -583,7 +583,7 @@ const DappDetailPage: React.FC = () => {
                 {/* Previous Button */}
                 {previousApp ? (
                   <Link
-                    href={`/explore-dapps/${previousApp.id}`}
+                    href={`/apps/${previousApp.id}`}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       isDark
                         ? "bg-gray-800 text-gray-300 border border-gray-700 hover:bg-gray-700"
@@ -603,7 +603,7 @@ const DappDetailPage: React.FC = () => {
                 {/* Next Button */}
                 {nextApp ? (
                   <Link
-                    href={`/explore-dapps/${nextApp.id}`}
+                    href={`/apps/${nextApp.id}`}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ml-auto ${
                       isDark
                         ? "bg-gray-800 text-gray-300 border border-gray-700 hover:bg-gray-700"
@@ -623,7 +623,7 @@ const DappDetailPage: React.FC = () => {
             {/* Back to DApps Link */}
             <div className="mt-6 text-center">
               <Link 
-                href="/explore-dapps"
+                href="/apps"
                 className={`inline-flex items-center gap-2 text-sm font-medium ${
                   isDark ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-gray-900"
                 }`}

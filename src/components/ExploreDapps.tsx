@@ -384,7 +384,7 @@ const ExploreDapps: React.FC = () => {
                       return (
                         <Link
                           key={dapp.id}
-                          href={`/explore-dapps/${dapp.id}`}
+                          href={`/apps/${dapp.id}`}
                           className={cardClassName}
                         >
                       {/* Badge - Top Right */}
@@ -442,7 +442,7 @@ const ExploreDapps: React.FC = () => {
                       return (
                         <Link
                           key={dapp.id}
-                          href={`/explore-dapps/${dapp.id}`}
+                          href={`/apps/${dapp.id}`}
                           className={cardClassName}
                         >
                           {/* Badge - Top Right */}
@@ -546,7 +546,7 @@ const ExploreDapps: React.FC = () => {
                     return (
                       <Link
                         key={dapp.id}
-                        href={`/explore-dapps/${dapp.id}`}
+                        href={`/apps/${dapp.id}`}
                         className={cardClassName}
                       >
                     {/* Badge - Top Right */}

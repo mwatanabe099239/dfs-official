@@ -287,8 +287,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/dapps" element={<DappsPageWrapper />} />
-            <Route path="/explore-dapps" element={<ExploreDappsWrapper />} />
-            <Route path="/explore-dapps/:id" element={<DappDetailPageWrapper />} />
+            <Route path="/apps" element={<ExploreDappsWrapper />} />
+            <Route path="/apps/:id" element={<DappDetailPageWrapper />} />
             <Route path="/staking" element={<StakingPageWrapper />} />
             <Route path="/whitepaper" element={<WhitepaperPageWrapper />} />
             <Route path="/blog" element={<BlogPageWrapper />} />
