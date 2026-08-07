@@ -80,8 +80,8 @@ export function serializeArticleDoc(
   if (!Number.isInteger(numericId) || numericId < 1) return null;
   const title = String(data.title || "").trim();
   if (!title) return null;
-  const tag = String(data.tag || "").trim();
-  const tags = asStringArray(data.tags);
+  const tag = normalizeArticleTag(String(data.tag || "").trim());
+  const tags = normalizeArticleTags(asStringArray(data.tags));
 
   return {
     id: numericId,
@@ -157,8 +157,8 @@ export const FALLBACK_ARTICLES: AcademyArticle[] = [
     id: 4,
     title: "ガス代の仕組み",
     intro: "ガス代とは何か、なぜ必要なのかをわかりやすく説明します。",
-    tag: "ガス代",
-    tags: ["ガス代", "基礎知識"],
+    tag: "アプリケーション",
+    tags: ["アプリケーション", "基礎知識"],
     level: "初心者向け",
     iconKey: "fuel",
     readTime: 4,
@@ -174,8 +174,8 @@ export const FALLBACK_ARTICLES: AcademyArticle[] = [
     id: 5,
     title: "Web3セキュリティ入門",
     intro: "安全にWeb3を始めるための基本的な注意点をまとめました。",
-    tag: "セキュリティ",
-    tags: ["セキュリティ", "初心者向け"],
+    tag: "収入を得る",
+    tags: ["収入を得る", "初心者向け"],
     level: "初心者向け",
     iconKey: "shield",
     readTime: 5,
@@ -192,7 +192,7 @@ export const FALLBACK_ARTICLES: AcademyArticle[] = [
     title: "トークンとガス代の基礎知識",
     intro: "トークンとガス代の関係を基礎から学びます。",
     tag: "基礎知識",
-    tags: ["基礎知識", "ガス代"],
+    tags: ["基礎知識", "アプリケーション"],
     level: "初心者向け",
     iconKey: "file-text",
     readTime: 6,
@@ -208,8 +208,8 @@ export const FALLBACK_ARTICLES: AcademyArticle[] = [
     id: 7,
     title: "ブリッジの使い方",
     intro: "他チェーンとの資産移動（ブリッジ）の基本を解説します。",
-    tag: "ブリッジ",
-    tags: ["ブリッジ", "使い方"],
+    tag: "導入する",
+    tags: ["導入する", "使い方"],
     level: "中級者向け",
     iconKey: "arrow-left-right",
     readTime: 5,
@@ -330,7 +330,27 @@ export const ARTICLE_FILTER_TABS = [
   "初心者向け",
   "ウォレット",
   "使い方",
-  "ガス代",
-  "セキュリティ",
-  "ブリッジ",
+  "アプリケーション",
+  "収入を得る",
+  "導入する",
 ] as const;
+
+/** Older seed / admin tags → current article taxonomy. */
+const LEGACY_ARTICLE_TAG_MAP: Record<string, string> = {
+  ガス代: "アプリケーション",
+  セキュリティ: "収入を得る",
+  ブリッジ: "導入する",
+  "Learn & Earn": "収入を得る",
+  "Learn and Earn": "収入を得る",
+};
+
+export function normalizeArticleTag(tag: string): string {
+  const trimmed = String(tag || "").trim();
+  return LEGACY_ARTICLE_TAG_MAP[trimmed] || trimmed;
+}
+
+export function normalizeArticleTags(tags: string[]): string[] {
+  return Array.from(
+    new Set(tags.map(normalizeArticleTag).filter(Boolean)),
+  );
+}

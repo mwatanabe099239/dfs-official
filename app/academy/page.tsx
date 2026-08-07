@@ -51,7 +51,7 @@ const categories = [
   { icon: <BookOpen className="w-14 h-14" strokeWidth={1} />, label: "基礎知識" },
   { icon: <MessageCircle className="w-14 h-14" strokeWidth={1} />, label: "Q&A" },
   { icon: <Wallet className="w-14 h-14" strokeWidth={1} />, label: "使い方" },
-  { icon: <Trophy className="w-14 h-14" strokeWidth={1} />, label: "Learn & Earn" },
+  { icon: <Trophy className="w-14 h-14" strokeWidth={1} />, label: "収入を得る" },
 ];
 
 export default async function HomePage() {

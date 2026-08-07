@@ -37,7 +37,7 @@ const FILTERS: FilterDef[] = [
   { icon: Fuel, label: "ガス代" },
   { icon: Shield, label: "セキュリティ" },
   { icon: ArrowLeftRight, label: "ブリッジ" },
-  { icon: Gift, label: "Learn & Earn" },
+  { icon: Gift, label: "収入を得る" },
 ];
 
 const PAGE_SIZE = 9;

@@ -55,26 +55,26 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="記事を検索する（例：ウォレット、ガス代、セキュリティ）"
+          placeholder={t("記事を検索する（例：ウォレット、アプリケーション、収入を得る）")}
           className="w-full h-12 pl-11 pr-4 rounded-lg border border-border bg-card text-[15px] focus:outline-none focus:border-primary"
         />
       </div>
 
       <div className="mt-6 flex flex-wrap gap-2 w-full max-w-full">
-        {ARTICLE_FILTER_TABS.map((t) => (
+        {ARTICLE_FILTER_TABS.map((tab) => (
           <button
-            key={t}
+            key={tab}
             type="button"
-            onClick={() => setActiveTab(t)}
+            onClick={() => setActiveTab(tab)}
             className={cn(
               "grow h-10 rounded-lg border px-5 text-[13px] font-medium",
-              activeTab === t
+              activeTab === tab
                 ? "border-primary bg-primary-softer text-primary"
                 : "border-border bg-card text-foreground hover:border-primary/40",
             )}
             style={{ minWidth: "120px" }}
           >
-            {t}
+            {t(tab)}
           </button>
         ))}
       </div>
@@ -94,7 +94,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
               </div>
               <h3 className={cn("mt-3", typography.featuredTitle)}>{featured.title}</h3>
               <div className="mt-4 flex items-center gap-4">
-                <Tag>{featured.tag}</Tag>
+                <Tag>{t(featured.tag)}</Tag>
                 <span className="inline-flex items-center gap-1.5 text-[13px] text-muted-foreground">
                   <Clock className="w-4 h-4" /> {formatArticleReadTime(featured.readTime)}
                 </span>
@@ -121,7 +121,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
                     <Icon className="w-12 h-12" strokeWidth={1} />
                   </span>
                 }
-                tag={a.tag}
+                tag={t(a.tag)}
                 title={a.title}
                 readTime={formatArticleReadTime(a.readTime)}
                 to={path(articlePath(a.title, a.id, a.slug))}
@@ -152,7 +152,7 @@ export function ArticlesBrowse({ articles }: ArticlesBrowseProps) {
                     <Icon className="w-12 h-12" strokeWidth={1} />
                   </span>
                   <div>
-                    <Tag>{a.tag}</Tag>
+                    <Tag>{t(a.tag)}</Tag>
                     <h3 className={cn("mt-3", typography.cardTitleMd)}>{a.title}</h3>
                   </div>
                 </div>

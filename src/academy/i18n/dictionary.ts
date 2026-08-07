@@ -57,6 +57,11 @@ const en: Dictionary = {
   ガス代: "Gas fees",
   セキュリティ: "Security",
   ブリッジ: "Bridge",
+  アプリケーション: "Applications",
+  収入を得る: "Earn",
+  導入する: "Get started",
+  "記事を検索する（例：ウォレット、アプリケーション、収入を得る）":
+    "Search articles (e.g. wallet, applications, earn)",
 
   // Q&A detail
   ホーム: "Home",
@@ -90,7 +95,7 @@ const en: Dictionary = {
   "注目のQ&A": "Featured Q&A",
   回答を見る: "Read the answer",
   初心者におすすめの記事: "Recommended for beginners",
-  "Learn & Earn": "Learn & Earn",
+  "Learn & Earn": "Earn",
   関連コース: "Related courses",
   コースを見る: "View course",
 
@@ -153,6 +158,11 @@ const ko: Dictionary = {
   ガス代: "가스비",
   セキュリティ: "보안",
   ブリッジ: "브리지",
+  アプリケーション: "애플리케이션",
+  収入を得る: "수익 창출",
+  導入する: "시작하기",
+  "記事を検索する（例：ウォレット、アプリケーション、収入を得る）":
+    "아티클 검색 (예: 지갑, 애플리케이션, 수익 창출)",
 
   // Q&A detail
   ホーム: "홈",
@@ -186,7 +196,7 @@ const ko: Dictionary = {
   "注目のQ&A": "주목받는 Q&A",
   回答を見る: "답변 보기",
   初心者におすすめの記事: "초보자에게 추천하는 아티클",
-  "Learn & Earn": "Learn & Earn",
+  "Learn & Earn": "수익 창출",
   関連コース: "관련 코스",
   コースを見る: "코스 보기",
 
