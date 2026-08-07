@@ -8,15 +8,39 @@ import { FaTelegram, FaDiscord, FaYoutube } from "react-icons/fa"
 import { SiX } from "react-icons/si"
 import { HiOutlineChevronDown } from "react-icons/hi"
 
-export default function Footer() {
+type FooterProps = {
+  /** Force a black footer (used on /ai). Default follows site theme. */
+  variant?: "default" | "dark"
+}
+
+export default function Footer({ variant = "default" }: FooterProps) {
   const [open, setOpen] = useState<number | null>(null)
   const [langOpen, setLangOpen] = useState<boolean>(false)
-  const { isDark } = useTheme()
+  const { isDark: themeIsDark } = useTheme()
+  const isDark = variant === "dark" || themeIsDark
   const { t, language, changeLanguage, languages, currentLanguage } = useLanguage()
 
   const toggle = (section: number) => {
     setOpen(open === section ? null : section)
   }
+
+  const OfficialSiteLink = (
+    <Link
+      href="/"
+      className={`inline-flex w-fit items-center gap-2 rounded-full border px-3 py-1.5 text-xs transition-colors ${
+        isDark
+          ? "border-gray-600 bg-transparent text-white hover:border-gray-400"
+          : "border-gray-300 bg-white text-gray-900 hover:border-gray-400"
+      }`}
+      aria-label={t("footer.officialSite")}
+    >
+      <img src="/logo-icon.png" alt="" className="h-4 w-4 object-contain" />
+      <span>{t("footer.officialSite")}</span>
+      <span className="text-[#21f201]" aria-hidden>
+        →
+      </span>
+    </Link>
+  )
 
   const socialLinks = [
     { icon: SiX, link: "https://x.com/difines_ofc", name: "X" },
@@ -56,7 +80,11 @@ export default function Footer() {
 
   return (
     <footer className={`pt-10 pb-6 text-sm font-space transition-colors duration-300 relative ${
-      isDark ? "bg-[#181A1E] text-white" : "bg-white text-gray-900 border-t border-gray-200"
+      variant === "dark"
+        ? "bg-black text-white"
+        : isDark
+          ? "bg-[#181A1E] text-white"
+          : "bg-white text-gray-900 border-t border-gray-200"
     }`}>
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         {/* Main Footer Content - Three Column Layout */}
@@ -67,15 +95,24 @@ export default function Footer() {
             <p className={`text-xs mb-2 ${isDark ? "text-gray-400" : "text-gray-500"}`}>
               Managed by
             </p>
-            <img 
-              src="/logo.png" 
-              alt="DFS Chain Logo" 
-              className={`md:w-32 w-24 ${isDark ? "brightness-0 invert" : ""}`}
-            />
+            {isDark ? (
+              <img 
+                src="/logo-light.png" 
+                alt="DFS Chain Logo" 
+                className={`md:w-32 w-24`}
+              />
+            ) : (
+              <img 
+                src="/logo.png" 
+                alt="DFS Chain Logo" 
+                className={`md:w-32 w-24`}
+              />
+            )}
           </div>
           <div className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
             <p>{t("footer.copyright")}</p>
           </div>
+          <div className="mt-2">{OfficialSiteLink}</div>
           <div className="flex items-center gap-3 mt-2">
             {socialLinks.map((social, idx) => {
               const Icon = social.icon
@@ -212,7 +249,7 @@ export default function Footer() {
       {/* Mobile Layout */}
       <div className="md:hidden space-y-6">
         {/* Logo, Copyright, Social - Mobile */}
-        <div className="flex flex-col gap-4 pb-4 border-b border-gray-300">
+        <div className={`flex flex-col gap-4 pb-4 border-b ${isDark ? "border-gray-700" : "border-gray-300"}`}>
           <div>
             <p className={`text-xs mb-2 ${isDark ? "text-gray-400" : "text-gray-500"}`}>
               Managed by
@@ -220,12 +257,13 @@ export default function Footer() {
             <img 
               src="/logo.png" 
               alt="DFS Chain Logo" 
-              className={`w-24 ${isDark ? "brightness-0 invert" : "brightness-0"}`}
+              className={`w-24 ${isDark ? "brightness-0 invert" : ""}`}
             />
           </div>
           <div className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
             <p>{t("footer.copyright")}</p>
           </div>
+          {OfficialSiteLink}
           <div className="flex items-center gap-3">
             {socialLinks.map((social, idx) => {
               const Icon = social.icon
@@ -282,7 +320,7 @@ export default function Footer() {
         </div>
 
         {/* Language Switcher - Mobile */}
-        <div className="pt-4 border-t border-gray-300">
+        <div className={`pt-4 border-t ${isDark ? "border-gray-700" : "border-gray-300"}`}>
           <h4 className={`font-bold mb-3 text-sm ${isDark ? "text-white" : "text-gray-900"}`}>
             {t("common.language")}
           </h4>
