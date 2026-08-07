@@ -40,7 +40,7 @@ export default function Footer() {
       items: [
         { nameKey: "footer.links.blog", link: "/blog" },
         { nameKey: "footer.links.whitepaper", link: "/whitepaper" },
-        { nameKey: "footer.links.faq", link: "/whitepaper#faq" },
+        { nameKey: "footer.links.faq", link: "/academy/qa" },
         { nameKey: "footer.links.privacyPolicy", link: "/whitepaper#privacy-policy" },
         { nameKey: "footer.links.termsOfUse", link: "/whitepaper#terms-of-use" },
       ],
