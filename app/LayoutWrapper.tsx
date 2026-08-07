@@ -16,7 +16,7 @@ function Navbar() {
           <img 
             src="/logo.png" 
             alt="logo" 
-            className="md:w-40 w-32 brightness-0"
+            className="md:w-40 w-32"
           />
         </Link>
         <div className="flex items-center gap-2 md:hidden">
