@@ -146,6 +146,7 @@
     },
     "links": {
       "dfsChain": "DFS Chain",
+      "dfsScan": "DFS Scan",
       "makeWallet": "지갑 만들기",
       "getDfs": "토큰 받기",
       "stakeDfs": "스테이크 받기",

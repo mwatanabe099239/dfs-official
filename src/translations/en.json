@@ -148,6 +148,7 @@
     },
     "links": {
       "dfsChain": "DFS Chain",
+      "dfsScan": "DFS Scan",
       "makeWallet": "Make Wallet",
       "getDfs": "Get Token",
       "stakeDfs": "Get Stake",

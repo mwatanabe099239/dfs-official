@@ -146,6 +146,7 @@
     },
     "links": {
       "dfsChain": "DFS Chain",
+      "dfsScan": "DFS Scan",
       "makeWallet": "创建钱包",
       "getDfs": "获取代币",
       "stakeDfs": "获取质押",

@@ -146,6 +146,7 @@
     },
     "links": {
       "dfsChain": "DFS Chain",
+      "dfsScan": "DFS Scan",
       "makeWallet": "ウォレット作成",
       "getDfs": "トークンを取得",
       "stakeDfs": "ステークを取得",

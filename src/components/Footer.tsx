@@ -54,6 +54,7 @@ export default function Footer({ variant = "default" }: FooterProps) {
     {
       titleKey: "footer.sections.dfsChain",
       items: [
+        { nameKey: "footer.links.dfsScan", link: "https://dfsscan.com" },
         { nameKey: "footer.links.makeWallet", link: "https://metaface.dfsscan.com/get-started" },
         { nameKey: "footer.links.getDfs", link: "https://wexswap.com" },
         { nameKey: "footer.links.exploreDapps", link: "/apps" },

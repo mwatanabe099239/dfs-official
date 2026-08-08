@@ -146,6 +146,7 @@
     },
     "links": {
       "dfsChain": "DFS Chain",
+      "dfsScan": "DFS Scan",
       "makeWallet": "إنشاء محفظة",
       "getDfs": "احصل على Token",
       "stakeDfs": "احصل على Stake",
