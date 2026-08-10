@@ -54,6 +54,15 @@ const en: Dictionary = {
     "Search Q&A (e.g. wallet, transfers, gas fees)",
   "Q&Aを検索する（例：ウォレット、アプリケーション、Web3）":
     "Search Q&A (e.g. wallet, applications, Web3)",
+  検索対象: "Search by",
+  タイトル: "Title",
+  本文: "Text",
+  質問タイトルで探す: "Match question titles",
+  回答の本文で探す: "Match answer body text",
+  "タイトルでQ&Aを検索（例：ウォレット、アプリケーション）":
+    "Search Q&A by title (e.g. wallet, applications)",
+  "本文でQ&Aを検索（例：ガス代、送金、ブリッジ）":
+    "Search Q&A by text (e.g. gas fees, transfers, bridge)",
   "条件に一致するQ&Aが見つかりませんでした。": "No Q&A matched your search.",
   さらに表示する: "Show more",
 
@@ -163,6 +172,15 @@ const ko: Dictionary = {
     "Q&A 검색 (예: 지갑, 송금, 가스비)",
   "Q&Aを検索する（例：ウォレット、アプリケーション、Web3）":
     "Q&A 검색 (예: 지갑, 애플리케이션, Web3)",
+  検索対象: "검색 대상",
+  タイトル: "제목",
+  本文: "본문",
+  質問タイトルで探す: "질문 제목으로 찾기",
+  回答の本文で探す: "답변 본문으로 찾기",
+  "タイトルでQ&Aを検索（例：ウォレット、アプリケーション）":
+    "제목으로 Q&A 검색 (예: 지갑, 애플리케이션)",
+  "本文でQ&Aを検索（例：ガス代、送金、ブリッジ）":
+    "본문으로 Q&A 검색 (예: 가스비, 송금, 브리지)",
   "条件に一致するQ&Aが見つかりませんでした。": "조건에 맞는 Q&A를 찾을 수 없습니다.",
   さらに表示する: "더 보기",
 
