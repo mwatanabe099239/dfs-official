@@ -1,0 +1,628 @@
+/* Scoped MetaFace registration guide — ported from dfs-metaface-guide. */
+.metaface-guide-scope {
+  --green: #168400;
+  --deep: #0b1b12;
+  --lime: #b8f56a;
+  --ink: #101713;
+  --muted: #68706a;
+  --line: #e6ebe7;
+  --cream: #f6f8f4;
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: Arial, "Noto Sans JP", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.metaface-guide-scope *,
+.metaface-guide-scope *::before,
+.metaface-guide-scope *::after {
+  box-sizing: border-box;
+}
+
+.metaface-guide-scope a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.metaface-guide-scope .siteHeader {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(5vw, 28px);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  z-index: 20;
+}
+
+.metaface-guide-scope .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.metaface-guide-scope .brandLockup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.metaface-guide-scope .brandFace {
+  height: 52px;
+  width: 52px;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+}
+
+.metaface-guide-scope .brandLogo {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+
+.metaface-guide-scope .siteHeader small,
+.metaface-guide-scope .brand small {
+  display: none !important;
+}
+
+.metaface-guide-scope .headerCta {
+  background: var(--green);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.metaface-guide-scope .languages {
+  display: flex;
+  gap: 5px;
+  padding: 4px;
+  background: #f1f4f1;
+  border-radius: 999px;
+}
+
+.metaface-guide-scope .languages a {
+  font-size: 12px;
+  color: #69716b;
+  padding: 8px 11px;
+  border-radius: 999px;
+}
+
+.metaface-guide-scope .languages a.active {
+  background: #fff;
+  color: var(--green);
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.metaface-guide-scope .hero {
+  min-height: 650px;
+  background: var(--deep);
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  align-items: center;
+  padding: 84px max(7vw, 40px);
+  position: relative;
+  overflow: hidden;
+}
+
+.metaface-guide-scope .heroGlow {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(97, 224, 56, 0.24), transparent 67%);
+  right: -80px;
+  top: -160px;
+}
+
+.metaface-guide-scope .heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.metaface-guide-scope .eyebrow {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  border: 1px solid rgba(184, 245, 106, 0.35);
+  color: var(--lime);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.metaface-guide-scope .eyebrow span {
+  font-size: 9px;
+}
+
+.metaface-guide-scope .hero h1 {
+  font-size: clamp(50px, 6vw, 84px);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  margin: 26px 0 24px;
+}
+
+.metaface-guide-scope .hero h1 em {
+  font-style: normal;
+  color: var(--lime);
+}
+
+.metaface-guide-scope .hero p {
+  color: #c3cec6;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.metaface-guide-scope .heroActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+}
+
+.metaface-guide-scope .primary,
+.metaface-guide-scope .secondary {
+  padding: 17px 24px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.metaface-guide-scope .primary {
+  background: var(--lime);
+  color: #0a2505;
+}
+
+.metaface-guide-scope .primary span {
+  margin-left: 18px;
+}
+
+.metaface-guide-scope .secondary {
+  border: 1px solid #536158;
+  color: #fff;
+}
+
+.metaface-guide-scope .trust {
+  display: flex;
+  gap: 22px;
+  margin-top: 23px;
+  color: #9fb0a4;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.metaface-guide-scope .walletPreview {
+  width: min(420px, 90%);
+  margin-left: auto;
+  background: #071009;
+  border: 1px solid #2a4533;
+  border-radius: 24px;
+  padding: 24px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.34);
+  transform: rotate(2deg);
+}
+
+.metaface-guide-scope .previewTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.metaface-guide-scope .previewLockup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metaface-guide-scope .previewFace {
+  height: 22px;
+  width: 22px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.metaface-guide-scope .previewMetaface {
+  height: 16px;
+  width: auto;
+}
+
+.metaface-guide-scope .previewDfs {
+  height: 18px;
+  width: auto;
+  margin-left: auto;
+  object-fit: contain;
+}
+
+.metaface-guide-scope .balance {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.metaface-guide-scope .balance small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #76827a;
+}
+
+.metaface-guide-scope .balance strong {
+  display: block;
+  font-size: 31px;
+  margin-top: 10px;
+}
+
+.metaface-guide-scope .previewActions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.metaface-guide-scope .previewActions span {
+  background: #16251a;
+  border-radius: 9px;
+  padding: 12px 17px;
+  font-size: 12px;
+}
+
+.metaface-guide-scope .asset {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 18px;
+  background: #111d14;
+  border-radius: 12px;
+}
+
+.metaface-guide-scope .assetName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metaface-guide-scope .assetLogo {
+  height: 16px;
+  width: auto;
+  object-fit: contain;
+}
+
+.metaface-guide-scope .intro,
+.metaface-guide-scope .stepsSection {
+  padding: 110px max(7vw, 40px);
+}
+
+.metaface-guide-scope .intro {
+  max-width: 1180px;
+  margin: auto;
+}
+
+.metaface-guide-scope .sectionLabel {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: #849087;
+  font-weight: 800;
+}
+
+.metaface-guide-scope .intro h2,
+.metaface-guide-scope .sectionHead h2,
+.metaface-guide-scope .finalCta h2 {
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  margin: 16px 0 24px;
+}
+
+.metaface-guide-scope .intro > p {
+  max-width: 790px;
+  font-size: 17px;
+  line-height: 2;
+  color: var(--muted);
+}
+
+.metaface-guide-scope .featureRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  margin-top: 58px;
+}
+
+.metaface-guide-scope .featureRow div {
+  padding: 28px 24px 18px 0;
+  border-right: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+}
+
+.metaface-guide-scope .featureRow div + div {
+  padding-left: 28px;
+}
+
+.metaface-guide-scope .featureRow div:last-child {
+  border-right: 0;
+}
+
+.metaface-guide-scope .featureRow b {
+  font-size: 12px;
+  color: var(--green);
+}
+
+.metaface-guide-scope .featureRow strong {
+  font-size: 20px;
+}
+
+.metaface-guide-scope .featureRow span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.metaface-guide-scope .stepsSection {
+  background: var(--cream);
+}
+
+.metaface-guide-scope .sectionHead {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  max-width: 1220px;
+  margin: 0 auto 42px;
+}
+
+.metaface-guide-scope .sectionHead h2 {
+  margin-bottom: 0;
+}
+
+.metaface-guide-scope .sectionHead p {
+  color: var(--muted);
+}
+
+.metaface-guide-scope .green {
+  color: var(--green);
+}
+
+.metaface-guide-scope .stepsGrid {
+  max-width: 1220px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.metaface-guide-scope .stepCard {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.25s;
+}
+
+.metaface-guide-scope .stepCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(13, 31, 18, 0.08);
+}
+
+.metaface-guide-scope .stepImage {
+  aspect-ratio: 16 / 8.8;
+  overflow: hidden;
+  background: #eef2ee;
+}
+
+.metaface-guide-scope .stepImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.metaface-guide-scope .stepCopy {
+  padding: 26px 28px 30px;
+}
+
+.metaface-guide-scope .stepCopy > span {
+  font-size: 11px;
+  color: var(--green);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.metaface-guide-scope .stepCopy h3 {
+  font-size: 22px;
+  margin: 10px 0 9px;
+}
+
+.metaface-guide-scope .stepCopy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.metaface-guide-scope .finalCta {
+  background: var(--green);
+  color: #fff;
+  padding: 90px max(9vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.metaface-guide-scope .finalCta h2 {
+  margin-bottom: 18px;
+}
+
+.metaface-guide-scope .finalCta p {
+  color: #d7f1d2;
+}
+
+.metaface-guide-scope .light {
+  color: #c9f3be;
+}
+
+.metaface-guide-scope .finalCta a {
+  background: #fff;
+  color: var(--green);
+  padding: 20px 26px;
+  border-radius: 11px;
+  font-weight: 800;
+  min-width: 270px;
+  text-align: center;
+}
+
+.metaface-guide-scope .finalCta a span {
+  margin-left: 18px;
+}
+
+.metaface-guide-scope .guideFooter {
+  background: #071009;
+  color: #849087;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px max(7vw, 40px);
+  font-size: 12px;
+}
+
+.metaface-guide-scope .footerBrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metaface-guide-scope .footerBrand img {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .metaface-guide-scope .hero {
+    grid-template-columns: 1fr;
+    padding-top: 70px;
+  }
+
+  .metaface-guide-scope .walletPreview {
+    margin: 65px auto 0;
+  }
+
+  .metaface-guide-scope .featureRow {
+    grid-template-columns: 1fr;
+  }
+
+  .metaface-guide-scope .featureRow div,
+  .metaface-guide-scope .featureRow div + div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding-left: 0;
+  }
+
+  .metaface-guide-scope .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metaface-guide-scope .sectionHead,
+  .metaface-guide-scope .finalCta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .metaface-guide-scope .desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .metaface-guide-scope .siteHeader {
+    height: auto;
+    min-height: 72px;
+    padding: 10px 18px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .metaface-guide-scope .headerCta {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+
+  .metaface-guide-scope .languages {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .metaface-guide-scope .hero {
+    padding: 58px 20px 72px;
+  }
+
+  .metaface-guide-scope .hero h1 {
+    font-size: 43px;
+  }
+
+  .metaface-guide-scope .hero p {
+    font-size: 15px;
+  }
+
+  .metaface-guide-scope .heroActions {
+    flex-direction: column;
+  }
+
+  .metaface-guide-scope .primary,
+  .metaface-guide-scope .secondary {
+    text-align: center;
+  }
+
+  .metaface-guide-scope .trust {
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .metaface-guide-scope .walletPreview {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .metaface-guide-scope .intro,
+  .metaface-guide-scope .stepsSection {
+    padding: 76px 20px;
+  }
+
+  .metaface-guide-scope .intro h2,
+  .metaface-guide-scope .sectionHead h2,
+  .metaface-guide-scope .finalCta h2 {
+    font-size: 34px;
+  }
+
+  .metaface-guide-scope .stepCopy {
+    padding: 22px;
+  }
+
+  .metaface-guide-scope .finalCta {
+    padding: 70px 20px;
+  }
+
+  .metaface-guide-scope .finalCta a {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .metaface-guide-scope .guideFooter {
+    padding: 24px 20px;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

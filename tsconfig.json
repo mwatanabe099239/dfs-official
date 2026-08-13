@@ -28,6 +28,9 @@
       ],
       "@academy/*": [
         "./src/academy/*"
+      ],
+      "@metaface-guide/*": [
+        "./src/metaface-guide/*"
       ]
     }
   },
