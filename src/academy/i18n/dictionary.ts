@@ -37,7 +37,6 @@ const en: Dictionary = {
   困ったとき: "Troubleshooting",
   "問題の解決方法をすぐに探したい方": "Quick fixes when something goes wrong",
   ガイドを検索: "Search guides",
-  すべて: "All",
   準備中: "Coming soon",
   "該当するガイドがありません。別の言葉で検索してください。":
     "No matching guides. Try a different search term.",
@@ -53,7 +52,6 @@ const en: Dictionary = {
   スタートガイドを見る: "Open starter guide",
   "解決しませんでしたか？": "Still stuck?",
   "Q&Aから詳しい回答を探せます。": "Find detailed answers in Q&A.",
-  "Q&Aを見る": "Browse Q&A",
   ガイドを見る: "View guides",
   "DFS Academyの使い方": "How to use DFS Academy",
   "記事・コース・Q&Aの違いと、目的に合った学び方をわかりやすく案内します。":
@@ -75,10 +73,8 @@ const en: Dictionary = {
     "Checks for signup, login, connection, and display issues.",
   入門: "Intro",
   アカウント: "Account",
-  基礎知識: "Basics",
   実践: "Hands-on",
   学習案内: "Learning path",
-  サポート: "Support",
   約3分: "About 3 min",
   約5分: "About 5 min",
   約8分: "About 8 min",
@@ -229,7 +225,6 @@ const ko: Dictionary = {
   困ったとき: "困을 때",
   "問題の解決方法をすぐに探したい方": "문제 해결 방법을 바로 찾는 분",
   ガイドを検索: "가이드 검색",
-  すべて: "전체",
   準備中: "준비 중",
   "該当するガイドがありません。別の言葉で検索してください。":
     "해당하는 가이드가 없습니다. 다른 단어로 검색해 보세요.",
@@ -245,7 +240,6 @@ const ko: Dictionary = {
   スタートガイドを見る: "스타터 가이드 보기",
   "解決しませんでしたか？": "해결되지 않았나요?",
   "Q&Aから詳しい回答を探せます。": "Q&A에서 자세한 답변을 찾을 수 있습니다.",
-  "Q&Aを見る": "Q&A 보기",
   ガイドを見る: "가이드 보기",
   "DFS Academyの使い方": "DFS Academy 사용법",
   "記事・コース・Q&Aの違いと、目的に合った学び方をわかりやすく案内します。":
@@ -267,10 +261,8 @@ const ko: Dictionary = {
     "가입, 로그인, 연결, 표시 등에서 막혔을 때 확인 방법을 정리했습니다.",
   入門: "입문",
   アカウント: "계정",
-  基礎知識: "기초 지식",
   実践: "실습",
   学習案内: "학습 안내",
-  サポート: "지원",
   約3分: "약 3분",
   約5分: "약 5분",
   約8分: "약 8분",
