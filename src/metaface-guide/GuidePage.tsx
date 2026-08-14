@@ -1,14 +1,21 @@
-export type MetafaceGuideLang = "ja" | "en" | "ko";
+import {
+  localePath as academyLocalePath,
+  type AcademyLocale,
+} from "@academy/i18n/locales";
 
-const BASE = "/metaface-guide";
+export type MetafaceGuideLang = AcademyLocale;
+
+const GUIDE_PATH = "/academy/guide/metaface";
+const ASSET_BASE = "/academy/guide/metaface";
 const REGISTER_URL = "https://metaface.dfsscan.com";
 
-const asset = (path: string) => `${BASE}${path.startsWith("/") ? path : `/${path}`}`;
+const asset = (path: string) =>
+  `${ASSET_BASE}${path.startsWith("/") ? path : `/${path}`}`;
 
 const STEP_IMAGES = [1, 2, 3, 4, 5, 6].map((n) => asset(`/guide/step-${n}.png`));
 
-const localePath = (lang: MetafaceGuideLang) =>
-  lang === "ja" ? BASE : `${BASE}/${lang}`;
+const guideLocalePath = (lang: MetafaceGuideLang) =>
+  academyLocalePath(lang, GUIDE_PATH);
 
 const copy = {
   ja: {
@@ -133,7 +140,7 @@ export default function GuidePage({ lang }: { lang: MetafaceGuideLang }) {
   return (
     <main lang={HTML_LANG[lang]}>
       <header className="siteHeader">
-        <a className="brand" href={localePath(lang)}>
+        <a className="brand" href={guideLocalePath(lang)}>
           <span className="brandLockup">
             <img className="brandFace" src={asset("/brand/face-logo.png")} alt="" />
             <img
@@ -144,13 +151,13 @@ export default function GuidePage({ lang }: { lang: MetafaceGuideLang }) {
           </span>
         </a>
         <nav className="languages" aria-label="Language">
-          <a className={lang === "ja" ? "active" : ""} href={localePath("ja")}>
+          <a className={lang === "ja" ? "active" : ""} href={guideLocalePath("ja")}>
             日本語
           </a>
-          <a className={lang === "en" ? "active" : ""} href={localePath("en")}>
+          <a className={lang === "en" ? "active" : ""} href={guideLocalePath("en")}>
             English
           </a>
-          <a className={lang === "ko" ? "active" : ""} href={localePath("ko")}>
+          <a className={lang === "ko" ? "active" : ""} href={guideLocalePath("ko")}>
             한국어
           </a>
         </nav>

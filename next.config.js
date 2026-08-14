@@ -14,6 +14,11 @@ const nextConfig = {
       // Legacy /difinesai/* routes moved to /ai/*
       { source: '/difinesai', destination: '/ai', permanent: true },
       { source: '/difinesai/:path*', destination: '/ai/:path*', permanent: true },
+      // MetaFace guide moved under Academy
+      { source: '/metaface-guide', destination: '/academy/guide/metaface', permanent: true },
+      { source: '/metaface-guide/en', destination: '/academy/en/guide/metaface', permanent: true },
+      { source: '/metaface-guide/ko', destination: '/academy/ko/guide/metaface', permanent: true },
+      { source: '/metaface-guide/:path*', destination: '/academy/guide/metaface', permanent: true },
     ]
   },
 }

@@ -60,7 +60,6 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   const isScopedApp =
     pathname === '/ai' || pathname?.startsWith('/ai/') ||
     pathname === '/academy' || pathname?.startsWith('/academy/') ||
-    pathname === '/metaface-guide' || pathname?.startsWith('/metaface-guide/') ||
     false
 
   if (isScopedApp) {

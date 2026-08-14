@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Logo } from "./Logo";
 import { HeaderSearch } from "./HeaderSearch";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -10,12 +10,14 @@ import { Sheet, SheetContent, SheetTitle } from "../ui/sheet";
 import { useAcademyI18n } from "@academy/i18n/AcademyLocaleProvider";
 import { stripLocaleFromPath } from "@academy/i18n/locales";
 
-type NavItem = { label: string; to: string; hasMenu?: boolean };
+type NavItem = { label: string; to: string };
+
 const navItems: NavItem[] = [
-  { label: "記事", to: "/academy/articles", hasMenu: true },
+  { label: "記事", to: "/academy/articles" },
   { label: "コース", to: "/academy/courses" },
   { label: "Q&A", to: "/academy/qa" },
-  { label: "パートナーシップ", to: "/academy/partnership", hasMenu: true },
+  { label: "ガイド", to: "/academy/guide" },
+  { label: "パートナーシップ", to: "/academy/partnership" },
 ];
 
 export function Header() {
@@ -41,7 +43,6 @@ export function Header() {
               }`}
             >
               {t(it.label)}
-              {it.hasMenu && <ChevronDown className="w-4 h-4" />}
               {isActive(it.to) && (
                 <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-primary rounded-full" />
               )}
@@ -78,7 +79,6 @@ export function Header() {
                 }`}
               >
                 {t(it.label)}
-                {it.hasMenu && <ChevronDown className="w-4 h-4 opacity-60" />}
               </a>
             ))}
           </nav>

@@ -3,11 +3,17 @@ import Footer from "@/src/components/Footer";
 import { Header } from "./Header";
 import { PromoBar } from "./PromoBar";
 
-export function PageShell({ children }: { children: ReactNode }) {
+export function PageShell({
+  children,
+  hidePromo = false,
+}: {
+  children: ReactNode;
+  hidePromo?: boolean;
+}) {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <PromoBar />
+      {hidePromo ? null : <PromoBar />}
       <main className="flex-1">{children}</main>
       <Footer />
     </div>

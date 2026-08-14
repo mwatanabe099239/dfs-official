@@ -147,3 +147,31 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+/* Guide catalog illustration (ported from DFS-Academy-Guide) */
+.academy-scope .guide-illustration path,
+.academy-scope .guide-illustration circle {
+  fill: #fff;
+  stroke: #1e7a3e;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.academy-scope .guide-illustration .light {
+  fill: #f5fcf6;
+  stroke-width: 2;
+}
+.academy-scope .guide-illustration .soft {
+  fill: none;
+  stroke: #b9dfc3;
+  stroke-width: 2;
+}
+.academy-scope .guide-illustration .pencil {
+  fill: #eaf8ed;
+}
+.academy-scope .guide-illustration .spark {
+  fill: none;
+  stroke: #32b557;
+  stroke-width: 3;
+}
+
