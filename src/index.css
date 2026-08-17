@@ -73,7 +73,7 @@ code {
 }
 
 .prose-slate h1 {
-  font-size: 2.25em;
+  font-size: 1.75em;
   font-weight: 700;
   color: #0f172a;
   border-bottom: 2px solid #e2e8f0;
@@ -83,7 +83,7 @@ code {
 }
 
 .prose-slate h2 {
-  font-size: 1.875em;
+  font-size: 1.5em;
   font-weight: 600;
   color: #0f172a;
   margin-top: 2em;
@@ -91,11 +91,25 @@ code {
 }
 
 .prose-slate h3 {
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: 600;
   color: #0f172a;
   margin-top: 1.5em;
   margin-bottom: 0.75em;
+}
+
+@media (min-width: 768px) {
+  .prose-slate h1 {
+    font-size: 2.25em;
+  }
+
+  .prose-slate h2 {
+    font-size: 1.875em;
+  }
+
+  .prose-slate h3 {
+    font-size: 1.5em;
+  }
 }
 
 .prose-slate p {

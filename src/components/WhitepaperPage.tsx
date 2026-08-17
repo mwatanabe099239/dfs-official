@@ -1,9 +1,8 @@
 'use client'
 
 import React, { useState, useEffect, useMemo } from 'react'
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { HiChevronRight, HiChevronDown, HiChevronLeft, HiX } from 'react-icons/hi'
+import { HiChevronRight, HiChevronLeft, HiX } from 'react-icons/hi'
 import { FiMenu } from 'react-icons/fi'
 
 interface WhitepaperMenu {
@@ -35,7 +34,7 @@ const WhitepaperPage: React.FC = () => {
   const [selectedSubmenuSlug, setSelectedSubmenuSlug] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true)
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
 
   // Fetch whitepaper data
   useEffect(() => {
@@ -135,11 +134,26 @@ const WhitepaperPage: React.FC = () => {
     }
   }, [menus, selectedSubmenuSlug])
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+    if (!sidebarOpen) return
+
+    const mq = window.matchMedia('(max-width: 1023px)')
+    if (!mq.matches) return
+
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = prev
+    }
+  }, [sidebarOpen])
 
   // Handle submenu selection
   const handleSubmenuSelect = (submenu: WhitepaperSubmenu) => {
     const slug = submenu.slug || submenu.id
     setSelectedSubmenuSlug(slug)
+    setSidebarOpen(false)
     // Update URL hash for deep linking using slug
     if (typeof window !== 'undefined') {
       window.history.replaceState(null, '', `${window.location.pathname}#${slug}`)
@@ -195,8 +209,8 @@ const WhitepaperPage: React.FC = () => {
     const isPermissionError = error.includes('permission') || error.includes('403')
     
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <div className={`max-w-2xl mx-auto p-6 rounded-lg border ${
+      <div className="min-h-screen flex items-center justify-center bg-white px-4">
+        <div className={`w-full max-w-2xl mx-auto p-6 rounded-lg border ${
           isPermissionError 
             ? 'border-orange-200 bg-orange-50 text-orange-900' 
             : 'border-red-200 bg-red-50 text-red-800'
@@ -236,187 +250,226 @@ const WhitepaperPage: React.FC = () => {
     )
   }
 
-  return (
-    <div className="min-h-screen bg-white flex">
-      {/* Left Sidebar */}
-      <aside className={`${sidebarOpen ? 'block' : 'hidden'} lg:block w-80 bg-white border-r border-gray-200 shadow-sm transition-transform duration-300`} style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden' }}>
-        {/* Sticky Header */}
-        <div className="bg-white border-b border-gray-200 px-4 py-3 z-10 flex-shrink-0">
-          <div className="flex items-start justify-between">
-            <div className="flex-1">
-              <h2 className="text-lg font-semibold text-gray-900">Documentation</h2>
-              <p className="text-xs text-gray-500 mt-0.5">Navigate through sections</p>
-            </div>
+  const renderSidebarNav = (showClose: boolean) => (
+    <>
+      <div className="bg-white border-b border-gray-200 px-4 py-3 flex-shrink-0">
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex-1 min-w-0">
+            <h2 className="text-lg font-semibold text-gray-900">Documentation</h2>
+            <p className="text-xs text-gray-500 mt-0.5">Navigate through sections</p>
+          </div>
+          {showClose && (
             <button
               onClick={() => setSidebarOpen(false)}
-              className="lg:hidden p-1 hover:bg-gray-100 rounded transition-colors"
+              className="p-1 hover:bg-gray-100 rounded transition-colors flex-shrink-0"
               aria-label="Close sidebar"
             >
               <HiX className="w-5 h-5 text-gray-600" />
             </button>
-          </div>
+          )}
         </div>
+      </div>
 
-        {/* Navigation Menu - Scrollable */}
-        <nav className="flex-1 overflow-y-auto" style={{ height: 'calc(100vh - 100px)' }}>
-          <div className="py-2">
-            {menus.map(menu => {
-              const isActive = isMenuActive(menu)
-              const submenuCount = menu.submenus.length
+      <nav className="flex-1 overflow-y-auto overscroll-contain">
+        <div className="py-2">
+          {menus.map(menu => {
+            const isActive = isMenuActive(menu)
+            const submenuCount = menu.submenus.length
 
-              return (
-                <div key={menu.id} className="mb-0.5">
-                  {/* Menu Header */}
-                  <div
-                    className={`w-full flex items-center px-4 py-2.5 rounded-md transition-colors ${
-                      isActive
-                        ? 'bg-[#21f201]/10'
-                        : 'hover:bg-gray-50'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3 flex-1 min-w-0">
-                      <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                        isActive ? 'bg-[#21f201]' : 'bg-gray-400'
-                      }`}></div>
-                      <span className={`text-sm font-medium truncate ${
-                        isActive ? 'text-gray-900' : 'text-gray-900'
-                      }`}>
-                        {menu.title}
-                      </span>
+            return (
+              <div key={menu.id} className="mb-0.5">
+                <div
+                  className={`w-full flex items-center px-4 py-2.5 rounded-md transition-colors ${
+                    isActive
+                      ? 'bg-[#21f201]/10'
+                      : 'hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-center gap-3 flex-1 min-w-0">
+                    <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                      isActive ? 'bg-[#21f201]' : 'bg-gray-400'
+                    }`}></div>
+                    <span className="text-sm font-medium truncate text-gray-900">
+                      {menu.title}
+                    </span>
+                  </div>
+                </div>
+
+                {submenuCount > 0 && (
+                  <div className="ml-5 mt-0.5 pl-3 relative border-l-2 border-gray-200">
+                    <div className="space-y-0.5 py-1">
+                      {menu.submenus.map((submenu) => {
+                        const isSelected = (submenu.slug && submenu.slug === selectedSubmenuSlug) || (!submenu.slug && submenu.id === selectedSubmenuSlug)
+                        return (
+                          <button
+                            key={submenu.id}
+                            onClick={() => handleSubmenuSelect(submenu)}
+                            className={`w-full text-left px-3 py-2 rounded-md transition-all duration-150 relative ${
+                              isSelected
+                                ? 'bg-[#21f201]/10 text-gray-900 font-medium'
+                                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                            }`}
+                          >
+                            {isSelected && (
+                              <div className="absolute -left-[11px] top-0 bottom-0 w-[2px] bg-[#21f201] z-10"></div>
+                            )}
+                            <span className="text-sm break-words">{submenu.title}</span>
+                          </button>
+                        )
+                      })}
                     </div>
                   </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      </nav>
+    </>
+  )
 
-                  {/* Submenus - Always visible */}
-                  {submenuCount > 0 && (
-                    <div className="ml-5 mt-0.5 pl-3 relative border-l-2 border-gray-200">
-                      <div className="space-y-0.5 py-1">
-                        {menu.submenus.map((submenu) => {
-                          const submenuSlug = submenu.slug || submenu.id
-                          const isSelected = (submenu.slug && submenu.slug === selectedSubmenuSlug) || (!submenu.slug && submenu.id === selectedSubmenuSlug)
-                          return (
-                            <button
-                              key={submenu.id}
-                              onClick={() => handleSubmenuSelect(submenu)}
-                              className={`w-full text-left px-3 py-2 rounded-md transition-all duration-150 relative ${
-                                isSelected
-                                  ? 'bg-[#21f201]/10 text-gray-900 font-medium'
-                                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                              }`}
-                            >
-                              {isSelected && (
-                                <div className="absolute -left-[11px] top-0 bottom-0 w-[2px] bg-[#21f201] z-10"></div>
-                              )}
-                              <span className="text-sm">{submenu.title}</span>
-                            </button>
-                          )
-                        })}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )
-            })}
-          </div>
-        </nav>
-      </aside>
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Mobile backdrop */}
+      {sidebarOpen && (
+        <button
+          type="button"
+          aria-label="Close navigation"
+          className="lg:hidden fixed inset-0 z-40 bg-black/40"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
-      {/* Main Content Area */}
-      <main className="flex-1 min-w-0 bg-white">
-        <div className="max-w-4xl mx-auto px-10 py-10">
-          {/* Mobile sidebar toggle */}
-          {!sidebarOpen && (
+      <div className="flex min-h-screen">
+        {/* Desktop sidebar */}
+        <aside className="hidden lg:flex lg:flex-col w-80 flex-shrink-0 bg-white border-r border-gray-200 sticky top-0 h-screen overflow-hidden">
+          {renderSidebarNav(false)}
+        </aside>
+
+        {/* Mobile drawer sidebar */}
+        <aside
+          className={`lg:hidden fixed inset-y-0 left-0 z-50 flex flex-col w-[min(20rem,85vw)] max-w-full bg-white border-r border-gray-200 shadow-xl transition-transform duration-300 ease-out ${
+            sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
+        >
+          {renderSidebarNav(true)}
+        </aside>
+
+        {/* Main Content Area */}
+        <main className="flex-1 min-w-0 bg-white w-full">
+          {/* Mobile sticky bar */}
+          <div className="lg:hidden sticky top-0 z-30 flex items-center gap-3 px-4 py-3 bg-white/95 backdrop-blur border-b border-gray-200">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white border border-gray-200 rounded-md shadow-md hover:bg-gray-50"
+              className="p-2 -ml-1 rounded-md border border-gray-200 bg-white hover:bg-gray-50 shadow-sm"
               aria-label="Open sidebar"
             >
-              <FiMenu className="w-5 h-5 text-gray-600" />
+              <FiMenu className="w-5 h-5 text-gray-700" />
             </button>
-          )}
-          
-          {currentSubmenu ? (
-            <>
-              {/* Title */}
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 pb-4 border-b border-gray-200">
-                {currentSubmenu.title}
-              </h1>
-
-              {/* Content */}
-              <div
-                className="prose prose-slate max-w-none"
-                dangerouslySetInnerHTML={{ __html: currentSubmenu.content }}
-                style={{
-                  color: '#334155',
-                  overflowWrap: 'break-word',
-                  wordWrap: 'break-word',
-                  wordBreak: 'break-word',
-                }}
-              />
-
-              {/* Previous/Next Navigation */}
-              {(previousSubmenu || nextSubmenu) && (
-                <div className="mt-8 grid grid-cols-2 gap-4">
-                  {/* Previous */}
-                  {previousSubmenu ? (
-                    <button
-                      onClick={() => handleSubmenuSelect(previousSubmenu)}
-                      className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-[#21f201] hover:bg-[#21f201]/10 transition-all min-h-[80px] group w-full"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#21f201]/20 transition-colors flex-shrink-0">
-                        <HiChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-[#21f201] group-hover:translate-x-[-2px] transition-transform" />
-                      </div>
-                      <div className="flex-1 min-w-0 text-left">
-                        <p className="text-xs text-gray-500 mb-1">Previous</p>
-                        <p className="text-sm font-semibold text-gray-900 truncate">
-                          {previousSubmenu.title}
-                        </p>
-                      </div>
-                    </button>
-                  ) : (
-                    <div className="w-full"></div>
-                  )}
-
-                  {/* Next */}
-                  {nextSubmenu ? (
-                    <button
-                      onClick={() => handleSubmenuSelect(nextSubmenu)}
-                      className="flex items-center gap-4 p-4 border border-gray-300 rounded-lg hover:border-[#21f201] hover:bg-[#21f201]/10 transition-all min-h-[80px] group w-full"
-                    >
-                      <div className="flex-1 min-w-0 text-right">
-                        <p className="text-xs text-gray-500 mb-1">Next</p>
-                        <p className="text-sm font-semibold text-gray-900 truncate">
-                          {nextSubmenu.title}
-                        </p>
-                      </div>
-                      <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#21f201]/20 transition-colors flex-shrink-0">
-                        <HiChevronRight className="w-5 h-5 text-gray-600 group-hover:text-[#21f201] group-hover:translate-x-[2px] transition-transform" />
-                      </div>
-                    </button>
-                  ) : (
-                    <div className="w-full"></div>
-                  )}
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="text-center py-16">
-              <p className="text-gray-600">Select a section from the sidebar to view content.</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs text-gray-500">Documentation</p>
+              <p className="text-sm font-medium text-gray-900 truncate">
+                {currentSubmenu?.title || 'Select a section'}
+              </p>
             </div>
-          )}
-        </div>
-      </main>
+          </div>
+
+          <div className="max-w-4xl mx-auto px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10">
+            {currentSubmenu ? (
+              <>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-gray-200 break-words">
+                  {currentSubmenu.title}
+                </h1>
+
+                <div
+                  className="prose prose-slate max-w-none whitepaper-prose"
+                  dangerouslySetInnerHTML={{ __html: currentSubmenu.content }}
+                />
+
+                {(previousSubmenu || nextSubmenu) && (
+                  <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    {previousSubmenu ? (
+                      <button
+                        onClick={() => handleSubmenuSelect(previousSubmenu)}
+                        className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 border border-gray-300 rounded-lg hover:border-[#21f201] hover:bg-[#21f201]/10 transition-all min-h-[72px] sm:min-h-[80px] group w-full"
+                      >
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#21f201]/20 transition-colors flex-shrink-0">
+                          <HiChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-[#21f201] group-hover:translate-x-[-2px] transition-transform" />
+                        </div>
+                        <div className="flex-1 min-w-0 text-left">
+                          <p className="text-xs text-gray-500 mb-1">Previous</p>
+                          <p className="text-sm font-semibold text-gray-900 line-clamp-2">
+                            {previousSubmenu.title}
+                          </p>
+                        </div>
+                      </button>
+                    ) : (
+                      <div className="hidden sm:block w-full"></div>
+                    )}
+
+                    {nextSubmenu ? (
+                      <button
+                        onClick={() => handleSubmenuSelect(nextSubmenu)}
+                        className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 border border-gray-300 rounded-lg hover:border-[#21f201] hover:bg-[#21f201]/10 transition-all min-h-[72px] sm:min-h-[80px] group w-full"
+                      >
+                        <div className="flex-1 min-w-0 text-left sm:text-right">
+                          <p className="text-xs text-gray-500 mb-1">Next</p>
+                          <p className="text-sm font-semibold text-gray-900 line-clamp-2">
+                            {nextSubmenu.title}
+                          </p>
+                        </div>
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-[#21f201]/20 transition-colors flex-shrink-0">
+                          <HiChevronRight className="w-5 h-5 text-gray-600 group-hover:text-[#21f201] group-hover:translate-x-[2px] transition-transform" />
+                        </div>
+                      </button>
+                    ) : null}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-gray-600">Select a section from the sidebar to view content.</p>
+              </div>
+            )}
+          </div>
+        </main>
+      </div>
 
       <style>{`
-        .prose * {
-          overflow-wrap: break-word;
-          word-wrap: break-word;
+        .whitepaper-prose {
+          color: #334155;
+          overflow-wrap: anywhere;
           word-break: break-word;
         }
-        .prose pre,
-        .prose code {
-          overflow-wrap: break-word;
-          word-wrap: break-word;
+        .whitepaper-prose * {
+          overflow-wrap: anywhere;
           word-break: break-word;
+          max-width: 100%;
+        }
+        .whitepaper-prose img,
+        .whitepaper-prose video,
+        .whitepaper-prose iframe {
+          max-width: 100%;
+          height: auto;
+        }
+        .whitepaper-prose pre {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          max-width: 100%;
+        }
+        .whitepaper-prose table {
+          display: block;
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        @media (max-width: 640px) {
+          .whitepaper-prose h1 { font-size: 1.5em; }
+          .whitepaper-prose h2 { font-size: 1.35em; }
+          .whitepaper-prose h3 { font-size: 1.2em; }
+          .whitepaper-prose pre { padding: 0.875em; font-size: 0.8125em; }
+          .whitepaper-prose table th,
+          .whitepaper-prose table td { padding: 0.5em 0.75em; }
         }
       `}</style>
     </div>
