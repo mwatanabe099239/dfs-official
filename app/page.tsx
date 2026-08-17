@@ -25,12 +25,22 @@ export default function HomePage(): React.JSX.Element {
           {t('landing.hero.subtitle')}
         </p>
         <div className="flex flex-row gap-2 justify-center sm:justify-start">
-          <button className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${isDark ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" : "bg-gray-900 text-white hover:bg-gray-800"}`}>
-            {t('landing.hero.issueCoin')}
-          </button>
-          <button className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${isDark ? "text-slate-300 border-white hover:bg-white hover:text-black" : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"}`}>
-            {t('common.contactUs')}
-          </button>
+          <a
+            href="https://www.difines.org/academy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${isDark ? "bg-[#F7F7F8] text-[#181A1E] hover:bg-[#e1d9d9]" : "bg-gray-900 text-white hover:bg-gray-800"}`}
+          >
+            Learn
+          </a>
+          <a
+            href="https://www.difines.org/ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`font-space bg-transparent border py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 ${isDark ? "text-slate-300 border-white hover:bg-white hover:text-black" : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"}`}
+          >
+            Consultant
+          </a>
         </div>
       </div>
     </div>
@@ -92,8 +102,13 @@ export default function HomePage(): React.JSX.Element {
         <p className={`text-[1.25rem] leading-[1.75rem] font-medium mb-8 font-space ${isDark ? "text-[#C4C5CB]" : "text-gray-600"}`}>
           {t('home.join.description')}
         </p>
-        <a href="#" className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block bg-transparent border ${isDark ? "text-slate-300 border-white hover:bg-white hover:text-black" : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"}`}>
-          {t('landing.hero.issueCoin')}
+        <a
+          href="https://www.difines.org/academy/guide/metaface"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block bg-transparent border ${isDark ? "text-slate-300 border-white hover:bg-white hover:text-black" : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"}`}
+        >
+          Wallet Creation Guide
         </a>
       </div>
     </div>
@@ -172,8 +187,13 @@ export default function HomePage(): React.JSX.Element {
             DFS Chain aims to provide support and assistance to projects seeking to migrate from Web3 blockchains.
           </p>
           <div className="flex justify-center">
-            <a href="#" className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block bg-transparent border ${isDark ? "text-slate-300 border-white hover:bg-white hover:text-black" : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"}`}>
-              See Instructions
+            <a
+              href="https://www.difines.org/academy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`font-space py-1.5 px-4 text-sm sm:text-base rounded-md transition duration-300 inline-block bg-transparent border ${isDark ? "text-slate-300 border-white hover:bg-white hover:text-black" : "text-gray-700 border-gray-300 hover:bg-gray-100 hover:text-black"}`}
+            >
+              Study more
             </a>
           </div>
         </div>

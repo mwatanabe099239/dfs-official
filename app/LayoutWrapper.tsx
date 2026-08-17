@@ -3,12 +3,9 @@
 import React, { ReactNode } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useLanguage } from '../src/context/LanguageContext'
 import Footer from '../src/components/Footer'
 
 function Navbar() {
-  const { t } = useLanguage()
-
   return (
     <nav className="py-4 transition-colors duration-300 bg-white text-gray-900 border-b border-gray-200">
       <div className="flex items-center justify-between md:px-20 px-5">
@@ -19,32 +16,28 @@ function Navbar() {
             className="md:w-40 w-32"
           />
         </Link>
-        <div className="flex items-center gap-2 md:hidden">
-          <button
-            data-collapse-toggle="navbar-default"
-            type="button"
-            className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm rounded-lg focus:outline-none focus:ring-2 text-gray-500 hover:bg-gray-100 focus:ring-gray-200"
-            aria-controls="navbar-default"
-            aria-expanded="false"
+        <div className="flex items-center gap-2 sm:gap-4">
+          <a
+            href="https://www.difines.org/academy/guide/metaface"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs sm:text-sm font-medium py-2 px-2 sm:px-4 rounded-lg border transition-colors bg-white border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-black whitespace-nowrap"
           >
-            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-          </button>
-        </div>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="flex items-center space-x-4 md:flex-row">
-            <li>
-              <a href="#contact" className="block text-sm font-medium py-2 px-4 rounded-lg border transition-colors bg-white border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-black">
-                {t("common.contactUs")}
-              </a>
-            </li>
-            <li>
-              <a href="#get-started" className="block text-sm font-medium py-2 px-4 rounded-lg transition-colors bg-gray-900 text-white hover:bg-gray-800">
-                {t("common.getStarted")}
-              </a>
-            </li>
-          </ul>
+            Wallet Creation Guide
+          </a>
+          <a
+            href="https://metaface.dfsscan.com/get-started"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-lg overflow-hidden hover:opacity-90 transition-opacity"
+            aria-label="Metaface — Get Started"
+          >
+            <img
+              src="/metaface-logo.png"
+              alt="Metaface"
+              className="h-9 w-9 sm:h-10 sm:w-10 object-cover rounded-lg"
+            />
+          </a>
         </div>
       </div>
     </nav>

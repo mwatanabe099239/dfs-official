@@ -7,118 +7,53 @@
     position: relative;
     overflow: hidden;
     background-color: rgb(20, 21, 26);
-    background-image: url(/hero.jpg);
-    background-size: 58% auto;
-    background-position: right center;
-    background-repeat: no-repeat;
+    background-image: none;
     min-height: clamp(520px, 70vh, 780px);
 }
 
 .first-section-light {
     background-color: #f1f5f9;
-    /* Square PNG has a black canvas — render via ::after so we can zoom + blend it cleanly */
     background-image: none;
     min-height: clamp(520px, 70vh, 780px);
 }
 
 .first-section-light::after {
-    content: "";
-    position: absolute;
-    right: -2%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: min(52vw, 620px);
-    height: min(52vw, 620px);
-    background-image: url(/hero-light.png);
-    /* Zoom past the empty padding around the cubes */
-    background-size: 140% auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Soft-edge the black PNG canvas into the light hero */
-    -webkit-mask-image: radial-gradient(circle at center, #000 42%, transparent 72%);
-    mask-image: radial-gradient(circle at center, #000 42%, transparent 72%);
-    pointer-events: none;
-    z-index: 1;
+    display: none;
 }
 
-/* Ensure content doesn't overlap with background image */
 .first-section > div {
     max-width: min(52%, 40rem);
     z-index: 10;
     position: relative;
 }
 
-/* Large screens */
 @media (min-width: 1536px) {
-    .first-section {
-        background-size: 52% auto;
-    }
-
-    .first-section-light::after {
-        width: min(46vw, 680px);
-        height: min(46vw, 680px);
-        right: 0;
-        background-size: 142% auto;
-    }
-
     .first-section > div {
         max-width: min(48%, 42rem);
     }
 }
 
-/* Desktop */
 @media (max-width: 1535px) and (min-width: 1025px) {
-    .first-section {
-        background-size: 58% auto;
-    }
-
-    .first-section-light::after {
-        width: min(54vw, 580px);
-        height: min(54vw, 580px);
-        background-size: 140% auto;
-    }
-
     .first-section > div {
         max-width: min(50%, 38rem);
     }
 }
 
-/* Tablet */
 @media (max-width: 1024px) {
-    .first-section {
-        background-size: 55% auto;
-        background-position: right 40%;
-    }
-
-    .first-section-light::after {
-        width: min(56vw, 460px);
-        height: min(56vw, 460px);
-        right: -4%;
-        background-size: 142% auto;
-        opacity: 0.95;
-    }
-
     .first-section > div {
         max-width: min(58%, 34rem);
     }
 }
 
-/* Mobile — hide hero image */
 @media (max-width: 768px) {
     .first-section {
-        background-image: none;
         min-height: auto;
         align-items: flex-start;
     }
 
     .first-section-light {
-        background-image: none;
         min-height: auto;
         align-items: flex-start;
-    }
-
-    .first-section-light::after {
-        display: none;
     }
 
     .first-section > div {
