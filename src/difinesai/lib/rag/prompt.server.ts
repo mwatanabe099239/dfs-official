@@ -2,34 +2,16 @@ import type { Locale } from "../../i18n/translations";
 
 import type { MatchedDocument } from "./supabase.server";
 
-const GLOBAL_FALLBACK_FORMAT: Record<Locale, string> = {
-  en: `This topic is not covered in our current knowledge base.
+const CONSULTANT_IDENTITY = `You are DIFINES AI, the official AI consultant for DIFINES / DFS Chain.
+Speak as DIFINES's own assistant — never as a third-party observer writing about DIFINES from the outside.
+Do not tell users to check the DIFINES website, blog, press releases, social media, regulatory filings, or other external sources for information you lack.
+Do not invent, guess, or fabricate DIFINES facts (leadership, tokenomics, products, partnerships, timelines, or policies).`;
 
-I'll search for relevant information using broader AI capabilities.
+const CONSULTANT_SYSTEM_PROMPT_RAG_ONLY = `${CONSULTANT_IDENTITY}
 
-Here is what I found from the global search:`,
-  ja: `このトピックは現在のナレッジベースには含まれていません。
-
-より広いAI知識を用いて関連情報を検索します。
-
-グローバル検索からの回答は以下のとおりです。`,
-  ko: `이 주제는 현재 지식 베이스에 포함되어 있지 않습니다.
-
-더 넓은 AI 지식을 사용하여 관련 정보를 검색하겠습니다.
-
-글로벌 검색 결과는 다음과 같습니다.`,
-};
-
-export const CONSULTANT_SYSTEM_PROMPT_WITH_GLOBAL_FALLBACK = `You are a helpful consultant assistant for this website.
-Answer the user's question using the provided context from the knowledge base when it is sufficient.
-If the context does not contain enough information to answer the question, do not say that you lack information. Instead, follow the global search response format below and answer using your general AI knowledge.
-When answering from general knowledge, be helpful and professional. If you are uncertain, say so clearly.
-Keep answers clear, concise, and professional.`;
-
-const CONSULTANT_SYSTEM_PROMPT_RAG_ONLY = `You are a helpful consultant assistant for this website.
 Answer the user's question using only the provided context from the knowledge base.
-If the context does not contain enough information, say that you do not have enough information yet.
-Do not invent facts.
+If the context does not contain enough information to answer, say clearly that DIFINES AI does not currently have registered information on that topic.
+Keep the refusal short (one or two sentences). Do not add speculation, recommendations, or a "global search" section.
 Keep answers clear, concise, and professional.`;
 
 const LANGUAGE_INSTRUCTIONS: Record<Locale, string> = {
@@ -46,39 +28,68 @@ Prefer the provided context when it is sufficient.
 If the user writes in Korean, Japanese, or English, always answer in Korean.`,
 };
 
-const GLOBAL_LANGUAGE_INSTRUCTIONS: Record<Locale, string> = {
+const NO_CONTEXT_LANGUAGE_INSTRUCTIONS: Record<Locale, string> = {
   en: `Respond in English. If the user writes in another language, still answer in English unless they explicitly ask otherwise.`,
   ja: `Respond in Japanese (日本語). If the user writes in Japanese or English, always answer in Japanese.`,
   ko: `Respond in Korean (한국어). If the user writes in another language, still answer in Korean unless they explicitly ask otherwise.`,
 };
 
 const NO_CONTEXT_MESSAGES: Record<Locale, string> = {
-  en: "I do not have enough information in the knowledge base to answer that yet.",
-  ja: "ナレッジベースにその質問に答えるための十分な情報がまだありません。",
-  ko: "지식 베이스에 해당 질문에 답할 충분한 정보가 아직 없습니다.",
+  en: "Currently, DIFINES AI does not have registered information about that.",
+  ja: "現在、DIFINES AIにはその件に関する登録情報がありません。",
+  ko: "현재 DIFINES AI에는 해당 내용에 대한 등록 정보가 없습니다.",
 };
 
+const NO_CONTEXT_EXAMPLES: Record<Locale, string> = {
+  en: `Examples of good replies:
+- "Currently, DIFINES AI does not have registered information about the CEO of DIFINES."
+- "Currently, DIFINES AI does not have registered information about that."
+
+Do not write anything else after the refusal.`,
+  ja: `良い返答の例:
+- 「現在、DIFINES AIにはDIFINESのCEOに関する登録情報がありません。」
+- 「現在、DIFINES AIにはその件に関する登録情報がありません。」
+
+拒否の一文以外は書かないでください。`,
+  ko: `좋은 답변 예시:
+- "현재 DIFINES AI에는 DIFINES CEO에 대한 등록 정보가 없습니다."
+- "현재 DIFINES AI에는 해당 내용에 대한 등록 정보가 없습니다."
+
+거절 문장 외에는 아무것도 쓰지 마세요.`,
+};
+
+/** @deprecated Kept for callers that still reference the old global-search header copy. */
 export function getGlobalFallbackFormat(locale: Locale): string {
-  return GLOBAL_FALLBACK_FORMAT[locale];
+  return NO_CONTEXT_MESSAGES[locale];
 }
 
 export function getNoContextMessage(locale: Locale): string {
   return NO_CONTEXT_MESSAGES[locale];
 }
 
+/**
+ * Used when the knowledge base has no relevant hits.
+ * Asks the model for a short first-party refusal — no invention, no external-search advice.
+ */
 export function buildGlobalFallbackSystemPrompt(locale: Locale = "en"): string {
-  const languageBlock = GLOBAL_LANGUAGE_INSTRUCTIONS[locale];
-  const formatBlock = getGlobalFallbackFormat(locale);
+  return buildNoContextSystemPrompt(locale);
+}
 
-  return `You are a helpful consultant assistant for this website.
-The user's question is not covered by the knowledge base. Answer using your general AI knowledge.
+export function buildNoContextSystemPrompt(locale: Locale = "en"): string {
+  const languageBlock = NO_CONTEXT_LANGUAGE_INSTRUCTIONS[locale];
+  const exampleBlock = NO_CONTEXT_EXAMPLES[locale];
 
-Structure your reply exactly as follows. Use these lines verbatim at the start, then add a blank line before your answer:
+  return `${CONSULTANT_IDENTITY}
 
-${formatBlock}
+The user's question is not covered by the DIFINES knowledge base.
 
-After the blank line, provide a clear, accurate, and professional answer to the user's question.
-If you are uncertain about any detail, say so clearly.
+Reply with one short sentence stating that DIFINES AI does not currently have registered information about the specific topic the user asked about.
+Name the topic naturally when it is clear from the question.
+Do not invent an answer.
+Do not add recommendations, next steps, speculation, or links to external sources.
+Do not say you will search globally or use broader AI capabilities.
+
+${exampleBlock}
 
 ${languageBlock}`;
 }
@@ -86,15 +97,14 @@ ${languageBlock}`;
 export function buildSystemPromptWithContext(
   documents: MatchedDocument[],
   locale: Locale = "en",
-  globalSearchEnabled = false,
+  // Kept for call-site compatibility; global invention fallback is intentionally disabled.
+  _globalSearchEnabled = false,
 ): string {
   const languageBlock = LANGUAGE_INSTRUCTIONS[locale];
-  const systemPrompt = globalSearchEnabled
-    ? CONSULTANT_SYSTEM_PROMPT_WITH_GLOBAL_FALLBACK
-    : CONSULTANT_SYSTEM_PROMPT_RAG_ONLY;
+  const systemPrompt = CONSULTANT_SYSTEM_PROMPT_RAG_ONLY;
 
   if (documents.length === 0) {
-    return `${systemPrompt}\n\n${languageBlock}`;
+    return buildNoContextSystemPrompt(locale);
   }
 
   const context = documents
@@ -104,24 +114,9 @@ export function buildSystemPromptWithContext(
     )
     .join("\n\n---\n\n");
 
-  if (!globalSearchEnabled) {
-    return `${systemPrompt}
-
-${languageBlock}
-
-Knowledge base context:
-${context}`;
-  }
-
-  const formatBlock = getGlobalFallbackFormat(locale);
-
   return `${systemPrompt}
 
 ${languageBlock}
-
-If the knowledge base context below is insufficient, start your reply with these lines verbatim, add a blank line, then answer from general AI knowledge:
-
-${formatBlock}
 
 Knowledge base context:
 ${context}`;

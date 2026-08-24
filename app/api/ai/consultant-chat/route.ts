@@ -10,9 +10,8 @@ import {
   saveChatMessage,
 } from "../../../../src/difinesai/lib/rag/chat.server";
 import {
-  buildGlobalFallbackSystemPrompt,
+  buildNoContextSystemPrompt,
   buildSystemPromptWithContext,
-  getNoContextMessage,
 } from "../../../../src/difinesai/lib/rag/prompt.server";
 import { matchDocuments } from "../../../../src/difinesai/lib/rag/supabase.server";
 
@@ -130,9 +129,7 @@ export async function POST(request: Request) {
     );
 
     if (relevantDocuments.length === 0) {
-      const systemPrompt = config.globalSearchEnabled
-        ? buildGlobalFallbackSystemPrompt(locale)
-        : `Reply with exactly this sentence and nothing else:\n\n${getNoContextMessage(locale)}`;
+      const systemPrompt = buildNoContextSystemPrompt(locale);
 
       const result = streamText({
         model,
@@ -148,7 +145,6 @@ export async function POST(request: Request) {
     const systemPrompt = buildSystemPromptWithContext(
       relevantDocuments,
       locale,
-      config.globalSearchEnabled,
     );
     const modelMessages = await convertToModelMessages(messages);
 
