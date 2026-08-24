@@ -1,5 +1,12 @@
 import { createGroq } from "@ai-sdk/groq";
-import { convertToModelMessages, streamText, type UIMessage } from "ai";
+import {
+  convertToModelMessages,
+  createUIMessageStream,
+  createUIMessageStreamResponse,
+  generateText,
+  streamText,
+  type UIMessage,
+} from "ai";
 import { z } from "zod";
 
 import { getServerConfig, syncServerEnvToProcess } from "../../../../src/difinesai/lib/config.server";
@@ -10,8 +17,8 @@ import {
   saveChatMessage,
 } from "../../../../src/difinesai/lib/rag/chat.server";
 import {
-  buildNoContextSystemPrompt,
   buildSystemPromptWithContext,
+  getNoContextMessage,
 } from "../../../../src/difinesai/lib/rag/prompt.server";
 import { matchDocuments } from "../../../../src/difinesai/lib/rag/supabase.server";
 
@@ -53,6 +60,28 @@ function jsonError(message: string, status = 500) {
     status,
     headers: { "Content-Type": "application/json" },
   });
+}
+
+/** Reliable UI stream that always shows text (avoids empty gpt-oss reasoning-only replies). */
+async function replyAsUiStream(
+  text: string,
+  persistAssistantReply: (text: string) => Promise<void>,
+) {
+  const reply = text.trim();
+  await persistAssistantReply(reply);
+
+  const stream = createUIMessageStream({
+    execute({ writer }) {
+      const id = crypto.randomUUID();
+      writer.write({ type: "start" });
+      writer.write({ type: "text-start", id });
+      writer.write({ type: "text-delta", id, delta: reply });
+      writer.write({ type: "text-end", id });
+      writer.write({ type: "finish" });
+    },
+  });
+
+  return createUIMessageStreamResponse({ stream });
 }
 
 export async function POST(request: Request) {
@@ -128,41 +157,42 @@ export async function POST(request: Request) {
       (doc) => doc.similarity >= MIN_SIMILARITY,
     );
 
+    // No KB hits: return a fixed first-party refusal (do not call the model —
+    // gpt-oss often returns empty visible text on refusal prompts).
     if (relevantDocuments.length === 0) {
-      const systemPrompt = buildNoContextSystemPrompt(locale);
-
-      const result = streamText({
-        model,
-        system: systemPrompt,
-        messages: await convertToModelMessages(messages),
-        onFinish: async ({ text }) => {
-          await persistAssistantReply(text);
-        },
-      });
-      return result.toUIMessageStreamResponse();
+      return await replyAsUiStream(getNoContextMessage(locale), persistAssistantReply);
     }
 
-    const systemPrompt = buildSystemPromptWithContext(
-      relevantDocuments,
-      locale,
-    );
+    const systemPrompt = buildSystemPromptWithContext(relevantDocuments, locale);
     const modelMessages = await convertToModelMessages(messages);
 
-    let result;
     try {
-      result = streamText({
+      const { text } = await generateText({
         model,
         system: systemPrompt,
         messages: modelMessages,
-        onFinish: async ({ text }) => {
-          await persistAssistantReply(text);
-        },
+        maxOutputTokens: 2048,
+        temperature: 0.2,
       });
-    } catch {
-      return jsonError("Failed to generate a response from Groq.");
-    }
 
-    return result.toUIMessageStreamResponse();
+      const reply = text.trim() || getNoContextMessage(locale);
+      return await replyAsUiStream(reply, persistAssistantReply);
+    } catch {
+      // Fall back to streaming once; if that also fails, return the safe refusal.
+      try {
+        const result = streamText({
+          model,
+          system: systemPrompt,
+          messages: modelMessages,
+          onFinish: async ({ text }) => {
+            await persistAssistantReply(text.trim() || getNoContextMessage(locale));
+          },
+        });
+        return result.toUIMessageStreamResponse();
+      } catch {
+        return await replyAsUiStream(getNoContextMessage(locale), persistAssistantReply);
+      }
+    }
   } catch (error) {
     console.error(error);
     return jsonError("Unexpected server error.");
