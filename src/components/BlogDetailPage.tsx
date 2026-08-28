@@ -16,6 +16,40 @@ import {
 } from 'react-icons/hi';
 import { FaTwitter, FaTelegram, FaLinkedin } from 'react-icons/fa';
 
+function isAvatarImageUrl(value?: string): boolean {
+  return /^(https?:\/\/|\/|data:image\/)/i.test(String(value || "").trim());
+}
+
+function AuthorAvatar({
+  avatar,
+  author,
+  sizeClassName = "w-16 h-16",
+  textClassName = "text-3xl",
+}: {
+  avatar?: string;
+  author: string;
+  sizeClassName?: string;
+  textClassName?: string;
+}) {
+  if (avatar && isAvatarImageUrl(avatar)) {
+    return (
+      <img
+        src={avatar}
+        alt={author || "Author"}
+        className={`${sizeClassName} rounded-full object-cover border border-[#21f201]/30`}
+      />
+    );
+  }
+
+  return (
+    <div
+      className={`${sizeClassName} rounded-full bg-[#21f201]/10 flex items-center justify-center ${textClassName}`}
+    >
+      {avatar || author?.charAt(0)?.toUpperCase() || "A"}
+    </div>
+  );
+}
+
 interface BlogPost {
   id: string
   title: string
@@ -189,8 +223,17 @@ const BlogDetailPage: React.FC = () => {
               {post.title}
             </h1>
             <div className="flex flex-wrap items-center gap-4 text-white/80 text-sm">
-              <span className="flex items-center gap-1">
-                <HiOutlineUser className="w-4 h-4" />
+              <span className="flex items-center gap-2">
+                {post.authorAvatar && isAvatarImageUrl(post.authorAvatar) ? (
+                  <AuthorAvatar
+                    avatar={post.authorAvatar}
+                    author={post.author}
+                    sizeClassName="w-6 h-6"
+                    textClassName="text-xs"
+                  />
+                ) : (
+                  <HiOutlineUser className="w-4 h-4" />
+                )}
                 {post.author}
               </span>
               <span className="flex items-center gap-1">
@@ -288,9 +331,7 @@ const BlogDetailPage: React.FC = () => {
             isDark ? "bg-[#181A1E] border-gray-700" : "bg-white border-gray-200"
           }`}>
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-[#21f201]/10 flex items-center justify-center text-3xl">
-                {post.authorAvatar}
-              </div>
+              <AuthorAvatar avatar={post.authorAvatar} author={post.author} />
               <div>
                 <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                   {t('blog.writtenBy')}
