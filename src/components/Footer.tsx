@@ -44,9 +44,9 @@ export default function Footer({ variant = "default" }: FooterProps) {
 
   const socialLinks = [
     { icon: SiX, link: "https://x.com/difines_ofc", name: "X" },
-    { icon: FaTelegram, link: "https://t.me/DFSChain", name: "Telegram" },
-    { icon: FaDiscord, link: "#", name: "Discord" },
-    { icon: FaYoutube, link: "#", name: "YouTube" },
+    { icon: SiX, link: "https://x.com/DFS_Chain", name: "X" },
+    { icon: FaTelegram, link: "https://t.me/DFSCommunity", name: "Telegram" },
+    { icon: FaYoutube, link: "https://www.youtube.com/@difines_dapps/videos", name: "YouTube" },
   ]
 
   // Columns of links following Solana's layout

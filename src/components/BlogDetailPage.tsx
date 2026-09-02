@@ -455,6 +455,40 @@ const BlogDetailPage: React.FC = () => {
           border-radius: 0.5rem;
           margin: 1.5rem 0;
         }
+        .blog-content video {
+          display: block;
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          border-radius: 0.5rem;
+          margin: 1.5rem 0;
+          background: #000;
+        }
+        .blog-content .blog-video-embed {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          margin: 1.5rem 0;
+          overflow: hidden;
+          border-radius: 0.5rem;
+          background: #000;
+        }
+        .blog-content .blog-video-embed iframe,
+        .blog-content iframe {
+          width: 100%;
+          max-width: 100%;
+          aspect-ratio: 16 / 9;
+          border: 0;
+          border-radius: 0.5rem;
+          margin: 1.5rem 0;
+        }
+        .blog-content .blog-video-embed iframe {
+          position: absolute;
+          inset: 0;
+          height: 100%;
+          margin: 0;
+          border-radius: 0;
+        }
         .blog-content code {
           padding: 0.125rem 0.375rem;
           border-radius: 0.25rem;

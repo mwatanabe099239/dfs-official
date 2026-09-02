@@ -12,6 +12,7 @@ interface BlogPost {
   date: string
   readTime: string
   image: string
+  video?: string
   featured: boolean
   content: string
   tags: string[]
@@ -108,6 +109,7 @@ export async function GET(
       date: data.date || '',
       readTime: data.readTime || '5 min read',
       image: data.image || '',
+      video: data.video || '',
       featured: data.featured || false,
       content: data.content || '',
       tags: data.tags || [],
