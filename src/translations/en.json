@@ -379,6 +379,8 @@
     "searchPlaceholder": "Search articles...",
     "noArticles": "No articles found",
     "noArticlesHint": "Try adjusting your search or filter criteria",
+    "relatedTo": "Posts related to",
+    "showAll": "Show all posts",
     "postNotFound": "Blog post not found",
     "backToBlog": "Back to Blog",
     "share": "Share",

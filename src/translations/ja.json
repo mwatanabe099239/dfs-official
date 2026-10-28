@@ -373,6 +373,8 @@
     "searchPlaceholder": "記事を検索...",
     "noArticles": "記事が見つかりません",
     "noArticlesHint": "検索条件やフィルターを調整してみてください",
+    "relatedTo": "関連記事:",
+    "showAll": "すべての記事を表示",
     "postNotFound": "ブログ記事が見つかりません",
     "backToBlog": "ブログに戻る",
     "share": "シェア",

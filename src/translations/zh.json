@@ -377,6 +377,8 @@
     "searchPlaceholder": "搜索文章...",
     "noArticles": "未找到文章",
     "noArticlesHint": "尝试调整您的搜索或筛选条件",
+    "relatedTo": "相关文章：",
+    "showAll": "查看全部文章",
     "postNotFound": "未找到博客文章",
     "backToBlog": "返回博客",
     "share": "分享",
